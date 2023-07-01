@@ -76,7 +76,7 @@
              <div class="col-sm-2">
                  <div class="form-group">
                      <label for="">PERIODO CAL. MESES</label>
-                     <input type="text" class="form-control" id="periodocalControlHerramientas" name="periodocalControlHerramientas" placeholder="Periodo de Cal. Meses">
+                     <input type="text" class="form-control" id="periodocalControlHerramientas" name="periodocalControlHerramientas" placeholder="Periodo de Cal. Meses" onkeyup="sumarMeses();" readonly >
                  </div>
              </div>
              <div class="col-sm-2">

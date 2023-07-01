@@ -144,12 +144,12 @@ function MCargarRegistrosControlHerramientas() {
 
   var obj = ""
   $.ajax({
-      type: "POST",
-      url: "vista/controlherramientas/FCargarRegistrosControlHerramientas.php",
-      data: obj,
-      success: function (data) {
-          $("#content-modal-default").html(data)
-      }
+    type: "POST",
+    url: "vista/controlherramientas/FCargarRegistrosControlHerramientas.php",
+    data: obj,
+    success: function (data) {
+      $("#content-modal-default").html(data)
+    }
   })
 }
 
@@ -158,74 +158,131 @@ function CargarRegistrosControlHerra() {
 
 
   $.ajax({
-      type: "POST",
-      url: "controlador/controlherramientasControlador.php?ctrRegRegistrosControlHerramientas",
-      data: formData,
-      cache: false,
-      contentType: false,
-      processData: false,
-      success: function (data) {
-          console.log(data)
-                    if (data == "ok") {
-                            Swal.fire({
-                                icon: 'success',
-                                showConfirmButton: false,
-                                title: 'Registros cargados',
-                                timer: 1000
-                            })
-                            setTimeout(function () {
-                                location.reload()
-                            }, 1200)
-                        } else {
-                            Swal.fire({
-                                icon: 'error',
-                                showConfirmButton: false,
-                                title: 'Error de carga!!!',
-                                timer: 1500
-                            })
-                   
+    type: "POST",
+    url: "controlador/controlherramientasControlador.php?ctrRegRegistrosControlHerramientas",
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (data) {
+      console.log(data)
+      if (data == "ok") {
+        Swal.fire({
+          icon: 'success',
+          showConfirmButton: false,
+          title: 'Registros cargados',
+          timer: 1000
+        })
+        setTimeout(function () {
+          location.reload()
+        }, 1200)
+      } else {
+        Swal.fire({
+          icon: 'error',
+          showConfirmButton: false,
+          title: 'Error de carga!!!',
+          timer: 1500
+        })
+
       }
-  }
-         })
+    }
+  })
 
 }
 
 
-function cambioEstadoMat(codSegMat){
-  estado=document.getElementById("estadoMat["+codSegMat+"]").value
-  
-  var obj={
-      estado:estado,
-      codSegMat:codSegMat
+function cambioEstadoMat(codSegMat) {
+  estado = document.getElementById("estadoMat[" + codSegMat + "]").value
+
+  var obj = {
+    estado: estado,
+    codSegMat: codSegMat
   }
-   $.ajax({
-  type: "POST",
-  url: "controlador/materialControlador.php?ctrCambEstado",
-  data: obj,
-/*    cache: false,
-  dataType: "json",*/
-  success: function (data) {
-      
-   if (data == "ok") {
-      Swal.fire({
-        icon: 'success',
-        showConfirmButton: false,
-        title: 'Material Registrado',
-        timer: 1000
-      })
-      setTimeout(function () {
-        location.reload()
-      }, 1200)
-    } else {
-      Swal.fire({
-        icon: 'error',
-        showConfirmButton: false,
-        title: 'Error de Registro!!!',
-        timer: 1500
-      })
-       
+  $.ajax({
+    type: "POST",
+    url: "controlador/materialControlador.php?ctrCambEstado",
+    data: obj,
+    /*    cache: false,
+      dataType: "json",*/
+    success: function (data) {
+
+      if (data == "ok") {
+        Swal.fire({
+          icon: 'success',
+          showConfirmButton: false,
+          title: 'Material Registrado',
+          timer: 1000
+        })
+        setTimeout(function () {
+          location.reload()
+        }, 1200)
+      } else {
+        Swal.fire({
+          icon: 'error',
+          showConfirmButton: false,
+          title: 'Error de Registro!!!',
+          timer: 1500
+        })
+      }
     }
+  })
+}
+
+/* REPORTE DE VENTAS POR PERSONAL */
+function reporteHerramienta() {
+  var formData = new FormData($("#ReporteDeHerramientas")[0])
+
+  $.ajax({
+    type: "POST",
+    url: "controlador/controlherramientasControlador.php?ctrRepHerramientas",
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (data) {
+      $("#repHerramientas").html(data)
+      /* console.log(data); */
+    }
+  })
+}
+
+function impHerramientaSelec() {
+  /*  window.open("vista/reportes/repHerramientaSelec.php", '_blank'); */
+  $("#modal-xl").modal("show")
+  var formData = new FormData($("#FormHerramientaSeleccionado")[0]);
+
+  $.ajax({
+    type: "POST",
+    url: "vista/reportes/repHerramientaSelec.php",
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (data) {
+      /* $("#repHerramientas").html(data) */
+      $("#content-xl").html(data)
+      console.log(data);
+
+      /* $$('#button').each(function(link) { button.onclick = function(){ window.open("newpage.html",'New Window'); return false; }; }); */
+    }
+  })
+}
+
+function sumarMeses(){
+  var periodoMes = document.getElementById('periodocalControlHerramientas').value
+  /* var fechaCal = document.getElementById('fechacalControlHerramientas').value */
+  
+  
+  var dateInput = document.getElementById('fechacalControlHerramientas'); // Reemplaza 'myDateInput' con el ID de tu elemento <input>
+
+  if (dateInput.value !== '') {
+    console.log('El input de fecha tiene un valor');
+  } else {
+    console.log('El input de fecha está vacío');
   }
-})
+
+  console.log(periodoMes);
+  console.log(fechaCal);
+  
 }
 
