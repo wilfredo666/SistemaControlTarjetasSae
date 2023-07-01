@@ -50,55 +50,62 @@ function guardaryeditar(e){
 init();
 
 /*==================
-modal nuevo cliente
+modal nueva carpeta
 ==================*/
 function MNuevoCarpeta() {
     $("#modal-xl").modal("show");
     var obj = "";
     $.ajax({
-            type: "POST",
-            url: "vista/carpeta/FNuevoCarpeta.php",
-            data: obj,
-            success: function (data) {
-                $("#content-xl").html(data);
-            }
+        type: "POST",
+        url: "vista/carpeta/FNuevoCarpeta.php",
+        data: obj,
+        success: function (data) {
+            $("#content-xl").html(data);
         }
+    }
 
-    )
+          )
 }
 
 /*=======================
-funcion registro carpeta
+funcion crear carpeta
 =======================*/
 function FormRegCarpeta() {
- 
-        var obj = new FormData($("#FormRegCarpetas")[0]);
 
-        $.ajax({
-                type: "POST",
-                url: "controlador/carpetaControlador.php?ctrRegCarpeta",
-                data: obj,
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (data) {
+    var obj = new FormData($("#FormRegCarpetas")[0]);
 
-                    if (data == "correcto") {
-                        Swal.fire({
-                            icon: 'success',
-                            showConfirmButton: false,
-                            title: 'Carpeta creada correctamente!!!',
-                            timer: 1000
-                        });
+    $.ajax({
+        type: "POST",
+        url: "controlador/carpetaControlador.php?ctrRegCarpeta",
+        data: obj,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (data) {
 
-                        setTimeout(function () {
-                            location.reload();
-                        }, 1200);
-                    }
-                }
+            if (data == "correcto") {
+                Swal.fire({
+                    icon: 'success',
+                    showConfirmButton: false,
+                    title: 'Carpeta creada correctamente!!!',
+                    timer: 1000
+                });
+
+                setTimeout(function () {
+                    location.reload();
+                }, 1200);
+            }else{
+                Swal.fire({
+                    icon: "error",
+                    showConfirmButton: false,
+                    title: "Error, la carpeta ya existe!!!",
+                    timer: 1500,
+                });
             }
+        }
+    }
 
-        )
+          )
 
 }
 
@@ -140,49 +147,49 @@ function MEditarCarpeta(id){
     $("#modal-sm").modal("show");
     var obj = "";
     $.ajax({
-            type: "POST",
-            url: "vista/carpeta/FEditCarpeta.php?id="+id,
-            data: obj,
-            success: function (data) {
-                $("#modal-content-sm").html(data);
-            }
+        type: "POST",
+        url: "vista/carpeta/FEditCarpeta.php?id="+id,
+        data: obj,
+        success: function (data) {
+            $("#modal-content-sm").html(data);
         }
+    }
 
-    )
+          )
 }
 
 /*=======================
 funcion editar carpeta
 =======================*/
 function EditCarpeta(id) {
-    
-        var formData = new FormData($("#EditCarpeta")[0]);
 
-        $.ajax({
-                type: "POST",
-                url: "controlador/carpetaControlador.php?ctrEditCarpeta",
-                data: formData,
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (data) {
+    var formData = new FormData($("#EditCarpeta")[0]);
 
-                    if (data == "correcto") {
-                        Swal.fire({
-                            icon: 'success',
-                            showConfirmButton: false,
-                            title: 'La carpeta ha sido actualizado correctamente!!!',
-                            timer: 1000
-                        });
+    $.ajax({
+        type: "POST",
+        url: "controlador/carpetaControlador.php?ctrEditCarpeta",
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (data) {
 
-                        setTimeout(function () {
-                            location.reload();
-                        }, 1200);
-                    }
-                }
+            if (data == "correcto") {
+                Swal.fire({
+                    icon: 'success',
+                    showConfirmButton: false,
+                    title: 'La carpeta ha sido actualizado correctamente!!!',
+                    timer: 1000
+                });
+
+                setTimeout(function () {
+                    location.reload();
+                }, 1200);
             }
+        }
+    }
 
-       )
+          )
 
 }
 

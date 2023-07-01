@@ -4,8 +4,8 @@ $ruta = parse_url( $_SERVER['REQUEST_URI'] );
 if ( isset( $ruta["query"] ) ) {
 
     if ( $ruta["query"] == "ctrRegCarpeta" ||
-         $ruta["query"] == "ctrEditCarpeta" ||
-         $ruta["query"] == "ctrEliCarpeta"
+        $ruta["query"] == "ctrEditCarpeta" ||
+        $ruta["query"] == "ctrEliCarpeta"
        ){
         $metodo = $ruta["query"];
         $carpeta = new ControladorCarpeta();
@@ -24,8 +24,20 @@ class ControladorCarpeta {
         require_once "../modelo/carpetaModelo.php";
 
         $nomCarpeta = trim($_POST["nomCarpeta"]);
+
+        $dir = "../assest/files/archivos/".$nomCarpeta."/";
+
+        //comprobar la existencia del directorio
+        if(file_exists($dir)==false){
+            //creamos un directorio
+            $directorio="../assest/files/archivos/".$nomCarpeta;
+            mkdir($directorio, 0755);
+            echo "correcto";
+        }else{
+            echo "error";
+        }
         
-         if (empty($_FILES['file']['name'])) {
+        /*   if (empty($_FILES['file']['name'])) {
         } else {
             foreach ($datos as $row) {
                 $countfiles = count($_FILES['file']['name']);
@@ -48,14 +60,14 @@ class ControladorCarpeta {
         }
         echo json_encode($datos);
 
-        $data = array(
+         $data = array(
             "nombre_carpeta"=>$nomCarpeta,
-            
+
         );
 
-        $respuesta = ModeloCarpeta::mdlRegCarpeta($data);
+        //$respuesta = ModeloCarpeta::mdlRegCarpeta($nomCarpeta);
 
-        echo $respuesta;
+        //echo $respuesta;*/
     }
 
 
@@ -63,8 +75,8 @@ class ControladorCarpeta {
 
         require_once "../modelo/carpetaModelo.php";
 
-            $idCarpeta = trim($_POST["idCarpeta"]);
-            $nomCarpeta = trim($_POST["nomCarpeta"]);
+        $idCarpeta = trim($_POST["idCarpeta"]);
+        $nomCarpeta = trim($_POST["nomCarpeta"]);
 
 
         $data = array(
@@ -76,12 +88,12 @@ class ControladorCarpeta {
         $respuesta = ModeloCarpeta::mdlEditCarpeta( $data );
         echo $respuesta;
     }
-    
-      static public function ctrInfoCarpeta( $id ) {
-    $respuesta = ModeloCarpeta::mdlInfoCarpeta( $id );
-    return $respuesta;
-  }
-    
+
+    static public function ctrInfoCarpeta( $id ) {
+        $respuesta = ModeloCarpeta::mdlInfoCarpeta( $id );
+        return $respuesta;
+    }
+
     static public function ctrEliCarpeta(){
         require "../modelo/carpetaModelo.php";
         $data = $_POST["id"];
@@ -90,9 +102,9 @@ class ControladorCarpeta {
 
         echo $respuesta;
     }
-    
+
     //Archivos
-     static public function ctrInfoArchivos() {
+    static public function ctrInfoArchivos() {
         $respuesta = ModeloCarpeta::mdlInfoArchivos();
         return $respuesta;
     }
