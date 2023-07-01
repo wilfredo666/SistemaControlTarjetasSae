@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h3 class="m-0">Subir Archivos</h3>
+                    <h4 class="m-0">Gestion Archivos</h4>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
 
@@ -13,36 +13,48 @@
                 <div class="col-md-12">
                     <div class="card card-info">
                         <div class="page-description-actions">
-                            <button class="btn btn-success" onclick="MNuevoCarpeta()">Crear Carpeta</button>
-                            <button class="btn btn-primary" onclick="MNuevoArchivos()">Subir Archivos</button>
+
                         </div>
                         <div class="card-header">
                             <h3 class="card-title">Carpetas Disponibles <?php echo "";?></h3>
+                            <div class="card-tools">
+                                <button class="btn btn-success" onclick="MNuevoCarpeta()">Crear Carpeta</button>
+                                <button class="btn btn-primary" onclick="MNuevoArchivos()">Subir Archivos</button> 
+                            </div>
                         </div>
 
                         <div class="card-body">
                             <div class="row">
                                 <?php
-                        $carpeta = ControladorCarpeta::ctrInfoCarpetas();
 
-                        foreach ($carpeta as $value) {
-                             ?>
+                                $ruta="assest/files/archivos/";
+                                mostrar_archivos($ruta);
+                                function mostrar_archivos($ruta){
+
+                                    if(is_dir($ruta)){
+                                        $gestor=opendir($ruta);
+
+
+                                        while(($archivo=readdir($gestor))!=false){
+                                            if($archivo!=".." and $archivo!="."){
+
+                                ?>
                                 <div class="col-md-3">
                                     <div class="card file-manager-group">
                                         <div class="card-body d-flex align-items-center">
                                             <i class="material-icons text-primary">folder</i>
                                             <div class="file-manager-group-info flex-fill">
-                                                <a href="#" class="file-manager-group-title carpetas"><?php echo $value['nombre_carpeta']; ?></a>
-                                                <span class="file-manager-group-about"><?php echo $value['fecha_creacion']; ?></span>
+                                                <a href="mostrarDirectorio" class="file-manager-group-title carpetas"><?php echo $archivo; ?></a>
+
                                                 <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"></button>
 
                                                 <ul class="dropdown-menu">
 
                                                     <li>
-                                                        <button class="btn btn-warning" onclick="MEditarCarpeta(<?php echo $value["id_carpeta"];?>)">
+                                                        <button class="btn btn-warning" onclick="MEditarCarpeta(<?php ?>)">
                                                             <i class="fas fa-edit"></i>
                                                         </button>
-                                                        <button class="btn btn-danger" onclick="MEliCarpeta(<?php echo $value["id_carpeta"]; ?>)">
+                                                        <button class="btn btn-danger" onclick="MEliCarpeta(<?php ?>)">
                                                             <i class="fas fa-trash"></i>
                                                         </button>
                                                     </li>
@@ -51,7 +63,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <?php } ?>
+                                <?php
+                                            }
+                                        }
+                                    }
+                                }
+
+                                ?>
+
                             </div>
 
                         </div>
@@ -78,9 +97,9 @@
                         <tbody>
 
                             <?php
-                     $archivos=ControladorCarpeta::ctrInfoArchivos();
-                      foreach($archivos as $value){
-                         ?>
+                            $archivos=ControladorCarpeta::ctrInfoArchivos();
+                            foreach($archivos as $value){
+                            ?>
                             <tr>
                                 <td><?php echo $value["nombre_archivo"];?></td>
                                 <td><?php echo $value["descripcion_archivo"];?></td>
@@ -96,8 +115,8 @@
                             </tr>
 
                             <?php 
-                      }
-                  ?>
+                            }
+                            ?>
 
                         </tbody>
 
