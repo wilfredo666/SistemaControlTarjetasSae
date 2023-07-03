@@ -268,21 +268,30 @@ function impHerramientaSelec() {
   })
 }
 
-function sumarMeses(){
-  var periodoMes = document.getElementById('periodocalControlHerramientas').value
-  /* var fechaCal = document.getElementById('fechacalControlHerramientas').value */
-  
-  
-  var dateInput = document.getElementById('fechacalControlHerramientas'); // Reemplaza 'myDateInput' con el ID de tu elemento <input>
-
-  if (dateInput.value !== '') {
-    console.log('El input de fecha tiene un valor');
-  } else {
-    console.log('El input de fecha está vacío');
+function fechSelec(){
+  var fechaInicial = new Date(document.getElementById('fechacalControlHerramientas').value); 
+  if(fechaInicial !== ""){
+    $("#periodocalControlHerramientas").attr("readonly", false);
   }
+}
 
-  console.log(periodoMes);
-  console.log(fechaCal);
-  
+function sumarMeses() {
+  var fechaInicial = new Date(document.getElementById('fechacalControlHerramientas').value); 
+  var mesesASumar = parseInt(document.getElementById('periodocalControlHerramientas').value);
+
+  var fechaFinal = new Date(fechaInicial.getFullYear(), fechaInicial.getMonth() + mesesASumar, fechaInicial.getDate()+1);
+
+  /* console.log('Fecha inicial: ', fechaInicial.toISOString().split('T')[0]);
+  console.log('Fecha resultante después de sumar', mesesASumar, 'meses:', fechaFinal.toISOString().split('T')[0]); */
+
+  document.getElementById('fechavenciControlHerramientas').value = fechaFinal.toJSON().slice(0,10)
+  document.getElementById('fechavenciControlHerramientas').classList.add('bg-dark','text-white')
+
+  document.getElementById("estadoControlHerramientas").value = "CON TIEMPO";
+
+  var DiferenciaFecha = fechaFinal - fechaInicial
+  var diferenciaEnDias = Math.floor(DiferenciaFecha / (1000 * 60 * 60 * 24));
+  document.getElementById('diasalertaControlHerramientas').value = diferenciaEnDias + " DIAS"
+ 
 }
 

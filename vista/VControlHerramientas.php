@@ -17,10 +17,11 @@
       </div>
       <div class="content">
           <div class="container-fluid">
-              <!-- <form method="POST" action="vista/reportes/repHerramientaSelec.php" target="_blank"> -->
+              <form id="FormHerramientaSeleccionado" method="POST" action="vista/reportes/repHerramientaSelec.php" target="_blank">
                   <table id="DataTableControlHerramientas" class="table table-bordered table-striped">
                       <thead>
-                          <button class="btn btn-success" onclick="MCargarRegistrosControlHerramientas()">Importar Excel</button>
+                          <!-- <button class="btn btn-success" onclick="MCargarRegistrosControlHerramientas()">Importar Excel</button> -->
+                          <input type="button" class="btn btn-success" onclick="MCargarRegistrosControlHerramientas()" value="Importar Excel">
                           <tr>
                               <th></th>
                               <th>ITEM</th>
@@ -32,7 +33,8 @@
                               <th>FECHA VENCIMIENTO</th>
                               <th>N° CARPETA</th>
                               <td>
-                                  <button class="btn btn-primary" onclick="MNuevoControlHerramientas()">Agregar</button>
+                                  <!-- <button class="btn btn-primary" onclick="MNuevoControlHerramientas()">Agregar</button> -->
+                                  <input type="button" class="btn btn-primary" onclick="MNuevoControlHerramientas()" value="Agregar">
                               </td>
                           </tr>
                       </thead>
@@ -40,8 +42,17 @@
                           <?php
                             $controlherramienta = ControladorHerramientas::ctrInfoControlHerramientas();
                             $idHerra = 0;
+
+                            /* FECHA ACTUAL */
+                            date_default_timezone_set("America/La_Paz");
+                            $fecha1 = new DateTime($fecha = date("Y-m-d"));
+
                             foreach ($controlherramienta as $value) {
-                                /* $idHerra = $idHerra + 1; */
+                                $idHerra = $idHerra + 1;
+
+                                $fecha2 = new DateTime($value["fechavenci_controlherramientas"]);
+                                $diferencia = $fecha1->diff($fecha2);
+                                $totalDias = $diferencia->days * ($diferencia->invert ? -1 : 1);
                             ?>
                               <tr>
                                   <td><input type="checkbox" id="inlineCheckbox4" name="idclase[]" value="<?php echo $value["id_controlherramientas"] ?>"></td>
@@ -52,8 +63,24 @@
                                   <td><?php echo $value["numserie_controlherramientas"]; ?></td>
                                   <td><?php echo $value["codigo_controlherramientas"]; ?></td>
                                   <td><?php echo $value["ubicacion_controlherramientas"]; ?></td>
-                                  <td><?php echo $value["fechavenci_controlherramientas"]; ?></td>
-                                  <td><?php echo $value["numcarpeta_controlherramientas"]; ?></td>
+
+                                  <?php
+                                    if ($totalDias <= 10 and $totalDias >= 1) {
+                                    ?>
+                                      <td class="bg-warning"><?php echo $value["fechavenci_controlherramientas"]; ?></td>
+                                  <?php
+                                    } elseif ($totalDias < 1) {
+                                    ?>
+                                      <td class="bg-danger"><?php echo $value["fechavenci_controlherramientas"]; ?></td>
+                                  <?php
+                                    } else {
+                                    ?>
+                                      <td><?php echo $value["fechavenci_controlherramientas"]; ?></td>
+                                  <?php
+                                    }
+                                    ?>
+
+                                  <td><?php echo $value["numcarpeta_controlherramientas"] ?></td>
                                   <td>
                                       <div class="btn-group">
                                           <button class="btn btn-secondary" onclick="MVerControlHerramienta(<?php echo $value["id_controlherramientas"]; ?>)">
@@ -73,11 +100,11 @@
                           <?php
                             }
                             ?>
-                         <!--  <button type="button" class="btn btn-primary bg-dark" onclick="impHerramientaSelec()">Enviar Selección</button> -->
+                          <!--  <button type="button" class="btn btn-primary bg-dark" onclick="impHerramientaSelec()">Enviar Selección</button> -->
                           <button type="submit" class="btn btn-primary bg-dark" style="border: none;">Imprimir Selección</button>
                       </tbody>
                   </table>
-             <!--  </form> -->
+              </form>
           </div><!-- /.container-fluid -->
       </div>
       <!-- /.content -->

@@ -70,13 +70,13 @@
              <div class="col-sm-2">
                  <div class="form-group">
                      <label for="">FECHA CAL.</label>
-                     <input type="date" class="form-control" id="fechacalControlHerramientas" name="fechacalControlHerramientas" placeholder="Fecha Calibracion">
+                     <input type="date" class="form-control" id="fechacalControlHerramientas" name="fechacalControlHerramientas" placeholder="Fecha Calibracion" onclick="fechSelec()">
                  </div>
              </div>
              <div class="col-sm-2">
                  <div class="form-group">
                      <label for="">PERIODO CAL. MESES</label>
-                     <input type="text" class="form-control" id="periodocalControlHerramientas" name="periodocalControlHerramientas" placeholder="Periodo de Cal. Meses" onkeyup="sumarMeses();" readonly >
+                     <input type="text" class="form-control" id="periodocalControlHerramientas" name="periodocalControlHerramientas" placeholder="Periodo de Cal. Meses" onkeyup="sumarMeses()" readonly>
                  </div>
              </div>
              <div class="col-sm-2">
