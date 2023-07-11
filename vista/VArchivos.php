@@ -28,7 +28,7 @@
                   <?php
                   //capturamos la url y separamos el nombre del directorio
                   $path=parse_url($_SERVER['REQUEST_URI']);
-                  
+
                   //si existe un directorio, accedemos a el
                   if(isset($path["query"])){
                     global $directorio;
@@ -47,12 +47,38 @@
 
                       while(($archivo=readdir($gestor))!=false){
                         if($archivo!=".."){
-
+                          $divArchivo=explode(".",$archivo);
+                          if(count($divArchivo)<2){
                   ?>
                   <tr>
-                    <td><i class="fas fa-folder text-primary">&nbsp;</i><a href="VArchivos?<?php echo $archivo;?>" class="file-manager-group-title carpetas"><?php echo $archivo; ?></a></td>
+                    <td><i class="fas fa-folder text-primary">&nbsp;</i><a href="VArchivos?<?php echo $archivo;?>" class="file-manager-group-title"><?php echo $archivo; ?></a></td>
+                     <td>
+                      <div class="btn-group">
+                        <button class="btn btn-default btn-xs" onclick="">
+                          <i class="fas fa-download"></i>
+                        </button>
+                      </div>
+                    </td>
                   </tr>
                   <?php
+                          }else{
+                  ?>
+                  <tr>
+                    <td><i class="fas fa-file text-success">&nbsp;</i><span class="text-muted"><?php echo $archivo; ?></span></td>
+                    <td>
+                      <div class="btn-group">
+                       <a class="btn btn-default btn-xs" href="descargar?<?php echo $ruta."-".$archivo;?>">
+                         <i class="fas fa-download"></i>
+                       </a>
+                        <!--<button class="btn btn-default btn-xs" onclick="">
+                          <i class="fas fa-download"></i>
+                        </button>-->
+                      </div>
+                    </td>
+                  </tr>
+
+                  <?php
+                          }
                         }
                       }
                     }
@@ -71,45 +97,6 @@
         </div>
       </div>
 
-      <div class="content">
-        <div class="container-fluid">
-          <table id="DataTableArchivos" class="table table-bordered table-striped">
-            <thead>
-              <tr>
-                <th>Nombre Archivo</th>
-                <th>Descripción</th>
-                <th>Fecha Creacion</th>
-                <th>Carpeta</th>
-                <th>Opciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              $archivos=ControladorCarpeta::ctrInfoArchivos();
-              foreach($archivos as $value){
-              ?>
-              <tr>
-                <td><?php echo $value["nombre_archivo"];?></td>
-                <td><?php echo $value["descripcion_archivo"];?></td>
-                <td><?php echo $value["fecha_creacion_archivo"];?></td>
-                <td><?php echo $value["id_carpeta"];?></td>
-                <td>
-                  <div class="btn-group">
-                    <button class="btn btn-danger" onclick="MEliArchivo(<?php echo $value["id_archivo"]; ?>)">
-                      <i class="fas fa-trash"></i>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <?php 
-              }
-              ?>
-
-            </tbody>
-
-          </table>
-        </div><!-- /.container-fluid -->
-      </div>
     </div>
   </div>
 </div>
