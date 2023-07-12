@@ -38,7 +38,7 @@
 
 
           <div class="lockscreen-logo">
-            <a href="#"><b>SISTEMA</b> CONTROL TARJETAS</a>
+            <a href="#"><b>SISTEMA</b> CONTRO TARJETAS</a>
           </div>
           <!-- User name -->
           <div class="lockscreen-name">CONTROL TARJETAS SAE</div>
