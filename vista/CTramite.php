@@ -52,15 +52,8 @@
             <!-- lockscreen credentials (contains the form) -->
             <form action="" class="lockscreen-credentials" name="formulario" id="formulario" method="POST">
               <div class="input-group">
-                <input type="text" class="form-control" name="codigo_tramite" id="codigo_tramite" placeholder="Código">
-                <!--onkeyup="registrar_tramite() no funciona porque el tiempo de reaccion es tan rapido que se efectua doble registro (entrada y salida)-->
-              </div>
-              <p class="text-danger" id="error-codTra"></p>
-              <hr>
-              <div class="input-group">
-                <!-- <input type="text" class="form-control" name="ciUsuario" id="ciUsuario" placeholder="C.I. de usuario"> -->
-                <select class="form-control select2Usu" name="nomUsuario" id="nomUsuario">
-                  <option value="">Seleccione Nombre</option>
+               <select class="form-control select2Usu" name="nomUsuario" id="nomUsuario" onchange="hbCodTramite()">
+                  <option value="null">Seleccione Nombre</option>
                   <?php
                   $nombre = ControladorUsuario::ctrInfoUsuarios();
                   foreach ($nombre as $value) {
@@ -70,6 +63,14 @@
                   }
                   ?>
                 </select>
+                
+                <!--onkeyup="registrar_tramite() no funciona porque el tiempo de reaccion es tan rapido que se efectua doble registro (entrada y salida)-->
+              </div>
+              <p class="text-danger" id="error-codTra"></p>
+              <hr>
+              <div class="input-group">
+                <!-- <input type="text" class="form-control" name="ciUsuario" id="ciUsuario" placeholder="C.I. de usuario"> -->
+                <input type="text" class="form-control" name="codigo_tramite" id="codigo_tramite" placeholder="Código" readonly>
                 <div class="input-group-btn">
                   <button type="button" class="btn btn-primary" onclick="registrar_tramite()">
                     <i class="fa fa-arrow-right text-muted"></i>

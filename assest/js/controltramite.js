@@ -89,3 +89,17 @@ function VerDetalleVitacora(codSeguimiento){
     }
   })
 }
+
+/*========================================
+habilitar la entrada del codigo de tarjeta
+=========================================*/
+function hbCodTramite(){
+  $("#codigo_tramite").attr("readonly", true);
+  
+  let nomUsuario=document.getElementById("nomUsuario").value
+  
+  if(nomUsuario!="null"){
+     $("#codigo_tramite").attr("readonly", false);
+     }
+  
+}
