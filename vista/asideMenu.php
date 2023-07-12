@@ -36,7 +36,7 @@ function habilitado($idPermiso)
             <!-- Brand Logo -->
             <a href="CTramite" class="brand-link" target="_blank">
                 <img src="assest/imagenes/logosae.png" alt="AdminLTE Logo" class="brand-image img-thumbnail elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">CONTROL TARJETAS</span>
+                <span class="brand-text font-weight-light">Tarjetas control</span>
             </a>
 
             <!-- Sidebar -->
