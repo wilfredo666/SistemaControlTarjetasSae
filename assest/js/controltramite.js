@@ -19,13 +19,13 @@ function limpiar(){
 //function registrar_tramite(e){
   function registrar_tramite(){
     let codTramite=document.getElementById("codigo_tramite").value
-    let ciUsuario=document.getElementById("ciUsuario").value
+    let nomUsuario=document.getElementById("nomUsuario").value
   
     if(codTramite==null||codTramite.length<3){
       document.getElementById("error-codTra").innerHTML="Requerido: minimo 3 caracteres"
-    }else if(ciUsuario==null||ciUsuario.length<3){
-      document.getElementById("error-ciUsuario").innerHTML="Requerido: minimo 3 caracteres"
-    }else if(ciUsuario==null||ciUsuario.length<3){
+    }else if(nomUsuario==null||nomUsuario.length<3){
+      document.getElementById("error-nomUsuario").innerHTML="Requerido: minimo 3 caracteres"
+    }else if(nomUsuario==null||nomUsuario.length<3){
     }else{
       var formData=new FormData($("#formulario")[0]);
       $.ajax({
