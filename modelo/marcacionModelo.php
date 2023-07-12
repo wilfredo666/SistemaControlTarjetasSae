@@ -53,21 +53,21 @@ class ModeloMarcacion
 
     $seguimiento->execute();
     $estado = $seguimiento->fetch();
-
+ 
     if ($estado == false) {
       return "error";
     } else {
 
       if ($estado["disponible"] == 1) {
         //marcando salida
-        $stmt = Conexion::conectar()->prepare("insert into marcacion(codigo_seguimiento, fecha_hora, tipo, nombre_usuario) values('$codigo', '$fechaHora', 'SALIDA', '$nomUsuario')");
+        $stmt = Conexion::conectar()->prepare("insert into marcacion(codigo_seguimiento, fecha_hora, tipo, ci_usuario) values('$codigo', '$fechaHora', 'SALIDA', '$nomUsuario')");
 
         //actualizando a no disponible
         $seguimiento_act = Conexion::conectar()->prepare("update seguimiento set disponible=0 where  codigo_seguimiento='$codigo'");
         $movimiento = "salida";
       } else {
         //marcando entrada
-        $stmt = Conexion::conectar()->prepare("insert into marcacion(codigo_seguimiento, fecha_hora, tipo, nombre_usuario) values('$codigo', '$fechaHora', 'ENTRADA', '$nomUsuario')");
+        $stmt = Conexion::conectar()->prepare("insert into marcacion(codigo_seguimiento, fecha_hora, tipo, ci_usuario) values('$codigo', '$fechaHora', 'ENTRADA', '$nomUsuario')");
 
         //actualizando a disponible
         $seguimiento_act = Conexion::conectar()->prepare("update seguimiento set disponible=1 where  codigo_seguimiento='$codigo'");
@@ -75,7 +75,7 @@ class ModeloMarcacion
       }
 
 
-      if ($stmt->execute() && $seguimiento_act->execute()) {
+     if ($stmt->execute() && $seguimiento_act->execute()) {
         return $movimiento;
       } else {
         return "error";

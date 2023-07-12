@@ -58,7 +58,7 @@
                   $nombre = ControladorUsuario::ctrInfoUsuarios();
                   foreach ($nombre as $value) {
                   ?>
-                    <option value="<?php echo $value["nombre_usuario"]; ?>"><?php echo $value["nombre_usuario"]; ?></option>
+                    <option value="<?php echo $value["ci_usuario"]; ?>"><?php echo $value["nombre_usuario"]; ?></option>
                   <?php
                   }
                   ?>
