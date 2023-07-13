@@ -7,7 +7,6 @@
     margin-top: 10%;
   }
 </style>
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <div class="content-header">
@@ -25,7 +24,6 @@
 
   <div class="content">
     <div class="container-fluid">
-
       <div class="row">
         <div class="col-sm-4" style="text-align:center">
           <!-- Automatic element centering -->
@@ -52,25 +50,32 @@
             <!-- lockscreen credentials (contains the form) -->
             <form action="" class="lockscreen-credentials" name="formulario" id="formulario" method="POST">
               <div class="input-group">
-               <select class="form-control select2Usu" name="nomUsuario" id="nomUsuario" onchange="hbCodTramite()">
-                  <option value="null">Seleccione Nombre</option>
+                <select class="form-control select2Usu" name="codigo_tramite" id="codigo_tramite">
+                  <option value="">Seleccione Codigo</option>
                   <?php
-                  $nombre = ControladorUsuario::ctrInfoUsuarios();
+                  $nombre = ControladorSeguimiento::ctrInfoSeguimientos();
                   foreach ($nombre as $value) {
                   ?>
-                    <option value="<?php echo $value["ci_usuario"]; ?>"><?php echo $value["nombre_usuario"]; ?></option>
+                    <option value="<?php echo $value["codigo_seguimiento"]; ?>"><?php echo $value["codigo_seguimiento"]; ?></option>
                   <?php
                   }
                   ?>
                 </select>
-                
-                <!--onkeyup="registrar_tramite() no funciona porque el tiempo de reaccion es tan rapido que se efectua doble registro (entrada y salida)-->
               </div>
               <p class="text-danger" id="error-codTra"></p>
               <hr>
               <div class="input-group">
-                <!-- <input type="text" class="form-control" name="ciUsuario" id="ciUsuario" placeholder="C.I. de usuario"> -->
-                <input type="text" class="form-control" name="codigo_tramite" id="codigo_tramite" placeholder="Código" readonly>
+                <select class="form-control select2Usu" name="nomUsuario" id="nomUsuario">
+                  <option value="">Seleccione Nombre</option>
+                  <?php
+                  $nombre = ControladorUsuario::ctrInfoUsuarios();
+                  foreach ($nombre as $value) {
+                  ?>
+                    <option value="<?php echo $value["nombre_usuario"]; ?>"><?php echo $value["nombre_usuario"]; ?></option>
+                  <?php
+                  }
+                  ?>
+                </select>
                 <div class="input-group-btn">
                   <button type="button" class="btn btn-primary" onclick="registrar_tramite()">
                     <i class="fa fa-arrow-right text-muted"></i>
@@ -103,9 +108,10 @@
               <table id="DTableVitacora" class="table table-bordered table-hover">
                 <thead>
                   <tr>
-                    <th>Cliente</th>
+                    <th>N°</th>
                     <th>Matricula</th>
                     <th>Codigo Tarjeta</th>
+                    <th>Tipo Tarjeta</th>
                     <th>Estados</th>
                     <th>Disponible</th>
                     <th></th>
@@ -117,9 +123,10 @@
                   foreach ($seguimiento as $value) {
                   ?>
                     <tr>
-                      <td><?php echo $value["cliente_seguimiento"]; ?></td>
+                      <td><?php echo $value["numeracion_seguimiento"]; ?></td>
                       <td><?php echo $value["matricula_seguimiento"]; ?></td>
                       <td><?php echo $value["codigo_seguimiento"]; ?></td>
+                      <td><?php echo $value["tipo_tarjeta"]; ?></td>
                       <td>
                         <select name="estadoSeg[<?php echo $value['codigo_seguimiento']; ?>]" id="estadoSeg[<?php echo $value['codigo_seguimiento']; ?>]" class="form-control-sm" onchange="cambioEstadoSeg('<?php echo $value['codigo_seguimiento']; ?>')">
                           <option value="EN PROCESO" <?php if ($value["estados_seguimiento"] == "EN PROCESO") : ?>selected<?php endif; ?>>EN PROCESO</option>

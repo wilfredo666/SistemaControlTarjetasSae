@@ -32,9 +32,10 @@ class ControladorMarcacion {
   static public function ctrRegMarcacion() {
     require_once "../modelo/marcacionModelo.php";
     $data=array(
-      "codigo_tramite"=>$_POST["codTramite"],
+      "codigo_tramite"=>$_POST["codigo_tramite"],
       "nomUsuario"=>$_POST["nomUsuario"]
     );
+
 
 
     $respuesta = ModeloMarcacion::mdlRegMarcacion($data);
