@@ -62,7 +62,7 @@ Seccion  de Modals
 ===================-->
 <div class="modal fade" id="modal-lg">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content" id="modal-content-lg">
+        <div class="modal-content" id="content-lg">
 
 
         </div>

@@ -268,30 +268,71 @@ function impHerramientaSelec() {
   })
 }
 
-function fechSelec(){
-  var fechaInicial = new Date(document.getElementById('fechacalControlHerramientas').value); 
-  if(fechaInicial !== ""){
+function fechSelec() {
+  var fechaInicial = new Date(document.getElementById('fechacalControlHerramientas').value);
+  if (fechaInicial !== "") {
     $("#periodocalControlHerramientas").attr("readonly", false);
   }
 }
 
 function sumarMeses() {
-  var fechaInicial = new Date(document.getElementById('fechacalControlHerramientas').value); 
+  var fechaInicial = new Date(document.getElementById('fechacalControlHerramientas').value);
   var mesesASumar = parseInt(document.getElementById('periodocalControlHerramientas').value);
 
-  var fechaFinal = new Date(fechaInicial.getFullYear(), fechaInicial.getMonth() + mesesASumar, fechaInicial.getDate()+1);
+  var fechaFinal = new Date(fechaInicial.getFullYear(), fechaInicial.getMonth() + mesesASumar, fechaInicial.getDate() + 1);
 
   /* console.log('Fecha inicial: ', fechaInicial.toISOString().split('T')[0]);
   console.log('Fecha resultante después de sumar', mesesASumar, 'meses:', fechaFinal.toISOString().split('T')[0]); */
 
-  document.getElementById('fechavenciControlHerramientas').value = fechaFinal.toJSON().slice(0,10)
-  document.getElementById('fechavenciControlHerramientas').classList.add('bg-dark','text-white')
+  document.getElementById('fechavenciControlHerramientas').value = fechaFinal.toJSON().slice(0, 10)
+  document.getElementById('fechavenciControlHerramientas').classList.add('bg-dark', 'text-white')
 
   document.getElementById("estadoControlHerramientas").value = "CON TIEMPO";
 
   var DiferenciaFecha = fechaFinal - fechaInicial
   var diferenciaEnDias = Math.floor(DiferenciaFecha / (1000 * 60 * 60 * 24));
   document.getElementById('diasalertaControlHerramientas').value = diferenciaEnDias + " DIAS"
- 
+}
+
+/* checks seleccionados */
+$(document).ready(function() {
+  var seleccionados = [];
+  $('#DataTableControlHerramientas').on('change', 'input[type="checkbox"]', function() {
+      var checkbox = $(this);
+      var valor = checkbox.val();
+      if (checkbox.is(':checked')) {
+          seleccionados.push(valor);
+      } else {
+          var index = seleccionados.indexOf(valor);
+          if (index !== -1) {
+              seleccionados.splice(index, 1);
+          }
+      }
+  });
+
+  $('#FormHerramientaSeleccionado').on('submit', function(e) {
+      e.preventDefault(); 
+      $('<input>').attr({
+          type: 'hidden',
+          name: 'idclase',
+          value: seleccionados.join(',')
+      }).appendTo('#FormHerramientaSeleccionado');
+      this.submit();
+  });
+});
+
+/* MODAL LLENAR DATOS DE IMPRESION */
+function MDatosImpresion(){
+  $("#modal-lg").modal("show")
+
+  var obj = ""
+  $.ajax({
+    type: "POST",
+    url: "vista/reportes/MDatosInforme.php",
+    data: obj,
+    success: function (data) {
+      $("#content-lg").html(data)
+    }
+  })
 }
 

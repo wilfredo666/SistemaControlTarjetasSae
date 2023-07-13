@@ -17,12 +17,11 @@
   </div>
   <div class="content">
     <div class="container-fluid">
-      <form id="FormHerramientaSeleccionado" method="POST" action="vista/reportes/repHerramientaSelec.php" target="_blank">
+      <form id="FormHerramientaSeleccionado" target="_blank">
         <table id="DataTableControlHerramientas" class="table table-bordered table-striped">
           <thead>
             <!-- <button class="btn btn-success" onclick="MCargarRegistrosControlHerramientas()">Importar Excel</button> -->
             <input type="button" class="btn btn-success" onclick="MCargarRegistrosControlHerramientas()" value="Importar Excel">
-            <input type="button" class="btn btn-info ml-2 mr-2" onclick="MDatosImpresion()" value="Imprimir">
             <tr>
               <th></th>
               <th>ITEM</th>
@@ -58,8 +57,7 @@
             <tr>
 
               <td>
-                <input type="checkbox" id="inlineCheckbox4" name="idclase[]" value="<?php echo $value["id_controlherramientas"] ?>">
-                <!-- <input type="hidden" id="inlineCheckbox4" name="idclase[]" value="<?php echo $value["id_controlherramientas"] ?>"> -->
+                <input type="checkbox" id="inlineCheckbox4" name="idclase" value="<?php echo $value["id_controlherramientas"] ?>">
             </td>
 
               <td><?php echo $value["id_controlherramientas"]; ?></td>
@@ -88,24 +86,25 @@
               <td><?php echo $value["numcarpeta_controlherramientas"] ?></td>
               <td>
                 <div class="btn-group">
-                  <!-- <button class="btn btn-secondary" onclick="MVerControlHerramienta(<?php echo $value["id_controlherramientas"]; ?>)">
-                  <i class="fas fa-eye"></i>
-                  </button> -->
-                  <a class="btn btn-sm btn-secondary" onclick="MVerControlHerramienta(<?php echo $value['id_controlherramientas']; ?>)" ><i class="fas fa-eye"></i></a>
-
-                  <a class="btn btn-sm btn-warning" onclick="MEditarControlHerramienta(<?php echo $value['id_controlherramientas']; ?>)"><i class="fas fa-edit"></i></a>
-
-                  <a class="btn btn-sm btn-danger" onclick="MEliControlHerramienta(<?php echo $value['id_controlherramientas']; ?>)"><i class="fas fa-trash"></i></a>
-
-                  <a class="btn btn-sm btn-success" href="vista/reportes/repPorHerramienta.php?id=<?php echo $value["id_controlherramientas"]; ?>" target="_blank"><i class="fas fa-print"></i></a>
+                  <button class="btn btn-secondary" onclick="MVerControlHerramienta(<?php echo $value["id_controlherramientas"]; ?>)">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn btn-warning" onclick="MEditarControlHerramienta(<?php echo $value["id_controlherramientas"]; ?>)">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn btn-danger" onclick="MEliControlHerramienta(<?php echo $value["id_controlherramientas"]; ?>)">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                  <a class="btn btn-success" href="vista/reportes/repPorHerramienta.php?id=<?php echo $value["id_controlherramientas"]; ?>" target="_blank"><i class="fas fa-print"></i></a>
                 </div>
               </td>
             </tr>
+
             <?php
             }
             ?>
             <!--  <button type="button" class="btn btn-primary bg-dark" onclick="impHerramientaSelec()">Enviar Selección</button> -->
-            <button type="submit" class="btn btn-primary bg-dark" style="border: none;">Imprimir Selección</button>
+            <button type="submit" id="button" class="btn btn-primary bg-dark" style="border: none;">Imprimir Selección</button>
           </tbody>
         </table>
       </form>
@@ -114,4 +113,3 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
