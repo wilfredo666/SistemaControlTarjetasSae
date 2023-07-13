@@ -22,18 +22,21 @@ class ModeloSeguimiento
     $nomSeguimiento = $data["nomSeguimiento"];
     $matriculaSeguimiento = $data["matriculaSeguimiento"];
     $descripcionSeguimiento = $data["descripcionSeguimiento"];
+    $observacionSeguimiento = $data["observacionSeguimiento"];
+    $tipoSeguimiento = $data["tipoSeguimiento"];
     $codigoSeguimiento = $data["codigoSeguimiento"];
     $minSeguimiento = $data["minSeguimiento"];
     $maxSeguimiento = $data["maxSeguimiento"];
     $ubicacionSeguimiento = $data["ubicacionSeguimiento"];
     $estadosSeguimiento = $data["estadosSeguimiento"];
     $areaSeguimiento = $data["areaSeguimiento"];
+    $numeracionSeguimiento = $data["numeracionSeguimiento"];
     $imgUsuario = $data["imgUsuario"];
 
     date_default_timezone_set("America/La_Paz");
     $fecha = date("Y-m-d");
 
-    $stmt = Conexion::conectar()->prepare("insert into seguimiento(cliente_seguimiento, matricula_seguimiento, descripcion_seguimiento, codigo_seguimiento, horas_minimo, horas_maximo, ubicacion_seguimiento, estados_seguimiento, area_seguimiento, foto_seguimiento,disponible, fecha_creacion) values('$nomSeguimiento', '$matriculaSeguimiento', '$descripcionSeguimiento', '$codigoSeguimiento', '$minSeguimiento', '$maxSeguimiento', '$ubicacionSeguimiento',  '$estadosSeguimiento', '$areaSeguimiento', '$imgUsuario', 1, '$fecha')");
+    $stmt = Conexion::conectar()->prepare("insert into seguimiento(cliente_seguimiento, matricula_seguimiento, descripcion_seguimiento, observaciones, tipo_tarjeta, codigo_seguimiento, horas_minimo, horas_maximo, ubicacion_seguimiento, estados_seguimiento, area_seguimiento, numeracion_seguimiento, foto_seguimiento,disponible, fecha_creacion) values('$nomSeguimiento', '$matriculaSeguimiento', '$descripcionSeguimiento', '$observacionSeguimiento', '$tipoSeguimiento', '$codigoSeguimiento', '$minSeguimiento', '$maxSeguimiento', '$ubicacionSeguimiento',  '$estadosSeguimiento', '$areaSeguimiento', '$numeracionSeguimiento', '$imgUsuario', 1, '$fecha')");
 
     if ($stmt->execute()) {
       return "ok";
@@ -63,15 +66,18 @@ class ModeloSeguimiento
     $nomSeguimiento = $data["nomSeguimiento"];
     $matriculaSeguimiento = $data["matriculaSeguimiento"];
     $descripcionSeguimiento = $data["descripcionSeguimiento"];
+    $observacionSeguimiento = $data["observacionSeguimiento"];
+    $tipoSeguimiento = $data["tipoSeguimiento"];
     $codigoSeguimiento = $data["codigoSeguimiento"];
     $minSeguimiento = $data["minSeguimiento"];
     $maxSeguimiento = $data["maxSeguimiento"];
     $ubicacionSeguimiento = $data["ubicacionSeguimiento"];
     $estadosSeguimiento = $data["estadosSeguimiento"];
     $areaSeguimiento = $data["areaSeguimiento"];
+    $numeracionSeguimiento = $data["numeracionSeguimiento"];
     $imgProducto = $data["imgProducto"];
 
-    $stmt = Conexion::conectar()->prepare("update seguimiento set cliente_seguimiento='$nomSeguimiento', matricula_seguimiento='$matriculaSeguimiento',descripcion_seguimiento='$descripcionSeguimiento', codigo_seguimiento='$codigoSeguimiento', horas_minimo='$minSeguimiento', horas_maximo='$maxSeguimiento', ubicacion_seguimiento='$ubicacionSeguimiento', estados_seguimiento='$estadosSeguimiento', area_seguimiento='$areaSeguimiento' ,foto_seguimiento='$imgProducto' where id_seguimiento=$idSeguimiento");
+    $stmt = Conexion::conectar()->prepare("update seguimiento set cliente_seguimiento='$nomSeguimiento', matricula_seguimiento='$matriculaSeguimiento',descripcion_seguimiento='$descripcionSeguimiento',observaciones='$observacionSeguimiento',tipo_tarjeta='$tipoSeguimiento', codigo_seguimiento='$codigoSeguimiento', horas_minimo='$minSeguimiento', horas_maximo='$maxSeguimiento', ubicacion_seguimiento='$ubicacionSeguimiento', estados_seguimiento='$estadosSeguimiento', area_seguimiento='$areaSeguimiento', numeracion_seguimiento='$numeracionSeguimiento' ,foto_seguimiento='$imgProducto' where id_seguimiento=$idSeguimiento");
 
     if ($stmt->execute()) {
 

@@ -33,7 +33,7 @@ $seguimiento = ControladorSeguimiento::ctrInfoSeguimiento($id);
             </div>
             <div class="col-sm-4">
                 <div class="form-group">
-                    <label for="">Observaciones</label>
+                    <label for="">Descripcion</label>
                     <input type="text" class="form-control" id="descripcionSeguimiento" name="descripcionSeguimiento" value="<?php echo $seguimiento["descripcion_seguimiento"]; ?>">
                 </div>
             </div>
@@ -41,10 +41,24 @@ $seguimiento = ControladorSeguimiento::ctrInfoSeguimiento($id);
         <div class="row">
             <div class="col-sm-4">
                 <div class="form-group">
+                    <label for="">Observaciones</label>
+                    <input type="text" class="form-control" id="observacionSeguimiento" name="observacionSeguimiento" value="<?php echo $seguimiento["observaciones"]; ?>">
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">Tipo Tarjeta</label>
+                    <input type="text" class="form-control" id="tipoSeguimiento" name="tipoSeguimiento" value="<?php echo $seguimiento["tipo_tarjeta"]; ?>">
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
                     <label for="">Codigo Tarjeta</label>
                     <input type="text" class="form-control" id="codigoSeguimiento" name="codigoSeguimiento" value="<?php echo $seguimiento["codigo_seguimiento"]; ?>">
                 </div>
             </div>
+        </div>
+        <div class="row">
             <div class="col-sm-4">
                 <div class="form-group">
                     <label for="">Horas Minimo Tarjeta</label>
@@ -58,14 +72,14 @@ $seguimiento = ControladorSeguimiento::ctrInfoSeguimiento($id);
                 </div>
             </div>
 
-        </div>
-        <div class="row">
             <div class="col-sm-4">
                 <div class="form-group">
                     <label for="">Ubicación</label>
                     <input type="text" class="form-control" id="ubicacionSeguimiento" name="ubicacionSeguimiento" value="<?php echo $seguimiento["ubicacion_seguimiento"]; ?>">
                 </div>
             </div>
+        </div>
+        <div class="row">
             <div class="col-sm-4">
                 <div class="form-group">
                     <label for="">Estados de Tarjeta</label>
@@ -95,15 +109,25 @@ $seguimiento = ControladorSeguimiento::ctrInfoSeguimiento($id);
                         <option value="HYD" <?php if ($seguimiento["estados_seguimiento"] == "HYD") : ?> selected <?php endif; ?>>HYD</option>
                         <option value="MOT" <?php if ($seguimiento["area_seguimiento"] == "MOT") : ?> selected <?php endif; ?>>MOT</option>
                         <option value="BUZ" <?php if ($seguimiento["area_seguimiento"] == "BUZ") : ?> selected <?php endif; ?>>BUZ</option>
-                        <option value="AL" <?php if ($seguimiento["area_seguimiento"] == "AL") : ?> selected <?php endif; ?>>AL</option>
+                        <option value="ALAS" <?php if ($seguimiento["area_seguimiento"] == "AL") : ?> selected <?php endif; ?>>AL</option>
                         <option value="AV" <?php if ($seguimiento["area_seguimiento"] == "AV") : ?> selected <?php endif; ?>>AV</option>
+                        <option value="PINTURAS" <?php if ($seguimiento["area_seguimiento"] == "PINTURAS") : ?> selected <?php endif; ?>>PINTURAS</option>
+                        <option value="EMPE" <?php if ($seguimiento["area_seguimiento"] == "EMPE") : ?> selected <?php endif; ?>>EMPE</option>
+                        <option value="CAB" <?php if ($seguimiento["area_seguimiento"] == "CAB") : ?> selected <?php endif; ?>>CAB</option>
+                        <option value="FUS" <?php if ($seguimiento["area_seguimiento"] == "FUS") : ?> selected <?php endif; ?>>FUS</option>
                         <option value="OTROS" <?php if ($seguimiento["area_seguimiento"] == "OTROS") : ?> selected <?php endif; ?>>OTROS</option>
                     </select>
                 </div>
             </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">Numeracion de la Tarjeta</label>
+                    <input type="number" class="form-control" id="numeracionSeguimiento" name="numeracionSeguimiento" value="<?php echo $seguimiento["numeracion_seguimiento"]; ?>">
+                </div>
+            </div>
         </div>
         <div class="row">
-            <div class="col-sm-4">
+        <div class="col-sm-4">
                 <div class="form-group">
                     <label for="">Foto</label>
                     <input type="file" class="form-control" id="imgProducto" name="imgProducto">
@@ -126,7 +150,6 @@ $seguimiento = ControladorSeguimiento::ctrInfoSeguimiento($id);
                     } ?>
                 </div>
             </div>
-
         </div>
     </form>
 

@@ -204,6 +204,10 @@ Seccion  de Modals
     $('.select2bs4').select2({
         theme: 'bootstrap4'
     })
+
+    $('.select2Usu').select2({
+        theme: 'bootstrap4'
+    })
 </script>
 <script src="assest/js/graficas.php"></script>
 </body>

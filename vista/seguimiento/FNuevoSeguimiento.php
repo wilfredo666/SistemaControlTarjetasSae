@@ -1,4 +1,4 @@
- <div class="modal-header">
+<div class="modal-header">
      <h4 class="modal-title">Registrar Tarjetas Control</h4>
      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
          <span aria-hidden="true">&times;</span>
@@ -21,7 +21,7 @@
              </div>
              <div class="col-sm-4">
                  <div class="form-group">
-                     <label for="">Observaciones</label>
+                     <label for="">Descripcion</label>
                      <input type="text" class="form-control" id="descripcionSeguimiento" name="descripcionSeguimiento" placeholder="Descripcion">
                  </div>
              </div>
@@ -29,10 +29,24 @@
          <div class="row">
              <div class="col-sm-4">
                  <div class="form-group">
+                     <label for="">Observaciones</label>
+                     <input type="text" class="form-control" id="observacionSeguimiento" name="observacionSeguimiento" placeholder="Observaciones">
+                 </div>
+             </div>
+             <div class="col-sm-4">
+                 <div class="form-group">
+                     <label for="">Tipo Tarjeta</label>
+                     <input type="text" class="form-control" id="tipoSeguimiento" name="tipoSeguimiento" placeholder="Tipo Tarjeta">
+                 </div>
+             </div>
+             <div class="col-sm-4">
+                 <div class="form-group">
                      <label for="">Codigo Tarjeta</label>
                      <input type="text" class="form-control" id="codigoSeguimiento" name="codigoSeguimiento" placeholder="Codigo">
                  </div>
              </div>
+         </div>
+         <div class="row">
              <div class="col-sm-4">
                  <div class="form-group">
                      <label for="">Horas Minimo Tarjeta</label>
@@ -45,14 +59,14 @@
                      <input type="time" class="form-control" id="maxSeguimiento" name="maxSeguimiento">
                  </div>
              </div>
-         </div>
-         <div class="row">
              <div class="col-sm-4">
                  <div class="form-group">
                      <label for="">Ubicación</label>
                      <input type="text" class="form-control" id="ubicacionSeguimiento" name="ubicacionSeguimiento" placeholder="Ubicacion">
                  </div>
              </div>
+         </div>
+         <div class="row">
              <div class="col-sm-4">
                  <div class="form-group">
                      <label for="">Estados de Tarjeta</label>
@@ -70,7 +84,7 @@
                          <option>SIN EMPEZAR</option>
                          <option>VERIFICACION FINAL</option>
                          <option>TARJETA CANCELADA</option>
-                         <option>POR INSTALACION<</option>
+                         <option>POR INSTALACION<< /option>
                          <option>TERMINADO</option>
                          <option>N/A</option>
                      </select>
@@ -84,13 +98,22 @@
                          <option>HYD</option>
                          <option>MOT</option>
                          <option>BUZ</option>
-                         <option>AL</option>
+                         <option>ALAS</option>
                          <option>AV</option>
+                         <option>PINTURAS</option>
+                         <option>EMPE</option>
+                         <option>CAB</option>
+                         <option>FUS</option>
                          <option>OTROS</option>
                      </select>
                  </div>
              </div>
-
+             <div class="col-sm-4">
+                 <div class="form-group">
+                     <label for="">Numeracion de la Tarjeta</label>
+                     <input type="text" class="form-control" id="numeracionSeguimiento" name="numeracionSeguimiento" placeholder="Numeracion de la Tarjeta">
+                 </div>
+             </div>
          </div>
          <div class="row">
              <div class="col-sm-4">

@@ -51,8 +51,18 @@ $seguimiento = ControladorSeguimiento::ctrInfoSeguimiento($id);
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Observaciones</p>
+                                        <p class="m-b-10 f-w-600">Descripcion</p>
                                         <h6 class="text-muted f-w-400"><?php echo $seguimiento["descripcion_seguimiento"]; ?></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Observaciones</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $seguimiento["observaciones"]; ?></h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Tipo Tarjeta</p>
+                                        <h6 class="text-muted f-w-400"><?php echo $seguimiento["tipo_tarjeta"]; ?></h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Codigo Tarjeta</p>
@@ -85,7 +95,10 @@ $seguimiento = ControladorSeguimiento::ctrInfoSeguimiento($id);
                                         <h6 class="text-muted f-w-400"><?php echo $seguimiento["area_seguimiento"]; ?></h6>
                                     </div>
                                     <div class="col-sm-6">
-
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Numeracion</p>
+                                            <h6 class="text-muted f-w-400"><?php echo $seguimiento["numeracion_seguimiento"]; ?></h6>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

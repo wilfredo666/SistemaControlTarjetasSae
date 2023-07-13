@@ -19,12 +19,12 @@
               <table id="DataTableSeguimiento" class="table table-bordered table-striped">
                   <thead>
                       <tr>
-                          <th>Cliente</th>
+                          <th>N°</th>
                           <th>Matricula</th>
                           <th>Observaciones</th>
                           <th>Codigo Tarjeta</th>
                           <th>Area</th>
-                          <th>Estados Material</th>
+                          <th>Tipo Tarjeta</th>
                           <th>Estados</th>
                           <td>
                               <button class="btn btn-primary" onclick="MNuevoSeguimiento()">Nuevo</button>
@@ -38,12 +38,12 @@
                         foreach ($seguimiento as $value) {
                         ?>
                           <tr>
-                              <td><?php echo $value["cliente_seguimiento"]; ?></td>
+                              <td><?php echo $value["numeracion_seguimiento"]; ?></td>
                               <td><?php echo $value["matricula_seguimiento"]; ?></td>
                               <td><?php echo $value["descripcion_seguimiento"]; ?></td>
                               <td><?php echo $value["codigo_seguimiento"]; ?></td>
                               <td><?php echo $value["area_seguimiento"]; ?></td>
-                              <td><?php echo $value["materiales_seguimiento"]; ?></td>
+                              <td><?php echo $value["tipo_tarjeta"]; ?></td>
                               <td><?php echo $value["estados_seguimiento"]; ?></td>
 
                               <td>

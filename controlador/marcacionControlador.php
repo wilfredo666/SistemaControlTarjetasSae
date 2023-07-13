@@ -33,7 +33,7 @@ class ControladorMarcacion {
     require_once "../modelo/marcacionModelo.php";
     $data=array(
       "codigo_tramite"=>$_POST["codigo_tramite"],
-      "ciUsuario"=>$_POST["ciUsuario"]
+      "nomUsuario"=>$_POST["nomUsuario"]
     );
 
 

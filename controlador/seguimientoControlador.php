@@ -15,8 +15,8 @@ if (isset($ruta["query"])) {
     $ruta["query"] == "ctrBusSeguimiento"
   ) {
     $metodo = $ruta["query"];
-    $Producto = new ControladorSeguimiento();
-    $Producto->$metodo();
+    $seguimiento = new ControladorSeguimiento();
+    $seguimiento->$metodo();
   }
 }
 
@@ -36,12 +36,15 @@ class ControladorSeguimiento
     $nomSeguimiento = $_POST["nomSeguimiento"];
     $matriculaSeguimiento = $_POST["matriculaSeguimiento"];
     $descripcionSeguimiento = $_POST["descripcionSeguimiento"];
+    $observacionSeguimiento = $_POST["observacionSeguimiento"];
+    $tipoSeguimiento = $_POST["tipoSeguimiento"];
     $codigoSeguimiento = $_POST["codigoSeguimiento"];
     $minSeguimiento = $_POST["minSeguimiento"];
     $maxSeguimiento = $_POST["maxSeguimiento"];
     $ubicacionSeguimiento = $_POST["ubicacionSeguimiento"];
     $estadosSeguimiento = $_POST["estadosSeguimiento"];
     $areaSeguimiento = $_POST["areaSeguimiento"];
+    $numeracionSeguimiento = $_POST["numeracionSeguimiento"];
     /*capturamos la imagen*/
     $imagen = $_FILES["imgUsuario"];
 
@@ -54,12 +57,15 @@ class ControladorSeguimiento
       "nomSeguimiento" => $_POST["nomSeguimiento"],
       "matriculaSeguimiento" => $_POST["matriculaSeguimiento"],
       "descripcionSeguimiento" => $_POST["descripcionSeguimiento"],
+      "observacionSeguimiento" => $_POST["observacionSeguimiento"],
+      "tipoSeguimiento" => $_POST["tipoSeguimiento"],
       "codigoSeguimiento" => $_POST["codigoSeguimiento"],
       "minSeguimiento" => $_POST["minSeguimiento"],
       "maxSeguimiento" => $_POST["maxSeguimiento"],
       "ubicacionSeguimiento" => $_POST["ubicacionSeguimiento"],
       "estadosSeguimiento" => $_POST["estadosSeguimiento"],
       "areaSeguimiento" => $_POST["areaSeguimiento"],
+      "numeracionSeguimiento" => $_POST["numeracionSeguimiento"],
       "imgUsuario" => $nomImagen
     );
 
@@ -81,13 +87,15 @@ class ControladorSeguimiento
     $nomSeguimiento = $_POST["nomSeguimiento"];
     $matriculaSeguimiento = $_POST["matriculaSeguimiento"];
     $descripcionSeguimiento = $_POST["descripcionSeguimiento"];
+    $observacionSeguimiento = $_POST["observacionSeguimiento"];
+    $tipoSeguimiento = $_POST["tipoSeguimiento"];
     $codigoSeguimiento = $_POST["codigoSeguimiento"];
     $minSeguimiento = $_POST["minSeguimiento"];
     $maxSeguimiento = $_POST["maxSeguimiento"];
     $ubicacionSeguimiento = $_POST["ubicacionSeguimiento"];
     $estadosSeguimiento = $_POST["estadosSeguimiento"];
     $areaSeguimiento = $_POST["areaSeguimiento"];
-
+    $numeracionSeguimiento = $_POST["numeracionSeguimiento"];
 
     if ($_FILES["imgProducto"]["name"] == "") {
 
@@ -108,12 +116,15 @@ class ControladorSeguimiento
       "nomSeguimiento" => $_POST["nomSeguimiento"],
       "matriculaSeguimiento" => $_POST["matriculaSeguimiento"],
       "descripcionSeguimiento" => $_POST["descripcionSeguimiento"],
+      "observacionSeguimiento" => $_POST["observacionSeguimiento"],
+      "tipoSeguimiento" => $_POST["tipoSeguimiento"],
       "codigoSeguimiento" => $_POST["codigoSeguimiento"],
       "minSeguimiento" => $_POST["minSeguimiento"],
       "maxSeguimiento" => $_POST["maxSeguimiento"],
       "ubicacionSeguimiento" => $_POST["ubicacionSeguimiento"],
       "estadosSeguimiento" => $_POST["estadosSeguimiento"],
       "areaSeguimiento" => $_POST["areaSeguimiento"],
+      "numeracionSeguimiento" => $_POST["numeracionSeguimiento"],
       "imgProducto" => $nomImagen
     );
 
