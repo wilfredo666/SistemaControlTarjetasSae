@@ -295,34 +295,37 @@ function sumarMeses() {
 }
 
 /* checks seleccionados */
-$(document).ready(function() {
-  var seleccionados = [];
-  $('#DataTableControlHerramientas').on('change', 'input[type="checkbox"]', function() {
-      var checkbox = $(this);
-      var valor = checkbox.val();
-      if (checkbox.is(':checked')) {
-          seleccionados.push(valor);
-      } else {
-          var index = seleccionados.indexOf(valor);
-          if (index !== -1) {
-              seleccionados.splice(index, 1);
-          }
+var seleccionados = [];
+$(document).ready(function () {
+
+  $('#DataTableControlHerramientas').on('change', 'input[type="checkbox"]', function () {
+    var checkbox = $(this);
+    var valor = checkbox.val();
+    if (checkbox.is(':checked')) {
+      seleccionados.push(valor);
+    } else {
+      var index = seleccionados.indexOf(valor);
+      if (index !== -1) {
+        seleccionados.splice(index, 1);
       }
+    }
   });
 
-  $('#FormHerramientaSeleccionado').on('submit', function(e) {
-      e.preventDefault(); 
-      $('<input>').attr({
-          type: 'hidden',
-          name: 'idclase',
-          value: seleccionados.join(',')
-      }).appendTo('#FormHerramientaSeleccionado');
-      this.submit();
+  $('#FormHerramientaSeleccionado').on('submit', function (e) {
+    e.preventDefault();
+    $('<input>').attr({
+      type: 'hidden',
+      name: 'idclase',
+      value: seleccionados.join(',')
+    }).appendTo('#FormHerramientaSeleccionado');
+    this.submit();
   });
+
 });
 
+
 /* MODAL LLENAR DATOS DE IMPRESION */
-function MDatosImpresion(){
+function MDatosImpresion() {
   $("#modal-lg").modal("show")
 
   var obj = ""
@@ -332,7 +335,50 @@ function MDatosImpresion(){
     data: obj,
     success: function (data) {
       $("#content-lg").html(data)
+      document.getElementById("seleccionados").value = seleccionados;
     }
   })
 }
+
+function RegDatosInforme() {
+  /* var obj = {
+    id: seleccionados,
+  } */
+  var formData = new FormData($("#FormDatosInforme")[0]);
+  $.ajax({
+    type: "POST",
+    url: "vista/reportes/repHerramientaSelec.php",
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (data) {
+      /* console.log(data); */
+      window.open("vista/reportes/repHerramientaSelec.php", '_blank');
+    }
+  })
+}
+/* -------- mensaje de validacion al formulario Informe */
+function validarFormulario() {
+  var nombre = document.getElementById("fechaInforme").value;
+  var email = document.getElementById("numInforme").value;
+  if (nombre === "") {
+    mostrarMensajeError("mensajeFecha", "Por favor, seleccione la fecha de Informe.");
+    return false;
+  }
+  if (email === "") {
+    mostrarMensajeError("mensajeInforme", "Ingrese el Número del Informe");
+    return false;
+  }
+  return true;
+}
+
+function mostrarMensajeError(idElemento, mensaje) {
+  var elemento = document.getElementById(idElemento);
+  elemento.innerHTML = mensaje;
+  elemento.style.color = "red";
+  elemento.classList.add('text-center');
+}
+
+
 

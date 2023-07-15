@@ -21,8 +21,8 @@
         <table id="DataTableControlHerramientas" class="table table-bordered table-striped">
           <thead>
             <!-- <button class="btn btn-success" onclick="MCargarRegistrosControlHerramientas()">Importar Excel</button> -->
-            <input type="button" class="btn btn-success" onclick="MCargarRegistrosControlHerramientas()" value="Importar Excel">
-            <input type="button" class="btn btn-info ml-2 mr-2" onclick="MDatosImpresion()" value="Imprimir">
+            <input type="button" class="btn btn-success mb-2" onclick="MCargarRegistrosControlHerramientas()" value="Importar Excel">
+            <input type="button" class="btn btn-primary bg-dark ml-2 mr-2 mb-2" onclick="MDatosImpresion()" value="Imprimir Seleccionados">
             <tr>
               <th></th>
               <th>ITEM</th>
@@ -105,7 +105,7 @@
             }
             ?>
             <!--  <button type="button" class="btn btn-primary bg-dark" onclick="impHerramientaSelec()">Enviar Selección</button> -->
-            <button type="submit" class="btn btn-primary bg-dark" style="border: none;">Imprimir Selección</button>
+            <!-- <button type="submit" class="btn btn-primary bg-dark" style="border: none;">Imprimir Selección</button> -->
           </tbody>
         </table>
       </form>
