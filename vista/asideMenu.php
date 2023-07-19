@@ -36,7 +36,7 @@ function habilitado($idPermiso)
             <!-- Brand Logo -->
             <a href="CTramite" class="brand-link" target="_blank">
                 <img src="assest/imagenes/logosae.png" alt="AdminLTE Logo" class="brand-image img-thumbnail elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Tarjetas control</span>
+                <span class="brand-text font-weight-light">CONTROL TARJETAS</span>
             </a>
 
             <!-- Sidebar -->
@@ -103,7 +103,23 @@ with font-awesome or any other icon font library -->
                             </ul>
                         </li>
                         <?php } ?>
-
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-toolbox"></i>
+                                <p>
+                                    Herramienta Reci/Entre
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="VHerramientas" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Lista de Herramientas</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-tools"></i>
@@ -120,9 +136,9 @@ with font-awesome or any other icon font library -->
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link" onclick="MCargarRegistrosUsuarios()">
+                                    <a href="VCalibracion" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Carcar registros</p>
+                                        <p>Origen o Calibracion</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">

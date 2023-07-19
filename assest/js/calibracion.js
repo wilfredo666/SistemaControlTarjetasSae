@@ -1,10 +1,10 @@
-function MNuevoMaterial() {
+function MNuevoCalibracion() {
   $("#modal-xl").modal("show")
 
   var obj = ""
   $.ajax({
     type: "POST",
-    url: "vista/material/FNuevoMaterial.php",
+    url: "vista/calibracion/FNuevoCalibracion.php",
     data: obj,
     success: function (data) {
       $("#content-xl").html(data)
@@ -12,15 +12,15 @@ function MNuevoMaterial() {
   })
 }
 
-function RegMaterial() {
+function RegCalibracion() {
 
 
-  var formData = new FormData($("#FormRegMaterial")[0])
+  var formData = new FormData($("#FormRegCalibracion")[0])
 
 
   $.ajax({
     type: "POST",
-    url: "controlador/materialControlador.php?ctrRegMaterial",
+    url: "controlador/calibracionControlador.php?ctrRegCalibracion",
     data: formData,
     cache: false,
     contentType: false,
@@ -31,7 +31,7 @@ function RegMaterial() {
         Swal.fire({
           icon: 'success',
           showConfirmButton: false,
-          title: 'Material Registrado',
+          title: 'Origen o Calibracion Registrado',
           timer: 1000
         })
         setTimeout(function () {
@@ -50,27 +50,13 @@ function RegMaterial() {
 
 }
 
-function MVerMaterial(id) {
-  $("#modal-lg").modal("show")
-
-  var obj = ""
-  $.ajax({
-    type: "POST",
-    url: "vista/material/MVerMaterial.php?id=" + id,
-    data: obj,
-    success: function (data) {
-      $("#content-lg").html(data)
-    }
-  })
-}
-
-function MEditarMaterial(id) {
+function MVerCalibraciones(id) {
   $("#modal-xl").modal("show")
 
   var obj = ""
   $.ajax({
     type: "POST",
-    url: "vista/material/FEditMaterial.php?id=" + id,
+    url: "vista/calibracion/MVerCalibracion.php?id=" + id,
     data: obj,
     success: function (data) {
       $("#content-xl").html(data)
@@ -78,12 +64,26 @@ function MEditarMaterial(id) {
   })
 }
 
-function EditMaterial() {
+function MEditarCalibraciones(id) {
+  $("#modal-xl").modal("show")
 
-  var formData = new FormData($("#FormEditMaterial")[0])
+  var obj = ""
   $.ajax({
     type: "POST",
-    url: "controlador/materialControlador.php?ctrEditMaterial",
+    url: "vista/calibracion/FEditCalibracion.php?id=" + id,
+    data: obj,
+    success: function (data) {
+      $("#content-xl").html(data)
+    }
+  })
+}
+
+function EditCalibracion() {
+
+  var formData = new FormData($("#FormEditCalibracion")[0])
+  $.ajax({
+    type: "POST",
+    url: "controlador/calibracionControlador.php?ctrEditCalibracion",
     data: formData,
     cache: false,
     contentType: false,
@@ -94,7 +94,7 @@ function EditMaterial() {
         Swal.fire({
           icon: 'success',
           showConfirmButton: false,
-          title: 'Material Actualizado',
+          title: 'Calibracion Actualizado',
           timer: 1000
         })
         setTimeout(function () {
@@ -112,13 +112,13 @@ function EditMaterial() {
   })
 }
 
-function MEliMaterial(id) {
+function MEliCalibracion(id) {
   var obj = {
     id: id
   };
 
   Swal.fire({
-    title: 'Esta seguro de eliminar este Material?',
+    title: 'Esta seguro de eliminar esta Calibracion?',
     showDenyButton: true,
     showCancelButton: false,
     confirmButtonText: 'Confirmar',
@@ -128,7 +128,7 @@ function MEliMaterial(id) {
       $.ajax({
         type: "POST",
         data: obj,
-        url: "controlador/materialControlador.php?ctrEliMaterial",
+        url: "controlador/calibracionControlador.php?ctrEliCalibracion",
         success: function () {
           location.reload()
         }
@@ -139,13 +139,13 @@ function MEliMaterial(id) {
   })
 }
 
-function MCargarRegistrosMateriales() {
+function MCargarRegistrosCalibracion() {
   $("#modal-default").modal("show")
 
   var obj = ""
   $.ajax({
       type: "POST",
-      url: "vista/material/FCargarRegistrosMat.php",
+      url: "vista/calibracion/FCargarRegistrosCalibracion.php",
       data: obj,
       success: function (data) {
           $("#content-modal-default").html(data)
@@ -153,13 +153,12 @@ function MCargarRegistrosMateriales() {
   })
 }
 
-function CargarRegistrosMat() {
-  var formData = new FormData($("#FCargarRegistrosMat")[0])
-
+function CargarRegistrosCalibracion() {
+  var formData = new FormData($("#FCargarRegistrosCalibracion")[0])
 
   $.ajax({
       type: "POST",
-      url: "controlador/materialControlador.php?ctrRegRegistrosMat",
+      url: "controlador/calibracionControlador.php?ctrRegistrosCalibracion",
       data: formData,
       cache: false,
       contentType: false,
@@ -190,42 +189,4 @@ function CargarRegistrosMat() {
 
 }
 
-
-function cambioEstadoMat(codSegMat){
-  estado=document.getElementById("estadoMat["+codSegMat+"]").value
-  
-  var obj={
-      estado:estado,
-      codSegMat:codSegMat
-  }
-   $.ajax({
-  type: "POST",
-  url: "controlador/materialControlador.php?ctrCambEstado",
-  data: obj,
-/*    cache: false,
-  dataType: "json",*/
-  success: function (data) {
-      
-   if (data == "ok") {
-      Swal.fire({
-        icon: 'success',
-        showConfirmButton: false,
-        title: 'Material Registrado',
-        timer: 1000
-      })
-      setTimeout(function () {
-        location.reload()
-      }, 1200)
-    } else {
-      Swal.fire({
-        icon: 'error',
-        showConfirmButton: false,
-        title: 'Error de Registro!!!',
-        timer: 1500
-      })
-       
-    }
-  }
-})
-}
 

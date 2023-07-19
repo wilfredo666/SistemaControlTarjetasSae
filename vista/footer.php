@@ -55,6 +55,8 @@
 <script src="assest/js/carpeta.js"></script>
 <script src="assest/js/material.js"></script>
 <script src="assest/js/controlherramientas.js"></script>
+<script src="assest/js/calibracion.js"></script>
+<script src="assest/js/herramientas.js"></script>
 <script src="assest/js/servicios.js"></script>
 
 <!--====================
@@ -198,6 +200,26 @@ Seccion  de Modals
             "autoWidth": false,
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
         }).buttons().container().appendTo('#DataTableControlHerramientas_wrapper .col-md-6:eq(0)');
+
+    });
+
+    $(function() {
+        $("#DataTableCalibracion").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#DataTableCalibracion_wrapper .col-md-6:eq(0)');
+
+    });
+
+    $(function() {
+        $("#DataTableHerramientas").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#DataTableHerramientas_wrapper .col-md-6:eq(0)');
 
     });
 

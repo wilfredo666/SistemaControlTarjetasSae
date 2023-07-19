@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <div class="row mb-2" style="display: flex; justify-content: space-between;">
         <div class="col-sm-5">
-          <h3 class="m-0">Panel Control Herramientas</h3>
+          <h3 class="m-0">Panel Control Herramientas Calibradas</h3>
         </div><!-- /.col -->
         <div class="col-sm-7">
           <div class="form-group col-sm-12" style="text-align: end;">

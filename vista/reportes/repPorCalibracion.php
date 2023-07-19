@@ -1,10 +1,10 @@
 <?php
 require "../../assest/FPDF/fpdf.php";
-require_once "../../controlador/controlherramientasControlador.php";
-require_once "../../modelo/controlherramientasModelo.php";
+require_once "../../controlador/calibracionControlador.php";
+require_once "../../modelo/calibracionModelo.php";
 
 $id = $_GET["id"];
-$herra = ControladorHerramientas::ctrPorHerramientas($id);
+$herra = ControladorCalibraciones::ctrPorCalibracion($id);
 $today = getdate();
 
 $pdf = new FPDF('P','mm','Letter');
@@ -72,31 +72,31 @@ $pdf->setY(86);
 $pdf->Cell(5, 7,utf8_decode('Instrumento:'), 0, 0, 'L');
 $pdf->setX(70);
 $pdf->SetFont('Arial','',12);
-$pdf->Cell(130, 7, utf8_decode($herra["alcanceinstru_controlherramientas"]), 1, 1, '');
+$pdf->Cell(130, 7, utf8_decode($herra["descripcion_calibracion"]), 1, 1, '');
 $pdf->setY(94);
 $pdf->SetFont('Arial','B',12);
 $pdf->Cell(5, 7,utf8_decode('Marca:'), 0, 0, 'L');
 $pdf->setX(70);
 $pdf->SetFont('Arial','',12);
-$pdf->Cell(130, 7,utf8_decode($herra["marcaofabri_controlherramientas"]), 1, 1, '');
+$pdf->Cell(130, 7,utf8_decode($herra["marcaofabri_calibracion"]), 1, 1, '');
 $pdf->setY(102);
 $pdf->SetFont('Arial','B',12);
 $pdf->Cell(5, 7,utf8_decode('Modelo:'), 0, 0, 'L');
 $pdf->setX(70);
 $pdf->SetFont('Arial','',12);
-$pdf->Cell(130, 7, utf8_decode($herra["pn_controlherramientas"]), 1, 1, '');
+$pdf->Cell(130, 7, utf8_decode($herra["pn_calibracion"]), 1, 1, '');
 $pdf->setY(110);
 $pdf->SetFont('Arial','B',12);
 $pdf->Cell(5, 7,utf8_decode('Serie:'), 0, 0, 'L');
 $pdf->setX(70);
 $pdf->SetFont('Arial','',12);
-$pdf->Cell(130, 7, utf8_decode($herra["numserie_controlherramientas"]), 1, 1, '');
+$pdf->Cell(130, 7, utf8_decode($herra["numserie_calibracion"]), 1, 1, '');
 $pdf->setY(118);
 $pdf->SetFont('Arial','B',12);
 $pdf->Cell(5, 7,utf8_decode('Identificación Interna:'), 0, 0, 'L');
 $pdf->setX(70);
 $pdf->SetFont('Arial','',12);
-$pdf->Cell(130, 7, utf8_decode($herra["codigo_controlherramientas"]), 1, 1);
+$pdf->Cell(130, 7, utf8_decode($herra["codigo_calibracion"]), 1, 1);
 
 $pdf->setY(124);
 $pdf->setX(138);

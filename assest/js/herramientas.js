@@ -1,10 +1,10 @@
-function MNuevoControlHerramientas() {
+function MNuevoHerramientas() {
   $("#modal-xl").modal("show")
 
   var obj = ""
   $.ajax({
     type: "POST",
-    url: "vista/controlherramientas/FNuevoControlHerramientas.php",
+    url: "vista/herramientas/FNuevoHerramientas.php",
     data: obj,
     success: function (data) {
       $("#content-xl").html(data)
@@ -12,15 +12,11 @@ function MNuevoControlHerramientas() {
   })
 }
 
-function RegControlHerramientas() {
-
-
-  var formData = new FormData($("#FormRegControlHerramientas")[0])
-
-
+function RegHerramientas() {
+  var formData = new FormData($("#FormRegHerramientas")[0])
   $.ajax({
     type: "POST",
-    url: "controlador/controlherramientasControlador.php?ctrRegControlHerramienta",
+    url: "controlador/herramientasControlador.php?ctrRegHerramienta",
     data: formData,
     cache: false,
     contentType: false,
@@ -31,7 +27,7 @@ function RegControlHerramientas() {
         Swal.fire({
           icon: 'success',
           showConfirmButton: false,
-          title: 'Control Herramientas Registrado',
+          title: 'Herramientas Registradas',
           timer: 1000
         })
         setTimeout(function () {
@@ -50,13 +46,13 @@ function RegControlHerramientas() {
 
 }
 
-function MVerControlHerramienta(id) {
+function MVerHerramienta(id) {
   $("#modal-xl").modal("show")
 
   var obj = ""
   $.ajax({
     type: "POST",
-    url: "vista/controlherramientas/MVerControlHerramientas.php?id=" + id,
+    url: "vista/herramientas/MVerHerramientas.php?id=" + id,
     data: obj,
     success: function (data) {
       $("#content-xl").html(data)
@@ -139,7 +135,7 @@ function MEliControlHerramienta(id) {
   })
 }
 
-function MCargarRegistrosControlHerramientas() {
+function MCargarRegistrosHerramientas() {
   $("#modal-default").modal("show")
 
   var obj = ""
@@ -230,117 +226,30 @@ function impHerramientaSelec() {
   })
 }
 
-function fechSelec() {
-  var fechaInicial = new Date(document.getElementById('fechacalControlHerramientas').value);
-  if (fechaInicial !== "") {
+function fechSelec(){
+  var fechaInicial = new Date(document.getElementById('fechacalControlHerramientas').value); 
+  if(fechaInicial !== ""){
     $("#periodocalControlHerramientas").attr("readonly", false);
   }
 }
 
 function sumarMeses() {
-  var fechaInicial = new Date(document.getElementById('fechacalControlHerramientas').value);
+  var fechaInicial = new Date(document.getElementById('fechacalControlHerramientas').value); 
   var mesesASumar = parseInt(document.getElementById('periodocalControlHerramientas').value);
 
-  var fechaFinal = new Date(fechaInicial.getFullYear(), fechaInicial.getMonth() + mesesASumar, fechaInicial.getDate() + 1);
+  var fechaFinal = new Date(fechaInicial.getFullYear(), fechaInicial.getMonth() + mesesASumar, fechaInicial.getDate()+1);
 
   /* console.log('Fecha inicial: ', fechaInicial.toISOString().split('T')[0]);
   console.log('Fecha resultante después de sumar', mesesASumar, 'meses:', fechaFinal.toISOString().split('T')[0]); */
 
-  document.getElementById('fechavenciControlHerramientas').value = fechaFinal.toJSON().slice(0, 10)
-  document.getElementById('fechavenciControlHerramientas').classList.add('bg-dark', 'text-white')
+  document.getElementById('fechavenciControlHerramientas').value = fechaFinal.toJSON().slice(0,10)
+  document.getElementById('fechavenciControlHerramientas').classList.add('bg-dark','text-white')
 
   document.getElementById("estadoControlHerramientas").value = "CON TIEMPO";
 
   var DiferenciaFecha = fechaFinal - fechaInicial
   var diferenciaEnDias = Math.floor(DiferenciaFecha / (1000 * 60 * 60 * 24));
   document.getElementById('diasalertaControlHerramientas').value = diferenciaEnDias + " DIAS"
+ 
 }
-
-/* checks seleccionados */
-var seleccionados = [];
-$(document).ready(function () {
-
-  $('#DataTableControlHerramientas').on('change', 'input[type="checkbox"]', function () {
-    var checkbox = $(this);
-    var valor = checkbox.val();
-    if (checkbox.is(':checked')) {
-      seleccionados.push(valor);
-    } else {
-      var index = seleccionados.indexOf(valor);
-      if (index !== -1) {
-        seleccionados.splice(index, 1);
-      }
-    }
-  });
-
-  $('#FormHerramientaSeleccionado').on('submit', function (e) {
-    e.preventDefault();
-    $('<input>').attr({
-      type: 'hidden',
-      name: 'idclase',
-      value: seleccionados.join(',')
-    }).appendTo('#FormHerramientaSeleccionado');
-    this.submit();
-  });
-
-});
-
-
-/* MODAL LLENAR DATOS DE IMPRESION */
-function MDatosImpresion() {
-  $("#modal-lg").modal("show")
-
-  var obj = ""
-  $.ajax({
-    type: "POST",
-    url: "vista/reportes/MDatosInforme.php",
-    data: obj,
-    success: function (data) {
-      $("#content-lg").html(data)
-      document.getElementById("seleccionados").value = seleccionados;
-    }
-  })
-}
-
-function RegDatosInforme() {
-  /* var obj = {
-    id: seleccionados,
-  } */
-  var formData = new FormData($("#FormDatosInforme")[0]);
-  $.ajax({
-    type: "POST",
-    url: "vista/reportes/repHerramientaSelec.php",
-    data: formData,
-    cache: false,
-    contentType: false,
-    processData: false,
-    success: function (data) {
-      /* console.log(data); */
-      window.open("vista/reportes/repHerramientaSelec.php", '_blank');
-    }
-  })
-}
-/* -------- mensaje de validacion al formulario Informe */
-function validarFormulario() {
-  var nombre = document.getElementById("fechaInforme").value;
-  var email = document.getElementById("numInforme").value;
-  if (nombre === "") {
-    mostrarMensajeError("mensajeFecha", "Por favor, seleccione la fecha de Informe.");
-    return false;
-  }
-  if (email === "") {
-    mostrarMensajeError("mensajeInforme", "Ingrese el Número del Informe");
-    return false;
-  }
-  return true;
-}
-
-function mostrarMensajeError(idElemento, mensaje) {
-  var elemento = document.getElementById(idElemento);
-  elemento.innerHTML = mensaje;
-  elemento.style.color = "red";
-  elemento.classList.add('text-center');
-}
-
-
 

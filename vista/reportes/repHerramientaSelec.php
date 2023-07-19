@@ -179,6 +179,6 @@ $pdf->SetX(8);
 $pdf->SetFont("times", "", 8);
 $pdf->Cell(65, 8, 'FORM SAESM104', 1, 0, 'C');
 $pdf->Cell(70, 8, 'REV.05', 1, 0, 'C');
-$pdf->Cell(65, 8, utf8_decode("FECHA: ").date('d/m/Y'), 1, 0, 'C');
+$pdf->Cell(65, 8, utf8_decode("FECHA: ").date('11/03/2022'), 1, 0, 'C');
 
 $pdf->Output();

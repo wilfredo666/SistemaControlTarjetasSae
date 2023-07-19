@@ -7,7 +7,7 @@ function MNuevoSeguimiento() {
     url: "vista/seguimiento/FNuevoSeguimiento.php",
     data: obj,
     success: function (data) {
-      $("#modal-content-lg").html(data);
+      $("#content-lg").html(data);
     },
   });
 }
@@ -55,7 +55,7 @@ function MVerSeguimiento(id) {
     url: "vista/seguimiento/MVerSeguimiento.php?id=" + id,
     data: obj,
     success: function (data) {
-      $("#modal-content-lg").html(data);
+      $("#content-lg").html(data);
     },
   });
 }
@@ -69,7 +69,7 @@ function MEditSeguimiento(id) {
     url: "vista/seguimiento/FEditSeguimiento.php?id=" + id,
     data: obj,
     success: function (data) {
-      $("#modal-content-lg").html(data);
+      $("#content-lg").html(data);
     },
   });
 }
@@ -327,7 +327,7 @@ function MInfoAdicional(codSeg){
       url: "vista/seguimiento/MInfoAdMaterial.php?codSeg=" + codSeg,
       data: obj,
       success: function (data) {
-          $("#modal-content-lg").html(data)
+          $("#content-lg").html(data)
       }
   })
 }

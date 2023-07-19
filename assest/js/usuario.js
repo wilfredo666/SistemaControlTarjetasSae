@@ -7,7 +7,7 @@ function MNuevoUsuario(){
         url:"vista/usuario/FNuevoUsuario.php",
         data:obj,
         success:function(data){
-            $("#modal-content-lg").html(data)
+            $("#content-lg").html(data)
         }
     })
 }
@@ -63,7 +63,7 @@ function MVerUsuario(id){
         url:"vista/usuario/MVerUsuario.php?id="+id,
         data:obj,
         success:function(data){
-            $("#modal-content-lg").html(data)
+            $("#content-lg").html(data)
         }
     })
 }
@@ -77,7 +77,7 @@ function MEditUsuario(id){
         url:"vista/usuario/FEditUsuario.php?id="+id,
         data:obj,
         success:function(data){
-            $("#modal-content-lg").html(data)
+            $("#content-lg").html(data)
         }
     })
 }

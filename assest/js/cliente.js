@@ -9,7 +9,7 @@ function MNuevoCliente() {
             url: "vista/cliente/FNuevoCliente.php",
             data: obj,
             success: function (data) {
-                $("#modal-content-lg").html(data);
+                $("#content-lg").html(data);
             }
         }
 
@@ -62,7 +62,7 @@ function MVerCliente(id) {
             url: "vista/cliente/InfoCliente.php?idCliente=" + id,
             data: obj,
             success: function (data) {
-                $("#modal-content-lg").html(data);
+                $("#content-lg").html(data);
             }
         }
 
@@ -110,7 +110,7 @@ function MEditarCliente(id){
             url: "vista/cliente/FEditCliente.php?idCliente="+id,
             data: obj,
             success: function (data) {
-                $("#modal-content-lg").html(data);
+                $("#content-lg").html(data);
             }
         }
 
