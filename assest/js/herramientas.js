@@ -250,6 +250,7 @@ function sumarMeses() {
   var DiferenciaFecha = fechaFinal - fechaInicial
   var diferenciaEnDias = Math.floor(DiferenciaFecha / (1000 * 60 * 60 * 24));
   document.getElementById('diasalertaControlHerramientas').value = diferenciaEnDias + " DIAS"
- 
 }
+
+
 

@@ -15,6 +15,26 @@ class ModeloControlHerramientas
     $stmt->null;
   }
 
+  static public function mdlInfoControlEnvio()
+  {
+    $stmt = Conexion::conectar()->prepare("SELECT * FROM control_herramientas WHERE email_envio=0");
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlInfoControlEnvioEstado($id)
+  {
+    $stmt = Conexion::conectar()->prepare("update control_herramientas set email_envio=1 where id_controlherramientas=$id");
+    $stmt->execute();
+    return $stmt->fetch();
+    $stmt->close();
+    $stmt->null;
+  }
+
 
   static public function mdlRegControlHerramientas($data)
   {

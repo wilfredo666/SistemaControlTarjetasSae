@@ -25,6 +25,20 @@ class ControladorHerramientas
     return $respuesta;
   }
 
+  static public function ctrInfoControlEnvio()
+  {
+    $respuesta = ModeloControlHerramientas::mdlInfoControlEnvio();
+    return $respuesta;
+  }
+
+  static public function ctrInfoControlEnvioEstado($id)
+  {
+    $respuesta = ModeloControlHerramientas::mdlInfoControlEnvioEstado($id);
+    return $respuesta;
+  }
+
+  
+
   static public function ctrRegControlHerramienta()
   {
     require_once "../modelo/controlherramientasModelo.php";

@@ -80,19 +80,19 @@ $controlherramientas = ControladorHerramientas::ctrInfoControlHerramienta($id);
              <div class="col-sm-2">
                  <div class="form-group">
                      <label for="">FECHA CAL.</label>
-                     <input type="date" class="form-control" id="fechacalControlHerramientas" name="fechacalControlHerramientas" value="<?php echo $controlherramientas["fechacali_controlherramientas"]; ?>">
+                     <input type="date" class="form-control" id="fechacalControlHerramientas" name="fechacalControlHerramientas" value="<?php echo $controlherramientas["fechacali_controlherramientas"]; ?>" onclick="fechSelec()">
                  </div>
              </div>
              <div class="col-sm-2">
                  <div class="form-group">
                      <label for="">PERIODO CAL. MESES</label>
-                     <input type="text" class="form-control" id="periodocalControlHerramientas" name="periodocalControlHerramientas" value="<?php echo $controlherramientas["periodocali_controlherramientas"]; ?>">
+                     <input type="text" class="form-control" id="periodocalControlHerramientas" name="periodocalControlHerramientas" value="<?php echo $controlherramientas["periodocali_controlherramientas"]; ?>" onkeyup="sumarMeses()" >
                  </div>
              </div>
              <div class="col-sm-2">
                  <div class="form-group">
                      <label for="">FECHA VENCIMIENTO</label>
-                     <input type="date" class="form-control" id="fechavenciControlHerramientas" name="fechavenciControlHerramientas" value="<?php echo $controlherramientas["fechavenci_controlherramientas"]; ?>">
+                     <input type="date" class="form-control" id="fechavenciControlHerramientas" name="fechavenciControlHerramientas" value="<?php echo $controlherramientas["fechavenci_controlherramientas"]; ?>" >
                  </div>
              </div>
          </div>

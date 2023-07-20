@@ -15,32 +15,49 @@ $pdf = new FPDF('P', 'mm', 'Letter');
 $pdf->AddPage();
 $pdf->SetAutoPageBreak(true, 1);
 $pdf->SetMargins(5, 5, 5);
-$pdf->SetFont('Arial', 'B', 12);
-$pdf->Image('../../assest/imagenes/logosae1.png', 10, 10, -200);
+
+$pdf->SetFont('Arial', 'B', 11);
+$pdf->Image('../../assest/imagenes/saee.png', 10, 10, -190);
 $pdf->Cell(190, 30, 'LISTA DE EQUIPOS Y HERRAMIENTAS', 0, 2, 'C');
 $pdf->setY(33);
-$pdf->Cell(190, 0, 'CALIBRE', 0, 1, 'C');
-
 $pdf->SetFont('Arial', '', 9);
-$pdf->setY(15);
+$pdf->setY(10);
 $pdf->setX(160);
 $pdf->SetFillColor(215, 211, 189);
 $pdf->SetFont('Arial', 'B', 9);
 $pdf->Cell(35, 5, 'CERTIFICACIONES', 0, 1, 'C');
-$pdf->setY(20);
+$pdf->setY(14);
 $pdf->setX(160);
 $pdf->SetFont('Arial', '', 9);
 $pdf->Cell(35, 5, 'DGAC BOLIVIA OMA No N-017', 0, 2, 'C');
-$pdf->setY(25);
+$pdf->setY(18);
 $pdf->setX(160);
+$pdf->SetFont('Arial', '', 9);
+$pdf->Cell(35, 5, 'AEROCIVIL COLOMBIA TARE No. 042', 0, 2, 'C');
+$pdf->setY(22);
+$pdf->setX(160);
+$pdf->SetFont('Arial', '', 9);
 $pdf->Cell(35, 5, 'DGAC CHILE E-448', 0, 2, 'C');
+$pdf->setY(26);
+$pdf->setX(160);
+$pdf->Cell(35, 5, 'DGAC ECUADOR No. 077', 0, 2, 'C');
 $pdf->setY(30);
 $pdf->setX(160);
-$pdf->Cell(35, 5, 'DGAC PERU OMAE No 019', 0, 2, 'C');
+$pdf->Cell(35, 5, 'DGAC PERU OMAE No. 019', 0, 2, 'C');
+$pdf->setY(34);
+$pdf->setX(160);
+$pdf->Cell(35, 5, 'AHAC HONDURAS No. CTAE-145-032 HR', 0, 2, 'C');
+
+$pdf->setY(10);
+$pdf->SetX(8);
+$pdf->Cell(60, 30, '', 1, 0, 'C');
+$pdf->Cell(75, 30, '', 1, 0, 'C');
+$pdf->Cell(66, 30, '', 1, 1, 'C');
+
+$pdf->Cell(66, 8, '', 0, 1, 'C');
 
 $pdf->SetTextColor(255, 255, 255);
 $pdf->SetFillColor(61, 140, 205);
-$pdf->setY(40);
 $pdf->SetFont('Helvetica', 'B', 8);
 $pdf->setX(8);
 $pdf->Cell(10, 8, 'ITEM', 1, 0, 'C', true);
@@ -91,14 +108,23 @@ foreach ($herra as $value) {
     $pdf->Cell(14, 8, $value["numcarpeta_controlherramientas"], 1, 1, 'C');
 }
 
-$pdf->SetFont("times", "", 8);
+/* $pdf->SetFont("times", "", 8);
 $pdf->SetY(-15);
 $pdf->SetX(25);
 $pdf->Cell(40, 8, "PREPARADO POR:", "T", 0, "C");
-/* $pdf->Cell(40, 8, "", 0, "C"); */
+//$pdf->Cell(40, 8, "", 0, "C");
 $pdf->SetX(85);
 $pdf->Cell(40, 8, utf8_decode("Vo Bo CONTROL DE CALIDAD"), "T", 0, "C");
 $pdf->SetX(145);
-$pdf->Cell(40, 8, utf8_decode("FECHA DE ACTUALIZACIÓN: ").date('d/m/Y'), 0, 0, "C");
+$pdf->Cell(40, 8, utf8_decode("FECHA DE ACTUALIZACIÓN: ").date('d/m/Y'), 0, 0, "C"); */
+
+date_default_timezone_set('America/La_Paz');
+//PIE DE PÁGINA
+$pdf->SetY(-20);
+$pdf->SetX(8);
+$pdf->SetFont("times", "", 8);
+$pdf->Cell(65, 8, 'FORM SAESM104', 1, 0, 'C');
+$pdf->Cell(70, 8, 'REV.05', 1, 0, 'C');
+$pdf->Cell(65, 8, utf8_decode("FECHA: ").date('11/03/2022'), 1, 0, 'C');
 
 $pdf->Output();

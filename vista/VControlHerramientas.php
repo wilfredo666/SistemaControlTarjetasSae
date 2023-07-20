@@ -40,6 +40,7 @@
             </tr>
           </thead>
           <tbody>
+          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <?php
             $controlherramienta = ControladorHerramientas::ctrInfoControlHerramientas();
             $idHerra = 0;
@@ -55,52 +56,66 @@
               $diferencia = $fecha1->diff($fecha2);
               $totalDias = $diferencia->days * ($diferencia->invert ? -1 : 1);
             ?>
-            <tr>
+              <tr>
 
-              <td>
-                <input type="checkbox" id="inlineCheckbox4" name="idclase[]" value="<?php echo $value["id_controlherramientas"] ?>">
-                <!-- <input type="hidden" id="inlineCheckbox4" name="idclase[]" value="<?php echo $value["id_controlherramientas"] ?>"> -->
-            </td>
+                <td>
+                  <input type="checkbox" id="inlineCheckbox4" name="idclase[]" value="<?php echo $value["id_controlherramientas"] ?>">
+                  <!-- <input type="hidden" id="inlineCheckbox4" name="idclase[]" value="<?php echo $value["id_controlherramientas"] ?>"> -->
+                </td>
 
-              <td><?php echo $value["id_controlherramientas"]; ?></td>
-              <td><?php echo $value["descripcion_controlherramientas"]; ?></td>
-              <td><?php echo $value["pn_controlherramientas"]; ?></td>
-              <td><?php echo $value["numserie_controlherramientas"]; ?></td>
-              <td><?php echo $value["codigo_controlherramientas"]; ?></td>
-              <td><?php echo $value["ubicacion_controlherramientas"]; ?></td>
+                <td><?php echo $value["id_controlherramientas"]; ?></td>
+                <td><?php echo $value["descripcion_controlherramientas"]; ?></td>
+                <td><?php echo $value["pn_controlherramientas"]; ?></td>
+                <td><?php echo $value["numserie_controlherramientas"]; ?></td>
+                <td><?php echo $value["codigo_controlherramientas"]; ?></td>
+                <td><?php echo $value["ubicacion_controlherramientas"]; ?></td>
 
-              <?php
-              if ($totalDias <= 10 and $totalDias >= 1) {
-              ?>
-              <td class="bg-warning"><?php echo $value["fechavenci_controlherramientas"]; ?></td>
-              <?php
-              } elseif ($totalDias < 1) {
-              ?>
-              <td class="bg-danger"><?php echo $value["fechavenci_controlherramientas"]; ?></td>
-              <?php
-              } else {
-              ?>
-              <td><?php echo $value["fechavenci_controlherramientas"]; ?></td>
-              <?php
-              }
-              ?>
+                <?php
+                if ($totalDias <= 10 and $totalDias >= 1) {
+                ?>
+                  <td class="bg-warning"><?php echo $value["fechavenci_controlherramientas"]; ?></td>
+                  <script>
+                    function MEnviarEmail() {
+                      /* console.log('enviado....'); */
+                      var obj = "";
+                      $.ajax({
+                        type: "POST",
+                        url: "vista/controlherramientas/EnvioCorreo.php",
+                        data: obj,
+                        success: function(data) {}
+                      })
+                    }
+                    MEnviarEmail();
+                  </script>
+                <?php
 
-              <td><?php echo $value["numcarpeta_controlherramientas"] ?></td>
-              <td>
-                <div class="btn-group">
-                  <!-- <button class="btn btn-secondary" onclick="MVerControlHerramienta(<?php echo $value["id_controlherramientas"]; ?>)">
+                } elseif ($totalDias < 1) {
+                ?>
+                  <td class="bg-danger"><?php echo $value["fechavenci_controlherramientas"]; ?></td>
+                <?php
+                } else {
+                ?>
+                  <td><?php echo $value["fechavenci_controlherramientas"]; ?></td>
+                <?php
+                }
+                ?>
+
+                <td><?php echo $value["numcarpeta_controlherramientas"] ?></td>
+                <td>
+                  <div class="btn-group">
+                    <!-- <button class="btn btn-secondary" onclick="MVerControlHerramienta(<?php echo $value["id_controlherramientas"]; ?>)">
                   <i class="fas fa-eye"></i>
                   </button> -->
-                  <a class="btn btn-sm btn-secondary" onclick="MVerControlHerramienta(<?php echo $value['id_controlherramientas']; ?>)" ><i class="fas fa-eye"></i></a>
+                    <a class="btn btn-sm btn-secondary" onclick="MVerControlHerramienta(<?php echo $value['id_controlherramientas']; ?>)"><i class="fas fa-eye"></i></a>
 
-                  <a class="btn btn-sm btn-warning" onclick="MEditarControlHerramienta(<?php echo $value['id_controlherramientas']; ?>)"><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-sm btn-warning" onclick="MEditarControlHerramienta(<?php echo $value['id_controlherramientas']; ?>)"><i class="fas fa-edit"></i></a>
 
-                  <a class="btn btn-sm btn-danger" onclick="MEliControlHerramienta(<?php echo $value['id_controlherramientas']; ?>)"><i class="fas fa-trash"></i></a>
+                    <a class="btn btn-sm btn-danger" onclick="MEliControlHerramienta(<?php echo $value['id_controlherramientas']; ?>)"><i class="fas fa-trash"></i></a>
 
-                  <a class="btn btn-sm btn-success" href="vista/reportes/repPorHerramienta.php?id=<?php echo $value["id_controlherramientas"]; ?>" target="_blank"><i class="fas fa-print"></i></a>
-                </div>
-              </td>
-            </tr>
+                    <a class="btn btn-sm btn-success" href="vista/reportes/repPorHerramienta.php?id=<?php echo $value["id_controlherramientas"]; ?>" target="_blank"><i class="fas fa-print"></i></a>
+                  </div>
+                </td>
+              </tr>
             <?php
             }
             ?>
@@ -114,4 +129,3 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
