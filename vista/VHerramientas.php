@@ -8,9 +8,7 @@
           <h3 class="m-0">Panel Comprobante Herramienta Recibida/Entregada</h3>
         </div><!-- /.col -->
         <div class="col-sm-7">
-          <div class="form-group col-sm-12" style="text-align: end;">
-            <!-- <button type="button" class="btn btn-primary bg-info" onclick="impHerramientaSelec()">Imprimir Herramientas</button> -->
-          </div>
+          
         </div><!-- /.col -->
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -21,7 +19,7 @@
         <table id="DataTableHerramientas" class="table table-bordered table-striped">
           <thead>
             <input type="button" class="btn btn-success mb-2" onclick="MCargarRegistrosHerramientas()" value="Importar Excel">
-            <input type="button" class="btn btn-primary bg-dark ml-2 mr-2 mb-2" onclick="MDatosImpresion()" value="Imprimir Seleccionados">
+            <input type="button" class="btn btn-primary bg-dark ml-2 mr-2 mb-2" onclick="MLogHerramientas()" value="Seleccionar Tecnicos">
             <tr>
               <th></th>
               <th>N°</th>
@@ -47,7 +45,6 @@
 
             ?>
             <tr>
-
               <td>
                 <input type="checkbox" id="inlineCheckbox4" name="idclase[]" value="<?php echo $value["id_herramientas"] ?>">
             </td>

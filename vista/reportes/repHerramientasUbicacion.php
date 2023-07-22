@@ -17,9 +17,11 @@ $pdf->SetAutoPageBreak(true, 1);
 $pdf->SetMargins(5, 5, 5);
 
 $pdf->SetFont('Arial', 'B', 11);
+$pdf->Image('../../assest/imagenes/gota.jpg', 8, 85, 200);
 $pdf->Image('../../assest/imagenes/saee.png', 10, 10, -190);
 $pdf->Cell(190, 30, 'LISTA DE EQUIPOS Y HERRAMIENTAS', 0, 2, 'C');
 $pdf->setY(33);
+$pdf->Cell(190, 0, 'CALIBRABLE', 0, 1, 'C');
 $pdf->SetFont('Arial', '', 9);
 $pdf->setY(10);
 $pdf->setX(160);
@@ -108,7 +110,7 @@ foreach ($herra as $value) {
     $pdf->Cell(14, 8, $value["numcarpeta_controlherramientas"], 1, 1, 'C');
 }
 
-/* $pdf->SetFont("times", "", 8);
+/*$pdf->SetFont("times", "", 8);
 $pdf->SetY(-15);
 $pdf->SetX(25);
 $pdf->Cell(40, 8, "PREPARADO POR:", "T", 0, "C");

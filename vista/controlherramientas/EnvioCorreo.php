@@ -39,8 +39,8 @@ $mail->setFrom('contacto@taskcardsae.com', 'Alerta de vencimiento Herramientas')
 //Set an alternative reply-to address
 //$mail->addReplyTo('replyto@example.com', 'First Last');
 //Set who the message is to be sent to
-$nombre = "wil";
-$correo = "a@gmail.com";
+$nombre = "Herramientas";
+$correo = "squispe@sae.aero";
 $mail->addAddress($correo, $nombre);
 //Set the subject line
 $mail->Subject = 'Aviso de fecha de Vencimiento';
@@ -52,8 +52,8 @@ $mail->Subject = 'Aviso de fecha de Vencimiento';
 
 //para enviar a mas de un correo solo agregar a la lista de correos a enviar
 
-$mail->addCC('willys.el.trueno@gmail.com', 'copia');
-/* $mail->addCC('obelisco666@gmail.com', 'copia'); */
+/* $mail->addCC('willys.el.trueno@gmail.com', 'copia'); */
+$mail->addCC('amiponce698@gmail.com', 'copia');
 
 
 require_once "../../controlador/controlHerramientasControlador.php";

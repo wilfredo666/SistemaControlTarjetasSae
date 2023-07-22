@@ -57,6 +57,7 @@
 <script src="assest/js/controlherramientas.js"></script>
 <script src="assest/js/calibracion.js"></script>
 <script src="assest/js/herramientas.js"></script>
+<script src="assest/js/logherramientas.js"></script>
 <script src="assest/js/servicios.js"></script>
 
 <!--====================
@@ -223,6 +224,16 @@ Seccion  de Modals
 
     });
 
+    $(function() {
+        $("#DataTableLogHerramientas").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#DataTableLogHerramientas_wrapper .col-md-6:eq(0)');
+
+    });
+
     $('.select2bs4').select2({
         theme: 'bootstrap4'
     })
@@ -230,6 +241,7 @@ Seccion  de Modals
     $('.select2Usu').select2({
         theme: 'bootstrap4'
     })
+
 </script>
 <script src="assest/js/graficas.php"></script>
 </body>

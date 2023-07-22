@@ -9,7 +9,6 @@
         </div><!-- /.col -->
         <div class="col-sm-7">
           <div class="form-group col-sm-12" style="text-align: end;">
-            <!-- <button type="button" class="btn btn-primary bg-info" onclick="impHerramientaSelec()">Imprimir Herramientas</button> -->
           </div>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -17,7 +16,7 @@
   </div>
   <div class="content">
     <div class="container-fluid">
-      <form id="FormHerramientaSeleccionado" method="POST" action="vista/reportes/repHerramientaSelec.php" target="_blank">
+      <form id="FormLogHerramientaSeleccionado" method="POST">
         <table id="DataTableControlHerramientas" class="table table-bordered table-striped">
           <thead>
             <!-- <button class="btn btn-success" onclick="MCargarRegistrosControlHerramientas()">Importar Excel</button> -->

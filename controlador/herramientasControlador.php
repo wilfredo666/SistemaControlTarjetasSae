@@ -6,7 +6,7 @@ if (isset($ruta["query"])) {
   if (
     $ruta["query"] == "ctrRegHerramienta" ||
     $ruta["query"] == "ctrEditControlHerramienta" ||
-    $ruta["query"] == "ctrRegRegistrosControlHerramientas" ||
+    $ruta["query"] == "ctrRegRegistrosHerramientas" ||
     $ruta["query"] == "ctrRepHerramientas" ||
     $ruta["query"] == "ctrEliControlHerramienta"
   ) {
@@ -171,15 +171,15 @@ class ControladorHerramientasSalidas
     echo $respuesta;
   }
 
-  static public function ctrRegRegistrosControlHerramientas()
+  static public function ctrRegRegistrosHerramientas()
   {
-    require_once "../modelo/controlherramientasModelo.php";
+    require_once "../modelo/herramientasModelo.php";
 
     $data = array(
-      "registros" => $_FILES['dataControlHerra']
+      "registros" => $_FILES['dataHerramientas']
     );
 
-    $respuesta = ModeloControlHerramientas::mdlRegRegistrosControlHerramientas($data);
+    $respuesta = ModeloHerramientas::mdlRegRegistrosHerramientas($data);
     echo $respuesta;
   }
 

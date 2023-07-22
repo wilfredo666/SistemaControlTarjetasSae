@@ -12,6 +12,7 @@ require_once "controlador/servicioControlador.php";
 require_once "controlador/materialControlador.php";
 require_once "controlador/controlherramientasControlador.php";
 require_once "controlador/herramientasControlador.php";
+require_once "controlador/logherramientasControlador.php";
 require_once "controlador/calibracionControlador.php";
 
 
@@ -26,6 +27,7 @@ require_once "modelo/servicioModelo.php";
 require_once "modelo/materialModelo.php";
 require_once "modelo/controlherramientasModelo.php";
 require_once "modelo/herramientasModelo.php";
+require_once "modelo/logherramientasModelo.php";
 require_once "modelo/calibracionModelo.php";
 require_once "modelo/graficaModelo.php";
 

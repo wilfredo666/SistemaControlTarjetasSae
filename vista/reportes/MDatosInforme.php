@@ -32,7 +32,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label for="">REPRESENTANTE TÉCNICO BoA</label>
+                    <label for="">REPRESENTANTE TÉCNICO</label>
                     <input type="text" class="form-control" id="repTecnico" name="repTecnico" placeholder="Representante Técnico BoA">
                 </div>
             </div>

@@ -140,42 +140,46 @@ class ModeloHerramientas
 
         $datos = explode(";", $linea);
 
-        $descripcion_controlherramientas = !empty($datos[0]) ? ($datos[0]) : '';
-        $pn_controlherramientas = !empty($datos[1]) ? ($datos[1]) : '';
-        $pnalt_controlherramientas = !empty($datos[2]) ? ($datos[2]) : '';
-        $numserie_controlherramientas = !empty($datos[3]) ? ($datos[3]) : '';
-        $codigo_controlherramientas = !empty($datos[4]) ? ($datos[4]) : '';
-        $marcaofabri_controlherramientas = !empty($datos[5]) ? ($datos[5]) : '';
-        $cantidad_controlherramientas = !empty($datos[6]) ? ($datos[6]) : '';
-        $unidad_controlherramientas = !empty($datos[7]) ? ($datos[7]) : '';
-        $ubicacion_controlherramientas = !empty($datos[8]) ? ($datos[8]) : '';
-        $fechacali_controlherramientas = !empty($datos[9]) ? ($datos[9]) : '';
-        $periodocali_controlherramientas = !empty($datos[10]) ? ($datos[10]) : '';
-        $fechavenci_controlherramientas = !empty($datos[11]) ? ($datos[11]) : '';
-        $estado_controlherramientas = !empty($datos[12]) ? ($datos[12]) : '';
-        $diasalerta_controlherramientas = !empty($datos[13]) ? ($datos[13]) : '';
-        $origencali_controlherramientas = !empty($datos[14]) ? ($datos[14]) : '';
-        $propiedad_controlherramientas = !empty($datos[15]) ? ($datos[15]) : '';
-        $numcarpeta_controlherramientas = !empty($datos[16]) ? ($datos[16]) : '';
-        $numcertifi_controlherramientas = !empty($datos[17]) ? ($datos[17]) : '';
-        $numregistro_controlherramientas = !empty($datos[18]) ? ($datos[18]) : '';
-        $alcanceinstru_controlherramientas = !empty($datos[19]) ? ($datos[19]) : '';
-        $resuinstru_controlherramientas = !empty($datos[20]) ? ($datos[20]) : '';
-        $ubicacionautorizada_controlherramientas = !empty($datos[21]) ? ($datos[21]) : '';
-        $docsalida_controlherramientas = !empty($datos[22]) ? ($datos[22]) : '';
+        $num_herramientas = !empty($datos[0]) ? ($datos[0]) : '';
+        $descripcion_herramientas = !empty($datos[1]) ? ($datos[1]) : '';
+        $pn_herramientas = !empty($datos[2]) ? ($datos[2]) : '';
+        $pnalt_herramientas = !empty($datos[3]) ? ($datos[3]) : '';
+        $sn_herramientas = !empty($datos[4]) ? ($datos[4]) : '';
+        $codigo_herramientas = !empty($datos[5]) ? ($datos[5]) : '';
+        $marcaofabri_herramientas = !empty($datos[6]) ? ($datos[6]) : '';
+        $cantidad_herramientas = !empty($datos[7]) ? ($datos[7]) : '';
+        $unidad_herramientas = !empty($datos[8]) ? ($datos[8]) : '';
+        $ubicacion_herramientas = !empty($datos[9]) ? ($datos[9]) : '';
+        $observacion_herramientas = !empty($datos[10]) ? ($datos[10]) : '';
+        $aeronaves_herramientas = !empty($datos[11]) ? ($datos[11]) : '';
+        $ata_herramientas = !empty($datos[12]) ? ($datos[12]) : '';
+        $doc_herramientas = !empty($datos[13]) ? ($datos[13]) : '';
+        $numcarpeta_herramientas = !empty($datos[14]) ? ($datos[14]) : '';
+        $equivatecnica_herramientas = !empty($datos[15]) ? ($datos[15]) : '';
+        $hojamanual_herramientas = !empty($datos[16]) ? ($datos[16]) : '';
+        $sticker_herramientas = !empty($datos[17]) ? ($datos[17]) : '';
+        $ultimoinven_herramientas = !empty($datos[18]) ? ($datos[18]) : '';
+        $calibradaespecia_herramientas = !empty($datos[19]) ? ($datos[19]) : '';
+        $estadoherramienta_herramientas = !empty($datos[20]) ? ($datos[20]) : '';
+        $requiereinspecperiodica_herramientas = !empty($datos[21]) ? ($datos[21]) : '';
+        $rangomedida_herramientas = !empty($datos[22]) ? ($datos[22]) : '';
+        $ubicacionactual_herramientas = !empty($datos[23]) ? ($datos[23]) : '';
+        $observacionesdel_herramientas = !empty($datos[24]) ? ($datos[24]) : '';
+        $imagen_herramientas = !empty($datos[25]) ? ($datos[25]) : '';
+        $disponible = !empty($datos[26]) ? ($datos[26]) : '';
 
-        if (!empty($numcarpeta_controlherramientas)) {
-          $mtr_duplicada = Conexion::conectar()->prepare("select numcarpeta_controlherramientas from control_herramientas where numcarpeta_controlherramientas='$numcarpeta_controlherramientas'");
+        if (!empty($codigo_herramientas)) {
+          $mtr_duplicada = Conexion::conectar()->prepare("select codigo_herramientas from herramientas where codigo_herramientas='$codigo_herramientas'");
           $mtr_duplicada->execute();
           $regDuplicado = $mtr_duplicada->rowCount();
         }
 
         if ($regDuplicado > 0) {
 
-          $stmt = Conexion::conectar()->prepare("update control_herramientas set descripcion_controlherramientas, pn_controlherramientas,pnalt_controlherramientas, numserie_controlherramientas, codigo_controlherramientas, marcaofabri_controlherramientas, cantidad_controlherramientas, unidad_controlherramientas, ubicacion_controlherramientas, fechacali_controlherramientas, periodocali_controlherramientas, fechavenci_controlherramientas, estado_controlherramientas, diasalerta_controlherramientas, origencali_controlherramientas, propiedad_controlherramientas, numcarpeta_controlherramientas, numcertifi_controlherramientas, numregistro_controlherramientas, alcanceinstru_controlherramientas, resuinstru_controlherramientas, ubicacionautorizada_controlherramientas, docsalida_controlherramientas where numcarpeta_controlherramientas='$numcarpeta_controlherramientas'");
+          $stmt = Conexion::conectar()->prepare("update herramientas set num_herramientas, descripcion_herramientas, pn_herramientas,pnalt_herramientas, sn_herramientas, codigo_herramientas, marcaofabri_herramientas, cantidad_herramientas, unidad_herramientas, ubicacion_herramientas, observacion_herramientas, aeronaves_herramientas, ata_herramientas, doc_herramientas, numcarpeta_herramientas, equivatecnica_herramientas, hojamanual_herramientas, sticker_herramientas, ultimoinven_herramientas, calibradaespecia_herramientas, estadoherramienta_herramientas, requiereinspecperiodica_herramientas, rangomedida_herramientas, ubicacionactual_herramientas, observacionesdel_herramientas, imagen_herramientas, disponible where codigo_herramientas='$codigo_herramientas'");
           $stmt->execute();
         } else {
-          $stmt = Conexion::conectar()->prepare("insert into control_herramientas (descripcion_controlherramientas, pn_controlherramientas, pnalt_controlherramientas, numserie_controlherramientas, codigo_controlherramientas, marcaofabri_controlherramientas, cantidad_controlherramientas, unidad_controlherramientas, ubicacion_controlherramientas, fechacali_controlherramientas, periodocali_controlherramientas, fechavenci_controlherramientas, estado_controlherramientas, diasalerta_controlherramientas, origencali_controlherramientas, 	propiedad_controlherramientas, numcarpeta_controlherramientas, numcertifi_controlherramientas, numregistro_controlherramientas, alcanceinstru_controlherramientas, resuinstru_controlherramientas, ubicacionautorizada_controlherramientas, docsalida_controlherramientas) values('$descripcion_controlherramientas', '$pn_controlherramientas', '$pnalt_controlherramientas', '$numserie_controlherramientas', '$codigo_controlherramientas', '$marcaofabri_controlherramientas', '$cantidad_controlherramientas', '$unidad_controlherramientas', '$ubicacion_controlherramientas', '$fechacali_controlherramientas', '$periodocali_controlherramientas', '$fechavenci_controlherramientas', '$estado_controlherramientas', '$diasalerta_controlherramientas', '$origencali_controlherramientas', '$propiedad_controlherramientas', '$numcarpeta_controlherramientas', '$numcertifi_controlherramientas', '$numregistro_controlherramientas', '$alcanceinstru_controlherramientas', '$resuinstru_controlherramientas', '$ubicacionautorizada_controlherramientas', '$docsalida_controlherramientas')");
+          $stmt = Conexion::conectar()->prepare("insert into herramientas (num_herramientas, descripcion_herramientas, pn_herramientas,pnalt_herramientas, sn_herramientas, codigo_herramientas, marcaofabri_herramientas, cantidad_herramientas, unidad_herramientas, ubicacion_herramientas, observacion_herramientas, aeronaves_herramientas, ata_herramientas, doc_herramientas, numcarpeta_herramientas, equivatecnica_herramientas, hojamanual_herramientas, sticker_herramientas, ultimoinven_herramientas, calibradaespecia_herramientas, estadoherramienta_herramientas, requiereinspecperiodica_herramientas, rangomedida_herramientas, ubicacionactual_herramientas, observacionesdel_herramientas, imagen_herramientas, disponible) values('$num_herramientas','$descripcion_herramientas', '$pn_herramientas', '$pnalt_herramientas', '$sn_herramientas', '$codigo_herramientas', '$marcaofabri_herramientas', '$cantidad_herramientas', '$unidad_herramientas', '$ubicacion_herramientas', '$observacion_herramientas', '$aeronaves_herramientas', '$ata_herramientas', '$doc_herramientas', '$numcarpeta_herramientas', '$equivatecnica_herramientas', '$hojamanual_herramientas', '$sticker_herramientas', '$ultimoinven_herramientas', '$calibradaespecia_herramientas', '$estadoherramienta_herramientas', '$requiereinspecperiodica_herramientas', '$rangomedida_herramientas', '$ubicacionactual_herramientas', '$observacionesdel_herramientas', '$imagen_herramientas', '$disponible')");
           $stmt->execute();
         }
       }

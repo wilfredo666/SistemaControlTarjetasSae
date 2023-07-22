@@ -6,13 +6,13 @@
                </div>
                <div class="modal-body">
 
-                   <form enctype="multipart/form-data" id="FCargarRegistrosControlHerra">
+                   <form enctype="multipart/form-data" id="FCargarRegistrosHerramientas">
                        <div class="form-group">
                            <label for="exampleInputFile">File input</label>
                            <div class="input-group">
                                <div class="custom-file">
-                                   <input type="file" class="custom-file-input" id="dataControlHerra" name="dataControlHerra">
-                                   <label class="custom-file-label" for="dataControlHerra">Elegir archivo (.CSV)</label>
+                                   <input type="file" class="custom-file-input" id="dataHerramientas" name="dataHerramientas">
+                                   <label class="custom-file-label" for="dataHerramientas">Elegir archivo (.CSV)</label>
                                </div>
                                <div class="input-group-append">
                                    <span class="input-group-text">Upload</span>

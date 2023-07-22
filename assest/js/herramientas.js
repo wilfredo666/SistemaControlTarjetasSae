@@ -141,7 +141,7 @@ function MCargarRegistrosHerramientas() {
   var obj = ""
   $.ajax({
     type: "POST",
-    url: "vista/controlherramientas/FCargarRegistrosControlHerramientas.php",
+    url: "vista/herramientas/FCargarRegHerramientas.php",
     data: obj,
     success: function (data) {
       $("#content-modal-default").html(data)
@@ -150,12 +150,12 @@ function MCargarRegistrosHerramientas() {
 }
 
 function CargarRegistrosControlHerra() {
-  var formData = new FormData($("#FCargarRegistrosControlHerra")[0])
+  var formData = new FormData($("#FCargarRegistrosHerramientas")[0])
 
 
   $.ajax({
     type: "POST",
-    url: "controlador/controlherramientasControlador.php?ctrRegRegistrosControlHerramientas",
+    url: "controlador/herramientasControlador.php?ctrRegRegistrosHerramientas",
     data: formData,
     cache: false,
     contentType: false,

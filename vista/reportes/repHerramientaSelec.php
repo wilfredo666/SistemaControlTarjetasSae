@@ -31,6 +31,7 @@ $pdf->SetMargins(5, 5, 5);
 
 $pdf->SetFont('Arial', 'B', 20);
 $pdf->Image('../../assest/imagenes/saee.png', 10, 10, -190);
+$pdf->Image('../../assest/imagenes/gota.jpg', 8, 105, 200);
 $pdf->Cell(190, 30, 'INFORME', 0, 2, 'C');
 $pdf->setY(33);
 $pdf->SetFont('Arial', '', 9);
@@ -71,7 +72,7 @@ $pdf->setY(44);
 $pdf->SetX(8);
 $pdf->SetFont('Helvetica', 'B', 10);
 $pdf->Cell(160, 8, 'LUGAR Y FECHA: Cochabamba, '.$fechaInforme, 1, 0, 'L');
-$pdf->Cell(40, 8, 'No.: ', 1, 0, 'L');
+$pdf->Cell(40, 8, 'No.:', 1, 0, 'L');
 $pdf->SetFont('Helvetica', '', 10);
 $pdf->SetX(-35);
 $pdf->Cell(40, 8, $numInforme, 0, 1, 'L');
