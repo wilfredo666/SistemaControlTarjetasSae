@@ -9,8 +9,8 @@ $herramientas = ControladorHerramientasSalidas::ctrInfoHerramienta($id);
 ?>
 
 <div class="modal-header bg-dark">
-    <h4 class="modal-title text-light">Información Comprobante Herramienta Recibida/Entregada</h4>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <h4 class="modal-title text-light">Información Herramientas Recibidas/Entregadas SAE-LAB</h4>
+    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
@@ -52,10 +52,7 @@ $herramientas = ControladorHerramientasSalidas::ctrInfoHerramienta($id);
                     <th>CODIGO</th>
                     <td><?php echo $herramientas["codigo_herramientas"]; ?></td>
                 </tr>
-            </table>
-        </div>
-        <div class="col-sm-3">
-            <table class="table">
+
                 <tr>
                     <th>MARCA O FABRICANTE</th>
                     <td><?php echo $herramientas["marcaofabri_herramientas"]; ?></td>
@@ -80,26 +77,13 @@ $herramientas = ControladorHerramientasSalidas::ctrInfoHerramienta($id);
                     <th>OBSERVACION</th>
                     <td><?php echo $herramientas["observacion_herramientas"]; ?></td>
                 </tr>
-
-                <tr>
-                    <th>AERONAVES</th>
-                    <td><?php echo $herramientas["aeronaves_herramientas"]; ?></td>
-                </tr>
-
-                <tr>
-                    <th>ATA</th>
-                    <td><?php echo $herramientas["ata_herramientas"]; ?></td>
-                </tr>
-
             </table>
-
         </div>
         <div class="col-sm-3">
             <table class="table">
-
                 <tr>
-                    <th>DOC.</th>
-                    <td><?php echo $herramientas["doc_herramientas"]; ?></td>
+                    <th>OBS (REP.) DOC.</th>
+                    <td><?php echo $herramientas["obsrepdoc_herramientas"]; ?></td>
                 </tr>
 
                 <tr>
@@ -113,23 +97,106 @@ $herramientas = ControladorHerramientasSalidas::ctrInfoHerramienta($id);
                 </tr>
 
                 <tr>
-                    <th>HOJA DE MANUAL</th>
+                    <th>REF. DEL MANUAL</th>
                     <td><?php echo $herramientas["hojamanual_herramientas"]; ?></td>
                 </tr>
-
                 <tr>
-                    <th>STICKER</th>
-                    <td><?php echo $herramientas["sticker_herramientas"]; ?></td>
+                    <th>IDENTIFICACION</th>
+                    <td><?php echo $herramientas["identificacion_herramientas"]; ?></td>
                 </tr>
 
                 <tr>
-                    <th>ULTIMO INVENTARIO MARZO</th>
+                    <th>ULTIMO INVENTARIO</th>
                     <td><?php echo $herramientas["ultimoinven_herramientas"]; ?></td>
                 </tr>
 
                 <tr>
-                    <th>CALIBRADA ESPECIALIZADA ESTANDAR</th>
-                    <td><?php echo $herramientas["calibradaespecia_herramientas"]; ?></td>
+                    <th>AERONAVES</th>
+                    <td><?php echo $herramientas["aeronaves_herramientas"]; ?></td>
+                </tr>
+
+                <tr>
+                    <th>ATA</th>
+                    <td><?php echo $herramientas["ata_herramientas"]; ?></td>
+                </tr>
+
+                <tr>
+                    <th>RANGO MEDIDA</th>
+                    <td><?php echo $herramientas["rangomedida_herramientas"]; ?></td>
+                </tr>
+
+                <tr>
+                    <th>INVENTARIO</th>
+                    <td><?php echo $herramientas["inventario"]; ?></td>
+                </tr>
+
+                <tr>
+                    <th>ESTANTE</th>
+                    <td><?php echo $herramientas["estante_herramientas"]; ?></td>
+                </tr>
+
+                <tr>
+                    <th>SECCION</th>
+                    <td><?php echo $herramientas["seccion_herramientas"]; ?></td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="col-sm-3">
+            <table class="table">
+                <tr>
+                    <th>PERMANT</th>
+                    <td><?php echo $herramientas["permant_herramientas"]; ?></td>
+                </tr>
+
+                <tr>
+                    <th>PERCAL</th>
+                    <td><?php echo $herramientas["percal_herramientas"]; ?></td>
+                </tr>
+
+                <tr>
+                    <th>TALLER</th>
+                    <td><?php echo $herramientas["taller_herramientas"]; ?></td>
+                </tr>
+
+                <tr>
+                    <th>STATUS</th>
+                    <td><?php echo $herramientas["status_herramientas"]; ?></td>
+                </tr>
+
+                <tr>
+                    <th>NOMBRE & CODIGO EMPLEADO</th>
+                    <td><?php echo $herramientas["nombreemple_herramientas"] . " " . $herramientas["codigoemple_herramientas"]; ?></td>
+                </tr>
+
+                <tr>
+                    <th>FECHA PREST.</th>
+                    <td><?php echo $herramientas["fechaprest_herramientas"]; ?></td>
+                </tr>
+
+                <tr>
+                    <th>FECHA DEV.</th>
+                    <td><?php echo $herramientas["fechadev_herramientas"]; ?></td>
+                </tr>
+                <tr>
+                    <th>ENCARGADO</th>
+                    <td><?php echo $herramientas["encargado_herramientas"]; ?></td>
+                </tr>
+                <tr>
+                    <th>FLOTA</th>
+                    <td><?php echo $herramientas["flota_herramientas"]; ?></td>
+                </tr>
+                <tr>
+                    <th>USO</th>
+                    <td><?php echo $herramientas["uso_herramientas"]; ?></td>
+                </tr>
+                <tr>
+                    <th>DOCMANT</th>
+                    <td><?php echo $herramientas["docmant_herramientas"]; ?></td>
+                </tr>
+                <tr>
+                    <th>DOC.</th>
+                    <td><?php echo $herramientas["doc_herramientas"]; ?></td>
                 </tr>
 
             </table>
@@ -138,6 +205,15 @@ $herramientas = ControladorHerramientasSalidas::ctrInfoHerramienta($id);
         <div class="col-sm-3">
             <table class="table">
                 <tr>
+                    <th>STICKER</th>
+                    <td><?php echo $herramientas["sticker_herramientas"]; ?></td>
+                </tr>
+
+                <tr>
+                    <th>CALIBRADA ESPECIALIZADA ESTANDAR</th>
+                    <td><?php echo $herramientas["calibradaespecia_herramientas"]; ?></td>
+                </tr>
+                <tr>
                     <th>ESTADO DE HERRAMIENTA</th>
                     <td><?php echo $herramientas["estadoherramienta_herramientas"]; ?></td>
                 </tr>
@@ -145,11 +221,6 @@ $herramientas = ControladorHerramientasSalidas::ctrInfoHerramienta($id);
                 <tr>
                     <th>REQUIERE INSP. PERIODICA</th>
                     <td><?php echo $herramientas["requiereinspecperiodica_herramientas"]; ?></td>
-                </tr>
-
-                <tr>
-                    <th>RANGO/MEDIDA</th>
-                    <td><?php echo $herramientas["rangomedida_herramientas"]; ?></td>
                 </tr>
 
                 <tr>

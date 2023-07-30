@@ -1,10 +1,10 @@
-function MNuevoHerramientas() {
+function MNuevoDBaja() {
   $("#modal-xl").modal("show")
 
   var obj = ""
   $.ajax({
     type: "POST",
-    url: "vista/herramientas/FNuevoHerramientas.php",
+    url: "vista/dbaja/FNuevoDBaja.php",
     data: obj,
     success: function (data) {
       $("#content-xl").html(data)
@@ -12,11 +12,15 @@ function MNuevoHerramientas() {
   })
 }
 
-function RegHerramientas() {
-  var formData = new FormData($("#FormRegHerramientas")[0])
+function RegDBaja() {
+
+
+  var formData = new FormData($("#FormRegDBaja")[0])
+
+
   $.ajax({
     type: "POST",
-    url: "controlador/herramientasControlador.php?ctrRegHerramienta",
+    url: "controlador/dbajaControlador.php?ctrRegDBaja",
     data: formData,
     cache: false,
     contentType: false,
@@ -27,7 +31,7 @@ function RegHerramientas() {
         Swal.fire({
           icon: 'success',
           showConfirmButton: false,
-          title: 'Herramientas Registradas',
+          title: 'Herramienta De Baja Registrada',
           timer: 1000
         })
         setTimeout(function () {
@@ -46,13 +50,13 @@ function RegHerramientas() {
 
 }
 
-function MVerHerramienta(id) {
+function MVerDBajas(id) {
   $("#modal-xl").modal("show")
 
   var obj = ""
   $.ajax({
     type: "POST",
-    url: "vista/herramientas/MVerHerramientas.php?id=" + id,
+    url: "vista/dbaja/MVerDBaja.php?id=" + id,
     data: obj,
     success: function (data) {
       $("#content-xl").html(data)
@@ -60,13 +64,13 @@ function MVerHerramienta(id) {
   })
 }
 
-function MEditarHerramienta(id) {
+function MEditarDBajas(id) {
   $("#modal-xl").modal("show")
 
   var obj = ""
   $.ajax({
     type: "POST",
-    url: "vista/herramientas/FEditHerramientas.php?id=" + id,
+    url: "vista/dbaja/FEditDBaja.php?id=" + id,
     data: obj,
     success: function (data) {
       $("#content-xl").html(data)
@@ -74,12 +78,12 @@ function MEditarHerramienta(id) {
   })
 }
 
-function EditHerramientas() {
+function EditDBaja() {
 
-  var formData = new FormData($("#FormEditHerramienta")[0])
+  var formData = new FormData($("#FormEditDBaja")[0])
   $.ajax({
     type: "POST",
-    url: "controlador/herramientasControlador.php?ctrEditHerramienta",
+    url: "controlador/dbajaControlador.php?ctrEditDBaja",
     data: formData,
     cache: false,
     contentType: false,
@@ -90,7 +94,7 @@ function EditHerramientas() {
         Swal.fire({
           icon: 'success',
           showConfirmButton: false,
-          title: 'Herramienta Actualizado',
+          title: 'Herramienta De Baja Actualizado',
           timer: 1000
         })
         setTimeout(function () {
@@ -108,13 +112,13 @@ function EditHerramientas() {
   })
 }
 
-function MEliHerramienta(id) {
+function MEliDBajas(id) {
   var obj = {
     id: id
   };
 
   Swal.fire({
-    title: 'Esta Seguro De Eliminar Esta Herramienta Perteneciente A SAE-LAB?',
+    title: 'Esta seguro de eliminar esta Herramienta De Baja?',
     showDenyButton: true,
     showCancelButton: false,
     confirmButtonText: 'Confirmar',
@@ -124,7 +128,7 @@ function MEliHerramienta(id) {
       $.ajax({
         type: "POST",
         data: obj,
-        url: "controlador/herramientasControlador.php?ctrEliHerramienta",
+        url: "controlador/dbajaControlador.php?ctrEliDbaja",
         success: function () {
           location.reload()
         }
@@ -135,53 +139,54 @@ function MEliHerramienta(id) {
   })
 }
 
-function MCargarRegistrosHerramientas() {
+function MCargarRegistrosDBaja() {
   $("#modal-default").modal("show")
 
   var obj = ""
   $.ajax({
-    type: "POST",
-    url: "vista/herramientas/FCargarRegHerramientas.php",
-    data: obj,
-    success: function (data) {
-      $("#content-modal-default").html(data)
-    }
+      type: "POST",
+      url: "vista/dbaja/FCargarRegistrosDbaja.php",
+      data: obj,
+      success: function (data) {
+          $("#content-modal-default").html(data)
+      }
   })
 }
 
-function CargarRegistrosControlHerra() {
-  var formData = new FormData($("#FCargarRegistrosHerramientas")[0])
-
+function CargarRegistrosCalibracion() {
+  var formData = new FormData($("#FCargarRegistrosCalibracion")[0])
 
   $.ajax({
-    type: "POST",
-    url: "controlador/herramientasControlador.php?ctrRegRegistrosHerramientas",
-    data: formData,
-    cache: false,
-    contentType: false,
-    processData: false,
-    success: function (data) {
-      console.log(data)
-      if (data == "ok") {
-        Swal.fire({
-          icon: 'success',
-          showConfirmButton: false,
-          title: 'Registros cargados',
-          timer: 1000
-        })
-        setTimeout(function () {
-          location.reload()
-        }, 1200)
-      } else {
-        Swal.fire({
-          icon: 'error',
-          showConfirmButton: false,
-          title: 'Error de carga!!!',
-          timer: 1500
-        })
-
+      type: "POST",
+      url: "controlador/calibracionControlador.php?ctrRegistrosCalibracion",
+      data: formData,
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: function (data) {
+          console.log(data)
+                    if (data == "ok") {
+                            Swal.fire({
+                                icon: 'success',
+                                showConfirmButton: false,
+                                title: 'Registros cargados',
+                                timer: 1000
+                            })
+                            setTimeout(function () {
+                                location.reload()
+                            }, 1200)
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                showConfirmButton: false,
+                                title: 'Error de carga!!!',
+                                timer: 1500
+                            })
+                   
       }
-    }
-  })
+  }
+         })
 
 }
+
+

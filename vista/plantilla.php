@@ -10,6 +10,7 @@
     <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!--icono-->
 
@@ -76,6 +77,7 @@
           $_GET["ruta"] == "VLogHerramientas" ||
           $_GET["ruta"] == "VControlHerramientas" ||
           $_GET["ruta"] == "VCalibracion" ||
+          $_GET["ruta"] == "VDBaja" ||
           $_GET["ruta"] == "BusTramite" ||
           $_GET["ruta"] == "VMarcaciones" ||
           $_GET["ruta"] == "VRepHerramientas" ||
