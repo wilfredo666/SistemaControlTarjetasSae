@@ -1,20 +1,25 @@
 <?php
-$path=parse_url($_SERVER['REQUEST_URI']);
-//directorio + archivo
-$ruta=$path["query"];
-//dividiendo la ruta del directorio con el archivo
-$dirArch=explode("-",$ruta);
-var_dump($dirArch);
 
-//nombre del archivo
-$nameFile=$dirArch[1];
-//ruta del archivo
-$ruteFile=$dirArch[0];
+    // Obtener los datos enviados a través de la solicitud get
+    $rutaArchivo = $_GET["ruta"];
+    $nombreArchivo = $_GET["archivo"];
 
-//array(2) { [0]=> string(22) "assest/files/archivos/" [1]=> string(10) "texto.docx" }
+    // Validar y procesar los datos si es necesario
 
-// assest/files/archivos/texto.docx
-header("Content-disposition: attachment; filename=$nameFile");
-header("Content-type: application/pdf");
-readfile($nameFile);
+    // Ruta completa al archivo
+    $rutaCompleta = "../".$rutaArchivo . $nombreArchivo;
+
+    // Verificar si el archivo existe
+    if (file_exists($rutaCompleta)) {
+        // Establecer los encabezados para la descarga
+        header('Content-Type: application/octet-stream');
+        header("Content-Transfer-Encoding: Binary");
+        header("Content-disposition: attachment; filename=\"" . $nombreArchivo . "\"");
+
+        // Leer y enviar el contenido del archivo
+        readfile($rutaCompleta);
+        //exit(); // Importante: Salir del script después de la descarga
+    } else {
+        echo "El archivo no existe.";
+    }
 ?>

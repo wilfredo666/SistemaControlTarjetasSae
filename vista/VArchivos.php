@@ -40,64 +40,82 @@
                   }
 
                   mostrar_archivos($ruta);
-                  function mostrar_archivos($ruta){
 
+                  function mostrar_archivos($ruta){
+                  ?>
+                  <tr>
+                    <td>
+                      <i class="fas fa-folder text-success">&nbsp;</i><a href="VArchivos?." class="file-manager-group-title text-success">Inicio</a>
+                  </a>
+                  </td>
+                <td>
+                </td>
+                </tr>
+              <tr>
+                <td>
+                  <i class="fas fa-folder text-success">&nbsp;</i><a href="javascript:history.back()" class="file-manager-group-title text-success">Atras</a>
+                </td>
+                <td></td>
+              </tr>
+
+              <?php
                     if(is_dir($ruta)){
                       $gestor=opendir($ruta);
-
                       while(($archivo=readdir($gestor))!=false){
-                        if($archivo!=".."){
+                        if($archivo!=".." and $archivo!="."){
                           $divArchivo=explode(".",$archivo);
                           if(count($divArchivo)<2){
-                  ?>
-                  <tr>
-                    <td><i class="fas fa-folder text-primary">&nbsp;</i><a href="VArchivos?<?php echo $archivo;?>" class="file-manager-group-title"><?php echo $archivo; ?></a></td>
-                     <td>
-                      <div class="btn-group">
-                        <button class="btn btn-default btn-xs" onclick="">
-                          <i class="fas fa-download"></i>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <?php
+              ?>
+              <tr>
+                <td><i class="fas fa-folder text-primary">&nbsp;</i><a href="VArchivos?<?php echo $archivo;?>" class="file-manager-group-title"><?php echo $archivo; ?></a></td>
+                <td>
+                  <div class="btn-group">
+<!--                    <button class="btn btn-default btn-xs" onclick="">
+                      <i class="fas fa-download"></i>
+                    </button>-->
+                  </div>
+                </td>
+              </tr>
+              <?php
                           }else{
-                  ?>
-                  <tr>
-                    <td><i class="fas fa-file text-success">&nbsp;</i><span class="text-muted"><?php echo $archivo; ?></span></td>
-                    <td>
-                      <div class="btn-group">
-                       <a class="btn btn-default btn-xs" href="descargar?<?php echo $ruta."-".$archivo;?>">
-                         <i class="fas fa-download"></i>
-                       </a>
-                        <!--<button class="btn btn-default btn-xs" onclick="">
-                          <i class="fas fa-download"></i>
-                        </button>-->
-                      </div>
-                    </td>
-                  </tr>
-
-                  <?php
+              ?>
+              <tr>
+                <td><i class="fas fa-file text-muted">&nbsp;</i><span class="text-muted"><?php echo $archivo; ?></span></td>
+                <td>
+                  <div class="btn-group">
+                   
+                    <a class="btn btn-default btn-xs" href="vista/descargar.php?ruta=<?php echo $ruta;?>&archivo=<?php echo $archivo;?>">
+                      <i class="fas fa-download"></i>
+                    </a> 
+                  </div>
+                </td>
+              </tr>
+              <?php
                           }
+
+              ?>
+
+
+              <?php
                         }
                       }
                     }
                   }
 
-                  ?>
-                </table>
-              </div>
-
-            </div>
+              ?>
+              </table>
           </div>
-
-        </div>
-        <div class="card-footer clearfix">
 
         </div>
       </div>
 
     </div>
+    <div class="card-footer clearfix">
+
+    </div>
   </div>
+
+</div>
+</div>
 </div>
 <!-- /.content-wrapper -->
