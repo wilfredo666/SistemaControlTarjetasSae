@@ -115,7 +115,7 @@ with font-awesome or any other icon font library -->
                                 <li class="nav-item">
                                     <a href="VHerramientas" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Lista de Herramientas</p>
+                                        <p>Herramientas SAE-LAB</p>
                                     </a>
                                     <a href="VLogHerramientas" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
@@ -136,13 +136,19 @@ with font-awesome or any other icon font library -->
                                 <li class="nav-item">
                                     <a href="VControlHerramientas" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Lista de Herramientas</p>
+                                        <p>Herramientas Completas</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="VCalibracion" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Origen o Calibracion</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="VDBaja" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Dados De Baja</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">

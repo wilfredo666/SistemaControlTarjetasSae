@@ -85,12 +85,15 @@ $pdf->SetFont("Helvetica", "", 7);
 
 $pdf->setTextColor(0, 0, 0);
 
-function limitar_cadena($cadena, $limite, $sufijo){
-	if(strlen($cadena) > $limite){
-		return substr($cadena, 0, $limite) . $sufijo;
-	}
-	return $cadena;
+function limitar_cadena($cadena, $limite, $sufijo)
+{
+    if (strlen($cadena) > $limite) {
+        return substr($cadena, 0, $limite) . $sufijo;
+    }
+    return $cadena;
 }
+
+
 
 foreach ($herra as $value) {
     $pdf->setX(8);
@@ -105,28 +108,48 @@ foreach ($herra as $value) {
     $pdf->Cell(21, 8, $value["numserie_controlherramientas"], 1, 0, 'C');
     $pdf->Cell(17, 8, $value["codigo_controlherramientas"], 1, 0, 'C');
     $pdf->Cell(21, 8, $value["fechacali_controlherramientas"], 1, 0, 'C');
-    $pdf->Cell(20, 8, $value["fechavenci_controlherramientas"], 1, 0, 'C');
+
+    date_default_timezone_set("America/La_Paz");
+    $fecha1 = new DateTime($fecha = date("Y-m-d"));
+    $fecha2 = new DateTime($value["fechavenci_controlherramientas"]);
+    $diferencia = $fecha1->diff($fecha2);
+    $totalDias = $diferencia->days * ($diferencia->invert ? -1 : 1);
+
+    if ($totalDias <= 10 and $totalDias >= 1) {
+        $pdf->SetFillColor(255, 221, 51);
+        $pdf->Cell(20, 8, $value["fechavenci_controlherramientas"], 1, 0, 'C', true);
+    } elseif ($totalDias < 1) {
+        $pdf->SetFillColor(223, 50, 26);
+        $pdf->Cell(20, 8, $value["fechavenci_controlherramientas"], 1, 0, 'C', true);
+    } else {
+        $pdf->SetFillColor(255, 255, 255);
+        $pdf->Cell(20, 8, $value["fechavenci_controlherramientas"], 1, 0, 'C', true);
+    }
+    $pdf->setTextColor(0, 0, 0);
     $pdf->Cell(31, 8, $value["ubicacion_controlherramientas"], 1, 0, 'C');
     $pdf->Cell(14, 8, $value["numcarpeta_controlherramientas"], 1, 1, 'C');
 }
 
-/*$pdf->SetFont("times", "", 8);
-$pdf->SetY(-15);
+
+
+date_default_timezone_set('America/La_Paz');
+//PIE DE PÁGINA
+
+$pdf->SetFont("times", "", 8);
+$pdf->SetY(-30);
 $pdf->SetX(25);
 $pdf->Cell(40, 8, "PREPARADO POR:", "T", 0, "C");
 //$pdf->Cell(40, 8, "", 0, "C");
 $pdf->SetX(85);
 $pdf->Cell(40, 8, utf8_decode("Vo Bo CONTROL DE CALIDAD"), "T", 0, "C");
 $pdf->SetX(145);
-$pdf->Cell(40, 8, utf8_decode("FECHA DE ACTUALIZACIÓN: ").date('d/m/Y'), 0, 0, "C"); */
+$pdf->Cell(40, 8, utf8_decode("FECHA DE ACTUALIZACIÓN: ") . date('d/m/Y'), 0, 0, "C");
 
-date_default_timezone_set('America/La_Paz');
-//PIE DE PÁGINA
 $pdf->SetY(-20);
 $pdf->SetX(8);
 $pdf->SetFont("times", "", 8);
 $pdf->Cell(65, 8, 'FORM SAESM104', 1, 0, 'C');
 $pdf->Cell(70, 8, 'REV.05', 1, 0, 'C');
-$pdf->Cell(65, 8, utf8_decode("FECHA: ").date('11/03/2022'), 1, 0, 'C');
+$pdf->Cell(65, 8, utf8_decode("FECHA: ") . date('11/03/2022'), 1, 0, 'C');
 
 $pdf->Output();

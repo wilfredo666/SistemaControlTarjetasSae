@@ -127,7 +127,7 @@ $seguimiento = ControladorSeguimiento::ctrInfoSeguimiento($id);
             </div>
         </div>
         <div class="row">
-        <div class="col-sm-4">
+            <div class="col-sm-4">
                 <div class="form-group">
                     <label for="">Foto</label>
                     <input type="file" class="form-control" id="imgProducto" name="imgProducto">

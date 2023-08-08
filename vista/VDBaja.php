@@ -5,7 +5,7 @@
           <div class="container-fluid">
               <div class="row mb-2">
                   <div class="col-sm-6">
-                      <h3 class="m-0">ACCESORIOS DE HERRAMIENTAS PARA AJUSTE AL PUNTO DE ORIGEN O CALIBRACION</h3>
+                      <h3 class="m-0">EQUIPOS Y HERRAMIENTAS DADOS DE BAJA</h3>
                   </div><!-- /.col -->
                   <div class="col-sm-6">
 
@@ -15,9 +15,9 @@
       </div>
       <div class="content">
           <div class="container-fluid">
-              <table id="DataTableCalibracion" class="table table-bordered table-striped">
+              <table id="DataTableDBaja" class="table table-bordered table-striped">
                   <thead>
-                  <button class="btn btn-success" onclick="MCargarRegistrosCalibracion()">Importar Excel</button>
+                  <button class="btn btn-success" onclick="MCargarRegistrosDBaja()">Importar Excel</button>
                       <tr>
                           <th>ITEM</th>
                           <th>DESCRIPCION</th>
@@ -28,37 +28,36 @@
                           <th>FECHA CAL.</th>
                           <th>N° CARPETA</th>
                           <td>
-                              <button class="btn btn-primary" onclick="MNuevoCalibracion()">Agregar</button>
+                              <button class="btn btn-primary" onclick="MNuevoDBaja()">Agregar</button>
                           </td>
                       </tr>
                   </thead>
                   <tbody>
 
                       <?php
-                        $calibracion = ControladorCalibraciones::ctrInfoCalibraciones();
-                        foreach ($calibracion as $value) {
+                        $dbaja = ControladorDBajas::ctrInfoDbajas();
+                        foreach ($dbaja as $value) {
                         ?>
                           <tr>
-                              <td><?php echo $value["id_calibracion"]; ?></td>
-                              <td><?php echo $value["descripcion_calibracion"]; ?></td>
-                              <td><?php echo $value["pn_calibracion"]; ?></td>
-                              <td><?php echo $value["numserie_calibracion"]; ?></td>
-                              <td><?php echo $value["codigo_calibracion"]; ?></td>
-                              <td><?php echo $value["ubicacion_calibracion"]; ?></td>
-                              <td><?php echo $value["fechacali_calibracion"]; ?></td>
-                              <td><?php echo $value["numcarpeta_calibracion"]; ?></td>
+                              <td><?php echo $value["id_dbajas"]; ?></td>
+                              <td><?php echo $value["descripcion_dbajas"]; ?></td>
+                              <td><?php echo $value["pn_dbajas"]; ?></td>
+                              <td><?php echo $value["numserie_dbajas"]; ?></td>
+                              <td><?php echo $value["codigo_dbajas"]; ?></td>
+                              <td><?php echo $value["ubicacion_dbajas"]; ?></td>
+                              <td><?php echo $value["fechacali_dbajas"]; ?></td>
+                              <td><?php echo $value["numcarpeta_dbajas"]; ?></td>
                               <td>
                                   <div class="btn-group">
-                                      <button class="btn btn-secondary" onclick="MVerCalibraciones(<?php echo $value["id_calibracion"]; ?>)">
+                                      <button class="btn btn-secondary" onclick="MVerDBajas(<?php echo $value["id_dbajas"]; ?>)">
                                           <i class="fas fa-eye"></i>
                                       </button>
-                                      <button class="btn btn-warning" onclick="MEditarCalibraciones(<?php echo $value["id_calibracion"]; ?>)">
+                                      <button class="btn btn-warning" onclick="MEditarDBajas(<?php echo $value["id_dbajas"]; ?>)">
                                           <i class="fas fa-edit"></i>
                                       </button>
-                                      <button class="btn btn-danger" onclick="MEliCalibracion(<?php echo $value["id_calibracion"]; ?>)">
+                                      <button class="btn btn-danger" onclick="MEliDBajas(<?php echo $value["id_dbajas"]; ?>)">
                                           <i class="fas fa-trash"></i>
                                       </button>
-                                      <a class="btn btn-sm btn-success" href="vista/reportes/repPorCalibracion.php?id=<?php echo $value["id_calibracion"]; ?>" target="_blank"><i class="fas fa-print"></i></a>
                                   </div>
                               </td>
                           </tr>

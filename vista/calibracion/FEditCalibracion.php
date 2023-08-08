@@ -68,6 +68,7 @@ $calibracion = ControladorCalibraciones::ctrInfoCalibracion($id);
                         <option>Seleccione</option>
                         <option value="PIEZA" <?php if ($calibracion["unidad_calibracion"] == "PIEZA") : ?> selected <?php endif; ?>>PIEZA</option>
                         <option value="SET" <?php if ($calibracion["unidad_calibracion"] == "SET") : ?> selected <?php endif; ?>>SET</option>
+                        <option value="KIT" <?php if ($calibracion["unidad_calibracion"] == "KIT") : ?> selected <?php endif; ?>>KIT</option>
                     </select>
                 </div>
             </div>
@@ -110,6 +111,7 @@ $calibracion = ControladorCalibraciones::ctrInfoCalibracion($id);
                         <option>Seleccione</option>
                         <option value="CON TIEMPO" <?php if ($calibracion["estado_calibracion"] == "CON TIEMPO") : ?> selected <?php endif; ?>>CON TIEMPO</option>
                         <option value="VENCIDO" <?php if ($calibracion["estado_calibracion"] == "VENCIDO") : ?> selected <?php endif; ?>>VENCIDO</option>
+                        <option value="N/A" <?php if ($calibracion["estado_calibracion"] == "N/A") : ?> selected <?php endif; ?>>N/A</option>
                     </select>
                 </div>
             </div>
@@ -129,6 +131,7 @@ $calibracion = ControladorCalibraciones::ctrInfoCalibracion($id);
                         <option value="METRIC" <?php if ($calibracion["origencali_calibracion"] == "METRIC") : ?> selected <?php endif; ?>>METRIC</option>
                         <option value="METROTEST" <?php if ($calibracion["origencali_calibracion"] == "METROTEST") : ?> selected <?php endif; ?>>METROTEST</option>
                         <option value="S.A.E." <?php if ($calibracion["origencali_calibracion"] == "S.A.E.") : ?> selected <?php endif; ?>>S.A.E.</option>
+                        <option value="CAMPUS" <?php if ($calibracion["origencali_calibracion"] == "CAMPUS") : ?> selected <?php endif; ?>>CAMPUS</option>
                     </select>
                 </div>
             </div>
@@ -184,6 +187,7 @@ $calibracion = ControladorCalibraciones::ctrInfoCalibracion($id);
                         <option>Seleccione</option>
                         <option value="ALMACEN CBBA" <?php if ($calibracion["ubicacionautorizada_calibracion"] == "ALMACEN CBBA") : ?> selected <?php endif; ?>>ALMACEN CBBA</option>
                         <option value="EN CALIBRACION" <?php if ($calibracion["ubicacionautorizada_calibracion"] == "EN CALIBRACION") : ?> selected <?php endif; ?>>EN CALIBRACION</option>
+                        <option value="N/A" <?php if ($calibracion["ubicacionautorizada_calibracion"] == "N/A") : ?> selected <?php endif; ?>>N/A</option>
                     </select>
                 </div>
             </div>

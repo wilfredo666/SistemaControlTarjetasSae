@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <div class="row mb-2" style="display: flex; justify-content: space-between;">
         <div class="col-sm-5">
-          <h3 class="m-0">Panel Comprobante Herramienta Recibida/Entregada</h3>
+          <h3 class="m-0">Panel Herramientas Recibida/Entregada SAE-LAB</h3>
         </div><!-- /.col -->
         <div class="col-sm-7">
           
@@ -25,11 +25,10 @@
               <th>N°</th>
               <th>DESCRIPCION</th>
               <th>P/N</th>
-              <th>P/N ALT</th>
               <th>S/N</th>
               <th>CODIGO</th>
               <th>UBICACION</th>
-              <th>MARCA O FABRICA</th>
+              <th>MARCA</th>
               <th>CANTIDAD</th>
               <th>UNIDAD</th>
               <td>
@@ -52,11 +51,10 @@
               <td><?php echo $value["num_herramientas"]; ?></td>
               <td><?php echo $value["descripcion_herramientas"]; ?></td>
               <td><?php echo $value["pn_herramientas"]; ?></td>
-              <td><?php echo $value["pnalt_herramientas"]; ?></td>
               <td><?php echo $value["sn_herramientas"]; ?></td>
               <td><?php echo $value["codigo_herramientas"]; ?></td>
-              <td><?php echo $value["ubicacion_herramientas"]; ?></td>                       
-              <td><?php echo $value["marcaofabri_herramientas"] ?></td>
+              <td><?php echo $value["ubicacion_herramientas"]; ?></td>
+              <td><?php echo $value["marcaofabri_herramientas"]; ?></td>
               <td><?php echo $value["cantidad_herramientas"] ?></td>
               <td><?php echo $value["unidad_herramientas"] ?></td>
               <td>
