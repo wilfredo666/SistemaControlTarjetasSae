@@ -1,9 +1,25 @@
+<?php
+//capturamos la url y separamos el nombre del directorio
+$path=parse_url($_SERVER['REQUEST_URI']);
+
+//comprobamos si existe un path de carpeta en la url
+if(isset($path["query"])){
+  global $directorio;
+  $directorio=$path["query"]; //donde directorio es la carpeta en la que se encuentra
+
+  $ruta="assest/files/archivos/".$directorio;
+}else{
+  $ruta="assest/files/archivos/";
+}
+?>
+
+
 <div class="app-content">
   <div class="content-wrapper">
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h4 class="m-0">Gestion Archivos</h4>
+          
         </div><!-- /.col -->
         <div class="col-sm-6">
 
@@ -15,9 +31,9 @@
             <div class="page-description-actions">
             </div>
             <div class="card-header">
-              <h3 class="card-title">Carpetas Disponibles <?php echo "";?></h3>
+              <h3 class="card-title">Gestion de Archivos</h3>
               <div class="card-tools">
-                <button class="btn btn-success" onclick="MNuevoCarpeta()">Crear Carpeta</button>
+                <button class="btn btn-success" onclick="MNuevoCarpeta('<?php echo $directorio;?>')">Crear Carpeta</button>
               </div>
             </div>
 
@@ -25,18 +41,6 @@
               <div class="row">
                 <table class="table table-bordered table-striped">
                   <?php
-                  //capturamos la url y separamos el nombre del directorio
-                  $path=parse_url($_SERVER['REQUEST_URI']);
-
-                  //comprobamos si existe un path de carpeta en la url
-                  if(isset($path["query"])){
-                    global $directorio;
-                    $directorio=$path["query"]; //donde directorio es la carpeta en la que se encuentra
-
-                    $ruta="assest/files/archivos/".$directorio;
-                  }else{
-                    $ruta="assest/files/archivos/";
-                  }
 
                   mostrar_archivos($ruta);
 
@@ -61,14 +65,14 @@
                     //recuperamos el directorio anterior
                     global $directorio;
                     $dirSuperior=$directorio."/";
-                    
+
                     //comprobar si es un directorio
                     if(is_dir($ruta)){
                       //abrir el directorio
                       $gestor=opendir($ruta);
-                      
+
                       while(($archivo=readdir($gestor))!=false){
-                        
+
                         if($archivo!=".." and $archivo!="."){
                           $divArchivo=explode(".",$archivo);
                           if(count($divArchivo)<2){
@@ -80,7 +84,7 @@
                     <button class="btn btn-success btn-xs" onclick="MSubirArchivos('<?php echo $ruta."-".$archivo;?>')">
                       <i class="fas fa-upload"></i>
                     </button>
-                    <button class="btn btn-danger btn-xs" onclick="eliminarCarpeta()">
+                    <button class="btn btn-danger btn-xs" onclick="eliminarCarpeta('<?php echo $ruta."-".$archivo;?>')">
                       <i class="fas fa-trash"></i>
                     </button>
                   </div>
@@ -96,7 +100,10 @@
 
                     <a class="btn btn-default btn-xs" href="vista/descargar.php?ruta=<?php echo $ruta;?>&archivo=<?php echo $archivo;?>">
                       <i class="fas fa-download"></i>
-                    </a> 
+                    </a>
+                    <button class="btn btn-danger btn-xs" onclick="eliminarCarpeta()">
+                      <i class="fas fa-trash"></i>
+                    </button> 
                   </div>
                 </td>
               </tr>

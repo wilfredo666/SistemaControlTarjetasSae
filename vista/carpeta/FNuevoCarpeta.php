@@ -5,12 +5,13 @@
   </button>
 </div>
 <div class="modal-body">
-  <form enctype="multipart/form-data">
+  <form id="FormRegCarpetas" enctype="multipart/form-data">
     <div class="row">
       <div class="col-sm-12">
         <div class="form-group">
           <label for="">Nombre Carpeta</label>
           <input type="text" class="form-control" id="nomCarpeta" name="nomCarpeta" placeholder="Ingrese nombre de la carpeta">
+          <input type="hidden" name="directorio" value="<?php echo $_GET["dir"];?>">
         </div>
       </div>
       <div class="col-sm-12">

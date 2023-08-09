@@ -12,7 +12,8 @@ class ModeloCarpeta {
         $stmt->null;
     }
 
-    static public function mdlRegCarpeta( $data ) {
+  //******* codigo en desuso 
+ /*   static public function mdlRegCarpeta( $data ) {
 
         $nombre_carpeta = $data["nombre_carpeta"];
 
@@ -30,8 +31,9 @@ class ModeloCarpeta {
         $stmt->close();
         $stmt->null;
     }
-
-    static public function mdlEditCarpeta( $data ) {
+*/
+  //******* codigo en desuso 
+  /*  static public function mdlEditCarpeta( $data ) {
 
         $idCarpeta = $data["idCarpeta"];
         $nombre_carpeta = $data["nombre_carpeta"];
@@ -50,7 +52,7 @@ class ModeloCarpeta {
         $stmt->close();
         $stmt->null;
     }
-    
+    */
      static public function mdlInfoCarpeta( $id ) {
     $stmt = Conexion::conectar()->prepare( "SELECT * FROM carpetas where id_carpeta=$id" );
     $stmt->execute();

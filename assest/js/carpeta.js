@@ -54,12 +54,12 @@ init();
 /*==================
 modal nueva carpeta
 ==================*/
-function MNuevoCarpeta() {
+function MNuevoCarpeta(directorio) {
   $("#modal-default").modal("show");
   var obj = "";
   $.ajax({
     type: "POST",
-    url: "vista/carpeta/FNuevoCarpeta.php",
+    url: "vista/carpeta/FNuevoCarpeta.php?dir="+directorio,
     data: obj,
     success: function (data) {
       $("#content-modal-default").html(data);
@@ -113,9 +113,9 @@ function FormRegCarpeta() {
 
 
 /*==================
-modal eliminar carpetas
+codigo en desuso
 ==================*/
-function MEliCarpeta(id) {
+/*function MEliCarpeta(id) {
   var obj = {
     id: id
   };
@@ -140,7 +140,7 @@ function MEliCarpeta(id) {
       Swal.fire('Funcion Cancelada', '', 'info')
     }
   })
-}
+}*/
 
 /*======================
 Modal Editar carpeta
@@ -200,14 +200,14 @@ funcion para subir archivos a la carpeta
 ======================================*/
 function MSubirArchivos(archivo){
   let arc = archivo.split('-');
-    let rutaArchivo = arc[0];
-    let nombreArchivo = arc[1];
+  let rutaArchivo = arc[0];
+  let nombreArchivo = arc[1];
 
-    let objArchivo = {
-        rutaArchivo: rutaArchivo,
-        nombreArchivo: nombreArchivo
-    };
-  
+  let objArchivo = {
+    rutaArchivo: rutaArchivo,
+    nombreArchivo: nombreArchivo
+  };
+
   $('#modal-xl').modal('show');
 
   $.ajax({
@@ -216,6 +216,38 @@ function MSubirArchivos(archivo){
     data: objArchivo,
     success: function (data) {
       $("#content-xl").html(data);
+    }
+  })
+}
+
+function eliminarCarpeta(archivo){
+  let arc = archivo.split('-');
+  let rutaArchivo = arc[0];
+  let nombreArchivo = arc[1];
+
+  let objArchivo = {
+    rutaArchivo: rutaArchivo,
+    nombreArchivo: nombreArchivo
+  };
+
+  Swal.fire({
+    title: 'Esta seguro de eliminar la carpeta: '+nombreArchivo,
+    showDenyButton: true,
+    showCancelButton: false,
+    confirmButtonText: 'Confirmar',
+    denyButtonText: `Cancelar`,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $.ajax({
+        type: "POST",
+        data: obj,
+        url: "controlador/carpetaControlador.php?ctrEliCarpeta",
+        success: function () {
+          location.reload()
+        }
+      })
+    } else if (result.isDenied) {
+      Swal.fire('Funcion Cancelada', '', 'info')
     }
   })
 }
