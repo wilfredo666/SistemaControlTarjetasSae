@@ -52,7 +52,7 @@ class ControladorLogHerramientas
         foreach ($arregloCarrito as $value) {
             $idProd = $value['id'];
             $cantidadAlmacen = ModeloHerramientas::mdlInfoHerramienta($idProd);
-            
+
             $stock = $cantidadAlmacen['cantidad_herramientas'];
             $stockFinal = $stock - $value['cantidad'];
 
@@ -90,8 +90,19 @@ class ControladorLogHerramientas
         require "../modelo/logherramientasModelo.php";
         $data = $_POST["id"];
 
-        $respuesta = ModeloLogHerramientas::mdlDevHerramienta($data);
+        $respuesta = ModeloLogHerramientas::mdlInfoLogHerramienta($data);
 
-        echo $respuesta;
+        $resp = json_decode($respuesta['codigo_herramientas']);
+
+        for ($i = 0; $i < count($resp); $i++) {
+            $id = $resp[$i]->id;
+            $cantidad = $resp[$i]->cantidad;
+            $respuestaEstado = ModeloLogHerramientas::mdlActualizaStock($id, $cantidad);
+        }
+
+        if ($respuestaEstado == "ok") {
+            $respuestas = ModeloLogHerramientas::mdlDevHerramienta($data);
+            echo $respuestas;
+        }
     }
 }

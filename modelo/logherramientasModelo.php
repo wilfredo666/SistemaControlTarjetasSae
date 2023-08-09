@@ -109,21 +109,36 @@ class ModeloLogHerramientas
         $stmt->null;
     }
 
-    
+
     static public function mdlDevHerramienta($data)
-  { 
+    {
 
-    $stmt = Conexion::conectar()->prepare("update log_herramientas set tipo='ENTRADA' where id_log_herramientas=$data");
+        $stmt = Conexion::conectar()->prepare("update log_herramientas set tipo='ENTRADA' where id_log_herramientas=$data");
 
-    if ($stmt->execute()) {
+        if ($stmt->execute()) {
 
-      return "ok";
-    } else {
+            return "ok";
+        } else {
 
-      return "error";
+            return "error";
+        }
+
+        $stmt->close();
+        $stmt->null;
     }
 
-    $stmt->close();
-    $stmt->null;
-  }
+    static public function mdlActualizaStock($id, $cantidad)
+    {
+        $stmt = Conexion::conectar()->prepare("update herramientas set cantidad_herramientas = (cantidad_herramientas+$cantidad) where id_herramientas=$id");
+        if ($stmt->execute()) {
+
+            return "ok";
+        } else {
+
+            return "error";
+        }
+
+        $stmt->close();
+        $stmt->null;
+    }
 }

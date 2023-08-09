@@ -133,7 +133,8 @@ function MDevolverHerramienta(id) {
         type: "POST",
         data: obj,
         url: "controlador/logherramientasControlador.php?ctrDevHerramienta",
-        success: function () {
+        success: function (data) {
+          /* console.log(data); */
           location.reload()
         }
       })
