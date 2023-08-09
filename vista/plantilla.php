@@ -10,6 +10,7 @@
     <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!--icono-->
 
@@ -43,8 +44,8 @@
     <link rel="stylesheet" href="assest/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="assest/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
     
-    <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
-
+     <!-- dropzonejs -->
+  <link rel="stylesheet" href="assest/plugins/dropzone/min/dropzone.min.css">
   </head>
 
   <?php
@@ -76,6 +77,7 @@
           $_GET["ruta"] == "VLogHerramientas" ||
           $_GET["ruta"] == "VControlHerramientas" ||
           $_GET["ruta"] == "VCalibracion" ||
+          $_GET["ruta"] == "VDBaja" ||
           $_GET["ruta"] == "BusTramite" ||
           $_GET["ruta"] == "VMarcaciones" ||
           $_GET["ruta"] == "VRepHerramientas" ||

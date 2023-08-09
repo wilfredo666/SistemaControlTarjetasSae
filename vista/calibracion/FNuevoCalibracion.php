@@ -58,6 +58,7 @@
                          <option>Seleccione</option>
                          <option>PIEZA</option>
                          <option>SET</option>
+                         <option>KIT</option>
                      </select>
                  </div>
              </div>
@@ -100,6 +101,7 @@
                          <option>Seleccione</option>
                          <option>CON TIEMPO</option>
                          <option>VENCIDO</option>
+                         <option>N/A</option>
                      </select>
                  </div>
              </div>
@@ -119,6 +121,7 @@
                          <option>METRIC</option>
                          <option>METROTEST</option>
                          <option>S.A.E.</option>
+                         <option>CAMPUS</option>
                      </select>
                  </div>
              </div>
@@ -174,6 +177,7 @@
                          <option>Seleccione</option>
                          <option>ALMACEN CBBA</option>
                          <option>EN CALIBRACION</option>
+                         <option>N/A</option>
                      </select>
                  </div>
              </div>

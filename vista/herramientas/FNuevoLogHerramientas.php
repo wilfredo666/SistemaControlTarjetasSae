@@ -8,7 +8,7 @@
   <form id="FRegLogHerramientas">
 
     <div class="form-group">
-      <label for="">Nombre Clientes</label>
+      <label for="">Nombre Empleado</label>
       <?php
       require_once "../../controlador/usuarioControlador.php";
       require_once "../../modelo/usuarioModelo.php";

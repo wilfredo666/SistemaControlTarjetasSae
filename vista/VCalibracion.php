@@ -25,7 +25,7 @@
                           <th>NUMERO DE SERIE</th>
                           <th>CODIGO</th>
                           <th>UBICACION</th>
-                          <th>FECHA VENCIMIENTO</th>
+                          <th>FECHA CAL.</th>
                           <th>N° CARPETA</th>
                           <td>
                               <button class="btn btn-primary" onclick="MNuevoCalibracion()">Agregar</button>
@@ -45,7 +45,7 @@
                               <td><?php echo $value["numserie_calibracion"]; ?></td>
                               <td><?php echo $value["codigo_calibracion"]; ?></td>
                               <td><?php echo $value["ubicacion_calibracion"]; ?></td>
-                              <td><?php echo $value["fechavenci_calibracion"]; ?></td>
+                              <td><?php echo $value["fechacali_calibracion"]; ?></td>
                               <td><?php echo $value["numcarpeta_calibracion"]; ?></td>
                               <td>
                                   <div class="btn-group">

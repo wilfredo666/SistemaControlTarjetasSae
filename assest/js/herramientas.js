@@ -60,13 +60,13 @@ function MVerHerramienta(id) {
   })
 }
 
-function MEditarControlHerramienta(id) {
+function MEditarHerramienta(id) {
   $("#modal-xl").modal("show")
 
   var obj = ""
   $.ajax({
     type: "POST",
-    url: "vista/controlherramientas/FEditControlHerramientas.php?id=" + id,
+    url: "vista/herramientas/FEditHerramientas.php?id=" + id,
     data: obj,
     success: function (data) {
       $("#content-xl").html(data)
@@ -74,12 +74,12 @@ function MEditarControlHerramienta(id) {
   })
 }
 
-function EditControlHerramientas() {
+function EditHerramientas() {
 
-  var formData = new FormData($("#FormEditControlHerramienta")[0])
+  var formData = new FormData($("#FormEditHerramienta")[0])
   $.ajax({
     type: "POST",
-    url: "controlador/controlherramientasControlador.php?ctrEditControlHerramienta",
+    url: "controlador/herramientasControlador.php?ctrEditHerramienta",
     data: formData,
     cache: false,
     contentType: false,
@@ -90,7 +90,7 @@ function EditControlHerramientas() {
         Swal.fire({
           icon: 'success',
           showConfirmButton: false,
-          title: 'Control Herramienta Actualizado',
+          title: 'Herramienta Actualizado',
           timer: 1000
         })
         setTimeout(function () {
@@ -108,13 +108,13 @@ function EditControlHerramientas() {
   })
 }
 
-function MEliControlHerramienta(id) {
+function MEliHerramienta(id) {
   var obj = {
     id: id
   };
 
   Swal.fire({
-    title: 'Esta seguro de eliminar este control herramientas?',
+    title: 'Esta Seguro De Eliminar Esta Herramienta Perteneciente A SAE-LAB?',
     showDenyButton: true,
     showCancelButton: false,
     confirmButtonText: 'Confirmar',
@@ -124,7 +124,7 @@ function MEliControlHerramienta(id) {
       $.ajax({
         type: "POST",
         data: obj,
-        url: "controlador/controlherramientasControlador.php?ctrEliControlHerramienta",
+        url: "controlador/herramientasControlador.php?ctrEliHerramienta",
         success: function () {
           location.reload()
         }
@@ -185,72 +185,3 @@ function CargarRegistrosControlHerra() {
   })
 
 }
-
-/* REPORTE DE VENTAS POR PERSONAL */
-function reporteHerramienta() {
-  var formData = new FormData($("#ReporteDeHerramientas")[0])
-
-  $.ajax({
-    type: "POST",
-    url: "controlador/controlherramientasControlador.php?ctrRepHerramientas",
-    data: formData,
-    cache: false,
-    contentType: false,
-    processData: false,
-    success: function (data) {
-      $("#repHerramientas").html(data)
-      /* console.log(data); */
-    }
-  })
-}
-
-function impHerramientaSelec() {
-  /*  window.open("vista/reportes/repHerramientaSelec.php", '_blank'); */
-  $("#modal-xl").modal("show")
-  var formData = new FormData($("#FormHerramientaSeleccionado")[0]);
-
-  $.ajax({
-    type: "POST",
-    url: "vista/reportes/repHerramientaSelec.php",
-    data: formData,
-    cache: false,
-    contentType: false,
-    processData: false,
-    success: function (data) {
-      /* $("#repHerramientas").html(data) */
-      $("#content-xl").html(data)
-      console.log(data);
-
-      /* $$('#button').each(function(link) { button.onclick = function(){ window.open("newpage.html",'New Window'); return false; }; }); */
-    }
-  })
-}
-
-function fechSelec(){
-  var fechaInicial = new Date(document.getElementById('fechacalControlHerramientas').value); 
-  if(fechaInicial !== ""){
-    $("#periodocalControlHerramientas").attr("readonly", false);
-  }
-}
-
-function sumarMeses() {
-  var fechaInicial = new Date(document.getElementById('fechacalControlHerramientas').value); 
-  var mesesASumar = parseInt(document.getElementById('periodocalControlHerramientas').value);
-
-  var fechaFinal = new Date(fechaInicial.getFullYear(), fechaInicial.getMonth() + mesesASumar, fechaInicial.getDate()+1);
-
-  /* console.log('Fecha inicial: ', fechaInicial.toISOString().split('T')[0]);
-  console.log('Fecha resultante después de sumar', mesesASumar, 'meses:', fechaFinal.toISOString().split('T')[0]); */
-
-  document.getElementById('fechavenciControlHerramientas').value = fechaFinal.toJSON().slice(0,10)
-  document.getElementById('fechavenciControlHerramientas').classList.add('bg-dark','text-white')
-
-  document.getElementById("estadoControlHerramientas").value = "CON TIEMPO";
-
-  var DiferenciaFecha = fechaFinal - fechaInicial
-  var diferenciaEnDias = Math.floor(DiferenciaFecha / (1000 * 60 * 60 * 24));
-  document.getElementById('diasalertaControlHerramientas').value = diferenciaEnDias + " DIAS"
-}
-
-
-

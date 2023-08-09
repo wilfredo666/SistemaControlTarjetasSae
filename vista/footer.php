@@ -13,13 +13,14 @@
 <script src="assest/plugins/jquery/jquery.min.js"></script>
 <script src="assest/plugins/chart.js/Chart.min.js"></script>
 <script src="assest/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
+<!--<script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>-->
 
 <!-- ChartJS -->
 <script src="assest/plugins/chart.js/Chart.min.js"></script>
 
 <!-- AdminLTE App -->
 <script src="assest/dist/js/adminlte.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- DataTables  & Plugins -->
 <script src="assest/plugins/datatables/jquery.dataTables.min.js"></script>
@@ -56,9 +57,13 @@
 <script src="assest/js/material.js"></script>
 <script src="assest/js/controlherramientas.js"></script>
 <script src="assest/js/calibracion.js"></script>
+<script src="assest/js/dbaja.js"></script>
 <script src="assest/js/herramientas.js"></script>
 <script src="assest/js/logherramientas.js"></script>
 <script src="assest/js/servicios.js"></script>
+
+<!-- dropzonejs -->
+<script src="assest/plugins/dropzone/min/dropzone.min.js"></script>
 
 <!--====================
 Seccion  de Modals
@@ -76,8 +81,19 @@ Seccion  de Modals
 <!-- /.modal -->
 
 <div class="modal fade" id="modal-xl">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl">
         <div class="modal-content" id="content-xl">
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<div class="modal fade" id="modal-fullscreen">
+    <div class="modal-dialog modal-fullscreen-xxl-down">
+        <div class="modal-content" id="content-fullscreen">
 
         </div>
         <!-- /.modal-content -->
@@ -211,6 +227,16 @@ Seccion  de Modals
             "autoWidth": false,
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
         }).buttons().container().appendTo('#DataTableCalibracion_wrapper .col-md-6:eq(0)');
+
+    });
+
+    $(function() {
+        $("#DataTableDBaja").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#DataTableDBaja_wrapper .col-md-6:eq(0)');
 
     });
 
