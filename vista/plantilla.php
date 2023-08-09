@@ -44,8 +44,8 @@
     <link rel="stylesheet" href="assest/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="assest/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
     
-    <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
-
+     <!-- dropzonejs -->
+  <link rel="stylesheet" href="assest/plugins/dropzone/min/dropzone.min.css">
   </head>
 
   <?php

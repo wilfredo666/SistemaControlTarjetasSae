@@ -1,3 +1,4 @@
+/*
 let arrImages=[];
 
 let myDropzone = new Dropzone('.dropzone', {
@@ -48,19 +49,20 @@ function guardaryeditar(e){
 }
 
 init();
+*/
 
 /*==================
 modal nueva carpeta
 ==================*/
 function MNuevoCarpeta() {
-  $("#modal-xl").modal("show");
+  $("#modal-default").modal("show");
   var obj = "";
   $.ajax({
     type: "POST",
     url: "vista/carpeta/FNuevoCarpeta.php",
     data: obj,
     success: function (data) {
-      $("#content-xl").html(data);
+      $("#content-modal-default").html(data);
     }
   }
 
@@ -193,28 +195,27 @@ function EditCarpeta(id) {
 
 }
 
-/*=======================
-funcion para descargar
-=======================*/
-function descargar(archivo){
+/*======================================
+funcion para subir archivos a la carpeta
+======================================*/
+function MSubirArchivos(archivo){
   let arc = archivo.split('-');
-  let rutaArchivo = arc[0];
-  let nombreArchivo = arc[1];
+    let rutaArchivo = arc[0];
+    let nombreArchivo = arc[1];
 
-  let obj = {
-    rutaArchivo: rutaArchivo,
-    nombreArchivo: nombreArchivo
-  };
+    let objArchivo = {
+        rutaArchivo: rutaArchivo,
+        nombreArchivo: nombreArchivo
+    };
+  
+  $('#modal-xl').modal('show');
 
   $.ajax({
-    type: "POST", // Asegúrate de usar el método POST
-    url: "vista/descargar.php",
-    data: obj,
+    type: "POST",
+    url: "vista/carpeta/MSubirArchivos.php",
+    data: objArchivo,
     success: function (data) {
-      //console.log(data)
-      
-      // Redirigir al usuario a la URL de descarga
-      window.location.href = data;
+      $("#content-xl").html(data);
     }
-  });
+  })
 }

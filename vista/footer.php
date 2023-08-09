@@ -13,7 +13,7 @@
 <script src="assest/plugins/jquery/jquery.min.js"></script>
 <script src="assest/plugins/chart.js/Chart.min.js"></script>
 <script src="assest/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
+<!--<script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>-->
 
 <!-- ChartJS -->
 <script src="assest/plugins/chart.js/Chart.min.js"></script>
@@ -61,6 +61,9 @@
 <script src="assest/js/herramientas.js"></script>
 <script src="assest/js/logherramientas.js"></script>
 <script src="assest/js/servicios.js"></script>
+
+<!-- dropzonejs -->
+<script src="assest/plugins/dropzone/min/dropzone.min.js"></script>
 
 <!--====================
 Seccion  de Modals

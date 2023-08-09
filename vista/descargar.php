@@ -7,7 +7,7 @@
     // Validar y procesar los datos si es necesario
 
     // Ruta completa al archivo
-    $rutaCompleta = "../".$rutaArchivo . $nombreArchivo;
+    $rutaCompleta = "../".$rutaArchivo .'/'. $nombreArchivo;
 
     // Verificar si el archivo existe
     if (file_exists($rutaCompleta)) {
