@@ -155,8 +155,6 @@ function MCargarRegistrosControlHerramientas() {
 
 function CargarRegistrosControlHerra() {
   var formData = new FormData($("#FCargarRegistrosControlHerra")[0])
-
-
   $.ajax({
     type: "POST",
     url: "controlador/controlherramientasControlador.php?ctrRegRegistrosControlHerramientas",
@@ -224,7 +222,6 @@ function impHerramientaSelec() {
       /* $("#repHerramientas").html(data) */
       $("#content-xl").html(data)
       console.log(data);
-
       /* $$('#button').each(function(link) { button.onclick = function(){ window.open("newpage.html",'New Window'); return false; }; }); */
     }
   })
@@ -260,7 +257,7 @@ function sumarMeses() {
 var seleccionados = [];
 $(document).ready(function () {
 
-  $('#DataTableControlHerramientas').on('change', 'input[type="checkbox"]', function () {
+  $('#DataTableHerramientas').on('change', 'input[type="checkbox"]', function () {
     var checkbox = $(this);
     var valor = checkbox.val();
     if (checkbox.is(':checked')) {
@@ -273,13 +270,13 @@ $(document).ready(function () {
     }
   });
 
-  $('#FormHerramientaSeleccionado').on('submit', function (e) {
+  $('#FormHerramientaRecibidaSeleccionado').on('submit', function (e) {
     e.preventDefault();
     $('<input>').attr({
       type: 'hidden',
       name: 'idclase',
       value: seleccionados.join(',')
-    }).appendTo('#FormHerramientaSeleccionado');
+    }).appendTo('#FormHerramientaRecibidaSeleccionado');
     this.submit();
   });
 

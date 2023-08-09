@@ -19,11 +19,10 @@
                 <table id="DataTableLogHerramientas" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Codigo Herramienta</th>
                             <th>Nombre Tecnico</th>
                             <th>Fecha Hora</th>
                             <th>Tipo</th>
-    
+                            <th>Acción</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,12 +31,32 @@
 
                         foreach ($logherramientas as $value) {
                         ?>
-                        <tr>
-                            <td><?php echo $value["codigo_herramientas"]; ?></td>
-                            <td><?php echo $value["nombre_usuario"]; ?></td>
-                            <td><?php echo $value["fecha_hora"]; ?></td>                       
-                            <td><?php echo $value["tipo"]; ?></td>
-                        </tr>
+                            <tr>
+                                <td><?php echo $value["nombre_usuario"]; ?></td>
+                                <td><?php echo $value["fecha_hora"]; ?></td>
+
+                                <td><?php if ($value["tipo"] == 'ENTRADA') {
+                                    ?>
+                                        <span class="badge badge-success">ENTRADA</span>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <span class="badge badge-danger">SALIDA</span>
+                                    <?php
+                                    } ?>
+                                </td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <button class="btn btn-secondary" onclick="MVerLogHerramienta(<?php echo $value['id_log_herramientas']; ?>)">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn btn-warning" onclick="MDevolverHerramienta(<?php echo $value['id_log_herramientas']; ?>)">
+                                            <i class="fas fa-sign-out-alt"></i>
+                                        </button>
+                                    </div>
+
+                                </td>
+                            </tr>
                         <?php
                         }
                         ?>
