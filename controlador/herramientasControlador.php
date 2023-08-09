@@ -5,9 +5,10 @@ if (isset($ruta["query"])) {
 
   if (
     $ruta["query"] == "ctrRegHerramienta" ||
-    $ruta["query"] == "ctrEditHerramienta" ||
+    $ruta["query"] == "ctrEditControlHerramienta" ||
     $ruta["query"] == "ctrRegRegistrosHerramientas" ||
-    $ruta["query"] == "ctrEliHerramienta"
+    $ruta["query"] == "ctrRepHerramientas" ||
+    $ruta["query"] == "ctrEliControlHerramienta"
   ) {
     $metodo = $ruta["query"];
     $herramienta = new ControladorHerramientasSalidas();
@@ -39,37 +40,21 @@ class ControladorHerramientasSalidas
     $unidadHerramientas = $_POST["unidadHerramientas"];
     $ubicacionHerramientas = $_POST["ubicacionHerramientas"];
     $observacionHerramientas = $_POST["observacionHerramientas"];
-    $obsrepdocHerramientas = $_POST["obsrepdocHerramientas"];
+    $aeronaveHerramientas = $_POST["aeronaveHerramientas"];
+    $ataHerramientas = $_POST["ataHerramientas"];
+    $docHerramientas = $_POST["docHerramientas"];
     $numcarpetaHerramientas = $_POST["numcarpetaHerramientas"];
     $equivalenciatecnicaHerramientas = $_POST["equivalenciatecnicaHerramientas"];
     $hojamanualHerramientas = $_POST["hojamanualHerramientas"];
-    $identificacionHerramientas = $_POST["identificacionHerramientas"];
-    $ultimoinventarioHerramientas = $_POST["ultimoinventarioHerramientas"];
-    $aeronaveHerramientas = $_POST["aeronaveHerramientas"];
-    $ataHerramientas = $_POST["ataHerramientas"];
-    $rangomedidaHerramientas = $_POST["rangomedidaHerramientas"];
-    $inventarioHerramientas = $_POST["inventarioHerramientas"];
-    $estanteHerramientas = $_POST["estanteHerramientas"];
-    $seccionHerramientas = $_POST["seccionHerramientas"];
-    $permantHerramientas = $_POST["permantHerramientas"];
-    $percalHerramientas = $_POST["percalHerramientas"];
-    $tallerHerramientas = $_POST["tallerHerramientas"];
-    $statusHerramientas = $_POST["statusHerramientas"];
-    $nomempleadoHerramientas = $_POST["nomempleadoHerramientas"];
-    $codempleadoHerramientas = $_POST["codempleadoHerramientas"];
-    $fechaprestHerramientas = $_POST["fechaprestHerramientas"];
-    $fechadevHerramientas = $_POST["fechadevHerramientas"];
-    $encargadoHerramientas = $_POST["encargadoHerramientas"];
-    $flotaHerramientas = $_POST["flotaHerramientas"];
-    $usoHerramientas = $_POST["usoHerramientas"];
-    $docmantHerramientas = $_POST["docmantHerramientas"];
-    $docHerramientas = $_POST["docHerramientas"];
     $stickerHerramientas = $_POST["stickerHerramientas"];
+    $ultimoinventarioHerramientas = $_POST["ultimoinventarioHerramientas"];
     $calibradaespecializadaHerramientas = $_POST["calibradaespecializadaHerramientas"];
     $estadoHerramientas = $_POST["estadoHerramientas"];
     $requiereinspeperiodicaHerramientas = $_POST["requiereinspeperiodicaHerramientas"];
+    $rangomedidaHerramientas = $_POST["rangomedidaHerramientas"];
     $ubicacionactualHerramientas = $_POST["ubicacionactualHerramientas"];
     $observacionesdelHerramientas = $_POST["observacionesdelHerramientas"];
+    $ubicacionactualHerramientas = $_POST["ubicacionactualHerramientas"];
     /*capturamos la imagen*/
     $imagen = $_FILES["imgHerramientas"];
 
@@ -90,35 +75,18 @@ class ControladorHerramientasSalidas
       "unidadHerramientas" => $_POST["unidadHerramientas"],
       "ubicacionHerramientas" => $_POST["ubicacionHerramientas"],
       "observacionHerramientas" => $_POST["observacionHerramientas"],
-      "obsrepdocHerramientas" => $_POST["obsrepdocHerramientas"],
+      "aeronaveHerramientas" => $_POST["aeronaveHerramientas"],
+      "ataHerramientas" => $_POST["ataHerramientas"],
+      "docHerramientas" => $_POST["docHerramientas"],
       "numcarpetaHerramientas" => $_POST["numcarpetaHerramientas"],
       "equivalenciatecnicaHerramientas" => $_POST["equivalenciatecnicaHerramientas"],
       "hojamanualHerramientas" => $_POST["hojamanualHerramientas"],
-      "identificacionHerramientas" => $_POST["identificacionHerramientas"],
-      "ultimoinventarioHerramientas" => $_POST["ultimoinventarioHerramientas"],
-      "aeronaveHerramientas" => $_POST["aeronaveHerramientas"],
-      "ataHerramientas" => $_POST["ataHerramientas"],
-      "rangomedidaHerramientas" => $_POST["rangomedidaHerramientas"],
-      "inventarioHerramientas" => $_POST["inventarioHerramientas"],
-      "estanteHerramientas" => $_POST["estanteHerramientas"],
-      "seccionHerramientas" => $_POST["seccionHerramientas"],
-      "permantHerramientas" => $_POST["permantHerramientas"],
-      "percalHerramientas" => $_POST["percalHerramientas"],
-      "tallerHerramientas" => $_POST["tallerHerramientas"],
-      "statusHerramientas" => $_POST["statusHerramientas"],
-      "nomempleadoHerramientas" => $_POST["nomempleadoHerramientas"],
-      "codempleadoHerramientas" => $_POST["codempleadoHerramientas"],
-      "fechaprestHerramientas" => $_POST["fechaprestHerramientas"],
-      "fechadevHerramientas" => $_POST["fechadevHerramientas"],
-      "encargadoHerramientas" => $_POST["encargadoHerramientas"],
-      "flotaHerramientas" => $_POST["flotaHerramientas"],
-      "usoHerramientas" => $_POST["usoHerramientas"],
-      "docmantHerramientas" => $_POST["docmantHerramientas"],
-      "docHerramientas" => $_POST["docHerramientas"],
       "stickerHerramientas" => $_POST["stickerHerramientas"],
+      "ultimoinventarioHerramientas" => $_POST["ultimoinventarioHerramientas"],
       "calibradaespecializadaHerramientas" => $_POST["calibradaespecializadaHerramientas"],
       "estadoHerramientas" => $_POST["estadoHerramientas"],
       "requiereinspeperiodicaHerramientas" => $_POST["requiereinspeperiodicaHerramientas"],
+      "rangomedidaHerramientas" => $_POST["rangomedidaHerramientas"],
       "ubicacionactualHerramientas" => $_POST["ubicacionactualHerramientas"],
       "observacionesdelHerramientas" => $_POST["observacionesdelHerramientas"],
       "imgHerramientas" => $nomImagen
@@ -134,123 +102,77 @@ class ControladorHerramientasSalidas
     return $respuesta;
   }
 
-  static public function ctrEditHerramienta()
+  static public function ctrInfoHerraSeleccionada($id)
+  {
+    $respuesta = ModeloHerramientas::mdlInfoHerraSeleccionada($id);
+    return $respuesta;
+  }
+
+  static public function ctrEditControlHerramienta()
   {
 
-    require_once "../modelo/herramientasModelo.php";
+    require_once "../modelo/controlherramientasModelo.php";
 
-    $nHerramientas = $_POST["nHerramientas"];
-    $desHerramientas = $_POST["desHerramientas"];
-    $pnHerramientas = $_POST["pnHerramientas"];
-    $pnaltHerramientas = $_POST["pnaltHerramientas"];
-    $numserieHerramientas = $_POST["numserieHerramientas"];
-    $codigoHerramientas = $_POST["codigoHerramientas"];
-    $marcafabriHerramientas = $_POST["marcafabriHerramientas"];
-    $cantidadHerramientas = $_POST["cantidadHerramientas"];
-    $unidadHerramientas = $_POST["unidadHerramientas"];
-    $ubicacionHerramientas = $_POST["ubicacionHerramientas"];
-    $observacionHerramientas = $_POST["observacionHerramientas"];
-    $obsrepdocHerramientas = $_POST["obsrepdocHerramientas"];
-    $numcarpetaHerramientas = $_POST["numcarpetaHerramientas"];
-    $equivalenciatecnicaHerramientas = $_POST["equivalenciatecnicaHerramientas"];
-    $hojamanualHerramientas = $_POST["hojamanualHerramientas"];
-    $identificacionHerramientas = $_POST["identificacionHerramientas"];
-    $ultimoinventarioHerramientas = $_POST["ultimoinventarioHerramientas"];
-    $aeronaveHerramientas = $_POST["aeronaveHerramientas"];
-    $ataHerramientas = $_POST["ataHerramientas"];
-    $rangomedidaHerramientas = $_POST["rangomedidaHerramientas"];
-    $inventarioHerramientas = $_POST["inventarioHerramientas"];
-    $estanteHerramientas = $_POST["estanteHerramientas"];
-    $seccionHerramientas = $_POST["seccionHerramientas"];
-    $permantHerramientas = $_POST["permantHerramientas"];
-    $percalHerramientas = $_POST["percalHerramientas"];
-    $tallerHerramientas = $_POST["tallerHerramientas"];
-    $statusHerramientas = $_POST["statusHerramientas"];
-    $nomempleadoHerramientas = $_POST["nomempleadoHerramientas"];
-    $codempleadoHerramientas = $_POST["codempleadoHerramientas"];
-    $fechaprestHerramientas = $_POST["fechaprestHerramientas"];
-    $fechadevHerramientas = $_POST["fechadevHerramientas"];
-    $encargadoHerramientas = $_POST["encargadoHerramientas"];
-    $flotaHerramientas = $_POST["flotaHerramientas"];
-    $usoHerramientas = $_POST["usoHerramientas"];
-    $docmantHerramientas = $_POST["docmantHerramientas"];
-    $docHerramientas = $_POST["docHerramientas"];
-    $stickerHerramientas = $_POST["stickerHerramientas"];
-    $calibradaespecializadaHerramientas = $_POST["calibradaespecializadaHerramientas"];
-    $estadoHerramientas = $_POST["estadoHerramientas"];
-    $requiereinspeperiodicaHerramientas = $_POST["requiereinspeperiodicaHerramientas"];
-    $ubicacionactualHerramientas = $_POST["ubicacionactualHerramientas"];
-    $observacionesdelHerramientas = $_POST["observacionesdelHerramientas"];
-    if ($_FILES["imgHerramientas"]["name"] == "") {
-
-      $nomImagen = $_POST["imgHerramientasActual"];
-    } else {
-
-      /*capturamos la imagen*/
-      $imagen = $_FILES["imgHerramientas"];
-
-      $nomImagen = $imagen["name"];
-      $archImagen = $imagen["tmp_name"];
-
-      move_uploaded_file($archImagen, "../assest/dist/img/herramientas/" . $nomImagen);
-    }
+    $desControlHerramientas = $_POST["desControlHerramientas"];
+    $pnControlHerramientas = $_POST["pnControlHerramientas"];
+    $pnaltControlHerramientas = $_POST["pnaltControlHerramientas"];
+    $numserieControlHerramientas = $_POST["numserieControlHerramientas"];
+    $codigoControlHerramientas = $_POST["codigoControlHerramientas"];
+    $marcafabriControlHerramientas = $_POST["marcafabriControlHerramientas"];
+    $cantidadControlHerramientas = $_POST["cantidadControlHerramientas"];
+    $unidadControlHerramientas = $_POST["unidadControlHerramientas"];
+    $ubicacionControlHerramientas = $_POST["ubicacionControlHerramientas"];
+    $fechacalControlHerramientas = $_POST["fechacalControlHerramientas"];
+    $periodocalControlHerramientas = $_POST["periodocalControlHerramientas"];
+    $fechavenciControlHerramientas = $_POST["fechavenciControlHerramientas"];
+    $estadoControlHerramientas = $_POST["estadoControlHerramientas"];
+    $diasalertaControlHerramientas = $_POST["diasalertaControlHerramientas"];
+    $origencaliControlHerramientas = $_POST["origencaliControlHerramientas"];
+    $propiedaControlHerramientas = $_POST["propiedaControlHerramientas"];
+    $numcarpetaControlHerramientas = $_POST["numcarpetaControlHerramientas"];
+    $numcertiControlHerramientas = $_POST["numcertiControlHerramientas"];
+    $numregistroControlHerramientas = $_POST["numregistroControlHerramientas"];
+    $alcaninstrucControlHerramientas = $_POST["alcaninstrucControlHerramientas"];
+    $resinstruControlHerramientas = $_POST["resinstruControlHerramientas"];
+    $ubicacionautoControlHerramientas = $_POST["ubicacionautoControlHerramientas"];
+    $docsalidaControlHerramientas = $_POST["docsalidaControlHerramientas"];
     $data = array(
-      "idHerramientas" => $_POST["idHerramientas"],
-      "nHerramientas" => $_POST["nHerramientas"],
-      "desHerramientas" => $_POST["desHerramientas"],
-      "pnHerramientas" => $_POST["pnHerramientas"],
-      "pnaltHerramientas" => $_POST["pnaltHerramientas"],
-      "numserieHerramientas" => $_POST["numserieHerramientas"],
-      "codigoHerramientas" => $_POST["codigoHerramientas"],
-      "marcafabriHerramientas" => $_POST["marcafabriHerramientas"],
-      "cantidadHerramientas" => $_POST["cantidadHerramientas"],
-      "unidadHerramientas" => $_POST["unidadHerramientas"],
-      "ubicacionHerramientas" => $_POST["ubicacionHerramientas"],
-      "observacionHerramientas" => $_POST["observacionHerramientas"],
-      "obsrepdocHerramientas" => $_POST["obsrepdocHerramientas"],
-      "numcarpetaHerramientas" => $_POST["numcarpetaHerramientas"],
-      "equivalenciatecnicaHerramientas" => $_POST["equivalenciatecnicaHerramientas"],
-      "hojamanualHerramientas" => $_POST["hojamanualHerramientas"],
-      "identificacionHerramientas" => $_POST["identificacionHerramientas"],
-      "ultimoinventarioHerramientas" => $_POST["ultimoinventarioHerramientas"],
-      "aeronaveHerramientas" => $_POST["aeronaveHerramientas"],
-      "ataHerramientas" => $_POST["ataHerramientas"],
-      "rangomedidaHerramientas" => $_POST["rangomedidaHerramientas"],
-      "inventarioHerramientas" => $_POST["inventarioHerramientas"],
-      "estanteHerramientas" => $_POST["estanteHerramientas"],
-      "seccionHerramientas" => $_POST["seccionHerramientas"],
-      "permantHerramientas" => $_POST["permantHerramientas"],
-      "percalHerramientas" => $_POST["percalHerramientas"],
-      "tallerHerramientas" => $_POST["tallerHerramientas"],
-      "statusHerramientas" => $_POST["statusHerramientas"],
-      "nomempleadoHerramientas" => $_POST["nomempleadoHerramientas"],
-      "codempleadoHerramientas" => $_POST["codempleadoHerramientas"],
-      "fechaprestHerramientas" => $_POST["fechaprestHerramientas"],
-      "fechadevHerramientas" => $_POST["fechadevHerramientas"],
-      "encargadoHerramientas" => $_POST["encargadoHerramientas"],
-      "flotaHerramientas" => $_POST["flotaHerramientas"],
-      "usoHerramientas" => $_POST["usoHerramientas"],
-      "docmantHerramientas" => $_POST["docmantHerramientas"],
-      "docHerramientas" => $_POST["docHerramientas"],
-      "stickerHerramientas" => $_POST["stickerHerramientas"],
-      "calibradaespecializadaHerramientas" => $_POST["calibradaespecializadaHerramientas"],
-      "estadoHerramientas" => $_POST["estadoHerramientas"],
-      "requiereinspeperiodicaHerramientas" => $_POST["requiereinspeperiodicaHerramientas"],
-      "ubicacionactualHerramientas" => $_POST["ubicacionactualHerramientas"],
-      "observacionesdelHerramientas" => $_POST["observacionesdelHerramientas"],
-      "imgHerramientas" => $nomImagen
+      "idControlHerramientas" => $_POST["idControlHerramientas"],
+      "desControlHerramientas" => $_POST["desControlHerramientas"],
+      "pnControlHerramientas" => $_POST["pnControlHerramientas"],
+      "pnaltControlHerramientas" => $_POST["pnaltControlHerramientas"],
+      "numserieControlHerramientas" => $_POST["numserieControlHerramientas"],
+      "codigoControlHerramientas" => $_POST["codigoControlHerramientas"],
+      "marcafabriControlHerramientas" => $_POST["marcafabriControlHerramientas"],
+      "cantidadControlHerramientas" => $_POST["cantidadControlHerramientas"],
+      "unidadControlHerramientas" => $_POST["unidadControlHerramientas"],
+      "ubicacionControlHerramientas" => $_POST["ubicacionControlHerramientas"],
+      "fechacalControlHerramientas" => $_POST["fechacalControlHerramientas"],
+      "periodocalControlHerramientas" => $_POST["periodocalControlHerramientas"],
+      "fechavenciControlHerramientas" => $_POST["fechavenciControlHerramientas"],
+      "estadoControlHerramientas" => $_POST["estadoControlHerramientas"],
+      "diasalertaControlHerramientas" => $_POST["diasalertaControlHerramientas"],
+      "origencaliControlHerramientas" => $_POST["origencaliControlHerramientas"],
+      "propiedaControlHerramientas" => $_POST["propiedaControlHerramientas"],
+      "numcarpetaControlHerramientas" => $_POST["numcarpetaControlHerramientas"],
+      "numcertiControlHerramientas" => $_POST["numcertiControlHerramientas"],
+      "numregistroControlHerramientas" => $_POST["numregistroControlHerramientas"],
+      "alcaninstrucControlHerramientas" => $_POST["alcaninstrucControlHerramientas"],
+      "resinstruControlHerramientas" => $_POST["resinstruControlHerramientas"],
+      "ubicacionautoControlHerramientas" => $_POST["ubicacionautoControlHerramientas"],
+      "docsalidaControlHerramientas" => $_POST["docsalidaControlHerramientas"]
     );
 
-    $respuesta = ModeloHerramientas::mdlEditHerramienta($data);
+    $respuesta = ModeloControlHerramientas::mdlEditControlHerramienta($data);
     echo $respuesta;
   }
 
-  static public function ctrEliHerramienta()
+  static public function ctrEliControlHerramienta()
   {
-    require "../modelo/herramientasModelo.php";
+    require "../modelo/controlherramientasModelo.php";
     $data = $_POST["id"];
 
-    $respuesta = ModeloHerramientas::mdlEliHerramienta($data);
+    $respuesta = ModeloControlHerramientas::mdlEliControlHerramienta($data);
 
     echo $respuesta;
   }

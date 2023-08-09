@@ -30,40 +30,23 @@ class ModeloHerramientas
     $unidadHerramientas = $_POST["unidadHerramientas"];
     $ubicacionHerramientas = $_POST["ubicacionHerramientas"];
     $observacionHerramientas = $_POST["observacionHerramientas"];
-    $obsrepdocHerramientas = $_POST["obsrepdocHerramientas"];
+    $aeronaveHerramientas = $_POST["aeronaveHerramientas"];
+    $ataHerramientas = $_POST["ataHerramientas"];
+    $docHerramientas = $_POST["docHerramientas"];
     $numcarpetaHerramientas = $_POST["numcarpetaHerramientas"];
     $equivalenciatecnicaHerramientas = $_POST["equivalenciatecnicaHerramientas"];
     $hojamanualHerramientas = $_POST["hojamanualHerramientas"];
-    $identificacionHerramientas = $_POST["identificacionHerramientas"];
-    $ultimoinventarioHerramientas = $_POST["ultimoinventarioHerramientas"];
-    $aeronaveHerramientas = $_POST["aeronaveHerramientas"];
-    $ataHerramientas = $_POST["ataHerramientas"];
-    $rangomedidaHerramientas = $_POST["rangomedidaHerramientas"];
-    $inventarioHerramientas = $_POST["inventarioHerramientas"];
-    $estanteHerramientas = $_POST["estanteHerramientas"];
-    $seccionHerramientas = $_POST["seccionHerramientas"];
-    $permantHerramientas = $_POST["permantHerramientas"];
-    $percalHerramientas = $_POST["percalHerramientas"];
-    $tallerHerramientas = $_POST["tallerHerramientas"];
-    $statusHerramientas = $_POST["statusHerramientas"];
-    $nomempleadoHerramientas = $_POST["nomempleadoHerramientas"];
-    $codempleadoHerramientas = $_POST["codempleadoHerramientas"];
-    $fechaprestHerramientas = $_POST["fechaprestHerramientas"];
-    $fechadevHerramientas = $_POST["fechadevHerramientas"];
-    $encargadoHerramientas = $_POST["encargadoHerramientas"];
-    $flotaHerramientas = $_POST["flotaHerramientas"];
-    $usoHerramientas = $_POST["usoHerramientas"];
-    $docmantHerramientas = $_POST["docmantHerramientas"];
-    $docHerramientas = $_POST["docHerramientas"];
     $stickerHerramientas = $_POST["stickerHerramientas"];
+    $ultimoinventarioHerramientas = $_POST["ultimoinventarioHerramientas"];
     $calibradaespecializadaHerramientas = $_POST["calibradaespecializadaHerramientas"];
     $estadoHerramientas = $_POST["estadoHerramientas"];
     $requiereinspeperiodicaHerramientas = $_POST["requiereinspeperiodicaHerramientas"];
+    $rangomedidaHerramientas = $_POST["rangomedidaHerramientas"];
     $ubicacionactualHerramientas = $_POST["ubicacionactualHerramientas"];
     $observacionesdelHerramientas = $_POST["observacionesdelHerramientas"];
     $imgHerramientas = $data["imgHerramientas"];
 
-    $stmt = Conexion::conectar()->prepare("insert into herramientas(num_herramientas, descripcion_herramientas, 	pn_herramientas, pnalt_herramientas, sn_herramientas, codigo_herramientas, marcaofabri_herramientas, cantidad_herramientas, unidad_herramientas, ubicacion_herramientas, observacion_herramientas, obsrepdoc_herramientas,numcarpeta_herramientas, equivatecnica_herramientas, hojamanual_herramientas, identificacion_herramientas, ultimoinven_herramientas, aeronaves_herramientas, ata_herramientas, rangomedida_herramientas, inventario, estante_herramientas, seccion_herramientas, permant_herramientas, percal_herramientas,taller_herramientas, status_herramientas, nombreemple_herramientas, codigoemple_herramientas, fechaprest_herramientas, fechadev_herramientas, encargado_herramientas, flota_herramientas, uso_herramientas, docmant_herramientas, doc_herramientas, sticker_herramientas, calibradaespecia_herramientas, estadoherramienta_herramientas, requiereinspecperiodica_herramientas, ubicacionactual_herramientas, observacionesdel_herramientas, imagen_herramientas, disponible) values('$nHerramientas', '$desHerramientas', '$pnHerramientas', '$pnaltHerramientas', '$numserieHerramientas', '$codigoHerramientas', '$marcafabriHerramientas', '$cantidadHerramientas', '$unidadHerramientas', '$ubicacionHerramientas', '$observacionHerramientas', '$obsrepdocHerramientas', '$numcarpetaHerramientas', '$equivalenciatecnicaHerramientas', '$hojamanualHerramientas', '$identificacionHerramientas', '$ultimoinventarioHerramientas', '$aeronaveHerramientas', '$ataHerramientas', '$rangomedidaHerramientas', '$inventarioHerramientas', '$estanteHerramientas', '$seccionHerramientas', '$permantHerramientas', '$percalHerramientas', '$tallerHerramientas', '$statusHerramientas', '$nomempleadoHerramientas', '$codempleadoHerramientas', '$fechaprestHerramientas', '$fechadevHerramientas', '$encargadoHerramientas', '$flotaHerramientas', '$usoHerramientas', '$docmantHerramientas', '$docHerramientas', '$stickerHerramientas', '$calibradaespecializadaHerramientas', '$estadoHerramientas', '$requiereinspeperiodicaHerramientas', '$ubicacionactualHerramientas', '$observacionesdelHerramientas', '$imgHerramientas', 1)");
+    $stmt = Conexion::conectar()->prepare("insert into herramientas(num_herramientas, descripcion_herramientas, 	pn_herramientas, pnalt_herramientas, sn_herramientas, codigo_herramientas, marcaofabri_herramientas, cantidad_herramientas, unidad_herramientas, ubicacion_herramientas, observacion_herramientas, aeronaves_herramientas, ata_herramientas, doc_herramientas, numcarpeta_herramientas, equivatecnica_herramientas, 	hojamanual_herramientas, sticker_herramientas, ultimoinven_herramientas, calibradaespecia_herramientas, estadoherramienta_herramientas, requiereinspecperiodica_herramientas, rangomedida_herramientas, ubicacionactual_herramientas, observacionesdel_herramientas, imagen_herramientas, disponible) values('$nHerramientas', '$desHerramientas', '$pnHerramientas', '$pnaltHerramientas', '$numserieHerramientas', '$codigoHerramientas', '$marcafabriHerramientas', '$cantidadHerramientas', '$unidadHerramientas', '$ubicacionHerramientas', '$observacionHerramientas', '$aeronaveHerramientas', '$ataHerramientas', '$docHerramientas', '$numcarpetaHerramientas', '$equivalenciatecnicaHerramientas', '$hojamanualHerramientas', '$stickerHerramientas', '$ultimoinventarioHerramientas', '$calibradaespecializadaHerramientas', '$estadoHerramientas', '$requiereinspeperiodicaHerramientas', '$rangomedidaHerramientas', '$ubicacionactualHerramientas', '$observacionesdelHerramientas', '$imgHerramientas', 1)");
 
     if ($stmt->execute()) {
       return "ok";
@@ -86,56 +69,44 @@ class ModeloHerramientas
     $stmt->null;
   }
 
+  static public function mdlInfoHerraSeleccionada($id)
+  {
+    $stmt = Conexion::conectar()->prepare("SELECT * FROM herramientas where id_herramientas=$id");
+    $stmt->execute();
+    return $stmt->fetch();
+    $stmt->close();
+    $stmt->null;
+  }
+
   static public function mdlEditHerramienta($data)
   {
 
-    $idHerramientas = $data["idHerramientas"];
-    $nHerramientas = $data["nHerramientas"];
-    $desHerramientas = $data["desHerramientas"];
-    $pnHerramientas = $data["pnHerramientas"];
-    $pnaltHerramientas = $data["pnaltHerramientas"];
-    $numserieHerramientas = $data["numserieHerramientas"];
-    $codigoHerramientas = $data["codigoHerramientas"];
-    $marcafabriHerramientas = $data["marcafabriHerramientas"];
-    $cantidadHerramientas = $data["cantidadHerramientas"];
-    $unidadHerramientas = $data["unidadHerramientas"];
-    $ubicacionHerramientas = $data["ubicacionHerramientas"];
-    $observacionHerramientas = $data["observacionHerramientas"];
-    $obsrepdocHerramientas = $data["obsrepdocHerramientas"];
-    $numcarpetaHerramientas = $data["numcarpetaHerramientas"];
-    $equivalenciatecnicaHerramientas = $data["equivalenciatecnicaHerramientas"];
-    $hojamanualHerramientas = $data["hojamanualHerramientas"];
-    $identificacionHerramientas = $data["identificacionHerramientas"];
-    $ultimoinventarioHerramientas = $data["ultimoinventarioHerramientas"];
-    $aeronaveHerramientas = $data["aeronaveHerramientas"];
-    $ataHerramientas = $data["ataHerramientas"];
-    $rangomedidaHerramientas = $data["rangomedidaHerramientas"];
-    $inventarioHerramientas = $data["inventarioHerramientas"];
-    $estanteHerramientas = $data["estanteHerramientas"];
-    $seccionHerramientas = $data["seccionHerramientas"];
-    $permantHerramientas = $data["permantHerramientas"];
-    $percalHerramientas = $data["percalHerramientas"];
-    $tallerHerramientas = $data["tallerHerramientas"];
-    $statusHerramientas = $data["statusHerramientas"];
-    $nomempleadoHerramientas = $data["nomempleadoHerramientas"];
-    $codempleadoHerramientas = $data["codempleadoHerramientas"];
-    $fechaprestHerramientas = $data["fechaprestHerramientas"];
-    $fechadevHerramientas = $data["fechadevHerramientas"];
-    $encargadoHerramientas = $data["encargadoHerramientas"];
-    $flotaHerramientas = $data["flotaHerramientas"];
-    $usoHerramientas = $data["usoHerramientas"];
-    $docmantHerramientas = $data["docmantHerramientas"];
-    $docHerramientas = $data["docHerramientas"];
-    $stickerHerramientas = $data["stickerHerramientas"];
-    $ultimoinventarioHerramientas = $data["ultimoinventarioHerramientas"];
-    $calibradaespecializadaHerramientas = $data["calibradaespecializadaHerramientas"];
-    $estadoHerramientas = $data["estadoHerramientas"];
-    $requiereinspeperiodicaHerramientas = $data["requiereinspeperiodicaHerramientas"];
-    $ubicacionactualHerramientas = $data["ubicacionactualHerramientas"];
-    $observacionesdelHerramientas = $data["observacionesdelHerramientas"];
-    $imgHerramientas = $data["imgHerramientas"];
+    $idControlHerramientas = $data["idControlHerramientas"];
+    $desControlHerramientas = $data["desControlHerramientas"];
+    $pnControlHerramientas = $data["pnControlHerramientas"];
+    $pnaltControlHerramientas = $data["pnaltControlHerramientas"];
+    $numserieControlHerramientas = $data["numserieControlHerramientas"];
+    $codigoControlHerramientas = $data["codigoControlHerramientas"];
+    $marcafabriControlHerramientas = $data["marcafabriControlHerramientas"];
+    $cantidadControlHerramientas = $data["cantidadControlHerramientas"];
+    $unidadControlHerramientas = $data["unidadControlHerramientas"];
+    $ubicacionControlHerramientas = $data["ubicacionControlHerramientas"];
+    $fechacalControlHerramientas = $data["fechacalControlHerramientas"];
+    $periodocalControlHerramientas = $data["periodocalControlHerramientas"];
+    $fechavenciControlHerramientas = $data["fechavenciControlHerramientas"];
+    $estadoControlHerramientas = $data["estadoControlHerramientas"];
+    $diasalertaControlHerramientas = $data["diasalertaControlHerramientas"];
+    $origencaliControlHerramientas = $data["origencaliControlHerramientas"];
+    $propiedaControlHerramientas = $data["propiedaControlHerramientas"];
+    $numcarpetaControlHerramientas = $data["numcarpetaControlHerramientas"];
+    $numcertiControlHerramientas = $data["numcertiControlHerramientas"];
+    $numregistroControlHerramientas = $data["numregistroControlHerramientas"];
+    $alcaninstrucControlHerramientas = $data["alcaninstrucControlHerramientas"];
+    $resinstruControlHerramientas = $data["resinstruControlHerramientas"];
+    $ubicacionautoControlHerramientas = $data["ubicacionautoControlHerramientas"];
+    $docsalidaControlHerramientas = $data["docsalidaControlHerramientas"];
 
-    $stmt = Conexion::conectar()->prepare("update herramientas set num_herramientas='$nHerramientas', descripcion_herramientas='$desHerramientas', pn_herramientas='$pnHerramientas', pnalt_herramientas='$pnaltHerramientas', sn_herramientas='$numserieHerramientas', codigo_herramientas='$codigoHerramientas', marcaofabri_herramientas='$marcafabriHerramientas', cantidad_herramientas='$cantidadHerramientas', unidad_herramientas='$unidadHerramientas', ubicacion_herramientas='$ubicacionHerramientas', observacion_herramientas='$observacionHerramientas', obsrepdoc_herramientas='$obsrepdocHerramientas',numcarpeta_herramientas='$numcarpetaHerramientas', equivatecnica_herramientas='$equivalenciatecnicaHerramientas',hojamanual_herramientas='$hojamanualHerramientas', identificacion_herramientas='$identificacionHerramientas',ultimoinven_herramientas='$ultimoinventarioHerramientas', aeronaves_herramientas='$aeronaveHerramientas', ata_herramientas='$ataHerramientas', rangomedida_herramientas='$rangomedidaHerramientas', inventario='$inventarioHerramientas', estante_herramientas='$estanteHerramientas', seccion_herramientas='$seccionHerramientas', permant_herramientas='$permantHerramientas', percal_herramientas='$percalHerramientas', taller_herramientas='$tallerHerramientas', status_herramientas='$statusHerramientas', nombreemple_herramientas='$nomempleadoHerramientas', codigoemple_herramientas='$codempleadoHerramientas', fechaprest_herramientas='$fechaprestHerramientas', fechadev_herramientas='$fechadevHerramientas', encargado_herramientas='$encargadoHerramientas', flota_herramientas='$flotaHerramientas', uso_herramientas='$usoHerramientas', docmant_herramientas='$docmantHerramientas', doc_herramientas='$docHerramientas', sticker_herramientas='$stickerHerramientas', calibradaespecia_herramientas='$calibradaespecializadaHerramientas', estadoherramienta_herramientas='$estadoHerramientas', requiereinspecperiodica_herramientas='$requiereinspeperiodicaHerramientas', ubicacionactual_herramientas='$ubicacionactualHerramientas', observacionesdel_herramientas='$observacionesdelHerramientas', imagen_herramientas='$imgHerramientas' where id_herramientas=$idHerramientas");
+    $stmt = Conexion::conectar()->prepare("update control_herramientas set descripcion_controlherramientas='$desControlHerramientas', pn_controlherramientas='$pnControlHerramientas',pnalt_controlherramientas='$pnaltControlHerramientas', numserie_controlherramientas='$numserieControlHerramientas', codigo_controlherramientas='$codigoControlHerramientas', marcaofabri_controlherramientas='$marcafabriControlHerramientas', cantidad_controlherramientas='$cantidadControlHerramientas', unidad_controlherramientas='$unidadControlHerramientas', ubicacion_controlherramientas='$ubicacionControlHerramientas', fechacali_controlherramientas='$fechacalControlHerramientas', periodocali_controlherramientas='$periodocalControlHerramientas', fechavenci_controlherramientas='$fechavenciControlHerramientas', estado_controlherramientas='$estadoControlHerramientas', diasalerta_controlherramientas='$diasalertaControlHerramientas', origencali_controlherramientas='$origencaliControlHerramientas', propiedad_controlherramientas='$propiedaControlHerramientas', numcarpeta_controlherramientas='$numcarpetaControlHerramientas', numcertifi_controlherramientas='$numcertiControlHerramientas', numregistro_controlherramientas='$numregistroControlHerramientas', alcanceinstru_controlherramientas='$alcaninstrucControlHerramientas', resuinstru_controlherramientas='$resinstruControlHerramientas', ubicacionautorizada_controlherramientas='$ubicacionautoControlHerramientas', docsalida_controlherramientas='$docsalidaControlHerramientas' where id_controlherramientas=$idControlHerramientas");
 
     if ($stmt->execute()) {
 
@@ -151,7 +122,7 @@ class ModeloHerramientas
 
   static public function mdlEliHerramienta($data)
   {
-    $stmt = Conexion::conectar()->prepare("delete from herramientas where id_herramientas=$data");
+    $stmt = Conexion::conectar()->prepare("delete from control_herramientas where id_controlherramientas=$data");
 
     if ($stmt->execute()) {
       return "correcto";
@@ -224,6 +195,19 @@ class ModeloHerramientas
       $i++;
     }
 
+    return "ok";
+  }
+
+  static public function mdlActualizarStock($datos){
+    $herramientas = array($datos);
+    foreach ($herramientas as $value) {
+      $id = $value["id"];
+      $cantidad = $value["cantidad"];
+
+      $stmt = Conexion::conectar()->prepare("update herramientas set cantidad_herramientas='$cantidad' where id_herramientas='$id'");
+      $stmt->execute();
+    }
+    
     return "ok";
   }
 }
