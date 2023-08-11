@@ -101,7 +101,7 @@ if(isset($path["query"])){
                     <a class="btn btn-default btn-xs" href="vista/descargar.php?ruta=<?php echo $ruta;?>&archivo=<?php echo $archivo;?>">
                       <i class="fas fa-download"></i>
                     </a>
-                    <button class="btn btn-danger btn-xs" onclick="eliminarCarpeta()">
+                    <button class="btn btn-danger btn-xs" onclick="eliminarArchivo('<?php echo $ruta."-".$archivo;?>')">
                       <i class="fas fa-trash"></i>
                     </button> 
                   </div>

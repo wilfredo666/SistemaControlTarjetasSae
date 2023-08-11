@@ -176,22 +176,10 @@ function EditCarpeta(id) {
     processData: false,
     success: function (data) {
 
-      if (data == "correcto") {
-        Swal.fire({
-          icon: 'success',
-          showConfirmButton: false,
-          title: 'La carpeta ha sido actualizado correctamente!!!',
-          timer: 1000
-        });
 
-        setTimeout(function () {
-          location.reload();
-        }, 1200);
-      }
     }
-  }
 
-        )
+  })
 
 }
 
@@ -230,8 +218,9 @@ function eliminarCarpeta(archivo){
     nombreArchivo: nombreArchivo
   };
 
+
   Swal.fire({
-    title: 'Esta seguro de eliminar la carpeta: '+nombreArchivo,
+    title: 'Esta seguro de eliminar la carpeta '+nombreArchivo+' y todo su contenido?',
     showDenyButton: true,
     showCancelButton: false,
     confirmButtonText: 'Confirmar',
@@ -240,10 +229,70 @@ function eliminarCarpeta(archivo){
     if (result.isConfirmed) {
       $.ajax({
         type: "POST",
-        data: obj,
+        data: objArchivo,
         url: "controlador/carpetaControlador.php?ctrEliCarpeta",
-        success: function () {
-          location.reload()
+        success: function (data) {
+
+          if (data == "error") {
+            Swal.fire({
+              icon: 'error',
+              showConfirmButton: false,
+              title: 'La carpeta no puede ser eliminada!!!',
+              timer: 1000
+            });
+
+          }else{
+            setTimeout(function () {
+              location.reload();
+            }, 1200);
+          }
+        }
+      })
+    } else if (result.isDenied) {
+      Swal.fire('Funcion Cancelada', '', 'info')
+    }
+  })
+}
+
+function eliminarArchivo(archivo){
+    let arc = archivo.split('-');
+  let rutaArchivo = arc[0];
+  let nombreArchivo = arc[1];
+
+  let objArchivo = {
+    rutaArchivo: rutaArchivo,
+    nombreArchivo: nombreArchivo
+  };
+
+  Swal.fire({
+    title: 'Esta seguro de eliminar '+nombreArchivo,
+    showDenyButton: true,
+    showCancelButton: false,
+    confirmButtonText: 'Confirmar',
+    denyButtonText: `Cancelar`,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $.ajax({
+        type: "POST",
+        data: objArchivo,
+        url: "controlador/carpetaControlador.php?ctrEliArchivo",
+        success: function (data) {
+          
+
+          if (data == "error") {
+            Swal.fire({
+              icon: 'error',
+              showConfirmButton: false,
+              title: 'El archivo no puede ser eliminado!!!',
+              timer: 1000
+            });
+
+          }else{
+            setTimeout(function () {
+              location.reload();
+            }, 1200);
+          }
+          
         }
       })
     } else if (result.isDenied) {

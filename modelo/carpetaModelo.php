@@ -2,18 +2,18 @@
 require_once "conexion.php";
 class ModeloCarpeta {
 
-    static public function mdlInfoCarpetas() {
-        $stmt = Conexion::conectar()->prepare( "select * from carpetas" );
-        $stmt->execute();
+  static public function mdlInfoCarpetas() {
+    $stmt = Conexion::conectar()->prepare( "select * from carpetas" );
+    $stmt->execute();
 
-        return $stmt->fetchAll();
+    return $stmt->fetchAll();
 
-        $stmt->close();
-        $stmt->null;
-    }
+    $stmt->close();
+    $stmt->null;
+  }
 
   //******* codigo en desuso 
- /*   static public function mdlRegCarpeta( $data ) {
+  /*   static public function mdlRegCarpeta( $data ) {
 
         $nombre_carpeta = $data["nombre_carpeta"];
 
@@ -53,7 +53,7 @@ class ModeloCarpeta {
         $stmt->null;
     }
     */
-     static public function mdlInfoCarpeta( $id ) {
+  static public function mdlInfoCarpeta( $id ) {
     $stmt = Conexion::conectar()->prepare( "SELECT * FROM carpetas where id_carpeta=$id" );
     $stmt->execute();
 
@@ -63,27 +63,39 @@ class ModeloCarpeta {
     $stmt->null;
   }
 
-    static public function mdlEliCarpeta( $data ) {
-        $stmt = Conexion::conectar()->prepare( "delete from carpetas where id_carpeta=$data" );
+  static public function mdlEliCarpeta( $dir ) {
+    $directorio=$dir;
+    if (is_dir($directorio)) {
 
-        if ( $stmt->execute() ) {
-            return "correcto";
-        } else {
-            return "error";
+      $contenido = scandir($directorio);
+
+      foreach ($contenido as $item) {
+        if ($item != '.' && $item != '..') {
+          $itemRuta = $directorio . '/' . $item;
+          if (is_dir($itemRuta)) {
+            ModeloCarpeta::mdlEliCarpeta($itemRuta);
+          } else {
+            unlink($itemRuta); // Eliminar archivo
+          }
         }
-        $stmt->close();
-        $stmt->null;
-    }
-    
-    //Archivos
-    static public function mdlInfoArchivos() {
-        $stmt = Conexion::conectar()->prepare( "select * from archivos" );
-        $stmt->execute();
+      }
 
-        return $stmt->fetchAll();
-
-        $stmt->close();
-        $stmt->null;
+      rmdir($directorio); // Eliminar directorio vacío
+    }else{
+      return "error";
     }
+
+  }
+
+  //Archivos
+  static public function mdlInfoArchivos() {
+    $stmt = Conexion::conectar()->prepare( "select * from archivos" );
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+
+    $stmt->close();
+    $stmt->null;
+  }
 
 }

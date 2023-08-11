@@ -5,7 +5,8 @@ if ( isset( $ruta["query"] ) ) {
 
   if ( $ruta["query"] == "ctrRegCarpeta" ||
       $ruta["query"] == "ctrEditCarpeta" ||
-      $ruta["query"] == "ctrEliCarpeta"
+      $ruta["query"] == "ctrEliCarpeta" ||
+      $ruta["query"] == "ctrEliArchivo"
      ){
     $metodo = $ruta["query"];
     $carpeta = new ControladorCarpeta();
@@ -95,12 +96,26 @@ class ControladorCarpeta {
   }
 
   static public function ctrEliCarpeta(){
-    require "../modelo/carpetaModelo.php";
-    $data = $_POST["id"];
+require_once "../modelo/carpetaModelo.php";
+    $ruta=$_POST["rutaArchivo"];
+    $carpeta=$_POST["nombreArchivo"];
 
-    $respuesta = ModeloCarpeta::mdlEliCarpeta($data);
-
+    $directorio="../".$ruta."/".$carpeta;
+    $respuesta = ModeloCarpeta::mdlEliCarpeta($directorio);
     echo $respuesta;
+  }
+  
+  static public function ctrEliArchivo(){
+    $ruta=$_POST["rutaArchivo"];
+    $carpeta=$_POST["nombreArchivo"];
+
+    $directorio="../".$ruta."/".$carpeta;
+    
+    if(unlink($directorio)==false){
+      echo "error";
+    }
+
+   
   }
 
   //Archivos
