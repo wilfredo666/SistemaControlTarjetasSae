@@ -257,7 +257,15 @@ Seccion  de Modals
             "autoWidth": false,
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
         }).buttons().container().appendTo('#DataTableLogHerramienta_wrapper .col-md-6:eq(0)');
+    });
 
+    $(function() {
+        $("#DataTableInforme").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#DataTableInforme_wrapper .col-md-6:eq(0)');
     });
 
     $('.select2bs4').select2({

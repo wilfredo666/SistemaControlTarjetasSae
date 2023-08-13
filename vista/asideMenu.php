@@ -312,6 +312,14 @@ with font-awesome or any other icon font library -->
                             </ul>
                         </li>
 
+                        <li class="nav-header">OTROS</li>
+                        <li class="nav-item">
+                            <a href="VInforme" class="nav-link">
+                                <i class="nav-icon fas fa-paste"></i>
+                                <p>Informes</p>
+                            </a>
+                        </li>
+
                         <li class="nav-item">
                             <a href="salir" class="nav-link">
                                 <i class="fas fa-door-open nav-icon"></i>

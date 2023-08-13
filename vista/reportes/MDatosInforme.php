@@ -5,7 +5,8 @@
     </button>
 </div>
 <div class="modal-body">
-    <form id="FormDatosInforme" method="POST" action="vista/reportes/repHerramientaSelec.php" target="_blank" onsubmit="return validarFormulario()">
+    <!-- <form id="FormDatosInforme" method="POST" action="vista/reportes/repHerramientaSelec.php" target="_blank" onsubmit="return validarFormulario()"> -->
+    <form id="FormDatosInforme" method="POST" onsubmit="return validarFormulario()">
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
@@ -60,11 +61,10 @@
             </div>
         </div>
         <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            <button type="submit" class="btn btn-primary bg-dark" style="border: none;">Imprimir Informe</button>
             <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                 <button type="button" class="btn btn-primary" onclick="RegDatosInforme()">Guardar</button> -->
+            <button type="submit" class="btn btn-primary bg-dark" style="border: none;">Guardar</button> -->
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary bg-dark" onclick="RegDatosInforme()">Guardar</button>
         </div>
     </form>
 </div>
-

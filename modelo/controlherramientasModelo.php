@@ -238,7 +238,6 @@ class ModeloControlHerramientas
 
   static public function mdlSelecHerramientas($id)
   {
-
     $stmt = Conexion::conectar()->prepare("select * from control_herramientas
       where id_controlherramientas=$id");
     $stmt->execute();
@@ -246,4 +245,46 @@ class ModeloControlHerramientas
     $stmt->close();
     $stmt->null;
   }
+
+  static public function mdlRegDatosInforme($data)
+  {
+    $seleccionados = $data["seleccionados"];
+    $fechaInforme = $data["fechaInforme"];
+    $numInforme = $data["numInforme"];
+    $respAlmacen = $data["respAlmacen"];
+    $repTecnico = $data["repTecnico"];
+    $encargadoInforme = $data["encargadoInforme"];
+    $asuntoInforme = $data["asuntoInforme"];
+    $descInforme = $data["descInforme"];
+    
+    $stmt = Conexion::conectar()->prepare("insert into informes(fecha_informe, de_informe, a_informe, num_informe, asunto_informe, conclusion_informe, encargado_informe, herra_seleccionados) values('$fechaInforme', '$respAlmacen', '$repTecnico', '$numInforme', '$asuntoInforme', '$descInforme', '$encargadoInforme', '$seleccionados')");
+
+    if ($stmt->execute()) {
+      return "ok";
+    } else {
+      return "error";
+    }
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlInfoHerramienta()
+  {
+    $stmt = Conexion::conectar()->prepare("SELECT * FROM informes");
+    $stmt->execute();
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlInfoInforme($id)
+  {
+    $stmt = Conexion::conectar()->prepare("select * from informes
+      where id_informe=$id");
+    $stmt->execute();
+    return $stmt->fetch();
+    $stmt->close();
+    $stmt->null;
+  }
+  
 }

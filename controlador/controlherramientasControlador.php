@@ -8,6 +8,7 @@ if (isset($ruta["query"])) {
     $ruta["query"] == "ctrEditControlHerramienta" ||
     $ruta["query"] == "ctrRegRegistrosControlHerramientas" ||
     $ruta["query"] == "ctrRepHerramientas" ||
+    $ruta["query"] == "ctrRegDatosInforme" ||
     $ruta["query"] == "ctrEliControlHerramienta"
   ) {
     $metodo = $ruta["query"];
@@ -244,4 +245,33 @@ class ControladorHerramientas
     $respuesta = ModeloControlHerramientas::mdlSelecHerramientas($id);
     return $respuesta;
   }  
+
+  static public function ctrRegDatosInforme(){
+    require "../modelo/controlherramientasModelo.php";
+    $data = array(
+      "seleccionados" => $_POST['seleccionados'],
+      "fechaInforme" => $_POST['fechaInforme'],
+      "numInforme" => $_POST['numInforme'],
+      "respAlmacen" => $_POST['respAlmacen'],
+      "repTecnico" => $_POST['repTecnico'],
+      "encargadoInforme" => $_POST['encargadoInforme'],
+      "asuntoInforme" => $_POST['asuntoInforme'],
+      "descInforme" => $_POST['descInforme'],
+    );
+    $respuesta = ModeloControlHerramientas::mdlRegDatosInforme($data);
+    echo $respuesta;
+  }
+
+  static public function ctrInfoHerramienta()
+  {
+    $respuesta = ModeloControlHerramientas::mdlInfoHerramienta();
+    return $respuesta;
+  }
+  
+  static public function ctrInfoInforme($id)
+  {
+    $respuesta = ModeloControlHerramientas::mdlInfoInforme($id);
+    return $respuesta;
+  }
+  
 }

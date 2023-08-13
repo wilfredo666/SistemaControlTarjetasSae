@@ -1,4 +1,3 @@
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -26,7 +25,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                         <?php
                         $logherramientas = ControladorLogHerramientas::ctrInfoLogHerramientas();
 
@@ -41,15 +40,15 @@
 
                             $diferencia = $fechaActual->diff($convert);
                             $totalDias = $diferencia->days * ($diferencia->invert ? -1 : 1);
-                            
+
                         ?>
                             <tr>
                                 <td><?php echo $value["nombre_usuario"]; ?></td>
-                            
+
                                 <?php
                                 if ($totalDias == -5) {
                                 ?>
-                                    <td class="bg-warning"><?php echo $value["fecha_hora"]; ?></td>
+                                    <td><?php echo $value["fecha_hora"]; ?></td>
                                     <script>
                                         function MEnviarEmails() {
                                             /* console.log('enviado....'); */
@@ -58,9 +57,7 @@
                                                 type: "POST",
                                                 url: "vista/herramientas/EnviosCorreo.php",
                                                 data: obj,
-                                                success: function(data) {
-                                                   
-                                                }
+                                                success: function(data) {}
                                             })
                                         }
                                         MEnviarEmails();
@@ -85,6 +82,7 @@
                                     } ?>
                                 </td>
                                 <td>
+                                    
                                     <div class="btn-group btn-group-sm">
                                         <button class="btn btn-secondary" onclick="MVerLogHerramienta(<?php echo $value['id_log_herramientas']; ?>)">
                                             <i class="fas fa-eye"></i>
@@ -102,7 +100,6 @@
                                             </button>
                                         <?php
                                         } ?>
-
                                     </div>
 
                                 </td>

@@ -299,10 +299,10 @@ function MDatosImpresion() {
   })
 }
 
-function RegDatosInforme() {
-  /* var obj = {
-    id: seleccionados,
-  } */
+/* function RegDatosInforme() {
+  //var obj = {
+  //id: seleccionados,
+  //}
   var formData = new FormData($("#FormDatosInforme")[0]);
   $.ajax({
     type: "POST",
@@ -312,11 +312,59 @@ function RegDatosInforme() {
     contentType: false,
     processData: false,
     success: function (data) {
-      /* console.log(data); */
       window.open("vista/reportes/repHerramientaSelec.php", '_blank');
     }
   })
+} */
+
+function RegDatosInforme(){
+  var formData = new FormData($("#FormDatosInforme")[0])
+  $.ajax({
+    type: "POST",
+    url: "controlador/controlherramientasControlador.php?ctrRegDatosInforme",
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (data) {
+      console.log(data)
+      if (data == "ok") {
+        Swal.fire({
+          icon: 'success',
+          showConfirmButton: false,
+          title: 'Informe Registrado..!!!',
+          timer: 1000
+        })
+        setTimeout(function () {
+          location.reload()
+        }, 1200)
+      } else {
+        Swal.fire({
+          icon: 'error',
+          showConfirmButton: false,
+          title: 'Error de Registro!!!',
+          timer: 1500
+        })
+      }
+    }
+  })
 }
+
+function MVerInforme(id){
+  $("#modal-default").modal("show")
+
+  var obj = ""
+  $.ajax({
+    type: "POST",
+    url: "vista/reportes/MVerInforme.php?id=" + id,
+    data: obj,
+    success: function (data) {
+      $("#content-modal-default").html(data)
+    }
+  })
+}
+
+
 /* -------- mensaje de validacion al formulario Informe */
 function validarFormulario() {
   var nombre = document.getElementById("fechaInforme").value;
