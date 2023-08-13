@@ -251,12 +251,12 @@ Seccion  de Modals
     });
 
     $(function() {
-        $("#DataTableLogHerramientas").DataTable({
+        $("#DataTableLogHerramienta").DataTable({
             "responsive": true,
             "lengthChange": false,
             "autoWidth": false,
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#DataTableLogHerramientas_wrapper .col-md-6:eq(0)');
+        }).buttons().container().appendTo('#DataTableLogHerramienta_wrapper .col-md-6:eq(0)');
 
     });
 

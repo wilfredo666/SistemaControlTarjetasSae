@@ -105,4 +105,10 @@ class ControladorLogHerramientas
             echo $respuestas;
         }
     }
+
+    static public function ctrInfoLogEnvioEstado($id)
+  {
+    $respuesta = ModeloLogHerramientas::mdlInfoLogEnvioEstado($id);
+    return $respuesta;
+  }
 }

@@ -141,4 +141,14 @@ class ModeloLogHerramientas
         $stmt->close();
         $stmt->null;
     }
+
+    static public function mdlInfoLogEnvioEstado($id)
+    {
+      $stmt = Conexion::conectar()->prepare("update log_herramientas set email_envio=1 where id_log_herramientas=$id");
+      $stmt->execute();
+      return $stmt->fetch();
+      $stmt->close();
+      $stmt->null;
+    }
+  
 }

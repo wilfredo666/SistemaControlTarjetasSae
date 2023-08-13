@@ -1,4 +1,4 @@
-<script src="assest/js/cliente.js"></script>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -16,7 +16,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <table id="DataTableLogHerramientas" class="table table-bordered table-striped">
+                <table id="DataTableLogHerramienta" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>Nombre Tecnico</th>
@@ -26,14 +26,53 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                         <?php
                         $logherramientas = ControladorLogHerramientas::ctrInfoLogHerramientas();
 
+                        /* FECHA ACTUAL */
+                        date_default_timezone_set("America/La_Paz");
+                        $fechaActual = new DateTime($fecha = date("Y-m-d"));
+
                         foreach ($logherramientas as $value) {
+                            $fechas = new DateTime($value["fecha_hora"]);
+                            $soloFecha = $fechas->format('Y-m-d');
+                            $convert = new DateTime($soloFecha);
+
+                            $diferencia = $fechaActual->diff($convert);
+                            $totalDias = $diferencia->days * ($diferencia->invert ? -1 : 1);
+                            
                         ?>
                             <tr>
                                 <td><?php echo $value["nombre_usuario"]; ?></td>
-                                <td><?php echo $value["fecha_hora"]; ?></td>
+                            
+                                <?php
+                                if ($totalDias == -5) {
+                                ?>
+                                    <td class="bg-warning"><?php echo $value["fecha_hora"]; ?></td>
+                                    <script>
+                                        function MEnviarEmails() {
+                                            /* console.log('enviado....'); */
+                                            var obj = "";
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "vista/herramientas/EnviosCorreo.php",
+                                                data: obj,
+                                                success: function(data) {
+                                                   
+                                                }
+                                            })
+                                        }
+                                        MEnviarEmails();
+                                    </script>
+                                <?php
+
+                                } else {
+                                ?>
+                                    <td><?php echo $value["fecha_hora"]; ?></td>
+                                <?php
+                                }
+                                ?>
 
                                 <td><?php if ($value["tipo"] == 'ENTRADA') {
                                     ?>
