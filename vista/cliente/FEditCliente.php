@@ -11,6 +11,9 @@ $cliente = ControladorCliente::ctrInfoCliente($idCliente);
 <form action="" id="EditCliente" enctype="multipart/form-data">
     <div class="modal-header">
         <h4 class="modal-title">Editar Cliente</h4>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
     </div>
     <div class="modal-body">
 
@@ -79,8 +82,8 @@ $cliente = ControladorCliente::ctrInfoCliente($idCliente);
         </div>
 
     </div>
-    <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-primary" onclick="EditarCliente()">Actualizar</button>
     </div>
 </form>

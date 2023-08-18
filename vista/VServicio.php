@@ -59,9 +59,6 @@
                         </td>
                         <td>
                             <div class="btn-group">
-                                <button class="btn btn-secondary" onclick="MVerSeguimiento(<?php echo $value["id_servicio"]; ?>)">
-                                    <i class="fas fa-eye"></i>
-                                </button>
                                 <button class="btn btn-warning" onclick="MEditServicio(<?php echo $value["id_servicio"]; ?>)">
                                     <i class="fas fa-edit"></i>
                                 </button>

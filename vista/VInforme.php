@@ -25,9 +25,6 @@
                         <th>Asunto</th>
                         <th>Encargado</th>
                         <th>Accíon</th>
-                        <!-- <td>
-                            <button class="btn btn-primary" onclick="MNuevoServicio()">Nuevo</button>
-                        </td> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -45,17 +42,11 @@
                         <td><?php echo $value['asunto_informe'];?></td>
                         <td><?php echo $value['encargado_informe'];?></td>
                         <td>
-                            <div class="btn-group-sm btn-sm">
+                            <div class="btn-group">
                                 <button class="btn btn-secondary" onclick="MVerInforme(<?php echo $value['id_informe']; ?>)">
                                     <i class="fas fa-eye"></i>
                                 </button>
-                                <a class="btn btn-sm btn-success" href="vista/reportes/repHerramientaSelec.php?id=<?php echo $value["id_informe"]; ?>" target="_blank"><i class="fas fa-print"></i></a>
-                                <!-- <button class="btn btn-warning" onclick="MEditServicio(<?php echo $value["id_informe"]; ?>)">
-                                    <i class="fas fa-edit"></i>
-                                </button> -->
-                                <!-- <button class="btn btn-danger" onclick="MEliServicio(<?php echo $value["id_informe"]; ?>)">
-                                    <i class="fas fa-trash"></i>
-                                </button> -->
+                                <a class="btn btn-success" href="vista/reportes/repHerramientaSelec.php?id=<?php echo $value["id_informe"]; ?>" target="_blank"><i class="fas fa-print"></i></a>
                             </div>
                         </td>
                     </tr>

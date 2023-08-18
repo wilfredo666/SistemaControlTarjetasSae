@@ -1,6 +1,9 @@
 <form action="" id="RegNuevoCliente" enctype="multipart/form-data">
     <div class="modal-header">
         <h4 class="modal-title">Registro de Cliente</h4>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     <div class="modal-body">
 
@@ -34,8 +37,8 @@
             <div class="col-4">
                 <div class="form-group">
                     <label for="">Fecha Nacimiento</label>
-                    <?php date_default_timezone_set('America/La_Paz');?>
-                    <input type="date" class="form-control" name="fechNacimiento" id="fechNacimiento" value="<?php echo date("d-m-y");?>">
+                    <?php date_default_timezone_set('America/La_Paz'); ?>
+                    <input type="date" class="form-control" name="fechNacimiento" id="fechNacimiento" value="<?php echo date("d-m-y"); ?>">
                 </div>
             </div>
             <div class="col-4">
@@ -66,8 +69,8 @@
             </div>
         </div>
     </div>
-    <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-primary" onclick="RegNuevoClientes()">Guardar</button>
     </div>
 </form>

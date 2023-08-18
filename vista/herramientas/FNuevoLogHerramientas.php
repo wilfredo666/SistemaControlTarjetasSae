@@ -5,7 +5,7 @@ $resultado = explode(",", $idArreglos);
 ?>
 <div class="modal-header">
   <h4 class="modal-title">Registrar movimiento a la tarjeta</h4>
-  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
   <input type="hidden" class="form-control" id="seleccionados" name="seleccionados" value="">
@@ -20,7 +20,7 @@ $resultado = explode(",", $idArreglos);
       $usuarios = ControladorUsuario::ctrInfoUsuarios();
 
       ?>
-      <select class="form-control select2Tec" name="nomLog" id="nomLog">
+      <select class="form-control select2Empleado" name="nomLog" id="nomLog">
 
         <?php foreach ($usuarios as $value) {
         ?>
@@ -36,7 +36,7 @@ $resultado = explode(",", $idArreglos);
       <textarea id="observacionesLog" name="observacionesLog" rows="5" class="form-control"></textarea>
     </div>
     <div class="row list-group-item list-group-item-info mb-0 pb-0">
-      <label class="col-8 text-center" for="">Herramientas Seleccionadas</label>
+      <label class="col-8 text-center" for="">Herramientas & Codigo Seleccionadas</label>
       <label class="col-1" for=""></label>
       <label class="col-2 text-center" for="">Cantidad</label>
     </div>
@@ -54,7 +54,7 @@ $resultado = explode(",", $idArreglos);
         </div>
         <div class="col-8">
           <div class="form-group">
-            <input type="text" class="form-control" name="nomHerramienta[]" id="nomHerramienta[]" value="<?php echo $herramienta['descripcion_herramientas'] ?>" readonly>
+            <input type="text" class="form-control" name="nomHerramienta[]" id="nomHerramienta[]" value="<?php echo $herramienta['descripcion_herramientas']." - ".$herramienta["codigo_herramientas"] ?>" readonly>
           </div>
         </div>
         <div class="col-2">
@@ -73,13 +73,13 @@ $resultado = explode(",", $idArreglos);
   </form>
 
 </div>
-<div class="modal-footer justify-content-between">
-  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+<div class="modal-footer">
+  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
   <button type="button" class="btn btn-primary" onclick="RegLogHerramientas()">Guardar</button>
 </div>
 
 <script>
-  $('.select2Tec').select2({
+  $('.select2Empleado').select2({
     theme: 'bootstrap4'
   })
 </script>

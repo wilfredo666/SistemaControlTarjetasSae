@@ -6,8 +6,8 @@ $nombreArchivo = isset($_POST['nombreArchivo']) ? $_POST['nombreArchivo'] : '';
 ?>
 
 <div class="modal-header">
-  <h4 class="modal-title">Carcar archivos a directorio: <span class="text-primary"><?php echo $nombreArchivo;?></span></h4>
-  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <h4 class="modal-title">Cargar archivos a directorio: <span class="text-primary"><?php echo $nombreArchivo;?></span></h4>
+  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
@@ -21,7 +21,7 @@ $nombreArchivo = isset($_POST['nombreArchivo']) ? $_POST['nombreArchivo'] : '';
         </span>
         <button type="submit" class="btn btn-primary col start">
           <i class="fas fa-upload"></i>
-          <span>Inciar carga</span>
+          <span>Inciar Carga</span>
         </button>
         <button type="reset" class="btn btn-warning col cancel">
           <i class="fas fa-times-circle"></i>
@@ -74,8 +74,8 @@ $nombreArchivo = isset($_POST['nombreArchivo']) ? $_POST['nombreArchivo'] : '';
   </div>
 
 </div>
-<div class="modal-footer justify-content-between">
-  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+<div class="modal-footer">
+  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
   <button type="button" class="btn btn-primary" onclick="">Guardar</button>
 </div>
 

@@ -1,6 +1,6 @@
                <div class="modal-header">
                    <h4 class="modal-title">Cargar Registros en Lote</h4>
-                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                        <span aria-hidden="true">&times;</span>
                    </button>
                </div>
@@ -24,7 +24,7 @@
 
                </div>
 
-               <div class="modal-footer justify-content-between">
-                   <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+               <div class="modal-footer">
+                   <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                    <button type="submit" class="btn btn-primary" onclick="CargarRegistrosCalibracion()">Guardar</button>
                </div>

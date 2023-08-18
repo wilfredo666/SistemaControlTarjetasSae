@@ -10,7 +10,7 @@ $material = ControladorMaterial::ctrInfoMaterial($id);
 
 <div class="modal-header bg-dark">
     <h4 class="modal-title text-light">Información del Material</h4>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
@@ -95,6 +95,7 @@ $material = ControladorMaterial::ctrInfoMaterial($id);
 
         </div>
     </div>
-
 </div>
-
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+</div>

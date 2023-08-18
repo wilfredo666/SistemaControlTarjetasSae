@@ -1,5 +1,5 @@
 <style>
-  #pizarra{
+  #pizarra {
     width: 750px;
     height: 300px;
     background-color: #d1d1d1;
@@ -8,6 +8,9 @@
 <form action="" id="RegNuevoAutorizacion" enctype="multipart/form-data">
   <div class="modal-header">
     <h4 class="modal-title">Registro de Consentimiento</h4>
+    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
   <div class="modal-body">
     <div class="row">
@@ -17,15 +20,15 @@
           <?php
           require_once "../../controlador/clienteControlador.php";
           require_once "../../modelo/clienteModelo.php";
-          $clientes=ControladorCliente::ctrInfoClientes();
+          $clientes = ControladorCliente::ctrInfoClientes();
 
           ?>
           <select class="form-control" name="nomAutorizacion" id="nomAutorizacion">
-            <?php foreach($clientes as $value){
+            <?php foreach ($clientes as $value) {
             ?>
-            <option value="<?php echo $value["id_cliente"];?>"><?php echo $value["nombre_cliente"]." ".$value["apellido_pat_cliente"]." ".$value["apellido_mat_cliente"];?></option>
+              <option value="<?php echo $value["id_cliente"]; ?>"><?php echo $value["nombre_cliente"] . " " . $value["apellido_pat_cliente"] . " " . $value["apellido_mat_cliente"]; ?></option>
             <?php
-}
+            }
             ?>
           </select>
         </div>
@@ -48,7 +51,7 @@
     </div>
   </div>
   <div class="modal-footer justify-content-between">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>
     <button type="button" class="btn btn-info" onclick="borrarPizarra()">Borrar</button>
     <button type="button" class="btn btn-primary" onclick="guardar()">Guardar</button>
   </div>
@@ -78,16 +81,16 @@
   //======================================================================
 
   /**
-     * Funcion que empieza a dibujar la linea
-     */
-  function empezarDibujo () {
+   * Funcion que empieza a dibujar la linea
+   */
+  function empezarDibujo() {
     pintarLinea = true;
     lineas.push([]);
   };
 
   /**
-     * Funcion que guarda la posicion de la nueva línea
-     */
+   * Funcion que guarda la posicion de la nueva línea
+   */
   function guardarLinea() {
     lineas[lineas.length - 1].push({
       x: nuevaPosicionX,
@@ -96,9 +99,9 @@
   }
 
   /**
-     * Funcion dibuja la linea
-     */
-  function dibujarLinea (event) {
+   * Funcion dibuja la linea
+   */
+  function dibujarLinea(event) {
     event.preventDefault();
     if (pintarLinea) {
       let ctx = miCanvas.getContext('2d')
@@ -121,9 +124,9 @@
       guardarLinea();
       // Redibuja todas las lineas guardadas
       ctx.beginPath();
-      lineas.forEach(function (segmento) {
+      lineas.forEach(function(segmento) {
         ctx.moveTo(segmento[0].x, segmento[0].y);
-        segmento.forEach(function (punto, index) {
+        segmento.forEach(function(punto, index) {
           ctx.lineTo(punto.x, punto.y);
         });
       });
@@ -132,9 +135,9 @@
   }
 
   /**
-     * Funcion que deja de dibujar la linea
-     */
-  function pararDibujar () {
+   * Funcion que deja de dibujar la linea
+   */
+  function pararDibujar() {
     pintarLinea = false;
     guardarLinea();
   }
@@ -152,7 +155,7 @@
   miCanvas.addEventListener('touchstart', empezarDibujo, false);
   miCanvas.addEventListener('touchmove', dibujarLinea, false);
 
-  function borrarPizarra(){
+  function borrarPizarra() {
 
     //document.getElementById("pizarra").innerHTML=""
     let miCanvas = document.querySelector('#pizarra');
@@ -175,7 +178,7 @@
   function guardar() {
     let canvas = document.querySelector('#pizarra');
     var imagen = canvas.toDataURL("image/png");
-    document.getElementById("firmaAutorizacion").value=imagen
+    document.getElementById("firmaAutorizacion").value = imagen
 
     RegNuevoAutorizacion()
   }

@@ -1,6 +1,6 @@
  <div class="modal-header">
      <h4 class="modal-title">Registro Equipos y Herramientas Dados De Baja</h4>
-     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+     <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
          <span aria-hidden="true">&times;</span>
      </button>
  </div>
@@ -190,7 +190,7 @@
      </form>
 
  </div>
- <div class="modal-footer justify-content-between">
-     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+ <div class="modal-footer">
+     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
      <button type="button" class="btn btn-primary" onclick="RegDBaja()">Guardar</button>
  </div>

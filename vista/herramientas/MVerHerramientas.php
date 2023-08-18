@@ -251,5 +251,4 @@ $herramientas = ControladorHerramientasSalidas::ctrInfoHerramienta($id);
             </table>
         </div>
     </div>
-
 </div>

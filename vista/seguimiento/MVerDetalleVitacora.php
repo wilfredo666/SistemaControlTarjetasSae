@@ -16,7 +16,7 @@ if(count($marcacion)){
 <div class="card card-info card-outline">
   <div class="modal-header">
     <h4 class="modal-title">Detalle de la Tarjeta: <span class="text-info"><?php echo $cod.' ( '.$maximoHoras.' ) '; ?></span></h4>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>

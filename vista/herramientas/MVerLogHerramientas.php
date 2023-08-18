@@ -12,7 +12,7 @@ $herra = json_decode($herramientas["codigo_herramientas"]);
 
 <div class="modal-header bg-dark">
     <h4 class="modal-title text-light">Información Comprobante Herramienta Recibida/Entregada</h4>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
@@ -42,7 +42,7 @@ $herra = json_decode($herramientas["codigo_herramientas"]);
                 <thead class="bg-primary text-white">
                     <tr>
                         <th>UBICACION HERRA.</th>
-                        <th>DESCRIPCION HERRAMIENTA</th>
+                        <th>DESCRIPCION & CODIGO HERRAMIENTA</th>
                         <th>CANTIDAD</th>
                     </tr>
                 </thead>
@@ -53,7 +53,7 @@ $herra = json_decode($herramientas["codigo_herramientas"]);
                     ?>
                         <tr>
                             <td><?php echo $herraDesc['ubicacion_herramientas'] ?></td>
-                            <td><?php echo $herraDesc['descripcion_herramientas'] ?></td>
+                            <td><?php echo $herraDesc['descripcion_herramientas']." - ".$herraDesc["codigo_herramientas"] ?></td>
                             <td><?php echo $value->cantidad ?></td>
                         </tr>
                     <?php

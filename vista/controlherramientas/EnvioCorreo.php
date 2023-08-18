@@ -54,6 +54,7 @@ $mail->Subject = 'Aviso de fecha de Vencimiento';
 
 /* $mail->addCC('willys.el.trueno@gmail.com', 'copia'); */
 $mail->addCC('amiponce698@gmail.com', 'copia');
+$mail->addCC('herramientas@sae.aero', 'copia');
 
 
 require_once "../../controlador/controlHerramientasControlador.php";

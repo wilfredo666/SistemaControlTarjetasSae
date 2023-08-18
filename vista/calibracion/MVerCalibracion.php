@@ -10,7 +10,7 @@ $calibracion = ControladorCalibraciones::ctrInfoCalibracion($id);
 
 <div class="modal-header bg-dark">
     <h4 class="modal-title text-light">Información del Control Herramientas</h4>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
@@ -153,6 +153,6 @@ $calibracion = ControladorCalibraciones::ctrInfoCalibracion($id);
             </table>
         </div>
     </div>
-
 </div>
+
 

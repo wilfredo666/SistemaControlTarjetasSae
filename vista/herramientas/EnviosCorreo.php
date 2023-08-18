@@ -54,7 +54,7 @@ $mail->Subject = utf8_decode('Aviso de fecha de Devolución de Herramienta');
 
 /* $mail->addCC('willys.el.trueno@gmail.com', 'copia'); */
 $mail->addCC('amiponce698@gmail.com', 'copia');
-
+$mail->addCC('herramientas@sae.aero', 'copia');
 
 require_once "../../controlador/logHerramientasControlador.php";
 require_once "../../modelo/logHerramientasModelo.php";

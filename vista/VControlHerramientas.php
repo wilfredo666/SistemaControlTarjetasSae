@@ -26,11 +26,12 @@
               <th></th>
               <th>ITEM</th>
               <th>DESCRIPCION</th>
-              <th>NUMERO DE PARTE</th>
-              <th>NUMERO DE SERIE</th>
+              <th>P/N</th>
+              <th>S/N</th>
               <th>CODIGO</th>
               <th>UBICACION</th>
               <th>FECHA VENCIMIENTO</th>
+              <th>DIAS ALERTA</th>
               <th>N° CARPETA</th>
               <td>
                 <!-- <button class="btn btn-primary" onclick="MNuevoControlHerramientas()">Agregar</button> -->
@@ -39,7 +40,7 @@
             </tr>
           </thead>
           <tbody>
-          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <?php
             $controlherramienta = ControladorHerramientas::ctrInfoControlHerramientas();
             $idHerra = 0;
@@ -95,6 +96,22 @@
                 } else {
                 ?>
                   <td><?php echo $value["fechavenci_controlherramientas"]; ?></td>
+                <?php
+                }
+                ?>
+
+                <?php
+                if ($totalDias <= 10 and $totalDias >= 1) {
+                ?>
+                  <td class="bg-warning"><?php echo $value["diasalerta_controlherramientas"]; ?></td>
+                <?php
+                } elseif ($totalDias < 1) {
+                ?>
+                  <td class="bg-danger"><?php echo $value["diasalerta_controlherramientas"]; ?></td>
+                <?php
+                } else {
+                ?>
+                  <td><?php echo $value["diasalerta_controlherramientas"]; ?></td>
                 <?php
                 }
                 ?>
