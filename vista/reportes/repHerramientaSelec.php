@@ -150,7 +150,25 @@ foreach ($herramientaIndividual as $value) {
     $pdf->Cell(30, 8, $herra["marcaofabri_controlherramientas"], 1, 0, 'C');
     $pdf->Cell(12, 8, $herra["cantidad_controlherramientas"], 1, 0, 'C');
     $pdf->Cell(15, 8, $herra["unidad_controlherramientas"], 1, 0, 'C');
-    $pdf->Cell(20, 8, $herra["fechavenci_controlherramientas"], 1, 0, 'C');
+  
+  //fecha de caducidad - pintado
+    date_default_timezone_set("America/La_Paz");
+    $fecha1 = new DateTime($fecha = date("Y-m-d"));
+    $fecha2 = new DateTime($herra["fechavenci_controlherramientas"]);
+    $diferencia = $fecha1->diff($fecha2);
+    $totalDias = $diferencia->days * ($diferencia->invert ? -1 : 1);
+  if ($totalDias <= 10 and $totalDias >= 1) {
+        $pdf->SetFillColor(255, 221, 51);
+        $pdf->Cell(20, 8, $herra["fechavenci_controlherramientas"], 1, 0, 'C', true);
+    } elseif ($totalDias < 1) {
+        $pdf->SetFillColor(223, 50, 26);
+        $pdf->Cell(20, 8, $herra["fechavenci_controlherramientas"], 1, 0, 'C', true);
+    } else {
+        $pdf->SetFillColor(255, 255, 255);
+        $pdf->Cell(20, 8, $herra["fechavenci_controlherramientas"], 1, 0, 'C', true);
+    }
+  
+    
     $pdf->Cell(25, 8, "", 1, 1, 'C');
 }
 
