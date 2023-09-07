@@ -179,6 +179,15 @@ with font-awesome or any other icon font library -->
                             </ul>
                         </li>
 
+                        <li class="nav-item">
+                            <a href="VOrdenTrabajo" class="nav-link">
+                                <i class="nav-icon fas fa-file-pdf"></i>
+                                <p>
+                                    Ordenes de Trabajo
+                                </p>
+                            </a>
+                        </li>
+
                         <?php if (habilitado(6) != null) {
                         ?>
                         <li class="nav-item">

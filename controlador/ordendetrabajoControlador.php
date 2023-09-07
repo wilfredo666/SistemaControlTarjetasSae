@@ -1,0 +1,117 @@
+<?php
+$ruta = parse_url( $_SERVER['REQUEST_URI'] );
+
+if ( isset( $ruta["query"] ) ) {
+
+  if ( $ruta["query"] == "ctrRegOrdenDeTrabajo" ||
+      $ruta["query"] == "ctrEditOrdenDeTrabajo" ||
+      $ruta["query"] == "ctrRegRegistrosMat" ||
+      $ruta["query"] == "ctrEliOrdenDeTrabajo"
+     ){
+    $metodo = $ruta["query"];
+    $Material = new ControladorOrdenDeTrabajo();
+    $Material->$metodo();
+  }
+}
+
+class ControladorOrdenDeTrabajo {
+
+  static public function ctrInfoOrdenesDeTrabajos() {
+    $respuesta = ModeloOrdenDeTrabajo::mdlInfoOrdenesDeTrabajos();
+    return $respuesta;
+  }
+
+  static public function ctrRegOrdenDeTrabajo() {
+    require_once "../modelo/ordendetrabajoModelo.php";
+
+    $ordendetrabajonumeroOrdenes = $_POST["ordendetrabajonumeroOrdenes"];
+    $nombrematriculaOrdenes = $_POST["nombrematriculaOrdenes"];
+    $thOrdenes = $_POST["thOrdenes"];
+    $tcOrdenes = $_POST["tcOrdenes"];
+    $modelopnOrdenes = $_POST["modelopnOrdenes"];
+    $snOrdenes = $_POST["snOrdenes"];
+    $solicitadaporOrdenes = $_POST["solicitadaporOrdenes"];
+    $nombreautorizadaorOrdenes = $_POST["nombreautorizadaorOrdenes"];
+    $documentosadjuntosrecibidosOrdenes = $_POST["documentosadjuntosrecibidosOrdenes"];
+    $descripciontrabajosOrdenes = $_POST["descripciontrabajosOrdenes"];
+    $ordenesdetrabajosrelacionadasOrdenes = $_POST["ordenesdetrabajosrelacionadasOrdenes"];
+    $documentosadjuntosentregadosOrdenes = $_POST["documentosadjuntosentregadosOrdenes"];
+    $observacionesOrdenes = $_POST["observacionesOrdenes"];
+    $caratulaOrdenes = $_POST["caratulaOrdenes"];
+
+    $data = array(
+      "ordendetrabajonumeroOrdenes"=>$_POST["ordendetrabajonumeroOrdenes"],
+      "nombrematriculaOrdenes"=>$_POST["nombrematriculaOrdenes"],
+      "thOrdenes"=>$_POST["thOrdenes"],
+      "tcOrdenes"=>$_POST["tcOrdenes"],
+      "modelopnOrdenes"=>$_POST["modelopnOrdenes"],
+      "snOrdenes"=>$_POST["snOrdenes"],
+      "solicitadaporOrdenes"=>$_POST["solicitadaporOrdenes"],
+      "nombreautorizadaorOrdenes"=>$_POST["nombreautorizadaorOrdenes"],
+      "documentosadjuntosrecibidosOrdenes"=>$_POST["documentosadjuntosrecibidosOrdenes"],
+      "descripciontrabajosOrdenes"=>$_POST["descripciontrabajosOrdenes"],
+      "ordenesdetrabajosrelacionadasOrdenes"=>$_POST["ordenesdetrabajosrelacionadasOrdenes"],
+      "documentosadjuntosentregadosOrdenes"=>$_POST["documentosadjuntosentregadosOrdenes"],
+      "observacionesOrdenes"=>$_POST["observacionesOrdenes"],
+      "caratulaOrdenes"=>$_POST["caratulaOrdenes"]
+    );
+
+    $respuesta = ModeloOrdenDeTrabajo::mdlRegOrdenDeTrabajo( $data );
+    echo $respuesta;
+  }
+
+  static public function ctrInfoOrdenDeTrabajo( $id ) {
+    $respuesta = ModeloOrdenDeTrabajo::mdlInfoOrdenDeTrabajo( $id );
+    return $respuesta;
+  }
+
+  static public function ctrEditOrdenDeTrabajo() {
+
+    require_once "../modelo/ordendetrabajoModelo.php";
+
+    $ordendetrabajonumeroOrdenes = $_POST["ordendetrabajonumeroOrdenes"];
+    $nombrematriculaOrdenes = $_POST["nombrematriculaOrdenes"];
+    $thOrdenes = $_POST["thOrdenes"];
+    $tcOrdenes = $_POST["tcOrdenes"];
+    $modelopnOrdenes = $_POST["modelopnOrdenes"];
+    $snOrdenes = $_POST["snOrdenes"];
+    $solicitadaporOrdenes = $_POST["solicitadaporOrdenes"];
+    $nombreautorizadaorOrdenes = $_POST["nombreautorizadaorOrdenes"];
+    $documentosadjuntosrecibidosOrdenes = $_POST["documentosadjuntosrecibidosOrdenes"];
+    $descripciontrabajosOrdenes = $_POST["descripciontrabajosOrdenes"];
+    $ordenesdetrabajosrelacionadasOrdenes = $_POST["ordenesdetrabajosrelacionadasOrdenes"];
+    $documentosadjuntosentregadosOrdenes = $_POST["documentosadjuntosentregadosOrdenes"];
+    $observacionesOrdenes = $_POST["observacionesOrdenes"];
+    $caratulaOrdenes = $_POST["caratulaOrdenes"];
+    $data = array(
+      "idOrdenTrabajo"=>$_POST["idOrdenTrabajo"],
+      "ordendetrabajonumeroOrdenes"=>$_POST["ordendetrabajonumeroOrdenes"],
+      "nombrematriculaOrdenes"=>$_POST["nombrematriculaOrdenes"],
+      "thOrdenes"=>$_POST["thOrdenes"],
+      "tcOrdenes"=>$_POST["tcOrdenes"],
+      "modelopnOrdenes"=>$_POST["modelopnOrdenes"],
+      "snOrdenes"=>$_POST["snOrdenes"],
+      "solicitadaporOrdenes"=>$_POST["solicitadaporOrdenes"],
+      "nombreautorizadaorOrdenes"=>$_POST["nombreautorizadaorOrdenes"],
+      "documentosadjuntosrecibidosOrdenes"=>$_POST["documentosadjuntosrecibidosOrdenes"],
+      "descripciontrabajosOrdenes"=>$_POST["descripciontrabajosOrdenes"],
+      "ordenesdetrabajosrelacionadasOrdenes"=>$_POST["ordenesdetrabajosrelacionadasOrdenes"],
+      "documentosadjuntosentregadosOrdenes"=>$_POST["documentosadjuntosentregadosOrdenes"],
+      "observacionesOrdenes"=>$_POST["observacionesOrdenes"],
+      "caratulaOrdenes"=>$_POST["caratulaOrdenes"]
+    );
+
+    $respuesta = ModeloOrdenDeTrabajo::mdlEditOrdenDeTrabajo( $data );
+    echo $respuesta;
+  }
+
+  static public function ctrEliOrdenDeTrabajo(){
+    require "../modelo/ordendetrabajoModelo.php";
+    $data = $_POST["id"];
+
+    $respuesta = ModeloOrdenDeTrabajo::mdlEliOrdenDeTrabajo($data);
+
+    echo $respuesta;
+  }
+
+}

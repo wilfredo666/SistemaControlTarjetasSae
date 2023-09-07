@@ -77,6 +77,7 @@
           $_GET["ruta"] == "VLogHerramientas" ||
           $_GET["ruta"] == "VControlHerramientas" ||
           $_GET["ruta"] == "VCalibracion" ||
+          $_GET["ruta"] == "VOrdenTrabajo" ||
           $_GET["ruta"] == "VDBaja" ||
           $_GET["ruta"] == "BusTramite" ||
           $_GET["ruta"] == "VMarcaciones" ||
