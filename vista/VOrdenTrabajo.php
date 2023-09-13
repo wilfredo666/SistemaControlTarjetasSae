@@ -46,16 +46,17 @@
                               <td><?php echo $value["solicitadapor_ordendetrabajo"]; ?></td>      
                               <td><?php echo $value["nombreautorizado_ordendetrabajo"]; ?></td>
                               <td>
-                                  <div class="btn-group">
-                                      <button class="btn btn-secondary" onclick="MVerOrdenDeTrabajo(<?php echo $value["id_ordendetrabajo"]; ?>)">
+                                  <div class="btn-group ">
+                                      <button class="btn btn-secondary btn-sm" onclick="MVerOrdenDeTrabajo(<?php echo $value["id_ordendetrabajo"]; ?>)">
                                           <i class="fas fa-eye"></i>
                                       </button>
-                                      <button class="btn btn-warning" onclick="MEditarOrdenDeTrabajo(<?php echo $value["id_ordendetrabajo"]; ?>)">
+                                      <button class="btn btn-warning btn-sm" onclick="MEditarOrdenDeTrabajo(<?php echo $value["id_ordendetrabajo"]; ?>)">
                                           <i class="fas fa-edit"></i>
                                       </button>
-                                      <button class="btn btn-danger" onclick="MEliOrdenDeTrabajo(<?php echo $value["id_ordendetrabajo"]; ?>)">
+                                      <button class="btn btn-danger btn-sm" onclick="MEliOrdenDeTrabajo(<?php echo $value["id_ordendetrabajo"]; ?>)">
                                           <i class="fas fa-trash"></i>
                                       </button>
+                                      <a class="btn btn-sm btn-success" href="vista/reportes/repOrdenTrabajo.php?id=<?php echo $value["id_ordendetrabajo"]; ?>" target="_blank"><i class="fas fa-print"></i></a>
                                   </div>
                               </td>
                           </tr>
