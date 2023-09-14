@@ -1,13 +1,17 @@
 <?php
+require_once "../../controlador/usuarioControlador.php";
+require_once "../../modelo/usuarioModelo.php";
 require_once "../../controlador/logherramientasControlador.php";
 require_once "../../modelo/logherramientasModelo.php";
 
 $id = $_GET["id"];
 
 $herramientas = ControladorLogHerramientas::ctrInfoLogHerramienta($id);
+$usuario = ControladorLogHerramientas::ctrInfoLogHerramientaSelec($id);
 
 $herra = json_decode($herramientas["codigo_herramientas"]);
 
+session_start();
 ?>
 
 <div class="modal-header bg-dark">
@@ -21,10 +25,39 @@ $herra = json_decode($herramientas["codigo_herramientas"]);
         <div class="col-sm-12">
             <form id="FDevHerramientas">
                 <input type="hidden" name="idPrestamo" id="idPrestamo" value="<?php echo $id ?>">
-                
+
+                <div class="form-group">
+                    <label for="">Nombre Técnico (El que realiza la devolución)</label>
+                    <?php
+                    $usuarios = ControladorUsuario::ctrInfoUsuarios();
+                    ?>
+                    <select class="form-control select2bs4" name="usuTecnico" id="usuTecnico">
+
+                        <?php foreach ($usuarios as $value) {
+                        ?>
+                            <option value="<?php echo $value["id_usuario"]; ?>" <?php if ($usuario["nombre_usuario"] == $value["id_usuario"]) : ?> selected <?php endif ?>><?php echo $value["nombre_usuario"]; ?></option>
+                           
+                        <?php
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Usuario encargado de recepcionar</label>
+                    <input type="text" class="form-control" id="usuEnc" name="usuEnc" value="<?php echo $_SESSION['nombreUsuario'] ?>" readonly>
+                    <input type="hidden" class="form-control" id="usuEncargado" name="usuEncargado" value="<?php echo $_SESSION['id']?>">
+                </div>
+
+                <div class="form-group">
+                    <label for="">Observaciones</label>
+                    <textarea id="observacionesLog" name="observacionesLog" rows="3" class="form-control"></textarea>
+                </div>
+                <br>
+
                 <table class="table" style="width: 80%; margin: auto;">
-                    <thead >
-                        <tr >
+                    <thead>
+                        <tr>
                             <th style="background-color: #000000; color: white;">UBICACION HERRA.</th>
                             <th style="background-color: #000000; color: white;">DESCRIPCION & CODIGO HERRAMIENTA</th>
                             <th style="background-color: #000000; color: white;">CANTIDAD</th>

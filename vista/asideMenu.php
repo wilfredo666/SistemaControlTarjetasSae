@@ -121,6 +121,10 @@ with font-awesome or any other icon font library -->
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Log Herramientas</p>
                                     </a>
+                                    <a href="VLogDevolucion" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Log Devoluciones</p>
+                                    </a>
                                 </li>
                             </ul>
                         </li>

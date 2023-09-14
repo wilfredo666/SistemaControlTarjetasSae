@@ -2,7 +2,9 @@
 $id = $_GET["ids"];
 $idArreglos = trim($id, "{ }");
 $resultado = explode(",", $idArreglos);
+
 ?>
+
 <div class="modal-header">
   <h4 class="modal-title">Registrar movimiento a la tarjeta</h4>
   <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
@@ -20,11 +22,30 @@ $resultado = explode(",", $idArreglos);
       $usuarios = ControladorUsuario::ctrInfoUsuarios();
 
       ?>
-      <select class="form-control select2Empleado" name="nomLog" id="nomLog">
+      <select class="form-control select2bs4" name="nomLog" id="nomLog">
 
         <?php foreach ($usuarios as $value) {
         ?>
           <option value="<?php echo $value["id_usuario"]; ?>"><?php echo $value["nombre_usuario"]; ?></option>
+        <?php
+        }
+        ?>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="">Aerolinea</label>
+      <?php
+      require_once "../../controlador/servicioControlador.php";
+      require_once "../../modelo/servicioModelo.php";
+      $aerolinea = ControladorServicio::ctrInfoServicios();
+
+      ?>
+      <select class="form-control select2bs4" name="nomServicio" id="nomServicio">
+
+        <?php foreach ($aerolinea as $value) {
+        ?>
+          <option value="<?php echo $value["id_servicio"]; ?>"><?php echo $value["cliente"]; ?></option>
         <?php
         }
         ?>
@@ -79,7 +100,7 @@ $resultado = explode(",", $idArreglos);
 </div>
 
 <script>
-  $('.select2Empleado').select2({
-    theme: 'bootstrap4'
-  })
+  $('.select2bs4').select2({
+        theme: 'bootstrap4'
+    })
 </script>

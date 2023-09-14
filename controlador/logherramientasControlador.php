@@ -31,11 +31,13 @@ class ControladorLogHerramientas
     =====================*/
     static public function ctrRegLogHerramientas()
     {
+        session_start();
         require_once "../modelo/logherramientasModelo.php";
 
         $cantidad = $_POST['cantidadHerramienta'];
         $nomLog = $_POST['nomLog'];
         $observacionesLog = $_POST['observacionesLog'];
+        $nomServicio = $_POST['nomServicio'];
         $nomHerramienta = $_POST['nomHerramienta'];
         $id = $_POST['idHerramientas'];
 
@@ -67,6 +69,8 @@ class ControladorLogHerramientas
         $data = array(
             "nomLog" => $nomLog,
             "observacionesLog" => $observacionesLog,
+            "nomServicio" => $nomServicio,
+            "idUsuario" => $_SESSION["id"],
             "detalle" => $arregloCarrito
         );
 
@@ -79,6 +83,14 @@ class ControladorLogHerramientas
         $respuesta = ModeloLogHerramientas::mdlInfoLogHerramienta($id);
         return $respuesta;
     }
+
+    static public function ctrInfoLogHerramientaSelec($id)
+    {
+        $respuesta = ModeloLogHerramientas::mdlInfoLogHerramientaSelec($id);
+        return $respuesta;
+    }
+
+    
 
     static public function ctrInfoLogHerramientaDesc($value)
     {
@@ -122,6 +134,10 @@ class ControladorLogHerramientas
         $cantHerramienta = $_POST["cantidad"];
         $cantActualHerramienta = $_POST["cantidadActual"];
 
+        $usuTecnico = $_POST['usuTecnico'];
+        $usuEncargado = $_POST['usuEncargado'];
+        $observacionesLog = $_POST['observacionesLog'];
+
         //uniendo los datos en arreglos asociativos donde ids y cantidad son arreglos asociativos
         $arregloCarrito2 = [];
         for ($i = 0; $i < count($idHerramientas); $i++) {
@@ -147,6 +163,16 @@ class ControladorLogHerramientas
             "arregloCarrito2" => $arregloCarrito2
         );
 
+        //=================> enviar datos para logDevolucion
+        $data2 = array(
+            "idPrestamo" => $idPrestamo,
+            "usuTecnico" => $usuTecnico,
+            "usuEncargado" => $usuEncargado,
+            "observacionesLog" => $observacionesLog,
+            "arregloCarrito3" => $arregloCarrito3
+        );
+        $respuestaDev = ModeloLogHerramientas::mdlLogDevolucion($data2);
+
         $respuesta = ModeloLogHerramientas::mdlDevolucionHerramienta($data);
         if ($respuesta = "ok") {
             for ($i = 0; $i < count($arregloCarrito3); $i++) {
@@ -156,6 +182,21 @@ class ControladorLogHerramientas
             }
             echo $respuesta;
         }
-    
     }
+
+    /* ============================================
+    INFORMACION DE TODAS LAS DEVOLUCIONES
+    =============================================== */
+    static public function ctrInfoLogDevolucion()
+    {
+        $respuesta = ModeloLogHerramientas::mdlInfoLogDevolucion();
+        return $respuesta;
+    }
+
+    static public function ctrInfoLogDevoluciones($id)
+    {
+        $respuesta = ModeloLogHerramientas::mdlInfoLogDevoluciones($id);
+        return $respuesta;
+    }
+    
 }

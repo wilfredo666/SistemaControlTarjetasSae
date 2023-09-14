@@ -6,6 +6,7 @@ require_once "../../modelo/ordendetrabajoModelo.php";
 $id = $_GET["id"];
 $orden = ControladorOrdenDeTrabajo::ctrRepOrdenTrabajo($id);
 /* $today = getdate(); */
+date_default_timezone_set('America/La_Paz');
 
 /* class PDF extends FPDF {
     function Header() {
@@ -29,6 +30,7 @@ class PDF extends FPDF
         foreach ($lines as $line) {
             $this->Cell(10, 6, $bullet, 0, 'L');
             $this->MultiCell(0, 5, utf8_decode($line), 0, 'L');
+            $this->Cell(195, 1, "",0,1,'');
            /*  $this->Ln(); // Salto de línea */
         }
     }
@@ -71,6 +73,8 @@ $pdf->Cell(195, 12, utf8_decode($orden['nombrematricula_ordendetrabajo']), 0, 1,
 $pdf->Ln(40);
 
 //salto de linea
+// Cambiar a la siguiente página
+$pdf->AddPage();
 $pdf->Cell(0, 5, "", 0, 1);
 
 $pdf->SetDrawColor(220, 220, 220);
@@ -143,23 +147,26 @@ $pdf->Cell(195, 14, "",1,1,'');
 $pdf->SetY(122);
 $pdf->Cell(55, 6, utf8_decode("DOCUMENTOS ADJUNTOS RECIBIDOS:  "),0,1,'');
 $pdf->SetX(20);
-$pdf->AddBulletedText($orden['documentosadjuntosrecibidos_ordendetrabajo']. " - " ." FECHA: " . date('d/m/Y'));
+$pdf->AddBulletedText($orden['documentosadjuntosrecibidos_ordendetrabajo']. " - " ." FECHA: " . date('d-m-Y'));
 
 $pdf->Ln(4);
 $pdf->Cell(195, 30, "",1,1,'');
 $pdf->SetY(138);
-$pdf->Cell(55, 6, utf8_decode("DESCRIPCION DE TRABAJOS EFECTUADOS:  "),0,1,'');
+$pdf->MultiCell(80, 6, utf8_decode("DESCRIPCION DE TRABAJOS EFECTUADOS:  "),0,1,'');
 $pdf->SetX(20);
 $pdf->AddBulletedText(utf8_decode($orden['descripciondetrabajosefectuados_ordendetrabajo']));
 
-$pdf->Ln(10);
-$pdf->Cell(195, 14, "",1,1,'');
+
+/* $pdf->Ln(12); */
 $pdf->SetY(170);
-$pdf->Cell(55, 6, utf8_decode("ORDENES DE TRABAJOS RELACIONADAS:  "),0,1,'');
+$pdf->Cell(195, 15, "",1,1,'');
+$pdf->SetY(170);
+$pdf->MultiCell(80, 6, utf8_decode("ORDENES DE TRABAJOS RELACIONADAS:  "),0,1,'');
 $pdf->SetX(20);
 $pdf->AddBulletedText($orden['ordenesdetrabajosrelacionadas_ordendetrabajo']);
+$pdf->Cell(195, 2, "",0,1,'');
 
-$pdf->Ln(4);
+$pdf->Ln(2);
 $pdf->Cell(195, 14, "",1,1,'');
 $pdf->SetY(186);
 $pdf->Cell(55, 6, utf8_decode("DOCUMUENTOS ADJUNTOS ENTREGADOS:  "),0,1,'');
@@ -181,14 +188,14 @@ $pdf->Cell(90, 6, utf8_decode("NOMBRE:  "),0,0,'');
 $pdf->Cell(55, 6, utf8_decode("N° LICENCIA:  "),0,0,'');
 $pdf->Cell(55, 6, utf8_decode("FIRMA:  "),0,0,'');
 
-$pdf->Ln(8);
+$pdf->Ln(9);
 $pdf->Cell(195, 16, "",1,1,'');
 $pdf->SetY(236);
 $pdf->Cell(55, 6, utf8_decode("APROBADO POR:  "),0,1,'');
 $pdf->Cell(90, 6, utf8_decode("NOMBRE:  "),0,0,'');
 $pdf->Cell(55, 6, utf8_decode("N° LICENCIA:  "),0,0,'');
 $pdf->Cell(55, 6, utf8_decode("FIRMA:  "),0,1,'');
-$pdf->Ln(2);
+$pdf->Ln(3);
 $pdf->Cell(100, 8, utf8_decode("FECHA DE CIERRE: Cochabamba, "),1,1,'');
 
 $pdf->SetY(-15);

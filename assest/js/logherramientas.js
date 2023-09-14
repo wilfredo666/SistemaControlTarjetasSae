@@ -192,3 +192,17 @@ function RegDevHerramientas() {
   })
 }
 
+function MVerLogDevolucion(id){
+  $("#modal-lg").modal("show")
+ 
+ var obj=""
+ $.ajax({
+     type:"POST",
+     url:"vista/herramientas/MVerLogDevolucion.php?id="+id,
+     data:obj,
+     success:function(data){
+         $("#content-lg").html(data)
+     }
+ })
+}
+
