@@ -8,37 +8,8 @@ $orden = ControladorOrdenDeTrabajo::ctrRepOrdenTrabajo($id);
 /* $today = getdate(); */
 date_default_timezone_set('America/La_Paz');
 
-/* class PDF extends FPDF {
-    function Header() {
-        $this->SetMargins(50, 50, 50); // Establecer los márgenes izquierdo, derecho y superior
-    }
-} */
-class PDF extends FPDF
-{
-    function AddBulletedText($text)
-    {
-        // Definir la viñeta
-        $bullet = "\x95"; // Carácter de viñeta (puede variar según la fuente)
-
-        // Dividir el texto en líneas
-        $lines = explode("\n", utf8_decode($text));
-
-        // Establecer la fuente y el tamaño de texto
-        $this->SetFont('Arial', '', 10);
-
-        // Agregar cada línea con una viñeta
-        foreach ($lines as $line) {
-            $this->Cell(10, 6, $bullet, 0, 'L');
-            $this->MultiCell(0, 5, utf8_decode($line), 0, 'L');
-            $this->Cell(195, 1, "",0,1,'');
-           /*  $this->Ln(); // Salto de línea */
-        }
-    }
-}
-
-$pdf = new PDF('P', 'mm', 'Letter');
+$pdf = new FPDF('P','mm','Letter');
 $pdf->AddPage();
-
 
 $pdf->SetAutoPageBreak(true, 1);
 
@@ -147,15 +118,14 @@ $pdf->Cell(195, 14, "",1,1,'');
 $pdf->SetY(122);
 $pdf->Cell(55, 6, utf8_decode("DOCUMENTOS ADJUNTOS RECIBIDOS:  "),0,1,'');
 $pdf->SetX(20);
-$pdf->AddBulletedText($orden['documentosadjuntosrecibidos_ordendetrabajo']. " - " ." FECHA: " . date('d-m-Y'));
+$pdf->MultiCell(180, 6,utf8_decode(" * ".$orden['documentosadjuntosrecibidos_ordendetrabajo']. " - " ." FECHA: " . date('d-m-Y')),0,1,"");
 
 $pdf->Ln(4);
 $pdf->Cell(195, 30, "",1,1,'');
 $pdf->SetY(138);
-$pdf->MultiCell(80, 6, utf8_decode("DESCRIPCION DE TRABAJOS EFECTUADOS:  "),0,1,'');
+$pdf->Cell(80, 6, utf8_decode("DESCRIPCION DE TRABAJOS EFECTUADOS:  "),0,1,'');
 $pdf->SetX(20);
-$pdf->AddBulletedText(utf8_decode($orden['descripciondetrabajosefectuados_ordendetrabajo']));
-
+$pdf->MultiCell(180, 6,utf8_decode(" * ".$orden['descripciondetrabajosefectuados_ordendetrabajo']),0,1,"");
 
 /* $pdf->Ln(12); */
 $pdf->SetY(170);
@@ -163,7 +133,7 @@ $pdf->Cell(195, 15, "",1,1,'');
 $pdf->SetY(170);
 $pdf->MultiCell(80, 6, utf8_decode("ORDENES DE TRABAJOS RELACIONADAS:  "),0,1,'');
 $pdf->SetX(20);
-$pdf->AddBulletedText($orden['ordenesdetrabajosrelacionadas_ordendetrabajo']);
+$pdf->MultiCell(180, 6,utf8_decode(" * ".$orden['ordenesdetrabajosrelacionadas_ordendetrabajo']),0,1,"");
 $pdf->Cell(195, 2, "",0,1,'');
 
 $pdf->Ln(2);
@@ -171,14 +141,14 @@ $pdf->Cell(195, 14, "",1,1,'');
 $pdf->SetY(186);
 $pdf->Cell(55, 6, utf8_decode("DOCUMUENTOS ADJUNTOS ENTREGADOS:  "),0,1,'');
 $pdf->SetX(20);
-$pdf->AddBulletedText($orden['documentosadjuntosentregados_ordendetrabajo']);
+$pdf->MultiCell(180, 6,utf8_decode(" * ".$orden['documentosadjuntosentregados_ordendetrabajo']),0,1,"");
 
 $pdf->Ln(4);
 $pdf->Cell(195, 17, "",1,1,'');
 $pdf->SetY(202);
 $pdf->Cell(55, 6, utf8_decode("OBSERVACIONES:  "),0,1,'');
 $pdf->SetX(20);
-$pdf->AddBulletedText($orden['observaciones_ordendetrabajo']);
+$pdf->MultiCell(180, 6,utf8_decode(" * ".$orden['observaciones_ordendetrabajo']),0,1,"");
 
 $pdf->Ln(5);
 $pdf->Cell(195, 16, "",1,1,'');
