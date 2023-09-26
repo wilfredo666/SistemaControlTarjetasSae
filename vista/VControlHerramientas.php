@@ -22,16 +22,18 @@
             <!-- <button class="btn btn-success" onclick="MCargarRegistrosControlHerramientas()">Importar Excel</button> -->
             <input type="button" class="btn btn-success mb-2" onclick="MCargarRegistrosControlHerramientas()" value="Importar Excel">
             <input type="button" class="btn btn-primary bg-dark ml-2 mr-2 mb-2" onclick="MDatosImpresion()" value="Imprimir Seleccionados">
+            <input type="button" class="btn btn-primary bg-cyan ml-2 mr-2 mb-2" onclick="MMayorHerraCalibrada()" value="Seleccionar Tecnicos">
             <tr>
               <th></th>
               <th>ITEM</th>
               <th>DESCRIPCION</th>
-              <th>P/N</th>
+              <!-- <th>P/N</th> -->
               <th>S/N</th>
               <th>CODIGO</th>
               <th>UBICACION</th>
               <th>FECHA VENCIMIENTO</th>
               <th>DIAS ALERTA</th>
+              <th>CANT.</th>
               <th>N° CARPETA</th>
               <td>
                 <!-- <button class="btn btn-primary" onclick="MNuevoControlHerramientas()">Agregar</button> -->
@@ -65,10 +67,11 @@
 
                 <td><?php echo $value["id_controlherramientas"]; ?></td>
                 <td><?php echo $value["descripcion_controlherramientas"]; ?></td>
-                <td><?php echo $value["pn_controlherramientas"]; ?></td>
+                <!-- <td><?php echo $value["pn_controlherramientas"]; ?></td> -->
                 <td><?php echo $value["numserie_controlherramientas"]; ?></td>
                 <td><?php echo $value["codigo_controlherramientas"]; ?></td>
                 <td><?php echo $value["ubicacion_controlherramientas"]; ?></td>
+
 
                 <?php
                 if ($totalDias <= 10 and $totalDias >= 1) {
@@ -117,12 +120,10 @@
                 }
                 ?>
 
+                <td><?php echo $value["cantidad_controlherramientas"]; ?></td>
                 <td><?php echo $value["numcarpeta_controlherramientas"] ?></td>
                 <td>
                   <div class="btn-group">
-                    <!-- <button class="btn btn-secondary" onclick="MVerControlHerramienta(<?php echo $value["id_controlherramientas"]; ?>)">
-                  <i class="fas fa-eye"></i>
-                  </button> -->
                     <a class="btn btn-sm btn-secondary" onclick="MVerControlHerramienta(<?php echo $value['id_controlherramientas']; ?>)"><i class="fas fa-eye"></i></a>
 
                     <a class="btn btn-sm btn-warning" onclick="MEditarControlHerramienta(<?php echo $value['id_controlherramientas']; ?>)"><i class="fas fa-edit"></i></a>

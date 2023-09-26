@@ -229,7 +229,7 @@ class ModeloControlHerramientas
       return $stmt->fetchAll();
       $stmt->close();
       $stmt->null;
-    }else{
+    } else {
       $stmt = Conexion::conectar()->prepare("select * from control_herramientas
       where ubicacion_controlherramientas='$data'");
       $stmt->execute();
@@ -296,6 +296,206 @@ class ModeloControlHerramientas
       where id_informe=$id");
     $stmt->execute();
     return $stmt->fetch();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlInfoHerraCalibradaSelec($id)
+  {
+    $stmt = Conexion::conectar()->prepare("SELECT * FROM control_herramientas where id_controlherramientas=$id");
+    $stmt->execute();
+    return $stmt->fetch();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlInfoHerramientaCalibrada($id)
+  {
+    $stmt = Conexion::conectar()->prepare("SELECT * FROM control_herramientas where id_controlherramientas=$id");
+    $stmt->execute();
+
+    return $stmt->fetch();
+
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlActualizarStockCalibrada($datos)
+  {
+    $herramientas = array($datos);
+    foreach ($herramientas as $value) {
+      $id = $value["id"];
+      $cantidad = $value["cantidad"];
+      $stmt = Conexion::conectar()->prepare("update control_herramientas set cantidad_controlherramientas='$cantidad' where id_controlherramientas='$id'");
+      $stmt->execute();
+    }
+    return "ok";
+  }
+
+  /*====================
+    Registro Log Herramientas
+    =====================*/
+  static public function mdlRegLogHerramientaCalibrada($data)
+  {
+    $nomLog = $data["nomLog"];
+    $observacionesLog = $data["observacionesLog"];
+    $nomServicio = $data["nomServicio"];
+    $idUsuarioLog = $data["idUsuario"];
+    $detalle = $data["detalle"];
+
+    $detalle = json_encode($detalle);
+
+    date_default_timezone_set("America/La_Paz");
+    $fecha = date("Y-m-d");
+    $hora = date("H:i:s");
+    $fechaHora = $fecha . " " . $hora;
+
+    $stmt = Conexion::conectar()->prepare("insert into mayor_herramientascalibradas(fecha_hora, usuario, tecnico, observacion, id_servicio, detalle, estado) values('$fechaHora', $idUsuarioLog, $nomLog , '$observacionesLog' ,$nomServicio, '$detalle', 'SALIDA')");
+
+    if ($stmt->execute()) {
+      return "ok";
+    } else {
+      return "error";
+    }
+
+    $stmt->close();
+    $stmt->null;
+  }
+
+  /*========================
+    Informacion Log Herramientas CALOIBRADAS todos
+    ========================*/
+  static public function mdlLogHerraCalibradas()
+  {
+    $stmt = Conexion::conectar()->prepare("select * from mayor_herramientascalibradas join usuario on usuario.id_usuario=mayor_herramientascalibradas.tecnico");
+    $stmt->execute();
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+  /*========================
+    Informacion Log Herramienta CALIBRADA
+    ========================*/
+  static public function mdlInfoLogHerraCalibrada($id)
+  {
+    $stmt = Conexion::conectar()->prepare("SELECT * FROM mayor_herramientascalibradas join usuario on usuario.id_usuario=mayor_herramientascalibradas.tecnico  where id_mayor_herramientascalibradas =$id");
+    $stmt->execute();
+    return $stmt->fetch();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlInfoLogHerraDesc($id)
+  {
+    $stmt = Conexion::conectar()->prepare("SELECT * FROM control_herramientas where id_controlherramientas =$id");
+    $stmt->execute();
+    return $stmt->fetch();
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlInfoUsuarioLog($id)
+  {
+    $stmt = Conexion::conectar()->prepare("SELECT * FROM mayor_herramientascalibradas  where id_mayor_herramientascalibradas =$id");
+    $stmt->execute();
+
+    return $stmt->fetch();
+
+    $stmt->close();
+    $stmt->null;
+  }
+
+  /*====================
+    Registro Log DEVOLUCION DE Herramientas CALIBRADAS
+    =====================*/
+  static public function mdlLogDevolucionCalibrada($data2)
+  {
+    $idPrestamo = $data2["idPrestamo"];
+    $usuTecnico = $data2["usuTecnico"];
+    $usuEncargado = $data2["usuEncargado"];
+    $observacionesLog = $data2["observacionesLog"];
+
+    $detalleDev = $data2["arregloCarrito3"];
+
+    $detalle = json_encode($detalleDev);
+
+    date_default_timezone_set("America/La_Paz");
+    $fecha = date("Y-m-d");
+    $hora = date("H:i:s");
+    $fechaHora = $fecha . " " . $hora;
+
+    $stmt = Conexion::conectar()->prepare("insert into menor_herramientascalibradas(fecha_hora_dev, observacion_dev, usuario_dev, tecnico_dev, detalle_dev, id_mayor_herramientascalibradas) values('$fechaHora', '$observacionesLog', '$usuEncargado', '$usuTecnico' ,'$detalle', '$idPrestamo')");
+
+    if ($stmt->execute()) {
+      return "ok";
+    } else {
+      return "error";
+    }
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlDevolucionHerramientaCalibrada($data)
+  {
+    $id = $data["idPrestamo"];
+    $items = json_encode($data["arregloCarrito2"]);
+
+    $stmt = Conexion::conectar()->prepare("update mayor_herramientascalibradas set detalle = '$items' where id_mayor_herramientascalibradas=$id");
+    if ($stmt->execute()) {
+      return "ok";
+    } else {
+      return "error";
+    }
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlActualizaStock($id, $cantidad)
+  {
+    $stmt = Conexion::conectar()->prepare("update control_herramientas set cantidad_controlherramientas = (cantidad_controlherramientas+$cantidad) where id_controlherramientas =$id");
+    if ($stmt->execute()) {
+      return "ok";
+    } else {
+
+      return "error";
+    }
+    $stmt->close();
+    $stmt->null;
+  }
+
+  /*========================
+    Informacion Log Herramientas DEVOLUCION CALIBRADAS
+    ========================*/
+  static public function mdlInfoLogDevCalibradas()
+  {
+    $stmt = Conexion::conectar()->prepare("select * from menor_herramientascalibradas 
+        join usuario on usuario.id_usuario=menor_herramientascalibradas.tecnico_dev");
+    $stmt->execute();
+    return $stmt->fetchAll();
+    $stmt->close();
+    $stmt->null;
+  }
+  /*========================
+    Informacion Log Herramienta Devolucion CALIBRADA INDIVIDUAL
+    ========================*/
+  static public function mdlInfoLogLogDevCalibrada($id)
+  {
+    $stmt = Conexion::conectar()->prepare("SELECT * FROM menor_herramientascalibradas join usuario on usuario.id_usuario=menor_herramientascalibradas.tecnico_dev  where id_menor_herramientascalibradas =$id");
+    $stmt->execute();
+
+    return $stmt->fetch();
+
+    $stmt->close();
+    $stmt->null;
+  }
+
+  static public function mdlInfoLogCalibrada($id)
+  {
+    $stmt = Conexion::conectar()->prepare("SELECT * FROM control_herramientas where id_controlherramientas =$id");
+    $stmt->execute();
+
+    return $stmt->fetch();
+
     $stmt->close();
     $stmt->null;
   }

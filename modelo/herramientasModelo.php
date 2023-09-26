@@ -198,7 +198,8 @@ class ModeloHerramientas
     return "ok";
   }
 
-  static public function mdlActualizarStock($datos){
+  static public function mdlActualizarStock($datos)
+  {
     $herramientas = array($datos);
     foreach ($herramientas as $value) {
       $id = $value["id"];
@@ -207,7 +208,8 @@ class ModeloHerramientas
       $stmt = Conexion::conectar()->prepare("update herramientas set cantidad_herramientas='$cantidad' where id_herramientas='$id'");
       $stmt->execute();
     }
-    
+
     return "ok";
   }
+
 }

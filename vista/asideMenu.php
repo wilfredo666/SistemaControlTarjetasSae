@@ -144,6 +144,18 @@ with font-awesome or any other icon font library -->
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="VLogCalibradas" class="nav-link">
+                                        <i class="fas fa-arrow-right nav-icon"></i>
+                                        <p>Log Herra Calibradas</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="VLogDevCalibradas" class="nav-link">
+                                    <i class="fas fa-arrow-left nav-icon"></i>
+                                        <p style="font-size: 15px;">Log Devolucion Calibradas</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="VCalibracion" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Origen o Calibracion</p>

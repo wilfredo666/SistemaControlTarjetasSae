@@ -317,7 +317,7 @@ function MDatosImpresion() {
   })
 } */
 
-function RegDatosInforme(){
+function RegDatosInforme() {
   var formData = new FormData($("#FormDatosInforme")[0])
   $.ajax({
     type: "POST",
@@ -350,7 +350,7 @@ function RegDatosInforme(){
   })
 }
 
-function MVerInforme(id){
+function MVerInforme(id) {
   $("#modal-default").modal("show")
 
   var obj = ""
@@ -386,6 +386,138 @@ function mostrarMensajeError(idElemento, mensaje) {
   elemento.style.color = "red";
   elemento.classList.add('text-center');
 }
+
+/* MODAL LLENAR DATOS DE IMPRESION HERRAMIENTAS CALIBRADAS*/
+function MMayorHerraCalibrada() {
+  $("#modal-lg").modal("show")
+
+  var obj = ""
+  $.ajax({
+    type: "POST",
+    url: "vista/controlherramientas/FLogHerraCalibradas.php?ids=" + seleccionados,
+    data: obj,
+    success: function (data) {
+      $("#content-lg").html(data)
+      /* document.getElementById("seleccionados").value = seleccionados; */
+    }
+  })
+}
+
+/*=======================
+funcion registro Log Herramientas MAYOR CALIBRADAS
+=======================*/
+function RegMayorLogCalibrados() {
+
+  var formData = new FormData($("#FRegLogHerramientasCalibradas")[0]);
+  $.ajax({
+    url: "controlador/controlherramientasControlador.php?ctrRegLogHerramientasCalibradas",
+    type: "POST",
+    data: formData,
+    contentType: false,
+    processData: false,
+    success: function (datos) {
+      console.log(datos);
+      if (datos == "ok") {
+        Swal.fire({
+          toast: true,
+          position: 'top-end',
+          icon: 'info',
+          showConfirmButton: false,
+          title: 'Salida registrada',
+          timer: 1000
+        })
+        setTimeout(function () {
+          location.reload()
+        }, 1200);
+      } else {
+        Swal.fire({
+          toast: true,
+          position: 'top-end',
+          icon: 'error',
+          showConfirmButton: false,
+          title: 'Er',
+          timer: 1000
+        });
+      }
+    }
+  });
+}
+
+function MVerLogHerraCalibrada(id) {
+  $("#modal-lg").modal("show")
+
+  var obj = ""
+  $.ajax({
+    type: "POST",
+    url: "vista/controlherramientas/MVerLogHerraCalibrada.php?id=" + id,
+    data: obj,
+    success: function (data) {
+      $("#content-lg").html(data)
+    }
+  })
+}
+
+function MDevolucionHerrCalibrada(id) {
+  $("#modal-lg").modal("show")
+
+  var obj = ""
+  $.ajax({
+    type: "POST",
+    url: "vista/controlherramientas/MDevolverLogHerraCalibrada.php?id=" + id,
+    data: obj,
+    success: function (data) {
+      $("#content-lg").html(data)
+    }
+  })
+}
+
+function RegDevHerraCalibrada() {
+  var formData = new FormData($("#FDevHerramientas")[0])
+  $.ajax({
+    type: "POST",
+    url: "controlador/controlherramientasControlador.php?ctrDevolucionHerrCalibrada",
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (data) {
+      console.log(data)
+      if (data == "ok") {
+        Swal.fire({
+          icon: 'success',
+          showConfirmButton: false,
+          title: 'Devolución realizada',
+          timer: 1000
+        })
+        setTimeout(function () {
+          location.reload()
+        }, 1200)
+      } else {
+        Swal.fire({
+          icon: 'error',
+          showConfirmButton: false,
+          title: 'Error!!!',
+          timer: 1500
+        })
+      }
+    }
+  })
+}
+
+function MVerLogDevCalibrada(id) {
+  $("#modal-lg").modal("show")
+
+  var obj = ""
+  $.ajax({
+    type: "POST",
+    url: "vista/controlherramientas/MVerLogDevCalibrada.php?id=" + id,
+    data: obj,
+    success: function (data) {
+      $("#content-lg").html(data)
+    }
+  })
+}
+
 
 
 

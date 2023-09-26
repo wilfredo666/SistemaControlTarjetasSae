@@ -10,6 +10,8 @@ if (isset($ruta["query"])) {
     $ruta["query"] == "ctrRepHerramientas" ||
     $ruta["query"] == "ctrRegDatosInforme" ||
     $ruta["query"] == "ctrDevolucionHerramienta" ||
+    $ruta["query"] == "ctrRegLogHerramientasCalibradas" ||
+    $ruta["query"] == "ctrDevolucionHerrCalibrada" ||
     $ruta["query"] == "ctrEliControlHerramienta"
   ) {
     $metodo = $ruta["query"];
@@ -274,5 +276,169 @@ class ControladorHerramientas
     $respuesta = ModeloControlHerramientas::mdlInfoInforme($id);
     return $respuesta;
   }
-  
+
+  static public function ctrInfoHerraCalibradaSelec($id)
+  {
+    $respuesta = ModeloControlHerramientas::mdlInfoHerraCalibradaSelec($id);
+    return $respuesta;
+  }
+
+  /*====================
+    Registro nuevo Log HERRAMIENTAS CALIBRADAS
+    =====================*/
+  static public function ctrRegLogHerramientasCalibradas()
+  {
+    session_start();
+    require_once "../modelo/controlherramientasModelo.php";
+
+    $cantidad = $_POST['cantidadHerramienta'];
+    $nomLog = $_POST['nomLog'];
+    $observacionesLog = $_POST['observacionesLog'];
+    $nomServicio = $_POST['nomServicio'];
+    $nomHerramienta = $_POST['nomHerramienta'];
+    $id = $_POST['idHerramientas'];
+
+    //uniendo los datos en arreglos asociativos
+    $arregloCarrito = [];
+    for ($i = 0; $i < count($id); $i++) {
+      $arregloItem = array(
+        "cantidad" => $cantidad[$i],
+        "id" => $id[$i]
+      );
+      array_push($arregloCarrito, $arregloItem);
+    }
+
+    /* require '../modelo/controlherramientasModelo.php'; */
+    foreach ($arregloCarrito as $value) {
+      $idProd = $value['id'];
+      $cantidadAlmacen = ModeloControlHerramientas::mdlInfoHerramientaCalibrada($idProd);
+
+      $stock = $cantidadAlmacen['cantidad_controlherramientas'];
+      $stockFinal = $stock - $value['cantidad'];
+
+      $datos = array(
+        "id" => $idProd,
+        "cantidad" => $stockFinal
+      );
+      ModeloControlHerramientas::mdlActualizarStockCalibrada($datos);
+    }
+
+    $data = array(
+      "nomLog" => $nomLog,
+      "observacionesLog" => $observacionesLog,
+      "nomServicio" => $nomServicio,
+      "idUsuario" => $_SESSION["id"],
+      "detalle" => $arregloCarrito
+    );
+
+    /* var_dump($nomLog); */
+    $respuesta = ModeloControlHerramientas::mdlRegLogHerramientaCalibrada($data);
+    echo $respuesta;
+  }
+
+  /*==========================
+    Informacion de Log Salidas Clalibracion todos 
+    ============================*/
+  static public function ctrLogHerraCalibradas()
+  {
+    $respuesta = ModeloControlHerramientas::mdlLogHerraCalibradas();
+    return $respuesta;
+  }
+
+  static public function ctrInfoLogHerraCalibrada($id)
+  {
+    $respuesta = ModeloControlHerramientas::mdlInfoLogHerraCalibrada($id);
+    return $respuesta;
+  }
+
+  static public function ctrInfoLogHerraDesc($value)
+  {
+    $respuesta = ModeloControlHerramientas::mdlInfoLogHerraDesc($value);
+    return $respuesta;
+  }
+
+  static public function ctrInfoUsuarioLog($id)
+  {
+    $respuesta = ModeloControlHerramientas::mdlInfoUsuarioLog($id);
+    return $respuesta;
+  }
+
+  static public function ctrDevolucionHerrCalibrada()
+  {
+    require_once "../modelo/controlherramientasModelo.php";
+
+    $idPrestamo = $_POST["idPrestamo"];
+    $idHerramientas = $_POST["ids"];
+    $cantHerramienta = $_POST["cantidad"];
+    $cantActualHerramienta = $_POST["cantidadActual"];
+
+    $usuTecnico = $_POST['usuTecnico'];
+    $usuEncargado = $_POST['usuEncargado'];
+    $observacionesLog = $_POST['observacionesLog'];
+
+    //uniendo los datos en arreglos asociativos donde ids y cantidad son arreglos asociativos
+    $arregloCarrito2 = [];
+    for ($i = 0; $i < count($idHerramientas); $i++) {
+      $arregloItem = array(
+        "cantidad" => $cantActualHerramienta[$i] - $cantHerramienta[$i],
+        "id" => $idHerramientas[$i]
+      );
+      array_push($arregloCarrito2, $arregloItem);
+    }
+
+    //uniendo los datos para actualizar stock en herramientas
+    $arregloCarrito3 = [];
+    for ($i = 0; $i < count($idHerramientas); $i++) {
+      $arregloItems = array(
+        "cant" => $cantHerramienta[$i],
+        "ids" => $idHerramientas[$i]
+      );
+      array_push($arregloCarrito3, $arregloItems);
+    }
+
+    $data = array(
+      "idPrestamo" => $idPrestamo,
+      "arregloCarrito2" => $arregloCarrito2
+    );
+    //=================> enviar datos para logDevolucion
+    $data2 = array(
+      "idPrestamo" => $idPrestamo,
+      "usuTecnico" => $usuTecnico,
+      "usuEncargado" => $usuEncargado,
+      "observacionesLog" => $observacionesLog,
+      "arregloCarrito3" => $arregloCarrito3
+    );
+
+    $respuestaDev = ModeloControlHerramientas::mdlLogDevolucionCalibrada($data2);
+
+    $respuesta = ModeloControlHerramientas::mdlDevolucionHerramientaCalibrada($data);
+    if ($respuesta = "ok") {
+      for ($i = 0; $i < count($arregloCarrito3); $i++) {
+        $id = $arregloCarrito3[$i]['ids'];
+        $cantidad = $arregloCarrito3[$i]['cant'];
+        $respuestaEstado = ModeloControlHerramientas::mdlActualizaStock($id, $cantidad);
+      }
+      echo $respuesta;
+    }
+  }
+  /* ============================================
+    INFORMACION DE TODAS LAS DEVOLUCIONES CALIBRADAS
+    =============================================== */
+  static public function ctrInfoLogDevCalibradas()
+  {
+    $respuesta = ModeloControlHerramientas::mdlInfoLogDevCalibradas();
+    return $respuesta;
+  }
+
+  static public function ctrInfoLogDevCalibrada($id)
+  {
+    $respuesta = ModeloControlHerramientas::mdlInfoLogLogDevCalibrada($id);
+    return $respuesta;
+  }
+
+  static public function ctrInfoLogCalibrada($value)
+    {
+        $respuesta = ModeloControlHerramientas::mdlInfoLogCalibrada($value);
+        return $respuesta;
+    }
 }
