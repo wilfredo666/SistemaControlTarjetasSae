@@ -39,13 +39,11 @@
                                 <td><?php echo $value["nombre_usuario"]; ?></td>
                                 <td><?php echo $value["fecha_dev"]; ?></td>
                                 <td>
-
                                     <div class="btn-group btn-group-sm">
                                         <button class="btn btn-secondary" onclick="MVerLogDevolucion(<?php echo $value['id_log_dev']; ?>)">
                                             <i class="fas fa-eye"></i>
                                         </button>
                                     </div>
-
                                 </td>
                             </tr>
                         <?php

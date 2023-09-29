@@ -47,50 +47,51 @@
              </div>
          </div>
          <div class="row">
-             <div class="col-sm-4">
+             <div class="col-sm-6">
                  <div class="form-group">
                      <label for="">SOLICITADA POR</label>
                      <input type="text" class="form-control" id="solicitadaporOrdenes" name="solicitadaporOrdenes" placeholder="SOLICITADA POR">
                  </div>
              </div>
-             <div class="col-sm-4">
+             <div class="col-sm-6">
                  <div class="form-group">
                      <label for="">NOMBRE AUTORIZADA</label>
                      <input type="text" class="form-control" id="nombreautorizadaorOrdenes" name="nombreautorizadaorOrdenes" placeholder="NOMBRE AUTORIZADA">
                  </div>
              </div>
-             <div class="col-sm-4">
-                 <div class="form-group">
-                     <label for="">DOCUMENTOS ADJUNTOS RECIBIDOS</label>
-                     <input type="text" class="form-control" id="documentosadjuntosrecibidosOrdenes" name="documentosadjuntosrecibidosOrdenes" placeholder="DOCUMENTOS ADJUNTOS RECIBIDOS">
-                 </div>
-             </div>
          </div>
          <div class="row">
              <div class="col-sm-4">
                  <div class="form-group">
+                     <label for="">DOCUMENTOS ADJUNTOS RECIBIDOS</label>
+                     <textarea  class="form-control" name="documentosadjuntosrecibidosOrdenes" id="documentosadjuntosrecibidosOrdenes" cols="30" rows="3" placeholder="DOCUMENTOS ADJUNTOS RECIBIDOS"></textarea>
+                 </div>
+             </div>
+             <div class="col-sm-4">
+                 <div class="form-group">
                      <label for="">DESCRIPCION DE TRABAJOS EFECTUADOS</label>
-                     <input type="text" class="form-control" id="descripciontrabajosOrdenes" name="descripciontrabajosOrdenes" placeholder="DESCRIPCION DE TRABAJOS EFECTUADOS">
+                     <textarea  class="form-control" name="descripciontrabajosOrdenes" id="descripciontrabajosOrdenes" cols="30" rows="3" placeholder="DESCRIPCION DE TRABAJOS EFECTUADOS"></textarea>
                  </div>
              </div>
              <div class="col-sm-4">
                  <div class="form-group">
                      <label for="">ÓRDENES DE TRABAJO RELACIONADAS</label>
-                     <input type="text" class="form-control" id="ordenesdetrabajosrelacionadasOrdenes" name="ordenesdetrabajosrelacionadasOrdenes" placeholder="ÓRDENES DE TRABAJO RELACIONADAS">
+                     <textarea  class="form-control" name="ordenesdetrabajosrelacionadasOrdenes" id="ordenesdetrabajosrelacionadasOrdenes" cols="30" rows="3" placeholder="ÓRDENES DE TRABAJO RELACIONADAS"></textarea>
                  </div>
              </div>
-             <div class="col-sm-4">
-                 <div class="form-group">
-                     <label for="">DOCUMENTOS ADJUNTOS ENTREGADOS</label>
-                     <input type="text" class="form-control" id="documentosadjuntosentregadosOrdenes" name="documentosadjuntosentregadosOrdenes" placeholder="DOCUMENTOS ADJUNTOS ENTREGADOS">
-                 </div>
-             </div>
+
          </div>
          <div class="row">
              <div class="col-sm-4">
                  <div class="form-group">
+                     <label for="">DOCUMENTOS ADJUNTOS ENTREGADOS</label>
+                     <textarea  class="form-control" name="documentosadjuntosentregadosOrdenes" id="documentosadjuntosentregadosOrdenes" cols="30" rows="3" placeholder="DOCUMENTOS ADJUNTOS ENTREGADOS"></textarea>
+                 </div>
+             </div>
+             <div class="col-sm-8">
+                 <div class="form-group">
                      <label for="">OBSERVACIONES</label>
-                     <input type="text" class="form-control" id="observacionesOrdenes" name="observacionesOrdenes" placeholder="OBSERVACIONES">
+                     <textarea  class="form-control" name="observacionesOrdenes" id="observacionesOrdenes" cols="30" rows="3" placeholder="OBSERVACIONES"></textarea>
                  </div>
              </div>
          </div>

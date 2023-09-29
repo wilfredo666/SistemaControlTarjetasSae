@@ -1,13 +1,14 @@
 <?php
+require_once "../../controlador/usuarioControlador.php";
+require_once "../../modelo/usuarioModelo.php";
 require_once "../../controlador/controlherramientasControlador.php";
 require_once "../../modelo/controlherramientasModelo.php";
 
 $id = $_GET["id"];
 
 $herramientas = ControladorHerramientas::ctrInfoLogDevCalibrada($id);
-
+$usuario = ControladorUsuario::ctrInfoUsuario($herramientas["usuario_dev"]);
 $herra = json_decode($herramientas["detalle_dev"]);
-
 ?>
 
 <div class="modal-header bg-dark">
@@ -26,7 +27,7 @@ $herra = json_decode($herramientas["detalle_dev"]);
                 </tr>
                 <tr>
                     <th>USUARIO ENCARGADO</th>
-                    <td><?php echo $herramientas["usuario_dev"]; ?></td>
+                    <td><?php echo $usuario["nombre_usuario"]; ?></td>
                 </tr>
                 <tr>
                     <th>TECNICO | ENTREGA</th>

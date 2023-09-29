@@ -9,7 +9,6 @@ $orden = ControladorOrdenDeTrabajo::ctrRepOrdenTrabajo($id);
 date_default_timezone_set('America/La_Paz');
 
 $pdf = new FPDF('P','mm','Letter');
-$pdf->SetMargins(10, 10, 10, 20);
 $pdf->AddPage();
 
 $pdf->SetAutoPageBreak(true, 1);
@@ -17,10 +16,10 @@ $pdf->SetAutoPageBreak(true, 1);
 $pdf->SetFont('Arial', 'B', 16);
 $pdf->SetLineWidth(2.5);
 $pdf->SetDrawColor(39, 73, 130);
-$pdf->Cell(195, 260, '', 1,0);
+$pdf->Cell(195, 260, '', 1);
 $pdf->SetX(12);
 $pdf->SetLineWidth(0.5);
-$pdf->Cell(191, 258, '', 1,0);
+$pdf->Cell(191, 258, '', 1);
 
 $pdf->Image('../../assest/imagenes/gotadeagua.jpg', 50, 30, 110);
 
@@ -115,52 +114,58 @@ $pdf->Cell(98, 12, utf8_decode("NOMBRE: ".$orden['nombreautorizado_ordendetrabaj
 $pdf->Cell(97, 12, utf8_decode("FIRMA: "),1,1,'');
 
 $pdf->Ln(2);
-$ordenes = utf8_decode(" * ".$orden['documentosadjuntosrecibidos_ordendetrabajo']);
-$texto = ("DOCUMENTOS ADJUNTOS RECIBIDOS:  \n". $ordenes);
-$pdf->MultiCell(195, 6,($texto . " - " ." FECHA: " . date('d-m-Y')),1,1,"");
+$pdf->Cell(195, 14, "",1,1,'');
+$pdf->SetY(122);
+$pdf->Cell(55, 6, utf8_decode("DOCUMENTOS ADJUNTOS RECIBIDOS:  "),0,1,'');
+$pdf->SetX(20);
+$pdf->MultiCell(180, 6,utf8_decode(" * ".$orden['documentosadjuntosrecibidos_ordendetrabajo']. " - " ." FECHA: " . date('d-m-Y')),0,1,"");
 
+$pdf->Ln(4);
+$pdf->Cell(195, 30, "",1,1,'');
+$pdf->SetY(138);
+$pdf->Cell(80, 6, utf8_decode("DESCRIPCION DE TRABAJOS EFECTUADOS:  "),0,1,'');
+$pdf->SetX(20);
+$pdf->MultiCell(180, 6,utf8_decode(" * ".$orden['descripciondetrabajosefectuados_ordendetrabajo']),0,1,"");
 
-$pdf->Ln(2);
-$descTrabajo = utf8_decode(" * ".$orden['descripciondetrabajosefectuados_ordendetrabajo']);
-$texto2 = ("DESCRIPCION DE TRABAJOS EFECTUADOS:  \n". $descTrabajo);
-$pdf->MultiCell(195, 6,($texto2),1,1,"");
-
-$pdf->Ln(2);
-$ordenTrabajo = utf8_decode(" * ".$orden['ordenesdetrabajosrelacionadas_ordendetrabajo']);
-$texto3 = ("ORDENES DE TRABAJOS RELACIONADAS:  \n" . $ordenTrabajo);
-$pdf->MultiCell(195, 6,($texto3),1,1,"");
-
-
-$pdf->Ln(2);
-$ordenEntregado = utf8_decode(" * ".$orden['documentosadjuntosentregados_ordendetrabajo']);
-$texto4 = ("DOCUMENTOS ADJUNTOS ENTREGADOS:  \n" . $ordenEntregado);
-$pdf->MultiCell(195, 6,($texto4),1,1,"");
-
-$pdf->Ln(2);
-$observaciones = utf8_decode(" * ".$orden['observaciones_ordendetrabajo']);
-$texto5 = ("OBSERVACIONES:  \n" . $observaciones);
-$pdf->MultiCell(195, 6,($texto5),1,1,"");
-
-$pdf->Ln(2);
-$pdf->Cell(195, 20, "",1,0,'');
+/* $pdf->Ln(12); */
+$pdf->SetY(170);
+$pdf->Cell(195, 15, "",1,1,'');
+$pdf->SetY(170);
+$pdf->MultiCell(80, 6, utf8_decode("ORDENES DE TRABAJOS RELACIONADAS:  "),0,1,'');
+$pdf->SetX(20);
+$pdf->MultiCell(180, 6,utf8_decode(" * ".$orden['ordenesdetrabajosrelacionadas_ordendetrabajo']),0,1,"");
 $pdf->Cell(195, 2, "",0,1,'');
 
+$pdf->Ln(2);
+$pdf->Cell(195, 14, "",1,1,'');
+$pdf->SetY(186);
+$pdf->Cell(55, 6, utf8_decode("DOCUMUENTOS ADJUNTOS ENTREGADOS:  "),0,1,'');
+$pdf->SetX(20);
+$pdf->MultiCell(180, 6,utf8_decode(" * ".$orden['documentosadjuntosentregados_ordendetrabajo']),0,1,"");
+
+$pdf->Ln(4);
+$pdf->Cell(195, 17, "",1,1,'');
+$pdf->SetY(202);
+$pdf->Cell(55, 6, utf8_decode("OBSERVACIONES:  "),0,1,'');
+$pdf->SetX(20);
+$pdf->MultiCell(180, 6,utf8_decode(" * ".$orden['observaciones_ordendetrabajo']),0,1,"");
+
+$pdf->Ln(5);
+$pdf->Cell(195, 16, "",1,1,'');
+$pdf->SetY(220);
 $pdf->Cell(55, 6, utf8_decode("TERMINADO POR:  "),0,1,'');
-$pdf->Cell(195, 4, "",0,1,'');
 $pdf->Cell(90, 6, utf8_decode("NOMBRE:  "),0,0,'');
 $pdf->Cell(55, 6, utf8_decode("N° LICENCIA:  "),0,0,'');
-$pdf->Cell(55, 6, utf8_decode("FIRMA:  "),0,1,'');
+$pdf->Cell(55, 6, utf8_decode("FIRMA:  "),0,0,'');
 
-$pdf->Ln(8);
-$pdf->Cell(195, 20, "",1,0,'');
-$pdf->Cell(195, 2, "",0,1,'');
-
+$pdf->Ln(9);
+$pdf->Cell(195, 16, "",1,1,'');
+$pdf->SetY(236);
 $pdf->Cell(55, 6, utf8_decode("APROBADO POR:  "),0,1,'');
-$pdf->Cell(195, 4, "",0,1,'');
 $pdf->Cell(90, 6, utf8_decode("NOMBRE:  "),0,0,'');
 $pdf->Cell(55, 6, utf8_decode("N° LICENCIA:  "),0,0,'');
 $pdf->Cell(55, 6, utf8_decode("FIRMA:  "),0,1,'');
-$pdf->Ln(8);
+$pdf->Ln(3);
 $pdf->Cell(100, 8, utf8_decode("FECHA DE CIERRE: Cochabamba, "),1,1,'');
 
 $pdf->SetY(-15);
@@ -170,5 +175,6 @@ $pdf->SetDrawColor(200, 200, 200);
 $pdf->Cell(62, 8, 'FORM SAESC001', 1, 0, 'C');
 $pdf->Cell(70, 8, 'REV.05', 1, 0, 'C');
 $pdf->Cell(63, 8, utf8_decode("FECHA: ") . date('11/03/2022'), 1, 0, 'C');
+
 
 $pdf->Output();

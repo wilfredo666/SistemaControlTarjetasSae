@@ -57,50 +57,51 @@ $ordendetrabajo = ControladorOrdenDeTrabajo::ctrInfoOrdenDeTrabajo($id);
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div class="form-group">
                     <label for="">SOLICITADA POR</label>
                     <input type="text" class="form-control" id="solicitadaporOrdenes" name="solicitadaporOrdenes" value="<?php echo $ordendetrabajo["solicitadapor_ordendetrabajo"]; ?>">
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div class="form-group">
                     <label for="">NOMBRE AUTORIZADA</label>
                     <input type="text" class="form-control" id="nombreautorizadaorOrdenes" name="nombreautorizadaorOrdenes" value="<?php echo $ordendetrabajo["nombreautorizado_ordendetrabajo"]; ?>">
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label for="">DOCUMENTOS ADJUNTOS RECIBIDOS</label>
-                    <input type="text" class="form-control" id="documentosadjuntosrecibidosOrdenes" name="documentosadjuntosrecibidosOrdenes" value="<?php echo $ordendetrabajo["documentosadjuntosrecibidos_ordendetrabajo"]; ?>">
-                </div>
-            </div>
         </div>
         <div class="row">
             <div class="col-sm-4">
                 <div class="form-group">
+                    <label for="">DOCUMENTOS ADJUNTOS RECIBIDOS</label>
+                    <textarea  class="form-control" name="documentosadjuntosrecibidosOrdenes" id="documentosadjuntosrecibidosOrdenes" cols="30" rows="3" ><?php echo $ordendetrabajo["documentosadjuntosrecibidos_ordendetrabajo"]; ?></textarea>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
                     <label for="">DESCRIPCION DE TRABAJOS EFECTUADOS</label>
-                    <input type="text" class="form-control" id="descripciontrabajosOrdenes" name="descripciontrabajosOrdenes" value="<?php echo $ordendetrabajo["descripciondetrabajosefectuados_ordendetrabajo"]; ?>">
+                    <textarea  class="form-control" name="descripciontrabajosOrdenes" id="descripciontrabajosOrdenes" cols="30" rows="3" placeholder="DESCRIPCION DE TRABAJOS EFECTUADOS"><?php echo $ordendetrabajo["descripciondetrabajosefectuados_ordendetrabajo"]; ?></textarea>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="form-group">
                     <label for="">ÓRDENES DE TRABAJO RELACIONADAS</label>
-                    <input type="text" class="form-control" id="ordenesdetrabajosrelacionadasOrdenes" name="ordenesdetrabajosrelacionadasOrdenes" value="<?php echo $ordendetrabajo["ordenesdetrabajosrelacionadas_ordendetrabajo"]; ?>">
+                    <textarea  class="form-control" name="ordenesdetrabajosrelacionadasOrdenes" id="ordenesdetrabajosrelacionadasOrdenes" cols="30" rows="3" placeholder="ÓRDENES DE TRABAJO RELACIONADAS"><?php echo $ordendetrabajo["ordenesdetrabajosrelacionadas_ordendetrabajo"]; ?></textarea>
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label for="">DOCUMENTOS ADJUNTOS ENTREGADOS</label>
-                    <input type="text" class="form-control" id="documentosadjuntosentregadosOrdenes" name="documentosadjuntosentregadosOrdenes" value="<?php echo $ordendetrabajo["documentosadjuntosentregados_ordendetrabajo"]; ?>">
-                </div>
-            </div>
+
         </div>
         <div class="row">
             <div class="col-sm-4">
                 <div class="form-group">
+                    <label for="">DOCUMENTOS ADJUNTOS ENTREGADOS</label>
+                    <textarea  class="form-control" name="documentosadjuntosentregadosOrdenes" id="documentosadjuntosentregadosOrdenes" cols="30" rows="3" placeholder="DOCUMENTOS ADJUNTOS ENTREGADOS"><?php echo $ordendetrabajo["documentosadjuntosentregados_ordendetrabajo"]; ?></textarea>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
                     <label for="">OBSERVACIONES</label>
-                    <input type="text" class="form-control" id="observacionesOrdenes" name="observacionesOrdenes" value="<?php echo $ordendetrabajo["observaciones_ordendetrabajo"]; ?>">
+                    <textarea  class="form-control" name="observacionesOrdenes" id="observacionesOrdenes" cols="30" rows="3" placeholder="OBSERVACIONES"><?php echo $ordendetrabajo["observaciones_ordendetrabajo"]; ?></textarea>
                 </div>
             </div>
         </div>
