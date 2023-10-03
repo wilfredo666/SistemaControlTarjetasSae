@@ -68,6 +68,11 @@ $ordendetrabajo = ControladorOrdenDeTrabajo::ctrInfoOrdenDeTrabajo($id);
                 </tr>
 
                 <tr>
+                    <th>DESCRIPCION DEL ALCANCE DEL TRABAJO</th>
+                    <td><?php echo $ordendetrabajo["descripciondelalcancedeltrabajosolicitado_ordendetrabajo"]; ?></td>
+                </tr>
+
+                <tr>
                     <th>DESCRIPCION DE TRABAJOS EFECTUADOS</th>
                     <td><?php echo $ordendetrabajo["descripciondetrabajosefectuados_ordendetrabajo"]; ?></td>
                 </tr>

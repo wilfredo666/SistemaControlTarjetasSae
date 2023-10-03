@@ -35,8 +35,8 @@
              </div>
              <div class="col-sm-4">
                  <div class="form-group">
-                     <label for="">MODELO P/N</label>
-                     <input type="text" class="form-control" id="modelopnOrdenes" name="modelopnOrdenes" placeholder="MODELO P/N">
+                     <label for="">MODELO o FABRICANTE o PART NUMBER</label>
+                     <input type="text" class="form-control" id="modelopnOrdenes" name="modelopnOrdenes" placeholder="MODELO o FABRICANTE o PART NUMBER">
                  </div>
              </div>
              <div class="col-sm-4">
@@ -64,34 +64,39 @@
              <div class="col-sm-4">
                  <div class="form-group">
                      <label for="">DOCUMENTOS ADJUNTOS RECIBIDOS</label>
-                     <textarea  class="form-control" name="documentosadjuntosrecibidosOrdenes" id="documentosadjuntosrecibidosOrdenes" cols="30" rows="3" placeholder="DOCUMENTOS ADJUNTOS RECIBIDOS"></textarea>
+                     <textarea class="form-control" name="documentosadjuntosrecibidosOrdenes" id="documentosadjuntosrecibidosOrdenes" cols="30" rows="3" placeholder="DOCUMENTOS ADJUNTOS RECIBIDOS"></textarea>
+                 </div>
+             </div>
+             <div class="col-sm-4">
+                 <div class="form-group">
+                     <label for="">DESCRIPCION DEL ALCANCE DEL TRABAJO</label>
+                     <textarea class="form-control" name="descripcionalcancetrabajoOrdenes" id="descripcionalcancetrabajoOrdenes" cols="30" rows="3" placeholder="DESCRIPCION DEL ALCANCE DEL TRABAJO SOLICITADO"></textarea>
                  </div>
              </div>
              <div class="col-sm-4">
                  <div class="form-group">
                      <label for="">DESCRIPCION DE TRABAJOS EFECTUADOS</label>
-                     <textarea  class="form-control" name="descripciontrabajosOrdenes" id="descripciontrabajosOrdenes" cols="30" rows="3" placeholder="DESCRIPCION DE TRABAJOS EFECTUADOS"></textarea>
+                     <textarea class="form-control" name="descripciontrabajosOrdenes" id="descripciontrabajosOrdenes" cols="30" rows="3" placeholder="DESCRIPCION DE TRABAJOS EFECTUADOS"></textarea>
                  </div>
              </div>
-             <div class="col-sm-4">
-                 <div class="form-group">
-                     <label for="">ÓRDENES DE TRABAJO RELACIONADAS</label>
-                     <textarea  class="form-control" name="ordenesdetrabajosrelacionadasOrdenes" id="ordenesdetrabajosrelacionadasOrdenes" cols="30" rows="3" placeholder="ÓRDENES DE TRABAJO RELACIONADAS"></textarea>
-                 </div>
-             </div>
-
          </div>
          <div class="row">
              <div class="col-sm-4">
                  <div class="form-group">
-                     <label for="">DOCUMENTOS ADJUNTOS ENTREGADOS</label>
-                     <textarea  class="form-control" name="documentosadjuntosentregadosOrdenes" id="documentosadjuntosentregadosOrdenes" cols="30" rows="3" placeholder="DOCUMENTOS ADJUNTOS ENTREGADOS"></textarea>
+                     <label for="">ÓRDENES DE TRABAJO RELACIONADAS</label>
+                     <textarea class="form-control" name="ordenesdetrabajosrelacionadasOrdenes" id="ordenesdetrabajosrelacionadasOrdenes" cols="30" rows="3" placeholder="ÓRDENES DE TRABAJO RELACIONADAS"></textarea>
                  </div>
              </div>
-             <div class="col-sm-8">
+             <div class="col-sm-4">
+                 <div class="form-group">
+                     <label for="">DOCUMENTOS ADJUNTOS ENTREGADOS</label>
+                     <textarea class="form-control" name="documentosadjuntosentregadosOrdenes" id="documentosadjuntosentregadosOrdenes" cols="30" rows="3" placeholder="DOCUMENTOS ADJUNTOS ENTREGADOS"></textarea>
+                 </div>
+             </div>
+             <div class="col-sm-4">
                  <div class="form-group">
                      <label for="">OBSERVACIONES</label>
-                     <textarea  class="form-control" name="observacionesOrdenes" id="observacionesOrdenes" cols="30" rows="3" placeholder="OBSERVACIONES"></textarea>
+                     <textarea class="form-control" name="observacionesOrdenes" id="observacionesOrdenes" cols="30" rows="3" placeholder="OBSERVACIONES"></textarea>
                  </div>
              </div>
          </div>

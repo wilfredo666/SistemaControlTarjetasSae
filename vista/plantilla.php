@@ -66,27 +66,28 @@
       }
 
       if ( $_GET["ruta"] == "panelAdmin" ||
-          $_GET["ruta"] == "VUsuario" ||
-          $_GET["ruta"] == "VSeguimiento" ||
-          $_GET["ruta"] == "VCliente" |
-          $_GET["ruta"] == "VServicio" ||
-          $_GET["ruta"] == "VArchivos" ||
-          $_GET["ruta"] == "VAutorizacion" ||
-          $_GET["ruta"] == "VMaterial" ||
-          $_GET["ruta"] == "VHerramientas" ||
-          $_GET["ruta"] == "VLogHerramientas" ||
-          $_GET["ruta"] == "VControlHerramientas" ||
-          $_GET["ruta"] == "VCalibracion" ||
-          $_GET["ruta"] == "VOrdenTrabajo" ||
-          $_GET["ruta"] == "VDBaja" ||
-          $_GET["ruta"] == "BusTramite" ||
-          $_GET["ruta"] == "VMarcaciones" ||
-          $_GET["ruta"] == "VRepHerramientas" ||
-          $_GET["ruta"] == "descargar" ||
-          $_GET["ruta"] == "VInforme" ||
-          $_GET["ruta"] == "VLogDevolucion" ||
-          $_GET["ruta"] == "VLogCalibradas" ||
-          $_GET["ruta"] == "VLogDevCalibradas" ||
+      $_GET["ruta"] == "VUsuario" ||
+      $_GET["ruta"] == "VSeguimiento" ||
+      $_GET["ruta"] == "VCliente" |
+      $_GET["ruta"] == "VServicio" ||
+      $_GET["ruta"] == "VArchivos" ||
+      $_GET["ruta"] == "VAutorizacion" ||
+      $_GET["ruta"] == "VMaterial" ||
+      $_GET["ruta"] == "VHerramientas" ||
+      $_GET["ruta"] == "VLogHerramientas" ||
+      $_GET["ruta"] == "VControlHerramientas" ||
+      $_GET["ruta"] == "VCalibracion" ||
+      $_GET["ruta"] == "VOrdenTrabajo" ||
+      $_GET["ruta"] == "VDBaja" ||
+      $_GET["ruta"] == "BusTramite" ||
+      $_GET["ruta"] == "VMarcaciones" ||
+      $_GET["ruta"] == "VRepHerramientas" ||
+      $_GET["ruta"] == "descargar" ||
+      $_GET["ruta"] == "VInforme" ||
+      $_GET["ruta"] == "VLogDevolucion" ||
+      $_GET["ruta"] == "VLogCalibradas" ||
+      $_GET["ruta"] == "VLogDevCalibradas" ||
+      $_GET["ruta"] == "VAeronaves" ||
           $_GET["ruta"] == "salir" ) {
         $ruta=$_GET["ruta"].".php";
       }
