@@ -1,4 +1,3 @@
-<script src="assest/js/aeronaves.js"></script>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -23,7 +22,7 @@
                             <th>Empresa(s)</th>
                             <th>Matricula</th>
                             <td>
-                                <button class="btn btn-primary" onclick="MNuevoAeronaves()">Agregar Aeronaves</button>
+                                <button class="btn btn-primary" onclick="MNuevoAeronaves()">Agregar</button>
                             </td>
                         </tr>
                     </thead>

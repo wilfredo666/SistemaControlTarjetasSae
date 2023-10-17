@@ -17,15 +17,15 @@ function MNuevoAeronaves() {
 }
 
 /*=======================
-funcion registro personal
+funcion registro aeronaves
 =======================*/
-function RegNuevoClientes() {
+function RegNuevoAeronaves() {
  
-        var obj = new FormData($("#RegNuevoCliente")[0]);
+        var obj = new FormData($("#RegNuevoAeronave")[0]);
 
         $.ajax({
                 type: "POST",
-                url: "controlador/clienteControlador.php?ctrRegCliente",
+                url: "controlador/aeronaveControlador.php?ctrRegAeronave",
                 data: obj,
                 cache: false,
                 contentType: false,
@@ -36,7 +36,7 @@ function RegNuevoClientes() {
                         Swal.fire({
                             icon: 'success',
                             showConfirmButton: false,
-                            title: 'El cliente ha sido registrado correctamente!!!',
+                            title: 'La aeronave ha sido registrado correctamente!!!',
                             timer: 1000
                         });
 
@@ -52,33 +52,15 @@ function RegNuevoClientes() {
 }
 
 /*==================
-modal ver cliente
+modal eliminar AERONAVE
 ==================*/
-function MVerCliente(id) {
-    $("#modal-lg").modal("show");
-    var obj = "";
-    $.ajax({
-            type: "POST",
-            url: "vista/cliente/InfoCliente.php?idCliente=" + id,
-            data: obj,
-            success: function (data) {
-                $("#content-lg").html(data);
-            }
-        }
-
-    )
-}
-
-/*==================
-modal eliminar cliente
-==================*/
-function MEliCliente(id) {
+function MEliAeronaves(id) {
     var obj = {
         id: id
     };
 
     Swal.fire({
-        title: 'Esta seguro de eliminar este Cliente?',
+        title: 'Esta seguro de eliminar esta aeronave?',
         showDenyButton: true,
         showCancelButton: false,
         confirmButtonText: 'Confirmar',
@@ -88,7 +70,7 @@ function MEliCliente(id) {
             $.ajax({
                 type: "POST",
                 data: obj,
-                url: "controlador/clienteControlador.php?ctrEliCliente",
+                url: "controlador/aeronaveControlador.php?ctrEliAeronave",
                 success: function () {
                     location.reload()
                 }
@@ -100,17 +82,17 @@ function MEliCliente(id) {
 }
 
 /*======================
-Modal Editar cliente
+Modal Editar aeronave
 =======================*/
-function MEditarCliente(id){
-    $("#modal-lg").modal("show");
+function MEditarAeronaves(id){
+    $("#modal-default").modal("show");
     var obj = "";
     $.ajax({
             type: "POST",
-            url: "vista/cliente/FEditCliente.php?idCliente="+id,
+            url: "vista/aeronaves/FEditAeronave.php?idAeronave="+id,
             data: obj,
             success: function (data) {
-                $("#content-lg").html(data);
+                $("#content-modal-default").html(data);
             }
         }
 
@@ -120,13 +102,13 @@ function MEditarCliente(id){
 /*=======================
 funcion editar cliente
 =======================*/
-function EditarCliente(id) {
+function EditarAeronave(id) {
     
-        var formData = new FormData($("#EditCliente")[0]);
+        var formData = new FormData($("#EditAeronave")[0]);
 
         $.ajax({
                 type: "POST",
-                url: "controlador/clienteControlador.php?ctrEditCliente",
+                url: "controlador/aeronaveControlador.php?ctrEditAeronave",
                 data: formData,
                 cache: false,
                 contentType: false,
@@ -137,7 +119,7 @@ function EditarCliente(id) {
                         Swal.fire({
                             icon: 'success',
                             showConfirmButton: false,
-                            title: 'El cliente ha sido actualizado correctamente!!!',
+                            title: 'La aeronave ha sido actualizado correctamente!!!',
                             timer: 1000
                         });
 

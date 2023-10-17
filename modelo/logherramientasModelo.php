@@ -9,7 +9,7 @@ class ModeloLogHerramientas
     static public function mdlInfoLogHerramientas()
     {
 
-        $stmt = Conexion::conectar()->prepare("select * from log_herramientas join usuario on usuario.id_usuario=log_herramientas.nombre_usuario");
+        $stmt = Conexion::conectar()->prepare("select * from log_herramientas join usuario on usuario.id_usuario=log_herramientas.nombre_usuario join aeronaves on aeronaves.id_aeronave=log_herramientas.empresa_aeronave");
         $stmt->execute();
         return $stmt->fetchAll();
 
@@ -36,7 +36,7 @@ class ModeloLogHerramientas
         $hora = date("H:i:s");
         $fechaHora = $fecha . " " . $hora;
 
-        $stmt = Conexion::conectar()->prepare("insert into log_herramientas(codigo_herramientas, fecha_hora, tipo, nombre_usuario, observaciones, id_servicio, id_usuarioLog) values('$detalle', '$fechaHora', 'SALIDA', '$nomLog' ,'$observacionesLog', $nomServicio, $idUsuarioLog)");
+        $stmt = Conexion::conectar()->prepare("insert into log_herramientas(codigo_herramientas, fecha_hora, tipo, nombre_usuario, observaciones, empresa_aeronave, id_usuarioLog) values('$detalle', '$fechaHora', 'SALIDA', '$nomLog' ,'$observacionesLog', $nomServicio, $idUsuarioLog)");
 
         if ($stmt->execute()) {
             return "ok";

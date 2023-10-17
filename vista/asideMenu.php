@@ -105,6 +105,23 @@ with font-awesome or any other icon font library -->
                         <?php } ?>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-plane"></i>
+                                <p>
+                                    Aeronaves
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="VAeronaves" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Lista de Aeronaves</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-toolbox"></i>
                                 <p>
                                     Herramienta Reci/Entre
@@ -175,6 +192,24 @@ with font-awesome or any other icon font library -->
                                 </li>
                             </ul>
 
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-toolbox"></i>
+                                <p>
+                                    Metrologia
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="VMetrologia" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Trabajos Metrologia</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
 
                         <li class="nav-item">

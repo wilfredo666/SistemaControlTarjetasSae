@@ -1,13 +1,15 @@
 <?php
 require_once "conexion.php";
-class ModeloAeronave{
+class ModeloAeronave
+{
 
     /*========================
-    Informacion Usuarios todos
+    Informacion Aeronaves todos
     ========================*/
-    static public function mdlInfoAeronaves(){
+    static public function mdlInfoAeronaves()
+    {
 
-        $stmt = Conexion::conectar()->prepare("select * from cliente");
+        $stmt = Conexion::conectar()->prepare("select * from aeronaves");
         $stmt->execute();
         return $stmt->fetchAll();
 
@@ -16,87 +18,74 @@ class ModeloAeronave{
     }
 
     /*====================
-    Registro Cliente
+    Registro Aeronave
     =====================*/
-    static public function mdlRegCliente($data){
+    static public function mdlRegAeronave($data)
+    {
 
-        $ci_cliente = $data["ci_cliente"];
-        $nombre_cliente = $data["nombre_cliente"];
-        $apellido_pat_cliente = $data["apellido_pat_cliente"];
-        $apellido_mat_cliente = $data["apellido_mat_cliente"];
-        $fecha_nacimiento = $data["fecha_nacimiento"];
-        $direccion_cliente = $data["direccion_cliente"];
-        $telefono_cliente = $data["telefono_cliente"];
-        $correo_cliente = $data["correo_cliente"];
-        $foto = $data["foto"];
+        $empresaAeronave = $data["empresaAeronave"];
+        $matriculaAeronave = $data["matriculaAeronave"];
 
-        $stmt = Conexion::conectar()->prepare("insert into cliente (ci_cliente, nombre_cliente, apellido_pat_cliente, apellido_mat_cliente, fecha_nacimiento, direccion_cliente, telefono_cliente, correo_cliente, foto) values('$ci_cliente', '$nombre_cliente', '$apellido_pat_cliente', '$apellido_mat_cliente', '$fecha_nacimiento', '$direccion_cliente', '$telefono_cliente', '$correo_cliente', '$foto')");
+        $stmt = Conexion::conectar()->prepare("insert into aeronaves (empresa_aeronave, matricula_aeronave) values('$empresaAeronave', '$matriculaAeronave')");
 
-        if($stmt->execute()){
+        if ($stmt->execute()) {
             return "correcto";
-        }else{
+        } else {
             return "error";
         }
         $stmt->close();
         $stmt->null;
-
     }
 
     /*========================
-     Ver Info usuario cliente
+     Ver Info usuario aeronave
     ========================*/
-    static public function mdlInfoCliente($idCliente){
+    static public function mdlInfoAeronave($idAeronave)
+    {
 
-        $stmt = Conexion::conectar()->prepare("select * from cliente where id_cliente = $idCliente");
+        $stmt = Conexion::conectar()->prepare("select * from aeronaves where id_aeronave = $idAeronave");
 
         $stmt->execute();
         return $stmt->fetch();
 
         $stmt->close();
         $stmt->null;
-
     }
 
     /*========================
-     Elimnar usuario cliente
+     Elimnar usuario Aeronave
     ========================*/
-    static public function mdlEliCliente($data){
+    static public function mdlEliAeronave($data)
+    {
 
-        $stmt = Conexion::conectar()->prepare("delete from cliente where id_cliente = $data");
+        $stmt = Conexion::conectar()->prepare("delete from aeronaves where id_aeronave = $data");
 
-        if($stmt->execute()){
+        if ($stmt->execute()) {
 
             return "eliminado";
-        }else{
+        } else {
             return "error";
-        } 
+        }
 
         $stmt->close();
         $stmt->null;
-
     }
 
     /*========================
-     Editar usuario cliente
+     Editar usuario aeronave
     ========================*/
-    static public function mdlEditCliente($data){
+    static public function mdlEditAeronave($data)
+    {
 
-        $idCliente = $data["idCliente"];
-        $ci_cliente = $data["ci_cliente"];
-        $nombre_cliente = $data["nombre_cliente"];
-        $apellido_pat_cliente = $data["apellido_pat_cliente"];        
-        $apellido_mat_cliente = $data["apellido_mat_cliente"];
-        $fecha_nacimiento = $data["fecha_nacimiento"];
-        $direccion_cliente = $data["direccion_cliente"];
-        $telefono_cliente = $data["telefono_cliente"];
-        $correo_cliente = $data["correo_cliente"];
-        $foto = $data["foto"];
+        $idAeronave = $data["idAeronave"];
+        $empresaAeronave = $data["empresaAeronave"];
+        $matriculaAeronave = $data["matriculaAeronave"];
 
-        $stmt = Conexion::conectar()->prepare("update cliente set ci_cliente = '$ci_cliente', nombre_cliente = '$nombre_cliente', apellido_pat_cliente = '$apellido_pat_cliente', apellido_mat_cliente = '$apellido_mat_cliente', fecha_nacimiento = '$fecha_nacimiento', direccion_cliente = '$direccion_cliente', telefono_cliente = '$telefono_cliente', correo_cliente = '$correo_cliente', foto = '$foto' where id_cliente =$idCliente");
+        $stmt = Conexion::conectar()->prepare("update aeronaves set empresa_aeronave = '$empresaAeronave', matricula_aeronave = '$matriculaAeronave' where id_aeronave =$idAeronave");
 
-        if($stmt->execute()){
+        if ($stmt->execute()) {
             return "correcto";
-        }else{
+        } else {
             return "error";
         }
         $stmt->close();

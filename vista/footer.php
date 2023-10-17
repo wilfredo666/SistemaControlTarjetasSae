@@ -62,6 +62,8 @@
 <script src="assest/js/logherramientas.js"></script>
 <script src="assest/js/servicios.js"></script>
 <script src="assest/js/ordenesdetrabajo.js"></script>
+<script src="assest/js/aeronaves.js"></script>
+<script src="assest/js/metrologia.js"></script>
 
 <!-- dropzonejs -->
 <script src="assest/plugins/dropzone/min/dropzone.min.js"></script>
@@ -276,6 +278,24 @@ Seccion  de Modals
             "autoWidth": false,
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
         }).buttons().container().appendTo('#DataTableInforme_wrapper .col-md-6:eq(0)');
+    });
+
+    $(function() {
+        $("#DataTableAeronaves").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#DataTableAeronaves_wrapper .col-md-6:eq(0)');
+    });
+
+    $(function() {
+        $("#DataTableMetrologia").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#DataTableMetrologia_wrapper .col-md-6:eq(0)');
     });
 
     $('.select2bs4').select2({

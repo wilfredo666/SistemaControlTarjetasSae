@@ -36,16 +36,16 @@ $resultado = explode(",", $idArreglos);
     <div class="form-group">
       <label for="">Aerolinea</label>
       <?php
-      require_once "../../controlador/servicioControlador.php";
-      require_once "../../modelo/servicioModelo.php";
-      $aerolinea = ControladorServicio::ctrInfoServicios();
+      require_once "../../controlador/aeronaveControlador.php";
+      require_once "../../modelo/aeronaveModelo.php";
+      $aerolinea = ControladorAeronave::ctrInfoAeronaves();
 
       ?>
       <select class="form-control select2bs4" name="nomServicio" id="nomServicio">
 
         <?php foreach ($aerolinea as $value) {
         ?>
-          <option value="<?php echo $value["id_servicio"]; ?>"><?php echo $value["cliente"]; ?></option>
+          <option value="<?php echo $value["id_aeronave"]; ?>"><?php echo $value["empresa_aeronave"]." ".$value["matricula_aeronave"]; ?></option>
         <?php
         }
         ?>

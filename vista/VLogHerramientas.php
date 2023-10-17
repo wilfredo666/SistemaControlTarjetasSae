@@ -19,6 +19,7 @@
                     <thead>
                         <tr>
                             <th>Nombre Tecnico</th>
+                            <th>Aeronave</th>
                             <th>Fecha Hora</th>
                             <th>Tipo</th>
                             <th>Acción</th>
@@ -44,6 +45,7 @@
                         ?>
                             <tr>
                                 <td><?php echo $value["nombre_usuario"]; ?></td>
+                                <td><?php echo $value["empresa_aeronave"] . " " . $value["matricula_aeronave"]; ?></td>
 
                                 <?php
                                 if ($totalDias == -5) {
@@ -51,7 +53,7 @@
                                     <td><?php echo $value["fecha_hora"]; ?></td>
                                     <script>
                                         function MEnviarEmails() {
-                                           
+
                                             var obj = "";
                                             $.ajax({
                                                 type: "POST",
@@ -69,16 +71,15 @@
                                     <td><?php echo $value["fecha_hora"]; ?></td>
                                 <?php
                                 }
-                          //evaluar si todos los items fueron devueltos
-                          //ojo.- con esto el campo lod_herramientas.tipo queda obsoleto
-                          $tipoAcm=0;
-                          $cantHerr=json_decode($value["codigo_herramientas"]);
+                                //evaluar si todos los items fueron devueltos
+                                //ojo.- con esto el campo lod_herramientas.tipo queda obsoleto
+                                $tipoAcm = 0;
+                                $cantHerr = json_decode($value["codigo_herramientas"]);
 
-                          foreach($cantHerr as $cant){
-                            
-                              $tipoAcm=$tipoAcm+$cant->cantidad;
-                            
-                          }
+                                foreach ($cantHerr as $cant) {
+
+                                    $tipoAcm = $tipoAcm + $cant->cantidad;
+                                }
                                 ?>
 
                                 <td><?php if ($tipoAcm == 0) {
@@ -97,7 +98,7 @@
                                         <button class="btn btn-secondary" onclick="MVerLogHerramienta(<?php echo $value['id_log_herramientas']; ?>)">
                                             <i class="fas fa-eye"></i>
                                         </button>
-                                        <button class="btn btn-warning" onclick="MDevolucionHerramienta(<?php echo $value['id_log_herramientas']; ?>)" <?php if($tipoAcm==0):?>disabled<?php endif;?>>
+                                        <button class="btn btn-warning" onclick="MDevolucionHerramienta(<?php echo $value['id_log_herramientas']; ?>)" <?php if ($tipoAcm == 0) : ?>disabled<?php endif; ?>>
                                             <i class="fas fa-sign-out-alt"></i>
                                         </button>
                                     </div>

@@ -1,115 +1,89 @@
 <?php
 //capturamos la url
-$ruta=parse_url($_SERVER['REQUEST_URI']);
+$ruta = parse_url($_SERVER['REQUEST_URI']);
 
-if(isset($ruta["query"])){
-    if($ruta["query"]=="ctrRegAeronave"||
-       $ruta["query"]=="ctrEliAeronave"||
-       $ruta["query"]=="ctrEditAeronave"){
+if (isset($ruta["query"])) {
+    if (
+        $ruta["query"] == "ctrRegAeronave" ||
+        $ruta["query"] == "ctrEliAeronave" ||
+        $ruta["query"] == "ctrEditAeronave"
+    ) {
 
-        $metodo=$ruta["query"];
+        $metodo = $ruta["query"];
         $cliente = new ControladorAeronave();
         $cliente->$metodo();
     }
 }
 
-class ControladorAeronave{
+class ControladorAeronave
+{
     /*==========================
     Informacion de aeronaves todos 
     ============================*/
-    static public function ctrInfoAeronaves(){
+    static public function ctrInfoAeronaves()
+    {
         $respuesta = ModeloAeronave::mdlInfoAeronaves();
         return $respuesta;
-    } 
+    }
 
     /*====================
     Registro nuevo aeronaves
     =====================*/
-    static public function ctrRegCliente(){
+    static public function ctrRegAeronave()
+    {
         require_once "../modelo/aeronaveModelo.php";
 
-        $ciCliente = trim($_POST["ciCliente"]);
-        $nomCliente = trim($_POST["nomCliente"]);
-        $apPatCliente = trim($_POST["apPatCliente"]);
-        $apMatCliente = trim($_POST["apMatCliente"]);
-        $fechNacimiento = trim($_POST["fechNacimiento"]);
-        $direccion = trim($_POST["direccion"]);
-        $teleCliente = trim($_POST["teleCliente"]);
-        $correoCliente = trim($_POST["correoCliente"]);
-        $foto = $_FILES["fotoCliente"];
-        $fotoCliente = $foto["name"];
-        $rutaFoto = $foto["tmp_name"];
-        $rutaGuardado = "../assest/dist/img/cliente/";
-        move_uploaded_file($rutaFoto,$rutaGuardado.$fotoCliente);
+        $empresaAeronave = trim($_POST["empresaAeronave"]);
+        $matriculaAeronave = trim($_POST["matriculaAeronave"]);
 
         $data = array(
-            "ci_cliente"=>$ciCliente,
-            "nombre_cliente"=>$nomCliente,
-            "apellido_pat_cliente"=>$apPatCliente,
-            "apellido_mat_cliente"=>$apMatCliente,
-            "fecha_nacimiento"=>$fechNacimiento,
-            "direccion_cliente"=>$direccion,
-            "telefono_cliente"=>$teleCliente,
-            "correo_cliente"=>$correoCliente,
-            "foto"=>$fotoCliente
+            "empresaAeronave" => $empresaAeronave,
+            "matriculaAeronave" => $matriculaAeronave
         );
 
-        $respuesta = ModeloCliente::mdlRegCliente($data);
+        $respuesta = ModeloAeronave::mdlRegAeronave($data);
 
         echo $respuesta;
     }
 
-    /*=======================
-    Eliminar usuario cliente
+    /*========================
+    Ver Info aeronave
     ========================*/
-    static public function ctrEliCliente(){
-        require_once "../modelo/clienteModelo.php";
+    static public function ctrInfoAeronave($idAeronave)
+    {
+        $respuesta = ModeloAeronave::mdlInfoAeronave($idAeronave);
+        return $respuesta;
+    }
+
+    /*=======================
+    Eliminar usuario aeronaves
+    ========================*/
+    static public function ctrEliAeronave()
+    {
+        require_once "../modelo/aeronaveModelo.php";
         $data = $_POST["id"];
-        $respuesta = ModeloCliente::mdlEliCliente($data);
+        $respuesta = ModeloAeronave::mdlEliAeronave($data);
         echo $respuesta;
-        
     }
 
     /*====================
     Editar Personal
     =====================*/
-    static public function ctrEditCliente(){
-        require_once "../modelo/clienteModelo.php";
+    static public function ctrEditAeronave()
+    {
+        require_once "../modelo/aeronaveModelo.php";
 
-        $idCliente = trim($_POST["idCliente"]);
-        $ciCliente = trim($_POST["ciCliente"]);
-        $nomCliente = trim($_POST["nomCliente"]);
-        $apPatCliente = trim($_POST["apPatCliente"]);
-        $apMatCliente = trim($_POST["apMatCliente"]);
-        $fechNacimiento = trim($_POST["fechNacimiento"]);
-        $direccion = trim($_POST["direccion"]);
-        $teleCliente = trim($_POST["teleCliente"]);
-        $correoCliente = trim($_POST["correoCliente"]);
-        
-        $foto = $_FILES["fotoCliente"];
-        if($foto["name"] == ""){
-            $fotoCliente = $_POST["fotoClienteActual"];
-        }else{    
-            $fotoCliente = $foto["name"];
-            $rutaFoto = $foto["tmp_name"];
-            $rutaGuardado = "../assest/dist/img/cliente/";
-            move_uploaded_file($rutaFoto,$rutaGuardado.$fotoCliente);
-        }
+        $idAeronave = trim($_POST["idAeronave"]);
+        $empresaAeronave = trim($_POST["empresaAeronave"]);
+        $matriculaAeronave = trim($_POST["matriculaAeronave"]);
 
         $data = array(
-            "idCliente"=>$idCliente,
-            "ci_cliente"=>$ciCliente,
-            "nombre_cliente"=>$nomCliente,
-            "apellido_pat_cliente"=>$apPatCliente,
-            "apellido_mat_cliente"=>$apMatCliente,
-            "fecha_nacimiento"=>$fechNacimiento,
-            "direccion_cliente"=>$direccion,
-            "telefono_cliente"=>$teleCliente,
-            "correo_cliente"=>$correoCliente,
-            "foto"=>$fotoCliente
+            "idAeronave" => $idAeronave,
+            "empresaAeronave" => $empresaAeronave,
+            "matriculaAeronave" => $matriculaAeronave
         );
 
-        $respuesta = ModeloCliente::mdlEditCliente($data);
+        $respuesta = ModeloAeronave::mdlEditAeronave($data);
 
         echo $respuesta;
     }
