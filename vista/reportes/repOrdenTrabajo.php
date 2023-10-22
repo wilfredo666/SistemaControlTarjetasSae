@@ -131,18 +131,19 @@ $pdf->Cell(100, 8, utf8_decode("FECHA: Cochabamba, ") . strftime("%d de %B de %Y
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(190, 12, utf8_decode("DESCRIPCIÓN DE LA UNIDAD "), 0, 1, 'C');
 $pdf->SetFont('Arial', '', 10);
-$pdf->Cell(40, 14, utf8_decode("NOMBRE: ".$orden['nombrematricula_ordendetrabajo']),1,0,'');
-$pdf->Cell(40, 14, utf8_decode("TH: ".$orden['th_ordendetrabajo']. ' | ' . "TC: " .$orden['tc_ordendetrabajo']),1,0,'');
+$pdf->Cell(40, 10, utf8_decode("NOMBRE: ".$orden['nombrematricula_ordendetrabajo']),1,0,'');
+$pdf->Cell(22, 10, utf8_decode("TH: ".$orden['th_ordendetrabajo'] ),"LTB",0,'');
+$pdf->Cell(23, 10, utf8_decode("TC: " .$orden['tc_ordendetrabajo']),"TBR",0,'');
 
 $pdf->SetFont('Arial', '', 8);
-$pdf->Cell(75, 7, utf8_decode("MODELO o FABRICANTE o PART NUMBER:"),"T",2,'C');
-$pdf->Cell(75, 7, utf8_decode($orden['modelo_pn_ordendetrabajo']),"B",0,'C');
+$pdf->Cell(70, 5, utf8_decode("MODELO o FABRICANTE o PART NUMBER:"),"T",2,'C');
+$pdf->Cell(70, 5, utf8_decode($orden['modelo_pn_ordendetrabajo']),"B",0,'C');
 
 $pdf->SetY(72);
 $pdf->setX(165);
 $pdf->SetFont('Arial', '', 10);
-$pdf->Cell(40, 14, utf8_decode("S/N: ".$orden['sn_ordendetrabajo']),1,0,'');
-$pdf->Ln(16);
+$pdf->Cell(40, 10, utf8_decode("S/N: ".$orden['sn_ordendetrabajo']),1,0,'');
+$pdf->Ln(12);
 $pdf->Cell(195, 8, utf8_decode("SOLICITADA POR: ".$orden['solicitadapor_ordendetrabajo']), 1, 1, "");
 
 $pdf->SetFont('Arial', 'B', 12);
@@ -184,26 +185,18 @@ $observaciones = utf8_decode($orden['observaciones_ordendetrabajo']);
 $texto5 = ("OBSERVACIONES:  \n" . $observaciones);
 $pdf->MultiCell(195, 6,($texto5),1,1,"");
 
-$pdf->Ln(2);
-$pdf->Cell(195, 20, "",1,0,'');
-$pdf->Cell(195, 2, "",0,1,'');
 
-$pdf->Cell(55, 6, utf8_decode("TERMINADO POR:  "),0,1,'');
-$pdf->Cell(195, 4, "",0,1,'');
-$pdf->Cell(90, 6, utf8_decode("NOMBRE:  "),0,0,'');
-$pdf->Cell(55, 6, utf8_decode("N° LICENCIA:  "),0,0,'');
-$pdf->Cell(55, 6, utf8_decode("FIRMA:  "),0,1,'');
+$pdf->Cell(195, 8, utf8_decode("TERMINADO POR:  "),"LR",1,'');
+$pdf->Cell(85, 6, utf8_decode("NOMBRE:  "),"LB",0,'');
+$pdf->Cell(55, 6, utf8_decode("N° LICENCIA:  "),"B",0,'');
+$pdf->Cell(55, 6, utf8_decode("FIRMA:  "),"RB",1,'');
 
-$pdf->Ln(8);
-$pdf->Cell(195, 20, "",1,0,'');
-$pdf->Cell(195, 2, "",0,1,'');
 
-$pdf->Cell(55, 6, utf8_decode("APROBADO POR:  "),0,1,'');
-$pdf->Cell(195, 4, "",0,1,'');
-$pdf->Cell(90, 6, utf8_decode("NOMBRE:  "),0,0,'');
-$pdf->Cell(55, 6, utf8_decode("N° LICENCIA:  "),0,0,'');
-$pdf->Cell(55, 6, utf8_decode("FIRMA:  "),0,1,'');
-$pdf->Ln(8);
-$pdf->Cell(195, 8, utf8_decode("FECHA DE CIERRE: Cochabamba, "),1,1,'');
+$pdf->Cell(195, 8, utf8_decode("APROBADO POR:  "),"LR",1,'');
+$pdf->Cell(85, 6, utf8_decode("NOMBRE:  "),"LB",0,'');
+$pdf->Cell(55, 6, utf8_decode("N° LICENCIA:  "),"B",0,'');
+$pdf->Cell(55, 6, utf8_decode("FIRMA:  "),"RB",1,'');
+
+$pdf->Cell(195, 8, utf8_decode("FECHA DE CIERRE: Cochabamba, "),"LRB",1,'');
 $pdf->Output();
 ?>
