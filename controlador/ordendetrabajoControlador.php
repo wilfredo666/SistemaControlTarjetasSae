@@ -32,6 +32,7 @@ class ControladorOrdenDeTrabajo {
     $snOrdenes = $_POST["snOrdenes"];
     $solicitadaporOrdenes = $_POST["solicitadaporOrdenes"];
     $nombreautorizadaorOrdenes = $_POST["nombreautorizadaorOrdenes"];
+    $fechaOrdenes = $_POST["fechaOrdenes"];
     $documentosadjuntosrecibidosOrdenes = $_POST["documentosadjuntosrecibidosOrdenes"];
     $descripcionalcancetrabajoOrdenes = $_POST["descripcionalcancetrabajoOrdenes"];
     $descripciontrabajosOrdenes = $_POST["descripciontrabajosOrdenes"];
@@ -39,6 +40,7 @@ class ControladorOrdenDeTrabajo {
     $documentosadjuntosentregadosOrdenes = $_POST["documentosadjuntosentregadosOrdenes"];
     $observacionesOrdenes = $_POST["observacionesOrdenes"];
     $caratulaOrdenes = $_POST["caratulaOrdenes"];
+    $piepaginaOrdenes = $_POST["piepaginaOrdenes"];
 
     $data = array(
       "ordendetrabajonumeroOrdenes"=>$_POST["ordendetrabajonumeroOrdenes"],
@@ -49,13 +51,15 @@ class ControladorOrdenDeTrabajo {
       "snOrdenes"=>$_POST["snOrdenes"],
       "solicitadaporOrdenes"=>$_POST["solicitadaporOrdenes"],
       "nombreautorizadaorOrdenes"=>$_POST["nombreautorizadaorOrdenes"],
+      "fechaOrdenes"=>$_POST["fechaOrdenes"],
       "documentosadjuntosrecibidosOrdenes"=>$_POST["documentosadjuntosrecibidosOrdenes"],
       "descripcionalcancetrabajoOrdenes"=>$_POST["descripcionalcancetrabajoOrdenes"],
       "descripciontrabajosOrdenes"=>$_POST["descripciontrabajosOrdenes"],
       "ordenesdetrabajosrelacionadasOrdenes"=>$_POST["ordenesdetrabajosrelacionadasOrdenes"],
       "documentosadjuntosentregadosOrdenes"=>$_POST["documentosadjuntosentregadosOrdenes"],
       "observacionesOrdenes"=>$_POST["observacionesOrdenes"],
-      "caratulaOrdenes"=>$_POST["caratulaOrdenes"]
+      "caratulaOrdenes"=>$_POST["caratulaOrdenes"],
+      "piepaginaOrdenes"=>$_POST["piepaginaOrdenes"]
     );
 
     $respuesta = ModeloOrdenDeTrabajo::mdlRegOrdenDeTrabajo( $data );
@@ -79,6 +83,7 @@ class ControladorOrdenDeTrabajo {
     $snOrdenes = $_POST["snOrdenes"];
     $solicitadaporOrdenes = $_POST["solicitadaporOrdenes"];
     $nombreautorizadaorOrdenes = $_POST["nombreautorizadaorOrdenes"];
+    $fechaOrdenes = $_POST["fechaOrdenes"];
     $documentosadjuntosrecibidosOrdenes = $_POST["documentosadjuntosrecibidosOrdenes"];
     $descripcionalcancetrabajoOrdenes = $_POST["descripcionalcancetrabajoOrdenes"];
     $descripciontrabajosOrdenes = $_POST["descripciontrabajosOrdenes"];
@@ -86,6 +91,7 @@ class ControladorOrdenDeTrabajo {
     $documentosadjuntosentregadosOrdenes = $_POST["documentosadjuntosentregadosOrdenes"];
     $observacionesOrdenes = $_POST["observacionesOrdenes"];
     $caratulaOrdenes = $_POST["caratulaOrdenes"];
+    $piepaginaOrdenes = $_POST["piepaginaOrdenes"];
     $data = array(
       "idOrdenTrabajo"=>$_POST["idOrdenTrabajo"],
       "ordendetrabajonumeroOrdenes"=>$_POST["ordendetrabajonumeroOrdenes"],
@@ -96,13 +102,15 @@ class ControladorOrdenDeTrabajo {
       "snOrdenes"=>$_POST["snOrdenes"],
       "solicitadaporOrdenes"=>$_POST["solicitadaporOrdenes"],
       "nombreautorizadaorOrdenes"=>$_POST["nombreautorizadaorOrdenes"],
+      "fechaOrdenes"=>$_POST["fechaOrdenes"],
       "documentosadjuntosrecibidosOrdenes"=>$_POST["documentosadjuntosrecibidosOrdenes"],
       "descripcionalcancetrabajoOrdenes"=>$_POST["descripcionalcancetrabajoOrdenes"],
       "descripciontrabajosOrdenes"=>$_POST["descripciontrabajosOrdenes"],
       "ordenesdetrabajosrelacionadasOrdenes"=>$_POST["ordenesdetrabajosrelacionadasOrdenes"],
       "documentosadjuntosentregadosOrdenes"=>$_POST["documentosadjuntosentregadosOrdenes"],
       "observacionesOrdenes"=>$_POST["observacionesOrdenes"],
-      "caratulaOrdenes"=>$_POST["caratulaOrdenes"]
+      "caratulaOrdenes"=>$_POST["caratulaOrdenes"],
+      "piepaginaOrdenes"=>$_POST["piepaginaOrdenes"]
     );
 
     $respuesta = ModeloOrdenDeTrabajo::mdlEditOrdenDeTrabajo( $data );
