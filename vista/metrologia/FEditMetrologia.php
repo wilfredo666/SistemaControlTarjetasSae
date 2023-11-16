@@ -65,7 +65,7 @@ $metrologias = ControladorMetrologias::ctrInfoMetrologia($id);
             </div>
             <div class="col-sm-4">
                 <div class="form-group">
-                    <label for="">MARCA</label>
+                    <label for="">FABRICANTE</label>
                     <input type="text" class="form-control" id="marcaMetrologia" name="marcaMetrologia" value="<?php echo $metrologias["marca_metro"]; ?>">
                 </div>
             </div>
@@ -100,7 +100,13 @@ $metrologias = ControladorMetrologias::ctrInfoMetrologia($id);
             <div class="col-sm-4">
                 <div class="form-group">
                     <label for="">VIGENCIA</label>
-                    <input type="text" class="form-control" id="vigenciaMetrologia" name="vigenciaMetrologia" value="<?php echo $metrologias["vigencia_metro"]; ?>">
+                    <select name="vigenciaMetrologia" id="vigenciaMetrologia" class="form-control">
+                        <option>Seleccione</option>
+                        <option value="06 MESES" <?php if ($metrologias["vigencia_metro"] == "06 MESES") : ?> selected <?php endif; ?>>06 MESES</option>
+                        <option value="12 MESES" <?php if ($metrologias["vigencia_metro"] == "12 MESES") : ?> selected <?php endif; ?>>12 MESES</option>
+                        <option value="18 MESES" <?php if ($metrologias["vigencia_metro"] == "18 MESES") : ?> selected <?php endif; ?>>18 MESES</option>
+                        <option value="24 MESES" <?php if ($metrologias["vigencia_metro"] == "24 MESES") : ?> selected <?php endif; ?>>24 MESES</option>
+                    </select>
                 </div>
             </div>
             <div class="col-sm-4">
@@ -129,10 +135,18 @@ $metrologias = ControladorMetrologias::ctrInfoMetrologia($id);
             </div>
             <div class="col-sm-4">
                 <div class="form-group">
+                    <label for="">FECHA DE EMISIÓN</label>
+                    <input type="date" class="form-control" id="fechaemisionMetrologia" name="fechaemisionMetrologia" value="<?php echo $metrologias["fechaemision_metro"]; ?>">
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
                     <label for="">FECHA INGRESO</label>
                     <input type="date" class="form-control" id="fechaingresoMetrologia" name="fechaingresoMetrologia" value="<?php echo $metrologias["fecha_ingreso_metro"]; ?>">
                 </div>
             </div>
+        </div>
+        <div class="row">
             <div class="col-sm-4">
                 <div class="form-group">
                     <label for="">FECHA CONCLUIDA</label>
