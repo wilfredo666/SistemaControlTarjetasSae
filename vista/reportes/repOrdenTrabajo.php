@@ -13,10 +13,58 @@ $fecha= date("d/m/Y", strtotime($fecha));
 class PDF extends FPDF
 {
   private $primeraPagina = true;
+  // Cabecera de página
+
+  function Header(){
+    if(!$this->primeraPagina){
+      /*$this->setY(10);
+      $this->SetX(8);*/
+      /*$this->Cell(60, 30, '', 1, 0, 'C');
+      $this->Cell(75, 30, '', 1, 0, 'C');
+      $this->Cell(66, 30, '', 1, 1, 'C');*/
+
+      $this->Cell(60, 30, "", 1, 0);
+      $this->SetDrawColor(0, 0, 0);
+      $this->SetFont('Arial', 'B', 14);
+      $this->Image('../../assest/imagenes/saee.png', 12, 12, -200);
+      $this->Cell(70, 30, 'ORDEN DE TRABAJO', 1, 0, 'C');
+      $this->setY(33);
+      $this->SetFont('Arial', '', 9);
+      $this->setY(10);
+      $this->setX(140);
+      $this->SetFillColor(215, 211, 189);
+      $this->SetFont('Arial', 'B', 9);
+      $this->Cell(70, 5, 'CERTIFICACIONES', "TLR", 1, 'C');
+      $this->setY(14);
+      $this->setX(140);
+      $this->SetFont('Arial', '', 9);
+      $this->Cell(70, 5, 'DGAC BOLIVIA OMA No N-017', "LR", 2, 'C');
+      $this->setY(18);
+      $this->setX(140);
+      $this->SetFont('Arial', '', 9);
+      $this->Cell(70, 5, 'AEROCIVIL COLOMBIA TARE No. 042', "LR", 2, 'C');
+      $this->setY(22);
+      $this->setX(140);
+      $this->SetFont('Arial', '', 9);
+      $this->Cell(70, 5, 'DGAC CHILE E-448', "LR", 2, 'C');
+      $this->setY(26);
+      $this->setX(140);
+      $this->Cell(70, 5, 'DGAC ECUADOR No. 077', "LR", 2, 'C');
+      $this->setY(30);
+      $this->setX(140);
+      $this->Cell(70, 5, 'DGAC PERU OMAE No. 019', "LR", 2, 'C');
+      $this->setY(34);
+      $this->setX(140);
+      $this->Cell(70, 6, 'AHAC HONDURAS No. CTAE-145-032 HR', "LRB", 1, 'C');
+$this->Ln(10);
+    }
+  }
+
   // Page footer
   function Footer()
   {
     if (!$this->primeraPagina) {
+
       $this->SetY(-15);
       $this->SetX(10);
       $this->SetFont("times", "", 9);
@@ -27,12 +75,12 @@ class PDF extends FPDF
 
     }
   }
-  
+
   // Función para marcar que ya no estamos en la primera página
-    function SetPrimeraPagina($valor)
-    {
-        $this->primeraPagina = $valor;
-    }
+  function SetPrimeraPagina($valor)
+  {
+    $this->primeraPagina = $valor;
+  }
 }
 
 // Instanciation of inherited class
@@ -42,6 +90,7 @@ $pdf->AddPage();
 
 //$pdf->SetAutoPageBreak(true, 1);
 
+//inicio caratula
 $pdf->SetFont('Arial', 'B', 16);
 $pdf->SetLineWidth(2.5);
 $pdf->SetDrawColor(39, 73, 130);
@@ -66,63 +115,24 @@ $pdf->Ln(10);
 $pdf->SetFont('Arial', 'B', 40);
 $pdf->MultiCell(195, 18, utf8_decode($orden['titulocaratula_ordendetrabajo']), 0, 'C');
 
-//$pdf->Ln(40);
+/*$pdf->Ln(40);
+
 $pdf->setY(230);
 $pdf->setX(10);
 $pdf->SetFont('Arial', '', 40);
 $pdf->Cell(195, 12, utf8_decode($orden['piepaginacaratula_ordendetrabajo']), 0, 1, 'C');
 
-$pdf->Ln(40);
 
+$pdf->Ln(40);*/
+//fin caratula
 
 //salto de linea
 // Cambiar a la siguiente página
 $pdf->AddPage();
+
 // Establecer que ya no estamos en la primera página
 $pdf->SetPrimeraPagina(false);
-
-$pdf->Cell(0, 5, "", 0, 1);
-
-$pdf->SetDrawColor(220, 220, 220);
-$pdf->SetFont('Arial', 'B', 14);
-$pdf->Image('../../assest/imagenes/saee.png', 10, 10, -190);
-$pdf->Cell(190, 20, 'ORDEN DE TRABAJO', 0, 2, 'C');
-$pdf->setY(33);
-$pdf->SetFont('Arial', '', 9);
-$pdf->setY(10);
-$pdf->setX(160);
-$pdf->SetFillColor(215, 211, 189);
-$pdf->SetFont('Arial', 'B', 9);
-$pdf->Cell(35, 5, 'CERTIFICACIONES', 0, 1, 'C');
-$pdf->setY(14);
-$pdf->setX(160);
-$pdf->SetFont('Arial', '', 9);
-$pdf->Cell(35, 5, 'DGAC BOLIVIA OMA No N-017', 0, 2, 'C');
-$pdf->setY(18);
-$pdf->setX(160);
-$pdf->SetFont('Arial', '', 9);
-$pdf->Cell(35, 5, 'AEROCIVIL COLOMBIA TARE No. 042', 0, 2, 'C');
-$pdf->setY(22);
-$pdf->setX(160);
-$pdf->SetFont('Arial', '', 9);
-$pdf->Cell(35, 5, 'DGAC CHILE E-448', 0, 2, 'C');
-$pdf->setY(26);
-$pdf->setX(160);
-$pdf->Cell(35, 5, 'DGAC ECUADOR No. 077', 0, 2, 'C');
-$pdf->setY(30);
-$pdf->setX(160);
-$pdf->Cell(35, 5, 'DGAC PERU OMAE No. 019', 0, 2, 'C');
-$pdf->setY(34);
-$pdf->setX(160);
-$pdf->Cell(35, 5, 'AHAC HONDURAS No. CTAE-145-032 HR', 0, 2, 'C');
-
-$pdf->setY(10);
-$pdf->SetX(8);
-$pdf->Cell(60, 30, '', 1, 0, 'C');
-$pdf->Cell(75, 30, '', 1, 0, 'C');
-$pdf->Cell(66, 30, '', 1, 1, 'C');
-
-/* $pdf->Cell(66, 8, '', 0, 1, 'C'); */
+$pdf->header();
 
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(190, 12, utf8_decode("ORDEN DE TRABAJO N°: ".$orden['numero_ordendetrabajo']), 0, 1, 'C');
@@ -142,7 +152,7 @@ $pdf->SetFont('Arial', '', 8);
 $pdf->Cell(60, 5, utf8_decode("MODELO o FABRICANTE o PART NUMBER:"),"T",2,'C');
 $pdf->Cell(60, 5, utf8_decode($orden['modelo_pn_ordendetrabajo']),"B",0,'C');
 
-$pdf->SetY(72);
+$pdf->SetY(82);
 $pdf->setX(165);
 $pdf->SetFont('Arial', '', 8);
 $pdf->Cell(40, 10, utf8_decode("S/N: ".$orden['sn_ordendetrabajo']),1,0,'');
@@ -195,7 +205,7 @@ $pdf->Cell(55, 6, utf8_decode("N° LICENCIA:  "),"B",0,'');
 $pdf->Cell(55, 6, utf8_decode("FIRMA:  "),"RB",1,'');
 
 
-$pdf->Cell(195, 8, utf8_decode("APROBADO POR:  "),"LR",1,'');
+$pdf->Cell(195, 8, utf8_decode("APROBADO POR:  "),"LRT",1,'');
 $pdf->Cell(85, 6, utf8_decode("NOMBRE:  "),"LB",0,'');
 $pdf->Cell(55, 6, utf8_decode("N° LICENCIA:  "),"B",0,'');
 $pdf->Cell(55, 6, utf8_decode("FIRMA:  "),"RB",1,'');

@@ -9,6 +9,7 @@ $orden = ControladorOrdenDeTrabajo::ctrRepOrdenTrabajo($id);
 date_default_timezone_set('America/La_Paz');
 class PDF extends FPDF
 {
+
   private $primeraPagina = true;
   // Page footer
   function Footer()
@@ -24,12 +25,12 @@ class PDF extends FPDF
 
     }
   }
-  
+
   // Función para marcar que ya no estamos en la primera página
-    function SetPrimeraPagina($valor)
-    {
-        $this->primeraPagina = $valor;
-    }
+  function SetPrimeraPagina($valor)
+  {
+    $this->primeraPagina = $valor;
+  }
 }
 
 // Instanciation of inherited class
@@ -53,7 +54,7 @@ $pdf->SetLineWidth(0.5);
 $pdf->SetFont('Arial', 'B', 40);
 $pdf->setY(100);
 $pdf->setX(15);
-/* $pdf->SetDrawColor(120,55,250); */
+
 $pdf->Cell(180, 15, utf8_decode('ORDEN DE'), 0, 1, 'C');
 $pdf->Cell(190, 15, utf8_decode('TRABAJO'), 0, 1, 'C');
 $pdf->SetFont('Arial', '', 30);
@@ -63,7 +64,6 @@ $pdf->Ln(10);
 $pdf->SetFont('Arial', 'B', 40);
 $pdf->MultiCell(195, 18, utf8_decode($orden['titulocaratula_ordendetrabajo']), 0, 'C');
 
-//$pdf->Ln(40);
 $pdf->setY(230);
 $pdf->setX(10);
 $pdf->SetFont('Arial', '', 40);
