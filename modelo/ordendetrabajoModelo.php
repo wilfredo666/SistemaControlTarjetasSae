@@ -25,6 +25,8 @@ class ModeloOrdenDeTrabajo
     $solicitadaporOrdenes = $data["solicitadaporOrdenes"];
     $nombreautorizadaorOrdenes = $data["nombreautorizadaorOrdenes"];
     $fechaOrdenes = $data["fechaOrdenes"];
+    $fechafinOrdenes = $data["fechafinOrdenes"];
+    $estadosOrdenes = $data["estadosOrdenes"];
     $documentosadjuntosrecibidosOrdenes = $data["documentosadjuntosrecibidosOrdenes"];
     $descripcionalcancetrabajoOrdenes = $data["descripcionalcancetrabajoOrdenes"];
     $descripciontrabajosOrdenes = $_POST["descripciontrabajosOrdenes"];
@@ -34,7 +36,7 @@ class ModeloOrdenDeTrabajo
     $caratulaOrdenes = $data["caratulaOrdenes"];
     $piepaginaOrdenes = $data["piepaginaOrdenes"];
 
-    $stmt = Conexion::conectar()->prepare("insert into orden_de_trabajo(numero_ordendetrabajo, nombrematricula_ordendetrabajo, th_ordendetrabajo, tc_ordendetrabajo, modelo_pn_ordendetrabajo, sn_ordendetrabajo, solicitadapor_ordendetrabajo, nombreautorizado_ordendetrabajo, fecha_ordendetrabajo, documentosadjuntosrecibidos_ordendetrabajo, descripciondelalcancedeltrabajosolicitado_ordendetrabajo, descripciondetrabajosefectuados_ordendetrabajo, ordenesdetrabajosrelacionadas_ordendetrabajo, documentosadjuntosentregados_ordendetrabajo, observaciones_ordendetrabajo, titulocaratula_ordendetrabajo, piepaginacaratula_ordendetrabajo) values('$ordendetrabajonumeroOrdenes', '$nombrematriculaOrdenes', '$thOrdenes', '$tcOrdenes', '$modelopnOrdenes', '$snOrdenes', '$solicitadaporOrdenes', '$nombreautorizadaorOrdenes', '$fechaOrdenes', '$documentosadjuntosrecibidosOrdenes', '$descripcionalcancetrabajoOrdenes', '$descripciontrabajosOrdenes', '$ordenesdetrabajosrelacionadasOrdenes', '$documentosadjuntosentregadosOrdenes', '$observacionesOrdenes', '$caratulaOrdenes', '$piepaginaOrdenes')");
+    $stmt = Conexion::conectar()->prepare("insert into orden_de_trabajo(numero_ordendetrabajo, nombrematricula_ordendetrabajo, th_ordendetrabajo, tc_ordendetrabajo, modelo_pn_ordendetrabajo, sn_ordendetrabajo, solicitadapor_ordendetrabajo, nombreautorizado_ordendetrabajo, fecha_ordendetrabajo, fechacierre_ordendetrabajo, estados_ordendetrabajo, documentosadjuntosrecibidos_ordendetrabajo, descripciondelalcancedeltrabajosolicitado_ordendetrabajo, descripciondetrabajosefectuados_ordendetrabajo, ordenesdetrabajosrelacionadas_ordendetrabajo, documentosadjuntosentregados_ordendetrabajo, observaciones_ordendetrabajo, titulocaratula_ordendetrabajo, piepaginacaratula_ordendetrabajo) values('$ordendetrabajonumeroOrdenes', '$nombrematriculaOrdenes', '$thOrdenes', '$tcOrdenes', '$modelopnOrdenes', '$snOrdenes', '$solicitadaporOrdenes', '$nombreautorizadaorOrdenes', '$fechaOrdenes', '$fechafinOrdenes', '$estadosOrdenes', '$documentosadjuntosrecibidosOrdenes', '$descripcionalcancetrabajoOrdenes', '$descripciontrabajosOrdenes', '$ordenesdetrabajosrelacionadasOrdenes', '$documentosadjuntosentregadosOrdenes', '$observacionesOrdenes', '$caratulaOrdenes', '$piepaginaOrdenes')");
 
     if ($stmt->execute()) {
       return "ok";
@@ -70,6 +72,8 @@ class ModeloOrdenDeTrabajo
     $solicitadaporOrdenes = $data["solicitadaporOrdenes"];
     $nombreautorizadaorOrdenes = $data["nombreautorizadaorOrdenes"];
     $fechaOrdenes = $data["fechaOrdenes"];
+    $fechafinOrdenes = $data["fechafinOrdenes"];
+    $estadosOrdenes = $data["estadosOrdenes"];
     $documentosadjuntosrecibidosOrdenes = $data["documentosadjuntosrecibidosOrdenes"];
     $descripcionalcancetrabajoOrdenes = $data["descripcionalcancetrabajoOrdenes"];
     $descripciontrabajosOrdenes = $_POST["descripciontrabajosOrdenes"];
@@ -79,7 +83,7 @@ class ModeloOrdenDeTrabajo
     $caratulaOrdenes = $data["caratulaOrdenes"];
     $piepaginaOrdenes = $data["piepaginaOrdenes"];
 
-    $stmt = Conexion::conectar()->prepare("update orden_de_trabajo set numero_ordendetrabajo='$ordendetrabajonumeroOrdenes', nombrematricula_ordendetrabajo='$nombrematriculaOrdenes',th_ordendetrabajo='$thOrdenes', tc_ordendetrabajo='$tcOrdenes', modelo_pn_ordendetrabajo='$modelopnOrdenes', sn_ordendetrabajo='$snOrdenes', solicitadapor_ordendetrabajo='$solicitadaporOrdenes', nombreautorizado_ordendetrabajo='$nombreautorizadaorOrdenes', fecha_ordendetrabajo='$fechaOrdenes', documentosadjuntosrecibidos_ordendetrabajo='$documentosadjuntosrecibidosOrdenes', descripciondelalcancedeltrabajosolicitado_ordendetrabajo='$descripcionalcancetrabajoOrdenes', descripciondetrabajosefectuados_ordendetrabajo='$descripciontrabajosOrdenes', ordenesdetrabajosrelacionadas_ordendetrabajo='$ordenesdetrabajosrelacionadasOrdenes', documentosadjuntosentregados_ordendetrabajo='$documentosadjuntosentregadosOrdenes', observaciones_ordendetrabajo='$observacionesOrdenes', titulocaratula_ordendetrabajo='$caratulaOrdenes', piepaginacaratula_ordendetrabajo='$piepaginaOrdenes' where id_ordendetrabajo=$idOrdenTrabajo");
+    $stmt = Conexion::conectar()->prepare("update orden_de_trabajo set numero_ordendetrabajo='$ordendetrabajonumeroOrdenes', nombrematricula_ordendetrabajo='$nombrematriculaOrdenes',th_ordendetrabajo='$thOrdenes', tc_ordendetrabajo='$tcOrdenes', modelo_pn_ordendetrabajo='$modelopnOrdenes', sn_ordendetrabajo='$snOrdenes', solicitadapor_ordendetrabajo='$solicitadaporOrdenes', nombreautorizado_ordendetrabajo='$nombreautorizadaorOrdenes', fecha_ordendetrabajo='$fechaOrdenes', fechacierre_ordendetrabajo='$fechafinOrdenes', estados_ordendetrabajo='$estadosOrdenes', documentosadjuntosrecibidos_ordendetrabajo='$documentosadjuntosrecibidosOrdenes', descripciondelalcancedeltrabajosolicitado_ordendetrabajo='$descripcionalcancetrabajoOrdenes', descripciondetrabajosefectuados_ordendetrabajo='$descripciontrabajosOrdenes', ordenesdetrabajosrelacionadas_ordendetrabajo='$ordenesdetrabajosrelacionadasOrdenes', documentosadjuntosentregados_ordendetrabajo='$documentosadjuntosentregadosOrdenes', observaciones_ordendetrabajo='$observacionesOrdenes', titulocaratula_ordendetrabajo='$caratulaOrdenes', piepaginacaratula_ordendetrabajo='$piepaginaOrdenes' where id_ordendetrabajo=$idOrdenTrabajo");
 
     if ($stmt->execute()) {
 
@@ -113,5 +117,5 @@ class ModeloOrdenDeTrabajo
     $stmt->close();
     $stmt->null;
   }
-
+  
 }

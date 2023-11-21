@@ -8,7 +8,7 @@
                       <h3 class="m-0">Panel Orden de Trabajo</h3>
                   </div><!-- /.col -->
                   <div class="col-sm-6">
-
+                  
                   </div><!-- /.col -->
               </div><!-- /.row -->
           </div><!-- /.container-fluid -->
@@ -18,6 +18,7 @@
           <div class="container-fluid">
               <table id="DataTableOrdenDeTrabajo" class="table table-bordered table-striped">
                   <thead>
+                  <a class="btn btn-success ml-2 mr-2 mb-2" href="vista/reportes/repSemanalOrdenDeTrabajo.php" target="_blank"><i class="fas fa-print">Imprimir</i></a>
                       <tr>
                           <th>ORDEN DE TRABAJO N°</th>
                           <th>NOMBRE MATRICULA</th>

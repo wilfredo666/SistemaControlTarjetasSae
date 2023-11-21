@@ -8,6 +8,10 @@ $ordendetrabajo = ControladorOrdenDeTrabajo::ctrInfoOrdenDeTrabajo($id);
 $fecha;
 $fecha = $ordendetrabajo['fecha_ordendetrabajo'];
 $fecha= date("d/m/Y", strtotime($fecha));
+
+$fechafin;
+$fechafin = $ordendetrabajo['fechacierre_ordendetrabajo'];
+$fechafin = date("d/m/Y", strtotime($fechafin));
 ?>
 
 
@@ -60,14 +64,24 @@ $fecha= date("d/m/Y", strtotime($fecha));
                     <th>NOMBRE AUTORIZADA</th>
                     <td><?php echo $ordendetrabajo["nombreautorizado_ordendetrabajo"]; ?></td>
                 </tr>
+
+                <tr>
+                    <th>FECHA ORDEN DE TRABAJO</th>
+                    <td><?php echo $fecha; ?></td>
+                </tr>
+
+                <tr>
+                    <th>FECHA CIERRE ORDEN DE TRABAJO</th>
+                    <td><?php echo $fechafin; ?></td>
+                </tr>
             </table>
         </div>
         <div class="col-sm-6">
             <table class="table">
 
                 <tr>
-                    <th>FECHA ORDEN DE TRABAJO</th>
-                    <td><?php echo $fecha; ?></td>
+                    <th>ESTADOS ORDEN DE TRABAJO</th>
+                    <td><?php echo $ordendetrabajo["documentosadjuntosrecibidos_ordendetrabajo"]; ?></td>
                 </tr>
 
                 <tr>

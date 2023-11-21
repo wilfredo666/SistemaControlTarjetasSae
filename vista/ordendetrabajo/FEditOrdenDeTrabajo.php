@@ -70,11 +70,29 @@ $ordendetrabajo = ControladorOrdenDeTrabajo::ctrInfoOrdenDeTrabajo($id);
                 </div>
             </div>
             <div class="col-sm-4">
-                 <div class="form-group">
-                     <label for="">FECHA ORDEN DE TRABAJO</label>
-                     <input type="date" class="form-control" id="fechaOrdenes" name="fechaOrdenes" value="<?php echo $ordendetrabajo["fecha_ordendetrabajo"]; ?>">
-                 </div>
-             </div>
+                <div class="form-group">
+                    <label for="">FECHA ORDEN DE TRABAJO</label>
+                    <input type="date" class="form-control" id="fechaOrdenes" name="fechaOrdenes" value="<?php echo $ordendetrabajo["fecha_ordendetrabajo"]; ?>">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="">FECHA CIERRE ORDEN DE TRABAJO</label>
+                    <input type="date" class="form-control" id="fechafinOrdenes" name="fechafinOrdenes" value="<?php echo $ordendetrabajo["fechacierre_ordendetrabajo"]; ?>">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="">ESTADOS ORDEN DE TRABAJO</label>
+                    <select name="estadosOrdenes" id="estadosOrdenes" class="form-control">
+                        <option value="EN PROCESO" <?php if ($ordendetrabajo["estados_ordendetrabajo"] == "EN PROCESO") : ?>selected<?php endif; ?>>EN PROCESO</option>
+                        <option value="CANCELADO" <?php if ($ordendetrabajo["estados_ordendetrabajo"] == "CANCELADO") : ?>selected<?php endif; ?>>CANCELADO</option>
+                        <option value="TERMINADO" <?php if ($ordendetrabajo["estados_ordendetrabajo"] == "TERMINADO") : ?>selected<?php endif; ?>>TERMINADO</option>
+                    </select>
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col-sm-4">
@@ -128,11 +146,11 @@ $ordendetrabajo = ControladorOrdenDeTrabajo::ctrInfoOrdenDeTrabajo($id);
                 </div>
             </div>
             <div class="col-sm-4">
-                 <div class="form-group">
-                     <label for="">PIE DE PAGINA ORDEN DE TRABAJO CARATULA</label>
-                     <input type="text" class="form-control" id="piepaginaOrdenes" name="piepaginaOrdenes" value="<?php echo $ordendetrabajo["piepaginacaratula_ordendetrabajo"]; ?>">
-                 </div>
-             </div>
+                <div class="form-group">
+                    <label for="">PIE DE PAGINA ORDEN DE TRABAJO CARATULA</label>
+                    <input type="text" class="form-control" id="piepaginaOrdenes" name="piepaginaOrdenes" value="<?php echo $ordendetrabajo["piepaginacaratula_ordendetrabajo"]; ?>">
+                </div>
+            </div>
         </div>
     </form>
 </div>

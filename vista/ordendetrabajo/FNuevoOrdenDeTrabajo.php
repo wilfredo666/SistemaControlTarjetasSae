@@ -67,6 +67,25 @@
              </div>
          </div>
          <div class="row">
+             <div class="col-sm-6">
+                 <div class="form-group">
+                     <label for="">FECHA CIERRE ORDEN DE TRABAJO</label>
+                     <input type="date" class="form-control" id="fechafinOrdenes" name="fechafinOrdenes">
+                 </div>
+             </div>
+             <div class="col-sm-6">
+                 <div class="form-group">
+                     <label for="">ESTADOS ORDEN DE TRABAJO</label>
+                     <select name="estadosOrdenes" id="estadosOrdenes" class="form-control">
+                         <option>SELECCIONE LOS ESTADOS</option>
+                         <option>EN PROCESO</option>
+                         <option>CANCELADO</option>
+                         <option>TERMINADO</option>
+                     </select>
+                 </div>
+             </div>
+         </div>
+         <div class="row">
              <div class="col-sm-4">
                  <div class="form-group">
                      <label for="">DOCUMENTOS ADJUNTOS RECIBIDOS</label>
