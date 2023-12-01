@@ -138,4 +138,5 @@ class ControladorOrdenDeTrabajo {
     $respuesta = ModeloOrdenDeTrabajo::mdlRepOrdenTrabajo($id);
     return $respuesta;
   }
+  
 }
