@@ -27,7 +27,6 @@
               <th></th>
               <th>ITEM</th>
               <th>DESCRIPCION</th>
-              <!-- <th>P/N</th> -->
               <th>S/N</th>
               <th>CODIGO</th>
               <th>UBICACION</th>
