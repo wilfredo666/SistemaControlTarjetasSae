@@ -22,20 +22,7 @@
              <div class="col-sm-4">
                  <div class="form-group">
                      <label for="">CLIENTE</label>
-                     <?php
-                        require_once "../../controlador/clientesmetroControlador.php";
-                        require_once "../../modelo/clientesmetroModelo.php";
-                        $clientes = ControladorClientesMetro::ctrInfoClientesMetros();
-
-                        ?>
-                     <select class="form-control" name="clienteMetrologia" id="clienteMetrologia">
-                         <?php foreach ($clientes as $value) {
-                            ?>
-                             <option value="<?php echo $value["id_clientemetro"]; ?>"><?php echo $value["empresa_clientemetro"]; ?></option>
-                         <?php
-                            }
-                            ?>
-                     </select>
+                     <input type="text" class="form-control" id="clienteMetrologia" name="clienteMetrologia" placeholder="CLIENTE">
                  </div>
              </div>
          </div>
@@ -68,7 +55,7 @@
              </div>
              <div class="col-sm-4">
                  <div class="form-group">
-                     <label for="">FABRICANTE</label>
+                     <label for="">MARCA</label>
                      <input type="text" class="form-control" id="marcaMetrologia" name="marcaMetrologia" placeholder="MARCA">
                  </div>
              </div>
@@ -103,13 +90,7 @@
              <div class="col-sm-4">
                  <div class="form-group">
                      <label for="">VIGENCIA</label>
-                     <select name="vigenciaMetrologia" id="vigenciaMetrologia" class="form-control">
-                         <option>SELECCIONE</option>
-                         <option>06 MESES</option>
-                         <option>12 MESES</option>
-                         <option>18 MESES</option>
-                         <option>24 MESES</option>
-                     </select>
+                     <input type="text" class="form-control" id="vigenciaMetrologia" name="vigenciaMetrologia" placeholder="VIGENCIA">
                  </div>
              </div>
              <div class="col-sm-4">
@@ -122,7 +103,7 @@
                  <div class="form-group">
                      <label for="">CONDICION</label>
                      <select name="condicionMetrologia" id="condicionMetrologia" class="form-control">
-                         <option>SELECCIONE</option>
+                         <option>Seleccione</option>
                          <option>VENCIDO</option>
                          <option>VIGENTE</option>
                      </select>
@@ -138,22 +119,14 @@
              </div>
              <div class="col-sm-4">
                  <div class="form-group">
-                     <label for="">FECHA DE EMISIÓN</label>
-                     <input type="date" class="form-control" id="fechaemisionMetrologia" name="fechaemisionMetrologia">
+                     <label for="">FECHA INGRESO</label>
+                     <input type="date" class="form-control" id="fechaingresoMetrologia" name="fechaingresoMetrologia" placeholder="FECHA INGRESO">
                  </div>
              </div>
              <div class="col-sm-4">
                  <div class="form-group">
-                     <label for="">FECHA INGRESO</label>
-                     <input type="date" class="form-control" id="fechaingresoMetrologia" name="fechaingresoMetrologia">
-                 </div>
-             </div>
-         </div>
-         <div class="row">
-         <div class="col-sm-4">
-                 <div class="form-group">
                      <label for="">FECHA CONCLUIDA</label>
-                     <input type="date" class="form-control" id="fechaconcluidaMetrologia" name="fechaconcluidaMetrologia">
+                     <input type="date" class="form-control" id="fechaconcluidaMetrologia" name="fechaconcluidaMetrologia" placeholder="FECHA CONCLUIDA">
                  </div>
              </div>
          </div>

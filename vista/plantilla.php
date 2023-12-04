@@ -89,7 +89,6 @@
       $_GET["ruta"] == "VLogDevCalibradas" ||
       $_GET["ruta"] == "VAeronaves" ||
       $_GET["ruta"] == "VMetrologia" ||
-      $_GET["ruta"] == "VClientesMetro" ||
           $_GET["ruta"] == "salir" ) {
         $ruta=$_GET["ruta"].".php";
       }
