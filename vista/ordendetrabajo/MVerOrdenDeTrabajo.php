@@ -5,8 +5,11 @@ require_once "../../modelo/ordendetrabajoModelo.php";
 $id = $_GET["id"];
 
 $ordendetrabajo = ControladorOrdenDeTrabajo::ctrInfoOrdenDeTrabajo($id);
-
+$fecha;
+$fecha = $ordendetrabajo['fecha_ordendetrabajo'];
+$fecha= date("d/m/Y", strtotime($fecha));
 ?>
+
 
 <div class="modal-header bg-dark">
     <h4 class="modal-title text-light">Información Orden De Trabajo</h4>
@@ -61,6 +64,11 @@ $ordendetrabajo = ControladorOrdenDeTrabajo::ctrInfoOrdenDeTrabajo($id);
         </div>
         <div class="col-sm-6">
             <table class="table">
+
+                <tr>
+                    <th>FECHA ORDEN DE TRABAJO</th>
+                    <td><?php echo $fecha; ?></td>
+                </tr>
 
                 <tr>
                     <th>DOCUMENTOS ADJUNTOS RECIBIDOS</th>
