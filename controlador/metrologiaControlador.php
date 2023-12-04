@@ -4,7 +4,6 @@ $ruta = parse_url( $_SERVER['REQUEST_URI'] );
 if ( isset( $ruta["query"] ) ) {
 
   if ( $ruta["query"] == "ctrRegMetrologia" ||
-      $ruta["query"] == "ctrRegDatosInformeMetro" ||
       $ruta["query"] == "ctrEditMetrologia" ||
       $ruta["query"] == "ctrEliMetrologia"
      ){
@@ -60,7 +59,6 @@ class ControladorMetrologias {
       "fechaproximacalibracionMetrologia"=>$_POST["fechaproximacalibracionMetrologia"],
       "condicionMetrologia"=>$_POST["condicionMetrologia"],
       "costoMetrologia"=>$_POST["costoMetrologia"],
-      "fechaemisionMetrologia"=>$_POST["fechaemisionMetrologia"],
       "fechaingresoMetrologia"=>$_POST["fechaingresoMetrologia"],
       "fechaconcluidaMetrologia"=>$_POST["fechaconcluidaMetrologia"]
     );
@@ -94,7 +92,6 @@ class ControladorMetrologias {
     $fechaproximacalibracionMetrologia = $_POST["fechaproximacalibracionMetrologia"];
     $condicionMetrologia = $_POST["condicionMetrologia"];
     $costoMetrologia = $_POST["costoMetrologia"];
-    $fechaemisionMetrologia = $_POST["fechaemisionMetrologia"];
     $fechaingresoMetrologia = $_POST["fechaingresoMetrologia"];
     $fechaconcluidaMetrologia = $_POST["fechaconcluidaMetrologia"];
 
@@ -116,7 +113,6 @@ class ControladorMetrologias {
       "fechaproximacalibracionMetrologia"=>$_POST["fechaproximacalibracionMetrologia"],
       "condicionMetrologia"=>$_POST["condicionMetrologia"],
       "costoMetrologia"=>$_POST["costoMetrologia"],
-      "fechaemisionMetrologia"=>$_POST["fechaemisionMetrologia"],
       "fechaingresoMetrologia"=>$_POST["fechaingresoMetrologia"],
       "fechaconcluidaMetrologia"=>$_POST["fechaconcluidaMetrologia"]
     );
@@ -131,31 +127,6 @@ class ControladorMetrologias {
 
     $respuesta = ModeloMetrologias::mdlEliMetrologia($data);
 
-    echo $respuesta;
-  }
-
-  static public function ctrRegDatosInformeMetro() {
-    require_once "../modelo/metrologiaModelo.php";
-
-    $condicionInforme = $_POST["condicionInforme"];
-    $procedimientoInforme = $_POST["procedimientoInforme"];
-    $patronesInforme = $_POST["patronesInforme"];
-    $incertidumbreInforme = $_POST["incertidumbreInforme"];
-    $observacionesInforme = $_POST["observacionesInforme"];
-    $resultadosInforme = $_POST["resultadosInforme"];
-  
-
-    $data = array(
-      "condicionInforme"=>$_POST["condicionInforme"],
-      "procedimientoInforme"=>$_POST["procedimientoInforme"],
-      "patronesInforme"=>$_POST["patronesInforme"],
-      "incertidumbreInforme"=>$_POST["incertidumbreInforme"],
-      "observacionesInforme"=>$_POST["observacionesInforme"],
-      "resultadosInforme"=>$_POST["resultadosInforme"]
-    
-    );
-
-    $respuesta = ModeloMetrologias::mdlRegInformeMetrologias( $data );
     echo $respuesta;
   }
 }

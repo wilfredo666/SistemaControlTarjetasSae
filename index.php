@@ -18,7 +18,6 @@ require_once "controlador/ordendetrabajoControlador.php";
 require_once "controlador/dbajaControlador.php";
 require_once "controlador/aeronaveControlador.php";
 require_once "controlador/metrologiaControlador.php";
-require_once "controlador/clientesmetroControlador.php";
 
 /*modelos*/
 require_once "modelo/usuarioModelo.php";
@@ -37,7 +36,6 @@ require_once "modelo/ordendetrabajoModelo.php";
 require_once "modelo/dbajaModelo.php";
 require_once "modelo/aeronaveModelo.php";
 require_once "modelo/metrologiaModelo.php";
-require_once "modelo/clientesmetroModelo.php";
 require_once "modelo/graficaModelo.php";
 
 
