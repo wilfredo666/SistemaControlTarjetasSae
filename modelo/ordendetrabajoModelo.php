@@ -112,7 +112,8 @@ class ModeloOrdenDeTrabajo
 
   static public function mdlRepOrdenTrabajo($id){
     $stmt = Conexion::conectar()->prepare("SELECT * FROM orden_de_trabajo where id_ordendetrabajo=$id");
-
+    $stmt->execute();
+    
     return $stmt->fetch();
     $stmt->close();
     $stmt->null;

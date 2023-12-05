@@ -28,6 +28,13 @@ class ControladorHerramientas
     $respuesta = ModeloControlHerramientas::mdlInfoControlHerramientas();
     return $respuesta;
   }
+  
+  //por ubicacion
+  static public function ctrInfoControlHerramientasUbic()
+  {
+    $respuesta = ModeloControlHerramientas::mdlInfoControlHerramientasUbic();
+    return $respuesta;
+  }
 
   static public function ctrInfoControlEnvio()
   {

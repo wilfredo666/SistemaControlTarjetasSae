@@ -14,6 +14,17 @@ class ModeloControlHerramientas
     $stmt->close();
     $stmt->null;
   }
+  
+  static public function mdlInfoControlHerramientasUbic()
+  {
+    $stmt = Conexion::conectar()->prepare("SELECT DISTINCT ubicacion_controlherramientas FROM control_herramientas");
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+
+    $stmt->close();
+    $stmt->null;
+  }
 
   static public function mdlInfoControlEnvio()
   {
@@ -212,8 +223,7 @@ class ModeloControlHerramientas
       $stmt->close();
       $stmt->null;
     } else {
-      $stmt = Conexion::conectar()->prepare("select * from control_herramientas
-                                              where ubicacion_controlherramientas='$nom'");
+      $stmt = Conexion::conectar()->prepare("select * from control_herramientas where ubicacion_controlherramientas='$nom'");
       $stmt->execute();
       return $stmt->fetchAll();
       $stmt->close();

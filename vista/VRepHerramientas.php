@@ -26,9 +26,9 @@
                                   <option value="">-- Seleccionar --</option>
                                   <option value="Todos">T O D O S</option>
                                   <?php
-                                    $herra = ControladorHerramientas::ctrInfoControlHerramientas();
+                                    $herra = ControladorHerramientas::ctrInfoControlHerramientasUbic();
                                     foreach ($herra as $value) {
-                                        $idHerramienta = $value["id_controlherramientas"];
+                                        //$idHerramienta = $value["id_controlherramientas"];
 
                                         $ubicacionHerramienta = $value["ubicacion_controlherramientas"];
                                     ?>
