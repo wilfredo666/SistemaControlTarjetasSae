@@ -28,7 +28,6 @@
                                   <?php
                                     $herra = ControladorHerramientas::ctrInfoControlHerramientasUbic();
                                     foreach ($herra as $value) {
-                                        //$idHerramienta = $value["id_controlherramientas"];
 
                                         $ubicacionHerramienta = $value["ubicacion_controlherramientas"];
                                     ?>
