@@ -41,7 +41,7 @@
                                       <i class="fas fa-search "></i>
                                   </button>
                               </div>
-                              <a id="link" style="margin-left: 10px;" class="btn btn-success" href="vista/reportes/" target="_blank"><i class="fas fa-print">Imprimir</i></a>
+                              <a id="link" style="margin-left: 10px;" class="btn btn-success" href="" target="_blank"><i class="fas fa-print">Imprimir</i></a>
                           </div>
                       </div>
                   </form>

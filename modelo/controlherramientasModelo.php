@@ -233,7 +233,7 @@ class ModeloControlHerramientas
 
   static public function mdlHerramientas($data)
   {
-    if ($data = "Todos") {
+    if ($data == "Todos") {
       $stmt = Conexion::conectar()->prepare("select * from control_herramientas");
       $stmt->execute();
       return $stmt->fetchAll();
