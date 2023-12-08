@@ -201,7 +201,7 @@ function reporteHerramienta() {
     processData: false,
     success: function (data) {
       $("#repHerramientas").html(data)
-       //console.log(data); 
+      /* console.log(data); */
     }
   })
 }
