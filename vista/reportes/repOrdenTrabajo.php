@@ -115,7 +115,7 @@ $pdf->Ln(10);
 $pdf->SetFont('Arial', 'B', 40);
 $pdf->MultiCell(195, 18, utf8_decode($orden['titulocaratula_ordendetrabajo']), 0, 'C');
 
-/*$pdf->Ln(40);
+$pdf->Ln(40);
 
 $pdf->setY(230);
 $pdf->setX(10);
@@ -123,7 +123,7 @@ $pdf->SetFont('Arial', '', 40);
 $pdf->Cell(195, 12, utf8_decode($orden['piepaginacaratula_ordendetrabajo']), 0, 1, 'C');
 
 
-$pdf->Ln(40);*/
+$pdf->Ln(40);
 //fin caratula
 
 //salto de linea
