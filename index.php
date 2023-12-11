@@ -15,6 +15,7 @@ require_once "controlador/herramientasControlador.php";
 require_once "controlador/logherramientasControlador.php";
 require_once "controlador/calibracionControlador.php";
 require_once "controlador/ordendetrabajoControlador.php";
+require_once "controlador/rabControlador.php";
 require_once "controlador/dbajaControlador.php";
 require_once "controlador/aeronaveControlador.php";
 require_once "controlador/metrologiaControlador.php";
@@ -36,6 +37,7 @@ require_once "modelo/ordendetrabajoModelo.php";
 require_once "modelo/dbajaModelo.php";
 require_once "modelo/aeronaveModelo.php";
 require_once "modelo/metrologiaModelo.php";
+require_once "modelo/rabModelo.php";
 require_once "modelo/graficaModelo.php";
 
 

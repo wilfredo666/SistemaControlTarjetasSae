@@ -231,12 +231,27 @@ with font-awesome or any other icon font library -->
                         </li>
 
                         <li class="nav-item">
-                            <a href="VOrdenTrabajo" class="nav-link">
+                            <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-file-pdf"></i>
                                 <p>
                                     Ordenes de Trabajo
+                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="VOrdenTrabajo" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Orden de Trabajo</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="VRab" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Certificados RAB 001</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
 
                         <?php if (habilitado(6) != null) {

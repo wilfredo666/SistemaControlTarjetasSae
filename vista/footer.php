@@ -64,6 +64,7 @@
 <script src="assest/js/ordenesdetrabajo.js"></script>
 <script src="assest/js/aeronaves.js"></script>
 <script src="assest/js/metrologia.js"></script>
+<script src="assest/js/rab.js"></script>
 
 <!-- dropzonejs -->
 <script src="assest/plugins/dropzone/min/dropzone.min.js"></script>
@@ -269,6 +270,15 @@ Seccion  de Modals
             "autoWidth": false,
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
         }).buttons().container().appendTo('#DataTableOrdenDeTrabajo_wrapper .col-md-6:eq(0)');
+    });
+
+    $(function() {
+        $("#DataTableRab").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#DataTableRab_wrapper .col-md-6:eq(0)');
     });
 
     $(function() {
