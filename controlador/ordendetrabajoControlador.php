@@ -139,4 +139,9 @@ class ControladorOrdenDeTrabajo {
     return $respuesta;
   }
   
+  static public function ctrRepOrdenTrabajoRab($id){
+    $respuesta = ModeloOrdenDeTrabajo::mdlRepOrdenTrabajoRab($id);
+    return $respuesta;
+  }
+  
 }

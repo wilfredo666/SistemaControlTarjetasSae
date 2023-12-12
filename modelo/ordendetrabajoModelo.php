@@ -117,5 +117,13 @@ class ModeloOrdenDeTrabajo
     $stmt->close();
     $stmt->null;
   }
+  
+  static public function mdlRepOrdenTrabajoRab($id){
+    $stmt = Conexion::conectar()->prepare("SELECT * FROM rab where id_rab=$id");
+    $stmt->execute();
+    return $stmt->fetch();
+    $stmt->close();
+    $stmt->null;
+  }
 
 }
