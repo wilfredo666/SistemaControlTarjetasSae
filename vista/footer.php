@@ -65,6 +65,8 @@
 <script src="assest/js/aeronaves.js"></script>
 <script src="assest/js/metrologia.js"></script>
 <script src="assest/js/rab.js"></script>
+<script src="assest/js/baselpz.js"></script>
+<script src="assest/js/basescz.js"></script>
 
 <!-- dropzonejs -->
 <script src="assest/plugins/dropzone/min/dropzone.min.js"></script>
@@ -308,6 +310,24 @@ Seccion  de Modals
         }).buttons().container().appendTo('#DataTableMetrologia_wrapper .col-md-6:eq(0)');
     });
 
+    $(function() {
+        $("#DataTableBaseLpz").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#DataTableBaseLpz_wrapper .col-md-6:eq(0)');
+    });
+
+    $(function() {
+        $("#DataTableBaseScz").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#DataTableBaseScz_wrapper .col-md-6:eq(0)');
+    });
+
     $('.select2bs4').select2({
         theme: 'bootstrap4'
     })
@@ -317,7 +337,13 @@ Seccion  de Modals
     })
 
 </script>
-<script src="assest/js/graficas.php"></script>
+
+ <!-- jquery-validation -->
+ <script src="assest/plugins/jquery-validation/jquery.validate.min.js"></script>
+ <script src="assest/plugins/jquery-validation/additional-methods.min.js"></script>
+ <script src="assest/plugins/jquery-validation/localization/messages_es.js"></script>
+
+ <script src="assest/js/graficas.php"></script>
 </body>
 
 </html>

@@ -59,6 +59,7 @@
                                         <i class="fas fa-trash"></i>
                                     </button>
                                     <a class="btn btn-sm btn-success" href="vista/reportes/CertificadoRab.php?id=<?php echo $value["id_rab"]; ?>" target="_blank"><i class="fas fa-print"></i></a>
+                                    <a class="btn btn-sm btn-info" href="vista/reportes/CertificadoRabCopy.php?id=<?php echo $value["id_rab"]; ?>" target="_blank"><i class="fas fa-print"></i></a>
                                 </div>
                             </td>
                         </tr>

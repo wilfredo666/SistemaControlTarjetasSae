@@ -1,16 +1,18 @@
 <?php
 require "../../assest/FPDF/fpdf.php";
-require_once "../../controlador/ordendetrabajoControlador.php";
-require_once "../../modelo/ordendetrabajoModelo.php";
+require_once "../../controlador/rabControlador.php";
+require_once "../../modelo/rabModelo.php";
 
 $id = $_GET["id"];
-$ordenRab = ControladorOrdenDeTrabajo::ctrRepOrdenTrabajoRab($id);
+$ordenRab = ControladorRab::ctrRepRab($id);
 
 date_default_timezone_set('America/La_Paz');
 
 $pdf = new FPDF();
 $pdf->AddPage('L', 'A4');
 $pdf->SetTopMargin(5);
+
+$pdf->Image('../../assest/imagenes/copia1.jpg', 50, 30, 160);
 // $pdf->Image('../../assest/imagenes/botonblanco.jpg', 149, 74.5, 3);
 // $pdf->Image('../../assest/imagenes/botonrojo.jpg', 154.5, 67.4, 3);
 
@@ -81,17 +83,16 @@ $pdf->Line(10,10,10,150);
 
 $pdf->SetFont('Arial','B', 7);
 $pdf->MultiCell(266, 3.5, utf8_decode($ordenRab["obs_rab"]), "R", 0);
-
 $pdf->SetFont('Arial','', 7);
 $pdf->SetFillColor(217,217,217);
 $pdf->Cell(138, 3.5, utf8_decode("13a. Se certifica que los ítems identificados más arriba fueron fabricados de conformidad con:"), "TLR", 0,"L",true);
-$pdf->Cell(138, 3.5, utf8_decode("14a.__RAB 144.330(a) Conformidad de mantenimiento"), "TLR", 1);
+$pdf->Cell(138, 3.5, utf8_decode("14a.       RAB 144.330(a) Conformidad de mantenimiento"), "TLR", 1);
 
 $pdf->Cell(138, 3.5, utf8_decode("(Certificates that the ítems identificated above were manufactured in conformity to:)"), "LR", 0,"L",true);
 $pdf->Cell(138, 3.5, utf8_decode("(LAR 144.330(a) Release to Service)"), "LR", 1);
 
 $pdf->Cell(138, 3.5, utf8_decode("__Datos de Diseño Aprobados y están en Condiciones de Operación Segura"), "LR", 0,"L",true);
-$pdf->Cell(138, 3.5, utf8_decode("__Otros reglamentos especificados en la casilla 12"), "LR", 1);
+$pdf->Cell(138, 3.5, utf8_decode("      Otros reglamentos especificados en la casilla 12"), "LR", 1);
 
 $pdf->Cell(138, 3.5, utf8_decode("(Approved design data and are in a conditions for safe operation)"), "LR", 0,"L",true);
 $pdf->Cell(138, 3.5, utf8_decode("(Other regulation specified in block 12)"), "LR", 1);

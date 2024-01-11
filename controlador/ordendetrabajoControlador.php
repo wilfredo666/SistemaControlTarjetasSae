@@ -5,7 +5,6 @@ if ( isset( $ruta["query"] ) ) {
 
   if ( $ruta["query"] == "ctrRegOrdenDeTrabajo" ||
       $ruta["query"] == "ctrEditOrdenDeTrabajo" ||
-      $ruta["query"] == "ctrRegRegistrosMat" ||
       $ruta["query"] == "ctrEliOrdenDeTrabajo"
      ){
     $metodo = $ruta["query"];

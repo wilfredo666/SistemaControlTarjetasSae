@@ -110,4 +110,9 @@ class ControladorRab
     echo $respuesta;
   }
 
+  static public function ctrRepRab($id){
+    $respuesta = ModeloRab::mdlRepRab($id);
+    return $respuesta;
+  }
+
 }

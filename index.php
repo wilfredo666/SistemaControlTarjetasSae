@@ -19,6 +19,8 @@ require_once "controlador/rabControlador.php";
 require_once "controlador/dbajaControlador.php";
 require_once "controlador/aeronaveControlador.php";
 require_once "controlador/metrologiaControlador.php";
+require_once "controlador/baselpzControlador.php";
+require_once "controlador/basesczControlador.php";
 
 /*modelos*/
 require_once "modelo/usuarioModelo.php";
@@ -38,6 +40,8 @@ require_once "modelo/dbajaModelo.php";
 require_once "modelo/aeronaveModelo.php";
 require_once "modelo/metrologiaModelo.php";
 require_once "modelo/rabModelo.php";
+require_once "modelo/baselpzModelo.php";
+require_once "modelo/basesczModelo.php";
 require_once "modelo/graficaModelo.php";
 
 

@@ -95,4 +95,12 @@ class ModeloRab
         $stmt->null;
     }
 
+    static public function mdlRepRab($id){
+        $stmt = Conexion::conectar()->prepare("SELECT * FROM rab where id_rab=$id");
+        $stmt->execute();
+        return $stmt->fetch();
+        $stmt->close();
+        $stmt->null;
+      }
+
 }

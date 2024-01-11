@@ -57,51 +57,51 @@ function habilitado($idPermiso)
 with font-awesome or any other icon font library -->
                         <?php if (habilitado(1) != null) {
                         ?>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-user"></i>
-                                <p>
-                                    Usuario
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="VUsuario" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Lista de Usuarios</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link" onclick="MCargarRegistrosUsuarios()">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Carcar registros</p>
-                                    </a>
-                                </li>
-                            </ul>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-user"></i>
+                                    <p>
+                                        Usuario
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="VUsuario" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Lista de Usuarios</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" onclick="MCargarRegistrosUsuarios()">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Carcar registros</p>
+                                        </a>
+                                    </li>
+                                </ul>
 
-                        </li>
+                            </li>
                         <?php } ?>
 
                         <?php if (habilitado(7) != null) {
                         ?>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-users"></i>
-                                <p>
-                                    Clientes
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="VCliente" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Lista de Clientes</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-users"></i>
+                                    <p>
+                                        Clientes
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="VCliente" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Lista de Clientes</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                         <?php } ?>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -168,7 +168,7 @@ with font-awesome or any other icon font library -->
                                 </li>
                                 <li class="nav-item">
                                     <a href="VLogDevCalibradas" class="nav-link">
-                                    <i class="fas fa-arrow-left nav-icon"></i>
+                                        <i class="fas fa-arrow-left nav-icon"></i>
                                         <p style="font-size: 15px;">Log Devolucion Calibradas</p>
                                     </a>
                                 </li>
@@ -254,52 +254,76 @@ with font-awesome or any other icon font library -->
                             </ul>
                         </li>
 
-                        <?php if (habilitado(6) != null) {
-                        ?>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-file"></i>
+                                <i class="nav-icon fas fa-file-alt"></i>
                                 <p>
-                                    Archivos
+                                    Bases Informe
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="VArchivos" class="nav-link">
+                                    <a href="VBaseLpz" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Subir Archivos</p>
+                                        <p>Base La Paz</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="VCliente" class="nav-link">
+                                    <a href="VBaseScz" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Archivos Compartidos</p>
+                                        <p>Base Santa Cruz</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
+
+                        <?php if (habilitado(6) != null) {
+                        ?>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-file"></i>
+                                    <p>
+                                        Archivos
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="VArchivos" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Subir Archivos</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="VCliente" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Archivos Compartidos</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                         <?php } ?>
 
                         <?php if (habilitado(3) != null) {
                         ?>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-check"></i>
-                                <p>
-                                    Autorizacion
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="VAutorizacion" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Lista de Autorizaciones</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-check"></i>
+                                    <p>
+                                        Autorizacion
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="VAutorizacion" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Lista de Autorizaciones</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                         <?php } ?>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -337,22 +361,22 @@ with font-awesome or any other icon font library -->
                             <ul class="nav nav-treeview">
                                 <?php if (habilitado(5) != null) {
                                 ?>
-                                <li class="nav-item">
-                                    <a href="VSeguimiento" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Registrar</p>
-                                    </a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a href="VSeguimiento" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Registrar</p>
+                                        </a>
+                                    </li>
                                 <?php } ?>
 
                                 <?php if (habilitado(4) != null) {
                                 ?>
-                                <li class="nav-item">
-                                    <a href="BusTramite" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Buscar</p>
-                                    </a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a href="BusTramite" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Buscar</p>
+                                        </a>
+                                    </li>
                                 <?php } ?>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link" onclick="MRegMovSeguimiento()">
