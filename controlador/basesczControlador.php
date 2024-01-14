@@ -133,4 +133,9 @@ class ControladorBaseVVI {
     echo $respuesta;
   }
   
+  static public function ctrRepExcelBasesScz($columnas){
+    $respuesta = ModeloBaseVVI::mdlRepExcelBasesScz($columnas);
+    return $respuesta;
+  }
+  
 }

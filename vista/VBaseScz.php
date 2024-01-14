@@ -19,7 +19,7 @@
               <table id="DataTableBaseScz" class="table table-bordered table-striped">
                   <thead>
                       <a class="btn btn-primary ml-2 mr-2 mb-2" onclick="MNuevoBaseScz()"><i class="fas fa-save"> Agregar</i></a>
-                      <a class="btn btn-success ml-2 mr-2 mb-2" href="vista/reportes/repSemanalBasescz.php" target="_blank"><i class="fas fa-file-excel"> Exportar</i></a>
+                      <button class="btn btn-outline-success ml-2 mr-2 mb-2" onclick="RepExcelScz()"><i class="fas fa-file-excel"> Exportar Excel</i></button>
                       <tr>
                           <th>FECHA DEL VUELO</th>
                           <th>EXPLOTADOR</th>

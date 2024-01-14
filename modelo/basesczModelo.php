@@ -109,4 +109,18 @@ class ModeloBaseVVI
     $stmt->close();
     $stmt->null;
   }
+  
+  static public function mdlRepExcelBasesScz($columnas){
+        $stmt = Conexion::conectar()->prepare("SELECT $columnas FROM basescz");
+    $stmt->execute();
+
+
+    // Obtener los resultados
+    $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $resultados;
+
+    // Cerrar la conexión
+    $stmt->closeCursor();
+    $stmt->null;
+  }
 }

@@ -137,3 +137,40 @@ function MEliBaseScz(id) {
   })
 }
 
+function RepExcelScz(){
+    $("#modal-lg").modal("show")
+
+  var obj = ""
+  $.ajax({
+    type: "POST",
+    url: "vista/basescz/RepExcelBaseScz.php",
+    data: obj,
+    success: function (data) {
+      $("#content-lg").html(data)
+    }
+  })
+}
+
+function ImpRepExcelScz(){
+    var formData = new FormData($("#repExcelLpz")[0])
+  
+// Obtener todos los valores seleccionados de checkboxes con el nombre "opciones[]" e iternamos
+    var opcionesSeleccionadas = [];
+    $("input[name='opciones[]']:checked").each(function () {
+        opcionesSeleccionadas.push($(this).val());
+    });
+
+  $.ajax({
+    type: "POST",
+    url: "vista/basescz/ImpRepExcelBaseScz.php",
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (data) {
+      //abriendo en una nueva pestana
+      window.open("vista/basescz/ImpRepExcelBaseScz.php?opciones="+opcionesSeleccionadas, "_blank")
+    }
+  })
+}
+
