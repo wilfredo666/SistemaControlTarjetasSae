@@ -64,6 +64,7 @@ if (isset($_GET["ruta"]) && $_GET["ruta"] != "CTramite") {
       $ruta = "usuario/permisos.php";
     }
 
+
     if (
       $_GET["ruta"] == "panelAdmin" ||
       $_GET["ruta"] == "VUsuario" ||
@@ -91,7 +92,6 @@ if (isset($_GET["ruta"]) && $_GET["ruta"] != "CTramite") {
       $_GET["ruta"] == "VAeronaves" ||
       $_GET["ruta"] == "VMetrologia" ||
       $_GET["ruta"] == "VBaseLpz" ||
-      $_GET["ruta"] == "VBaseScz" ||
       $_GET["ruta"] == "salir"
     ) {
       $ruta = $_GET["ruta"] . ".php";

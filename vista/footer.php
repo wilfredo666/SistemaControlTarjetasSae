@@ -11,16 +11,15 @@
 
 <!-- jQuery -->
 <script src="assest/plugins/jquery/jquery.min.js"></script>
-<script src="assest/plugins/chart.js/Chart.min.js"></script>
 <script src="assest/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!--<script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>-->
+<script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
 
 <!-- ChartJS -->
 <script src="assest/plugins/chart.js/Chart.min.js"></script>
 
 <!-- AdminLTE App -->
 <script src="assest/dist/js/adminlte.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>-->
 
 <!-- DataTables  & Plugins -->
 <script src="assest/plugins/datatables/jquery.dataTables.min.js"></script>

@@ -109,4 +109,22 @@ class ModeloBaseLaPaz
     $stmt->close();
     $stmt->null;
   }
+
+  static public function mdlRepExcelBasesLapaz($columnas)
+  {
+    $stmt = Conexion::conectar()->prepare("SELECT $columnas FROM baselpz");
+    $stmt->execute();
+
+
+    // Obtener los resultados
+    $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $resultados;
+
+    // Cerrar la conexión
+    $stmt->closeCursor();
+    $stmt->null;
+
+  }
+
+
 }

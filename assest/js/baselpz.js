@@ -87,7 +87,6 @@ function EditBaseLpz() {
     contentType: false,
     processData: false,
     success: function (data) {
-      console.log(data)
       if (data == "ok") {
         Swal.fire({
           icon: 'success',
@@ -133,6 +132,43 @@ function MEliBaseLpz(id) {
       })
     } else if (result.isDenied) {
       Swal.fire('Funcion Cancelada', '', 'info')
+    }
+  })
+}
+
+function RepExcelLpz(){
+  $("#modal-lg").modal("show")
+
+  var obj = ""
+  $.ajax({
+    type: "POST",
+    url: "vista/baselpz/RepExcelBaseLpz.php",
+    data: obj,
+    success: function (data) {
+      $("#content-lg").html(data)
+    }
+  })
+}
+
+function ImpRepExcelLpz(){
+  var formData = new FormData($("#repExcelLpz")[0])
+  
+// Obtener todos los valores seleccionados de checkboxes con el nombre "opciones[]" e iternamos
+    var opcionesSeleccionadas = [];
+    $("input[name='opciones[]']:checked").each(function () {
+        opcionesSeleccionadas.push($(this).val());
+    });
+
+  $.ajax({
+    type: "POST",
+    url: "vista/baselpz/ImpRepExcelBaseLpz.php",
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (data) {
+      //abriendo en una nueva pestana
+      window.open("vista/baselpz/ImpRepExcelBaseLpz.php?opciones="+opcionesSeleccionadas, "_blank")
     }
   })
 }

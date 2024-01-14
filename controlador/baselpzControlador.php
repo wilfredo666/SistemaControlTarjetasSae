@@ -165,6 +165,9 @@ class ControladorBaseLaPaz {
     }
   }
 
+  static public function ctrRepExcelBasesLapaz($columnas){
+    $respuesta = ModeloBaseLaPaz::mdlRepExcelBasesLapaz($columnas);
+    return $respuesta;
+  }
 
-  
 }
