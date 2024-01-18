@@ -155,8 +155,16 @@ function ImpRepExcelLpz(){
   
 // Obtener todos los valores seleccionados de checkboxes con el nombre "opciones[]" e iternamos
     var opcionesSeleccionadas = [];
+    var valoresAdicionales = [];
     $("input[name='opciones[]']:checked").each(function () {
-        opcionesSeleccionadas.push($(this).val());
+        /*opcionesSeleccionadas.push($(this).val());
+        nombresCampos.push($(this).data("encabezado"));*/
+      
+      var valorCheckbox = $(this).val();
+        var valorAdicional = $(this).data("encabezado");
+
+        opcionesSeleccionadas.push(valorCheckbox);
+        valoresAdicionales.push(valorAdicional);
     });
 
   $.ajax({
@@ -168,7 +176,8 @@ function ImpRepExcelLpz(){
     processData: false,
     success: function (data) {
       //abriendo en una nueva pestana
-      window.open("vista/baselpz/ImpRepExcelBaseLpz.php?opciones="+opcionesSeleccionadas, "_blank")
+      window.open("vista/baselpz/ImpRepExcelBaseLpz.php?opciones="+opcionesSeleccionadas+"&encabezado="+valoresAdicionales, "_blank")
+      
     }
   })
 }

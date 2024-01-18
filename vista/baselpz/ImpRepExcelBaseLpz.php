@@ -8,15 +8,16 @@ require_once "../../modelo/baselpzModelo.php";
 
 // Verificar si llegaron opciones seleccionadas (entrada string)
 if (isset($_GET["opciones"])) {
-  // Obtener las opciones seleccionadas
+  // Obtener las opciones seleccionadas y encabezados
   $opcionesSeleccionadas = $_GET["opciones"];
+  $encabezados = $_GET["encabezado"];
   
 } else {
   echo "No se han seleccionado opciones.";
 }
 
 //transformamos las opciones a array
-$encabezados=explode(",",$opcionesSeleccionadas );
+$encabezados=explode(",",$encabezados );
 
 ?>
 
